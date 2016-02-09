@@ -8,19 +8,20 @@ module.exports = function(config) {
 
     port: 33339,
 
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'sinon'],
 
     files: [
       'test/index.js',
     ],
 
     preprocessors: {
-      'test/index.js': 'webpack',
+      'test/index.js': ['webpack', 'sourcemap'],
     },
 
     webpack: {
-
       // webpack configuration
+      devtool: '#inline-source-map',
+
       resolve: {
         extensions: ['', '.js'],
       },
