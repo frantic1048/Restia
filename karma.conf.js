@@ -66,7 +66,6 @@ module.exports = function(config) {
     },
 
     reporters: ['spec', 'coverage'],
-
     coverageReporter: {
       type: 'text',
     },
