@@ -6,21 +6,13 @@ import types from '../../lib/constants/ActionTypes';
 import actions from '../../lib/actions';
 import reducer from '../../lib/reducers';
 
+import testMeta from '../asserts/restia_meta';
+import testIndex from '../asserts/restia_index';
+
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 
-describe('site meta data', () => {
-  const siteMeta = {
-    siteName: 'Restia Blog',
-    authorName: 'Restia',
-    URL: 'https://github.com/frantic1048/Restia',
-    links: {
-      npmjs: 'https://www.npmjs.com/',
-      iojs: 'https://iojs.org/',
-    },
-    articleBase: './',
-  };
-
+describe('Site metadata', () => {
   const siteMetaURL = '/restia_meta.json';
 
   const initialMetaState = {
@@ -40,14 +32,14 @@ describe('site meta data', () => {
       .toEqual(initialMetaState);
   });
 
-  describe('fetching success', () => {
-    const res = new window.Response(JSON.stringify(siteMeta), {
+  describe('Fetching success', () => {
+    const res = new window.Response(JSON.stringify(testMeta), {
       status: 200,
       headers: {
         'Content-type': 'application/json',
       },
     });
-    const actSuccess = createAction(types.FETCH_META_SUCCESS)(siteMeta);
+    const actSuccess = createAction(types.FETCH_META_SUCCESS)(testMeta);
 
     beforeAll(() => {
       sinon.stub(window, 'fetch');
@@ -81,14 +73,14 @@ describe('site meta data', () => {
       expect(reducer(undefined, actSuccess).meta)
         .toEqual({
           ...initialMetaState,
-          ...siteMeta,
+          ...testMeta,
           isFetching: false,
           fetchingError: null,
         });
     });
   });
 
-  describe('fecthing failure', () => {
+  describe('Fecthing failure', () => {
     const res = new window.Response('', {
       status: 404,
     });
@@ -117,6 +109,108 @@ describe('site meta data', () => {
       expect(reducer(undefined, actFailure).meta)
         .toEqual({
           ...initialMetaState,
+          isFetching: false,
+          fetchingError: res,
+        });
+    });
+  });
+});
+
+
+describe('Posts', () => {
+  const postsIndexURL = '/restia_index.json';
+
+  const initialPostsIndexState = {
+    isFetching: false,
+    fetchingError: null,
+    release: null,
+    index: null,
+  };
+
+  const actPostsIndexRequest = createAction(types.FETCH_POSTS_INDEX_REQUEST)();
+
+  it('should have initial posts index state', () => {
+    expect(reducer(undefined, {}).posts)
+      .toEqual(initialPostsIndexState);
+  });
+
+  describe('Fetching posts index success', () => {
+    const res = new window.Response(JSON.stringify(testIndex), {
+      status: 200,
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    const actPostsIndexSuccess = createAction(types.FETCH_POSTS_INDEX_SUCCESS)(testIndex);
+
+    beforeAll(() => {
+      sinon.stub(window, 'fetch');
+      window.fetch.withArgs(postsIndexURL).returns(Promise.resolve(res));
+    })
+
+    afterAll(() => {
+      window.fetch.restore();
+    });
+
+    it('should FETCH_POSTS_INDEX_SUCCESS', (done) => {
+      const expectedActions = [
+        act => expect(act).toEqual(actPostsIndexRequest),
+        act => expect(act).toEqual(actPostsIndexSuccess),
+      ];
+
+      const store = mockStore({posts: {}}, expectedActions, done);
+      store.dispatch(actions.fetchPostsIndex());
+    });
+
+    it('should return fetching state', () => {
+      expect(reducer(undefined, actPostsIndexRequest).posts)
+        .toEqual({
+          ...initialPostsIndexState,
+          isFetching: true,
+          fetchingError: null,
+        });
+    });
+
+    it('should return state with posts index', () => {
+      expect(reducer(undefined, actPostsIndexSuccess).posts)
+        .toEqual({
+          ...initialPostsIndexState,
+          ...testIndex,
+          isFetching: false,
+          fetchingError: null,
+        });
+    });
+  });
+
+  describe('Fetching posts index failure', () => {
+    const res = new window.Response('', {
+      status: 404,
+    });
+    const actPostsIndexFailure = createAction(types.FETCH_POSTS_INDEX_FAILURE)(res);
+
+    beforeAll(() => {
+      sinon.stub(window, 'fetch');
+      window.fetch.withArgs(postsIndexURL).returns(Promise.reject(res));
+    })
+
+    afterAll(() => {
+      window.fetch.restore();
+    });
+
+    it('should FETCH_POSTS_INDEX_FAILURE', (done) => {
+      const expectedActions = [
+        act => expect(act).toEqual(actPostsIndexRequest),
+        act => expect(act).toEqual(actPostsIndexFailure),
+      ];
+
+      const store = mockStore({posts: {}}, expectedActions, done);
+      store.dispatch(actions.fetchPostsIndex());
+    });
+
+    it('should return state with error info', () => {
+      expect(reducer(undefined, actPostsIndexFailure).posts)
+        .toEqual({
+          ...initialPostsIndexState,
           isFetching: false,
           fetchingError: res,
         });
