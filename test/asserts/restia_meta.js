@@ -6,5 +6,5 @@ export default {
     npmjs: 'https://www.npmjs.com/',
     iojs: 'https://iojs.org/',
   },
-  articleBase: './',
+  postsSourceURL: '/posts/',
 };
