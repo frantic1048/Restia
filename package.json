@@ -1,6 +1,6 @@
 {
   "name": "restia",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "main": "lib/restia.js",
   "scripts": {
