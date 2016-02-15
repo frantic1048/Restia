@@ -1,6 +1,9 @@
+// disable new-cap since Immutable.js doesn't need `new`
+/* eslint-disable new-cap */
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { createAction } from 'redux-actions';
+import Immutable from 'immutable';
 
 import types from '../../lib/constants/ActionTypes';
 import actions from '../../lib/actions';
@@ -11,11 +14,15 @@ import testIndex from '../asserts/restia_index';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
+const blankState = Immutable.fromJS({
+  meta: undefined,
+  posts: undefined,
+});
 
 describe('Site metadata', () => {
   const siteMetaURL = '/restia_meta.json';
 
-  const initialMetaState = {
+  const initialMetaState = Immutable.fromJS({
     isFetching: false,
     fetchingError: null,
     siteName: '',
@@ -23,12 +30,12 @@ describe('Site metadata', () => {
     URL: '',
     links: {},
     articleBase: './',
-  };
+  });
 
   const actRequest = createAction(types.FETCH_META_REQUEST)();
 
   it('should have initial meta state', () => {
-    expect(reducer(undefined, {}).meta)
+    expect(reducer(blankState, {}).get('meta'))
       .toEqual(initialMetaState);
   });
 
@@ -56,27 +63,31 @@ describe('Site metadata', () => {
         act => expect(act).toEqual(actSuccess),
       ];
 
-      const store = mockStore({ meta: {} }, expectedActions, done);
+      const store = mockStore(blankState, expectedActions, done);
       store.dispatch(actions.fetchMeta());
     });
 
     it('should return fetching state', () => {
-      expect(reducer(undefined, actRequest).meta)
-        .toEqual({
-          ...initialMetaState,
-          isFetching: true,
-          fetchingError: null,
-        });
+      expect(reducer(blankState, actRequest).get('meta'))
+        .toEqual(
+          initialMetaState.merge(
+            Immutable.Map({
+              isFetching: true,
+              fetchingError: null,
+            })
+        ));
     });
 
     it('should return state with meta', () => {
-      expect(reducer(undefined, actSuccess).meta)
-        .toEqual({
-          ...initialMetaState,
-          ...testMeta,
-          isFetching: false,
-          fetchingError: null,
-        });
+      expect(reducer(blankState, actSuccess).get('meta'))
+        .toEqual(
+          initialMetaState.merge(
+            Immutable.Map({
+              ...testMeta,
+              isFetching: false,
+              fetchingError: null,
+            }))
+        );
     });
   });
 
@@ -101,17 +112,19 @@ describe('Site metadata', () => {
         act => expect(act).toEqual(actFailure),
       ];
 
-      const store = mockStore({ meta: {} }, expectedActions, done);
+      const store = mockStore(blankState, expectedActions, done);
       store.dispatch(actions.fetchMeta());
     });
 
     it('should return state with errored response', () => {
-      expect(reducer(undefined, actFailure).meta)
-        .toEqual({
-          ...initialMetaState,
-          isFetching: false,
-          fetchingError: res,
-        });
+      expect(reducer(blankState, actFailure).get('meta'))
+        .toEqual(
+          initialMetaState.merge(
+            Immutable.fromJS({
+              isFetching: false,
+              fetchingError: res,
+            }))
+        );
     });
   });
 });
@@ -120,17 +133,17 @@ describe('Site metadata', () => {
 describe('Posts', () => {
   const postsIndexURL = '/restia_index.json';
 
-  const initialPostsIndexState = {
+  const initialPostsIndexState = Immutable.Map({
     isFetching: false,
     fetchingError: null,
     release: null,
-    entries: null,
-  };
+    entries: {},
+  });
 
   const actPostsIndexRequest = createAction(types.FETCH_POSTS_INDEX_REQUEST)();
 
   it('should have initial posts index state', () => {
-    expect(reducer(undefined, {}).posts)
+    expect(reducer(blankState, {}).get('posts'))
       .toEqual(initialPostsIndexState);
   });
 
@@ -158,27 +171,29 @@ describe('Posts', () => {
         act => expect(act).toEqual(actPostsIndexSuccess),
       ];
 
-      const store = mockStore({posts: {}}, expectedActions, done);
+      const store = mockStore(blankState, expectedActions, done);
       store.dispatch(actions.fetchPostsIndex());
     });
 
     it('should return fetching state', () => {
-      expect(reducer(undefined, actPostsIndexRequest).posts)
-        .toEqual({
-          ...initialPostsIndexState,
-          isFetching: true,
-          fetchingError: null,
-        });
+      expect(reducer(blankState, actPostsIndexRequest).get('posts'))
+        .toEqual(initialPostsIndexState.merge(
+          Immutable.Map({
+            isFetching: true,
+            fetchingError: null,
+          })
+        ));
     });
 
     it('should return state with posts index', () => {
-      expect(reducer(undefined, actPostsIndexSuccess).posts)
-        .toEqual({
-          ...initialPostsIndexState,
-          ...testIndex,
-          isFetching: false,
-          fetchingError: null,
-        });
+      expect(reducer(blankState, actPostsIndexSuccess).get('posts'))
+        .toEqual(initialPostsIndexState.mergeDeep(
+          Immutable.fromJS({
+            ...testIndex,
+            isFetching: false,
+            fetchingError: null,
+          })
+      ));
     });
   });
 
@@ -203,17 +218,18 @@ describe('Posts', () => {
         act => expect(act).toEqual(actPostsIndexFailure),
       ];
 
-      const store = mockStore({posts: {}}, expectedActions, done);
+      const store = mockStore(blankState, expectedActions, done);
       store.dispatch(actions.fetchPostsIndex());
     });
 
     it('should return state with errored response', () => {
-      expect(reducer(undefined, actPostsIndexFailure).posts)
-        .toEqual({
-          ...initialPostsIndexState,
-          isFetching: false,
-          fetchingError: res,
-        });
+      expect(reducer(blankState, actPostsIndexFailure).get('posts'))
+        .toEqual(initialPostsIndexState.merge(
+          Immutable.Map({
+            isFetching: false,
+            fetchingError: res,
+          })
+      ));
     });
   });
 
@@ -222,15 +238,25 @@ describe('Posts', () => {
   const postSourceURL =
     testMeta.postsSourceURL +
     testIndex.entries[testPostRequest.entry][testPostRequest.version].file;
-  const testPost = 'post headers\n\npost body!';
+  const blankPostFreeState = Immutable.Map({
+    meta: {
+      ...testMeta,
+    },
+    posts: {
+      ...initialPostsIndexState,
+      ...testIndex,
+    },
+  });
+  const testRawPost = 'post headers\n\npost body!';
+  const testPostContent = 'post body!';
   describe('Fetching post success', () => {
-    const res = new window.Response(testPost, {
+    const res = new window.Response(testRawPost, {
       status: 200,
       headers: {
         'Content-type': 'text/plain',
       },
     });
-    const actPostSuccess = createAction(types.FETCH_POST_SUCCESS)({...testPostRequest, content: testPost});
+    const actPostSuccess = createAction(types.FETCH_POST_SUCCESS)({...testPostRequest, content: testPostContent});
 
     beforeAll(() => {
       sinon.stub(window, 'fetch');
@@ -247,45 +273,53 @@ describe('Posts', () => {
         act => expect(act).toEqual(actPostSuccess),
       ];
 
-      const store = mockStore({
-        meta: {
-          ...testMeta,
-        },
-        posts: {
-          ...initialPostsIndexState,
-          ...testIndex,
-        },
-      }, expectedActions, done);
+      const store = mockStore(blankPostFreeState, expectedActions, done);
       store.dispatch(actions.fetchPost(testPostRequest));
     });
 
-    xit('should return post fetching state', () => {});
+    xit('should return post fetching state', () => {
+      const expectedState = blankPostFreeState.mergeDeep(
+        Immutable.Map({
+          posts: {
+            entries: {
+              [testPostRequest.entry]: {
+                [testPostRequest.version]: {
+                  isFetching: true,
+                  fetchError: null,
+                },
+              },
+            },
+          },
+        })
+      );
+      expect(reducer(blankPostFreeState, actPostRequest))
+        .toEqual(expectedState);
+    });
     xit('should return state with post content', () => {});
     it('should not fetch when valid post exists', (done) => {
       const expectedActions = [
         act => expect(act).toEqual(jasmine.any(Object)),
       ];
 
-      // may need a deep merge util...
-      const testState = {
-        meta: {
-          ...testMeta,
-        },
-        posts: {
-          ...initialPostsIndexState,
-          ...testIndex,
-          entries: {
-            [testPostRequest.entry]: {
-              [testPostRequest.version]: {
-                content: testPost,
+      // prepare a state already have a valid post content
+      const testState = blankPostFreeState.mergeDeep(
+        Immutable.Map({
+          posts: {
+            entries: {
+              [testPostRequest.entry]: {
+                [testPostRequest.version]: {
+                  content: testPostContent,
+                  isInvalid: false,
+                },
               },
             },
           },
-        },
-      };
+        })
+      );
 
       // if any action dispatched, fail this case.
       const store = mockStore(testState, expectedActions, done.fail);
+
       store.dispatch(actions.fetchPost(testPostRequest));
 
       // no action dispatched is ok.
@@ -313,15 +347,7 @@ describe('Posts', () => {
         act => expect(act).toEqual(actPostFailure),
       ];
 
-      const store = mockStore({
-        meta: {
-          ...testMeta,
-        },
-        posts: {
-          ...initialPostsIndexState,
-          ...testIndex,
-        },
-      }, expectedActions, done);
+      const store = mockStore(blankPostFreeState, expectedActions, done);
       store.dispatch(actions.fetchPost(testPostRequest));
     });
     xit('should return post state with errored response', () => {});
