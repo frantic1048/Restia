@@ -133,7 +133,7 @@ describe('Site metadata', () => {
 describe('Posts', () => {
   const postsIndexURL = '/restia_index.json';
 
-  const initialPostsIndexState = Immutable.Map({
+  const initialPostsIndexState = Immutable.fromJS({
     isFetching: false,
     fetchingError: null,
     release: null,
@@ -238,17 +238,20 @@ describe('Posts', () => {
   const postSourceURL =
     testMeta.postsSourceURL +
     testIndex.entries[testPostRequest.entry][testPostRequest.version].file;
-  const blankPostFreeState = Immutable.Map({
-    meta: {
-      ...testMeta,
-    },
-    posts: {
-      ...initialPostsIndexState,
-      ...testIndex,
-    },
-  });
+  const blankPostFreeState = blankState.mergeDeep(
+    Immutable.fromJS({
+      meta: {
+        ...testMeta,
+      },
+      posts: {
+        ...initialPostsIndexState.toJS(),
+        ...testIndex,
+      },
+    })
+  );
   const testRawPost = 'post headers\n\npost body!';
   const testPostContent = 'post body!';
+
   describe('Fetching post success', () => {
     const res = new window.Response(testRawPost, {
       status: 200,
@@ -277,9 +280,9 @@ describe('Posts', () => {
       store.dispatch(actions.fetchPost(testPostRequest));
     });
 
-    xit('should return post fetching state', () => {
+    it('should return post fetching state', () => {
       const expectedState = blankPostFreeState.mergeDeep(
-        Immutable.Map({
+        Immutable.fromJS({
           posts: {
             entries: {
               [testPostRequest.entry]: {
@@ -295,7 +298,27 @@ describe('Posts', () => {
       expect(reducer(blankPostFreeState, actPostRequest))
         .toEqual(expectedState);
     });
-    xit('should return state with post content', () => {});
+
+    it('should return state with post content', () => {
+      const expectedState = blankPostFreeState.mergeDeep(
+        Immutable.fromJS({
+          posts: {
+            entries: {
+              [testPostRequest.entry]: {
+                [testPostRequest.version]: {
+                  isFetching: false,
+                  fetchError: null,
+                  content: testPostContent,
+                },
+              },
+            },
+          },
+        })
+      );
+      expect(reducer(blankPostFreeState, actPostSuccess))
+        .toEqual(expectedState);
+    });
+
     it('should not fetch when valid post exists', (done) => {
       const expectedActions = [
         act => expect(act).toEqual(jasmine.any(Object)),
@@ -303,13 +326,13 @@ describe('Posts', () => {
 
       // prepare a state already have a valid post content
       const testState = blankPostFreeState.mergeDeep(
-        Immutable.Map({
+        Immutable.fromJS({
           posts: {
             entries: {
               [testPostRequest.entry]: {
                 [testPostRequest.version]: {
-                  content: testPostContent,
                   isInvalid: false,
+                  content: testPostContent,
                 },
               },
             },
@@ -326,11 +349,12 @@ describe('Posts', () => {
       setTimeout(() => done(), 100);
     });
   });
+
   describe('Fetching post failure', () => {
     const res = new window.Response('', {
       status: 404,
     });
-    const actPostFailure = createAction(types.FETCH_POST_FAILURE)(res);
+    const actPostFailure = createAction(types.FETCH_POST_FAILURE)({...testPostRequest, ex: res});
 
     beforeAll(() => {
       sinon.stub(window, 'fetch');
@@ -350,6 +374,25 @@ describe('Posts', () => {
       const store = mockStore(blankPostFreeState, expectedActions, done);
       store.dispatch(actions.fetchPost(testPostRequest));
     });
-    xit('should return post state with errored response', () => {});
+
+    it('should return post state with errored response', () => {
+      const expectedState = blankPostFreeState.mergeDeep(
+        Immutable.fromJS({
+          posts: {
+            entries: {
+              [testPostRequest.entry]: {
+                [testPostRequest.version]: {
+                  isFetching: false,
+                  fetchError: res,
+                },
+              },
+            },
+          },
+        })
+      );
+
+      expect(reducer(blankPostFreeState, actPostFailure))
+        .toEqual(expectedState);
+    });
   });
 });
