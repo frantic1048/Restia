@@ -17,6 +17,9 @@ const mockStore = configureMockStore(middlewares);
 const blankState = Immutable.fromJS({
   meta: undefined,
   posts: undefined,
+  routing: {
+    location: undefined,
+  },
 });
 
 describe('Site metadata', () => {
