@@ -16,6 +16,10 @@ const app = {
 
 // --------------- TASK
 
+// avoid phantomjs crash issue
+// https://github.com/ariya/phantomjs/issues/14061
+process.env.QT_QPA_PLATFORM = '';
+
 gulp.task('dev', (callback) => {
   gulp.watch(app.js.src, gulp.series('test'));
   gulp.watch(app.test.src, gulp.series('test'));
