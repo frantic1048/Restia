@@ -62,12 +62,18 @@ describe('Site metadata', () => {
 
     it('should FETCH_META_SUCCESS', (done) => {
       const expectedActions = [
-        act => expect(act).toEqual(actRequest),
-        act => expect(act).toEqual(actSuccess),
+        actRequest,
+        actSuccess,
       ];
 
-      const store = mockStore(blankState, expectedActions, done);
-      store.dispatch(actions.fetchMeta());
+      const store = mockStore(blankState);
+      store.dispatch(actions.fetchMeta())
+        .then(() => {
+          expect(store.getActions())
+            .toEqual(expectedActions);
+        })
+        .then(done)
+        .catch(done.fail);
     });
 
     it('should return fetching state', () => {
@@ -111,12 +117,18 @@ describe('Site metadata', () => {
 
     it('should FETCH_META_FAILURE', (done) => {
       const expectedActions = [
-        act => expect(act).toEqual(actRequest),
-        act => expect(act).toEqual(actFailure),
+        actRequest,
+        actFailure,
       ];
 
-      const store = mockStore(blankState, expectedActions, done);
-      store.dispatch(actions.fetchMeta());
+      const store = mockStore(blankState);
+      store.dispatch(actions.fetchMeta())
+        .then(() => {
+          expect(store.getActions())
+            .toEqual(expectedActions);
+        })
+        .then(done)
+        .catch(done.fail);
     });
 
     it('should return state with errored response', () => {
@@ -170,12 +182,18 @@ describe('Posts', () => {
 
     it('should FETCH_POSTS_INDEX_SUCCESS', (done) => {
       const expectedActions = [
-        act => expect(act).toEqual(actPostsIndexRequest),
-        act => expect(act).toEqual(actPostsIndexSuccess),
+        actPostsIndexRequest,
+        actPostsIndexSuccess,
       ];
 
-      const store = mockStore(blankState, expectedActions, done);
-      store.dispatch(actions.fetchPostsIndex());
+      const store = mockStore(blankState);
+      store.dispatch(actions.fetchPostsIndex())
+        .then(() => {
+          expect(store.getActions())
+            .toEqual(expectedActions);
+        })
+        .then(done)
+        .catch(done.fail);
     });
 
     it('should return fetching state', () => {
@@ -217,12 +235,18 @@ describe('Posts', () => {
 
     it('should FETCH_POSTS_INDEX_FAILURE', (done) => {
       const expectedActions = [
-        act => expect(act).toEqual(actPostsIndexRequest),
-        act => expect(act).toEqual(actPostsIndexFailure),
+        actPostsIndexRequest,
+        actPostsIndexFailure,
       ];
 
-      const store = mockStore(blankState, expectedActions, done);
-      store.dispatch(actions.fetchPostsIndex());
+      const store = mockStore(blankState);
+      store.dispatch(actions.fetchPostsIndex())
+        .then(() => {
+          expect(store.getActions())
+            .toEqual(expectedActions);
+        })
+        .then(done)
+        .catch(done.fail);
     });
 
     it('should return state with errored response', () => {
@@ -275,12 +299,18 @@ describe('Posts', () => {
 
     it('should FETCH_POST_SUCCESS', (done) => {
       const expectedActions = [
-        act => expect(act).toEqual(actPostRequest),
-        act => expect(act).toEqual(actPostSuccess),
+        actPostRequest,
+        actPostSuccess,
       ];
 
-      const store = mockStore(blankPostFreeState, expectedActions, done);
-      store.dispatch(actions.fetchPost(testPostRequest));
+      const store = mockStore(blankPostFreeState);
+      store.dispatch(actions.fetchPost(testPostRequest))
+        .then(() => {
+          expect(store.getActions())
+            .toEqual(expectedActions);
+        })
+        .then(done)
+        .catch(done.fail);
     });
 
     it('should return post fetching state', () => {
@@ -370,12 +400,18 @@ describe('Posts', () => {
 
     it('should FETCH_POST_FAILURE', (done) => {
       const expectedActions = [
-        act => expect(act).toEqual(actPostRequest),
-        act => expect(act).toEqual(actPostFailure),
+        actPostRequest,
+        actPostFailure,
       ];
 
-      const store = mockStore(blankPostFreeState, expectedActions, done);
-      store.dispatch(actions.fetchPost(testPostRequest));
+      const store = mockStore(blankPostFreeState);
+      store.dispatch(actions.fetchPost(testPostRequest))
+        .then(() => {
+          expect(store.getActions())
+            .toEqual(expectedActions);
+        })
+        .then(done)
+        .catch(done.fail);
     });
 
     it('should return post state with errored response', () => {
