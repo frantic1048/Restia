@@ -4,16 +4,16 @@ import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import store from '../store';
-import routes from '.routes';
 
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState: (state) => state.get('routing'),
 });
 
-export default (
+// TODO: test me!
+export default (content) => ( // eslint-disable-line no-extra-parens
   <Provider store={store}>
     <Router history={history}>
-      {routes}
+      {content}
     </Router>
   </Provider>
 );
