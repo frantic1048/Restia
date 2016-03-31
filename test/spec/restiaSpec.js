@@ -1,10 +1,17 @@
 // disable new-cap since Immutable.js doesn't need `new`
 /* eslint-disable new-cap */
+
+// make jasmine pretty print
+// http://stackoverflow.com/a/26324116/2488867
+jasmine.pp = (obj) => {
+  return JSON.stringify(obj, undefined, 2);
+};
+
 import configureMockStore from 'redux-mock-store';
 import { createAction } from 'redux-actions';
 import Immutable from 'immutable';
 import { hashHistory } from 'react-router';
-import { LOCATION_CHANGE, syncHistoryWithStore, push, replace, go, goForward, goBack} from 'react-router-redux';
+import { LOCATION_CHANGE, syncHistoryWithStore } from 'react-router-redux';
 
 import types from '../../lib/constants/ActionTypes';
 import actions from '../../lib/actions';
@@ -14,11 +21,6 @@ import middlewares from '../../lib/middlewares';
 import testMeta from '../asserts/restia_meta';
 import testIndex from '../asserts/restia_index';
 
-// make jasmine pretty print
-// http://stackoverflow.com/a/26324116/2488867
-jasmine.pp = function(obj) {
-  return JSON.stringify(obj, undefined, 2);
-};
 
 const mockStore = configureMockStore(middlewares);
 const blankState = Immutable.fromJS({
