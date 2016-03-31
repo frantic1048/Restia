@@ -23,11 +23,11 @@ module.exports = function(config) {
       devtool: '#inline-source-map',
 
       resolve: {
-        extensions: ['', '.js'],
+        extensions: ['', '.js', ',jsx'],
       },
 
       babel: {
-        presets: ['es2015', 'stage-0'],
+        presets: ['react', 'es2015', 'stage-0'],
       },
 
       isparta: {
@@ -35,7 +35,7 @@ module.exports = function(config) {
         noAutoWrap: true,
         // these babel options will be passed only to isparta and not to babel-loader
         babel: {
-          presets: ['es2015', 'stage-0'],
+          presets: ['react', 'es2015', 'stage-0'],
         },
       },
 
@@ -43,7 +43,7 @@ module.exports = function(config) {
         preLoaders: [
           // transpile all files except testing sources with babel as usual
           {
-            test: /\.js$/,
+            test: /\.jsx?$/,
             exclude: [
               path.resolve('lib/'),
               path.resolve('node_modules/'),
@@ -52,7 +52,7 @@ module.exports = function(config) {
           },
           // transpile and instrument only testing sources with isparta
           {
-            test: /\.js$/,
+            test: /\.jsx?$/,
             include: path.resolve('lib/'),
             loader: 'isparta',
           },

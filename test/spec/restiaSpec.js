@@ -3,24 +3,31 @@
 
 // make jasmine pretty print
 // http://stackoverflow.com/a/26324116/2488867
-jasmine.pp = (obj) => {
-  return JSON.stringify(obj, undefined, 2);
-};
+// jasmine.pp = (obj) => {
+//   return JSON.stringify(obj, undefined, 2);
+// };
 
+// Test utils
+import React from 'react';
+import ReactTestUtils from 'react-addons-test-utils';
 import configureMockStore from 'redux-mock-store';
+
+// Test assertion data
+import testMeta from '../asserts/restia_meta';
+import testIndex from '../asserts/restia_index';
+
+// Common dependencies
 import { createAction } from 'redux-actions';
 import Immutable from 'immutable';
 import { hashHistory } from 'react-router';
 import { LOCATION_CHANGE, syncHistoryWithStore } from 'react-router-redux';
 
+// Local modules
 import types from '../../lib/constants/ActionTypes';
 import actions from '../../lib/actions';
 import reducer from '../../lib/reducers';
 import middlewares from '../../lib/middlewares';
-
-import testMeta from '../asserts/restia_meta';
-import testIndex from '../asserts/restia_index';
-
+import RootComponent from '../../lib/components/Root.jsx';
 
 const mockStore = configureMockStore(middlewares);
 const blankState = Immutable.fromJS({
@@ -475,5 +482,22 @@ describe('Routing', () => {
 
     expect(reducer(blankState, store.getActions()[0]).get('routing'))
       .toEqual(expectedRoutingState);
+  });
+});
+
+describe('Rendering', () => {
+  it('should render a root component with passed content', () => {
+    const Content = () => <p>Content</p>;
+    const renderer = ReactTestUtils.createRenderer();
+    renderer.render(
+      <RootComponent>
+        <Content />
+      </RootComponent>
+    );
+    const result = renderer.getRenderOutput();
+
+    // RootComponent>Provider>Router>content
+    expect(result.props.children.props.children.children)
+      .toEqual( <Content /> );
   });
 });
