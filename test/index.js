@@ -1,9 +1,10 @@
+/**
+ * emulate a full ES6 environment
+ * http://babeljs.io/docs/usage/polyfill/
+ */
+import 'babel-polyfill';
+
 // require all `test/spec/*.js`
 const testsContext = require.context('./spec/', true, /\.js$/);
 
 testsContext.keys().forEach(testsContext);
-
-// require `lib/restia.js`
-const libContext = require.context('../lib/', true, /restia\.js$/);
-
-libContext.keys().forEach(libContext);

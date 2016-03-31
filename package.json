@@ -1,6 +1,6 @@
 {
   "name": "restia",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "",
   "main": "lib/restia.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "karma": "^0.13.19",
     "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.6",
+    "karma-jasmine-diff-reporter": "^0.3.4",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sinon": "^1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
@@ -43,6 +44,7 @@
     "isomorphic-fetch": "^2.2.1",
     "react": "^0.14.7",
     "react-redux": "^4.4.0",
+    "react-router": "^2.0.1",
     "react-router-redux": "^4.0.0",
     "redux": "^3.3.1",
     "redux-actions": "^0.9.1",

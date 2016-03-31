@@ -1,24 +1,31 @@
 // disable new-cap since Immutable.js doesn't need `new`
 /* eslint-disable new-cap */
 import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { createAction } from 'redux-actions';
 import Immutable from 'immutable';
+import { hashHistory } from 'react-router';
+import { LOCATION_CHANGE, syncHistoryWithStore, push, replace, go, goForward, goBack} from 'react-router-redux';
 
 import types from '../../lib/constants/ActionTypes';
 import actions from '../../lib/actions';
 import reducer from '../../lib/reducers';
+import middlewares from '../../lib/middlewares';
 
 import testMeta from '../asserts/restia_meta';
 import testIndex from '../asserts/restia_index';
 
-const middlewares = [ thunk ];
+// make jasmine pretty print
+// http://stackoverflow.com/a/26324116/2488867
+jasmine.pp = function(obj) {
+  return JSON.stringify(obj, undefined, 2);
+};
+
 const mockStore = configureMockStore(middlewares);
 const blankState = Immutable.fromJS({
   meta: undefined,
   posts: undefined,
   routing: {
-    location: undefined,
+    locationBeforeTransitions: undefined,
   },
 });
 
@@ -353,9 +360,8 @@ describe('Posts', () => {
     });
 
     it('should not fetch when valid post exists', (done) => {
-      const expectedActions = [
-        act => expect(act).toEqual(jasmine.any(Object)),
-      ];
+      // there should be no actions dispatched
+      const expectedActions = [];
 
       // prepare a state already have a valid post content
       const testState = blankPostFreeState.mergeDeep(
@@ -373,13 +379,15 @@ describe('Posts', () => {
         })
       );
 
-      // if any action dispatched, fail this case.
-      const store = mockStore(testState, expectedActions, done.fail);
+      const store = mockStore(testState);
 
-      store.dispatch(actions.fetchPost(testPostRequest));
-
-      // no action dispatched is ok.
-      setTimeout(() => done(), 100);
+      store.dispatch(actions.fetchPost(testPostRequest))
+        .then(() => {
+          expect(store.getActions())
+            .toEqual(expectedActions);
+        })
+        .then(done)
+        .catch(done.fail);
     });
   });
 
@@ -433,5 +441,37 @@ describe('Posts', () => {
       expect(reducer(blankPostFreeState, actPostFailure))
         .toEqual(expectedState);
     });
+  });
+});
+
+describe('Routing', () => {
+  it('should LOCATION_CHANGE and update routing state on initial', () => {
+    const store = mockStore(blankState);
+    const expectedActions = [
+      {
+        type: LOCATION_CHANGE,
+        payload: jasmine.objectContaining({
+          pathname: '/',
+          hash: '',
+        }),
+      },
+    ];
+
+    const expectedRoutingState = Immutable.Map({
+      locationBeforeTransitions: jasmine.objectContaining({
+        pathname: '/',
+        hash: '',
+      }),
+    });
+
+    syncHistoryWithStore(hashHistory, store, {
+      selectLocationState: (state) => state.get('routing').toJS(),
+    });
+
+    expect(store.getActions())
+      .toEqual(expectedActions);
+
+    expect(reducer(blankState, store.getActions()[0]).get('routing'))
+      .toEqual(expectedRoutingState);
   });
 });

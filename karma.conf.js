@@ -65,7 +65,7 @@ module.exports = function(config) {
       noInfo: true,
     },
 
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec', 'jasmine-diff', 'coverage'],
     coverageReporter: {
       type: 'text',
     },
