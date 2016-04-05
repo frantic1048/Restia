@@ -1,6 +1,6 @@
 {
   "name": "restia",
-  "version": "0.0.21",
+  "version": "0.0.23",
   "description": "",
   "main": "lib/restia.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/frantic1048/restia.git"
   },
   "author": "frantic1048",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/frantic1048/restia/issues"
   },
