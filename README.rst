@@ -1,7 +1,7 @@
 ======
 Restia
 ======
-|license|_ |gpa|_ |cov|_ |dm|_
+|license|_ |gpa|_ |cov|_ |ci|_ |dm|_
 
 .. |license| image:: https://img.shields.io/github/license/frantic1048/restia.svg?style=flat-square
 .. _license: https://github.com/frantic1048/restia/blob/master/LICENSE

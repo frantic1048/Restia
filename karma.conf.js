@@ -23,7 +23,7 @@ module.exports = function(config) {
       devtool: '#inline-source-map',
 
       resolve: {
-        extensions: ['', '.js', ',jsx'],
+        extensions: ['', '.js', '.jsx'],
       },
 
       babel: {

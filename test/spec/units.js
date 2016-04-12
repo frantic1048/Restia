@@ -3,9 +3,9 @@
 
 // make jasmine pretty print
 // http://stackoverflow.com/a/26324116/2488867
-// jasmine.pp = (obj) => {
-//   return JSON.stringify(obj, undefined, 2);
-// };
+jasmine.pp = (obj) => {
+  return JSON.stringify(obj, undefined, 2);
+};
 
 // Test utils
 import React from 'react';
@@ -490,14 +490,16 @@ describe('Rendering', () => {
     const Content = () => <p>Content</p>;
     const renderer = ReactTestUtils.createRenderer();
     renderer.render(
-      <RootComponent>
-        <Content />
-      </RootComponent>
+      <RootComponent masou={Content} />
     );
     const result = renderer.getRenderOutput();
 
-    // RootComponent>Provider>Router>content
-    expect(result.props.children.props.children.children)
-      .toEqual( <Content /> );
+    expect(
+      result            // Provider
+        .props.children // Router
+        .props.children // Route
+        .props.component
+        )
+      .toEqual(Content);
   });
 });
