@@ -10,7 +10,9 @@ const history = syncHistoryWithStore(hashHistory, store, {
 });
 
 export default React.createClass({
-  // TODO: add propTypes for masou
+  propTypes: {
+    masou: React.PropTypes.func,
+  },
   render() {
     return (
       <Provider store={store}>
