@@ -35,28 +35,12 @@ describe('Restia', () => {
   });
 
   it('.expand()', () => {
-    const target = document.createElement('div');
-    target.setAttribute('id', 'restia');
-    const targetNode = document.body.appendChild(target);
     const restia = new Restia();
     restia
       .masou(testMasou)
       .expand();
-    expect(targetNode.textContent)
-      .toEqual(tsetMasouText);
 
-    // unmount component for further test
-    ReactDOM.unmountComponentAtNode(targetNode);
-  });
-
-  it('.expand(targetNode)', () => {
-    const target = document.createElement('div');
-    target.setAttribute('id', 'restia-target');
-    const targetNode = document.body.appendChild(target);
-    const restia = new Restia();
-    restia
-      .masou(testMasou)
-      .expand(targetNode);
+    const targetNode = document.getElementById('restia');
     expect(targetNode.textContent)
       .toEqual(tsetMasouText);
 
