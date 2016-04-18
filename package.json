@@ -2,7 +2,7 @@
   "name": "restia",
   "version": "0.0.27",
   "description": "",
-  "main": "lib/restia.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "gulp test"
   },
