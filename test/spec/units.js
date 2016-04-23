@@ -28,6 +28,7 @@ import actions from '../../lib/actions';
 import reducer from '../../lib/reducers';
 import middlewares from '../../lib/middlewares';
 import RootComponent from '../../lib/components/Root.jsx';
+import VoidComponent from '../../lib/components/Void.jsx';
 
 const mockStore = configureMockStore(middlewares);
 const blankState = Immutable.fromJS({
@@ -485,12 +486,15 @@ describe('Routing', () => {
   });
 });
 
-describe('Rendering', () => {
-  it('should render a root component with passed content', () => {
-    const Content = () => <p>Content</p>;
+describe('Component', () => {
+  it('<Root />', () => {
+    const testMasou = {
+      component: () => <p>Content</p>,
+      routes: [],
+    };
     const renderer = ReactTestUtils.createRenderer();
     renderer.render(
-      <RootComponent masou={Content} />
+      <RootComponent masou={testMasou} />
     );
     const result = renderer.getRenderOutput();
 
@@ -500,6 +504,18 @@ describe('Rendering', () => {
         .props.children // Route
         .props.component
         )
-      .toEqual(Content);
+      .toEqual(testMasou.component);
+  });
+
+  it('<Void />', () => {
+    const renderer = ReactTestUtils.createRenderer();
+    renderer.render(
+      <VoidComponent />
+    );
+
+    const result = renderer.getRenderOutput();
+
+    expect(result)
+      .toBe(null);
   });
 });

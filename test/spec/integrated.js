@@ -14,7 +14,14 @@ import ReactDOM from 'react-dom';
 import Restia from '../../lib';
 
 const tsetMasouText = '真実を貫く剣';
-const testMasou = React.createClass({
+const testMasou = {};
+testMasou.routes = [
+  'links',
+  'posts',
+  'posts/:postEntry',
+  'about',
+];
+testMasou.component = React.createClass({
   render() {
     return <div>{tsetMasouText}</div>;
   },
@@ -24,7 +31,10 @@ describe('Restia', () => {
   it('should have initial attributes', () => {
     const restia = new Restia();
     expect(restia.__masou)
-      .toEqual(jasmine.any(Object));
+      .toEqual(jasmine.objectContaining({
+        component: jasmine.any(Object),
+        routes: jasmine.any(Array),
+      }));
   });
 
   it('.masou()', () => {
