@@ -7,28 +7,35 @@ jasmine.pp = (obj) => {
   return JSON.stringify(obj, undefined, 2);
 };
 
-// Test utils
+// Common dependencies
 import React from 'react';
+import { createAction } from 'redux-actions';
+import Immutable from 'immutable';
+import { hashHistory } from 'react-router';
+import { LOCATION_CHANGE, syncHistoryWithStore } from 'react-router-redux';
+
+// Test utils
 import ReactTestUtils from 'react-addons-test-utils';
 import configureMockStore from 'redux-mock-store';
 
 // Test assertion data
 import testMeta from '../asserts/restia_meta';
 import testIndex from '../asserts/restia_index';
+import testConfig from '../asserts/restia.config';
 
-// Common dependencies
-import { createAction } from 'redux-actions';
-import Immutable from 'immutable';
-import { hashHistory } from 'react-router';
-import { LOCATION_CHANGE, syncHistoryWithStore } from 'react-router-redux';
 
 // Local modules
 import types from '../../lib/constants/ActionTypes';
 import actions from '../../lib/actions';
 import reducer from '../../lib/reducers';
 import middlewares from '../../lib/middlewares';
-import RootComponent from '../../lib/components/Root.jsx';
+import RootComponent, {configure as cRootComponent} from '../../lib/components/Root.jsx';
 import VoidComponent from '../../lib/components/Void.jsx';
+
+// pass testConfig to each extensible module
+[
+  cRootComponent,
+].forEach(c => c(testConfig));
 
 const mockStore = configureMockStore(middlewares);
 const blankState = Immutable.fromJS({
@@ -488,13 +495,9 @@ describe('Routing', () => {
 
 describe('Component', () => {
   it('<Root />', () => {
-    const testMasou = {
-      component: () => <p>Content</p>,
-      routes: [],
-    };
     const renderer = ReactTestUtils.createRenderer();
     renderer.render(
-      <RootComponent masou={testMasou} />
+      <RootComponent />
     );
     const result = renderer.getRenderOutput();
 
@@ -504,7 +507,7 @@ describe('Component', () => {
         .props.children // Route
         .props.component
         )
-      .toEqual(testMasou.component);
+      .toEqual(testConfig.masou.component);
   });
 
   it('<Void />', () => {

@@ -7,49 +7,25 @@ jasmine.pp = (obj) => {
   return JSON.stringify(obj, undefined, 2);
 };
 
-import React from 'react';
 import ReactDOM from 'react-dom';
 // import ReactTestUtils from 'react-addons-test-utils';
 
 import Restia from '../../lib';
-
-const tsetMasouText = '真実を貫く剣';
-const testMasou = {};
-testMasou.routes = [
-  'links',
-  'posts',
-  'posts/:postEntry',
-  'about',
-];
-testMasou.component = React.createClass({
-  render() {
-    return <div>{tsetMasouText}</div>;
-  },
-});
+import testConfig from '../asserts/restia.config';
 
 describe('Restia', () => {
-  it('should have initial attributes', () => {
-    const restia = new Restia();
-    expect(restia.__masou)
-      .toEqual(jasmine.objectContaining({
-        component: jasmine.any(Object),
-        routes: jasmine.any(Array),
-      }));
-  });
-
-  it('.masou()', () => {
-    const restia = new Restia();
-    restia.masou(testMasou);
-    expect(restia.__masou)
-      .toEqual(testMasou);
+  it('should apply passed user config', () => {
+    const restia = new Restia(testConfig);
+    expect(restia.config)
+      .toEqual(testConfig);
   });
 
   it('.expand()', () => {
-    const restia = new Restia();
+    const restia = new Restia(testConfig);
     restia
-      .masou(testMasou)
       .expand();
 
+    const { tsetMasouText } = testConfig.__asserts;
     const targetNode = document.getElementById('restia');
     expect(targetNode.textContent)
       .toEqual(tsetMasouText);

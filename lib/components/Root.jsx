@@ -10,17 +10,18 @@ const history = syncHistoryWithStore(hashHistory, store, {
   selectLocationState: (state) => state.get('routing'),
 });
 
+let _masou;
+
 class Root extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
-    const { masou } = this.props;
     return (
       <Provider store={store}>
         <Router history={history}>
-          <Route path="/" component={masou.component}>
-            { masou.routes.map((path) =>
+          <Route path="/" component={_masou.component}>
+            { _masou.routes.map((path) =>
               <Route path={path} key={path} component={Void} />
             )}
           </Route>
@@ -30,8 +31,7 @@ class Root extends React.Component {
   }
 }
 
-Root.propTypes = {
-  masou: React.PropTypes.object,
-};
-
 export default Root;
+export function configure({masou}) {
+  _masou = masou;
+}
