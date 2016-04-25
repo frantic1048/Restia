@@ -32,5 +32,6 @@ describe('Restia', () => {
 
     // unmount component for further test
     ReactDOM.unmountComponentAtNode(targetNode);
+    targetNode.remove();
   });
 });
