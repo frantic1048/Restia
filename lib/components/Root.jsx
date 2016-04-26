@@ -7,7 +7,7 @@ import store from '../store';
 import { updateRoutingState } from '../actions';
 
 const history = syncHistoryWithStore(hashHistory, store, {
-  selectLocationState: (state) => state.get('routing'),
+  selectLocationState: (state) => state.get('routing').toJS(),
 });
 
 let _masou;
