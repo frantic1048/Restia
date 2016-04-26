@@ -14,10 +14,16 @@ import Restia from '../../lib';
 import testConfig from '../asserts/restia.config';
 
 describe('Restia', () => {
+  it('should TypeError when config is not satisfied', () => {
+    expect(() => {
+      return new Restia(null);
+    }).toThrowError(TypeError);
+  });
+
   it('should apply passed user config', () => {
     const restia = new Restia(testConfig);
     expect(restia.config)
-      .toEqual(testConfig);
+    .toEqual(testConfig);
   });
 
   it('.expand()', () => {
