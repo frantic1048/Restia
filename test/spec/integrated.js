@@ -22,11 +22,9 @@ describe('Restia', () => {
 
   it('.expand()', () => {
     const restia = new Restia(testConfig);
-    restia
-      .expand();
+    const targetNode = restia.expand();
 
     const { tsetMasouText } = testConfig.__asserts;
-    const targetNode = document.getElementById('restia');
     expect(targetNode.textContent)
       .toEqual(tsetMasouText);
 
