@@ -1,16 +1,22 @@
 import React              from 'react';
 import { Provider }       from 'react-redux';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import Void from './Void';
 import store from '../store';
+import { updateRoutingState } from '../actions';
 
 const history = syncHistoryWithStore(hashHistory, store, {
   selectLocationState: (state) => state.get('routing'),
 });
 
 let _masou;
+
+function createStateEmitter(stateName) {
+  return function emitState() {
+    store.dispatch(updateRoutingState(stateName));
+  };
+}
 
 class Root extends React.Component {
   constructor(props) {
@@ -21,8 +27,13 @@ class Root extends React.Component {
       <Provider store={store}>
         <Router history={history}>
           <Route path="/" component={_masou.component}>
-            { _masou.routes.map((path) =>
-              <Route path={path} key={path} component={Void} />
+            <IndexRoute onEnter={createStateEmitter('index')}/>
+            { _masou.routes.map(({name, path}) =>
+              <Route
+                key={path}
+                path={path}
+                onEnter={createStateEmitter(name)}
+              />
             )}
           </Route>
         </Router>

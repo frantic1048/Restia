@@ -25,12 +25,11 @@ import testConfig from '../asserts/restia.config';
 
 
 // Local modules
-import types from '../../lib/constants/ActionTypes';
-import actions from '../../lib/actions';
+import * as types from '../../lib/constants/ActionTypes';
+import * as actions from '../../lib/actions';
 import reducer from '../../lib/reducers';
 import middlewares from '../../lib/middlewares';
 import RootComponent, {configure as cRootComponent} from '../../lib/components/Root.jsx';
-import VoidComponent from '../../lib/components/Void.jsx';
 
 // pass testConfig to each extensible module
 [
@@ -508,17 +507,5 @@ describe('Component', () => {
         .props.component
         )
       .toEqual(testConfig.masou.component);
-  });
-
-  it('<Void />', () => {
-    const renderer = ReactTestUtils.createRenderer();
-    renderer.render(
-      <VoidComponent />
-    );
-
-    const result = renderer.getRenderOutput();
-
-    expect(result)
-      .toBe(null);
   });
 });
