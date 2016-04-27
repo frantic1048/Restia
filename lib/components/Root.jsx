@@ -4,7 +4,6 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import store from '../store';
-import { updateRoutingState } from '../actions';
 import createStateEmitterComponent from './createStateEmitterComponent';
 
 const history = syncHistoryWithStore(hashHistory, store, {
@@ -13,12 +12,7 @@ const history = syncHistoryWithStore(hashHistory, store, {
 
 let masou;
 
-function createStateEmitter(stateName) {
-  const emitState = () => {
-    store.dispatch(updateRoutingState(stateName));
-  };
-  return createStateEmitterComponent(emitState);
-}
+const createStateEmitter = createStateEmitterComponent.bind(null, store);
 
 const Root = () => (
   <Provider store={store}>

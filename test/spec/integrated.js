@@ -7,7 +7,6 @@
 jasmine.pp = (obj) => JSON.stringify(obj, undefined, 2);
 
 import ReactDOM from 'react-dom';
-// import ReactTestUtils from 'react-addons-test-utils';
 
 import Restia from '../../lib';
 import testConfig from '../asserts/restia.config';
