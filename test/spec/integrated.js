@@ -1,11 +1,10 @@
-// disable react/no-multi-comp for testing.
-/* eslint-disable react/no-multi-comp */
+/* eslint-env jasmine */
+// disable no-underscore-dangle for testing purpose
+/* eslint-disable no-underscore-dangle */
 
 // make jasmine pretty print
 // http://stackoverflow.com/a/26324116/2488867
-jasmine.pp = (obj) => {
-  return JSON.stringify(obj, undefined, 2);
-};
+jasmine.pp = (obj) => JSON.stringify(obj, undefined, 2);
 
 import ReactDOM from 'react-dom';
 // import ReactTestUtils from 'react-addons-test-utils';
@@ -15,9 +14,8 @@ import testConfig from '../asserts/restia.config';
 
 describe('Restia', () => {
   it('should TypeError when config is not satisfied', () => {
-    expect(() => {
-      return new Restia(null);
-    }).toThrowError(TypeError);
+    expect(() => new Restia(null))
+      .toThrowError(TypeError);
   });
 
   it('should apply passed user config', () => {

@@ -1,11 +1,13 @@
+/* eslint-env jasmine */
+/* global sinon */
+
 // disable new-cap since Immutable.js doesn't need `new`
 /* eslint-disable new-cap */
 
+
 // make jasmine pretty print
 // http://stackoverflow.com/a/26324116/2488867
-jasmine.pp = (obj) => {
-  return JSON.stringify(obj, undefined, 2);
-};
+jasmine.pp = (obj) => JSON.stringify(obj, undefined, 2);
 
 // Common dependencies
 import React from 'react';
@@ -29,7 +31,7 @@ import * as types from '../../lib/constants/ActionTypes';
 import * as actions from '../../lib/actions';
 import reducer from '../../lib/reducers';
 import middlewares from '../../lib/middlewares';
-import RootComponent, {configure as cRootComponent} from '../../lib/components/Root.jsx';
+import RootComponent, { configure as cRootComponent } from '../../lib/components/Root.jsx';
 
 // pass testConfig to each extensible module
 [
@@ -309,7 +311,10 @@ describe('Posts', () => {
         'Content-type': 'text/plain',
       },
     });
-    const actPostSuccess = createAction(types.FETCH_POST_SUCCESS)({...testPostRequest, content: testPostContent});
+    const actPostSuccess = createAction(types.FETCH_POST_SUCCESS)({
+      ...testPostRequest,
+      content: testPostContent,
+    });
 
     beforeAll(() => {
       sinon.stub(window, 'fetch');
@@ -411,7 +416,7 @@ describe('Posts', () => {
     const res = new window.Response('', {
       status: 404,
     });
-    const actPostFailure = createAction(types.FETCH_POST_FAILURE)({...testPostRequest, ex: res});
+    const actPostFailure = createAction(types.FETCH_POST_FAILURE)({ ...testPostRequest, ex: res });
 
     beforeAll(() => {
       sinon.stub(window, 'fetch');

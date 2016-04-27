@@ -1,6 +1,6 @@
-import gulp       from 'gulp';
+import gulp from 'gulp';
 import { Server } from 'karma';
-import path       from 'path';
+import path from 'path';
 
 // --------------- CONFIG
 
