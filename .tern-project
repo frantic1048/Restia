@@ -5,7 +5,9 @@
   ],
   "loadEagerly": [
     "lib/*.js",
-    "lib/**/*.js"
+    "lib/*.jsx",
+    "lib/**/*.js",
+    "lib/**/*.jsx"
   ],
   "dontLoad": [
     "node_modules"
