@@ -27,7 +27,7 @@ module.exports = function(config) {
       },
 
       babel: {
-        presets: ['react', 'es2015', 'stage-0'],
+        presets: ['react', 'es2015-native-modules', 'stage-0'],
       },
 
       isparta: {
@@ -35,7 +35,7 @@ module.exports = function(config) {
         noAutoWrap: true,
         // these babel options will be passed only to isparta and not to babel-loader
         babel: {
-          presets: ['react', 'es2015', 'stage-0'],
+          presets: ['react', 'es2015-native-modules', 'stage-0'],
         },
       },
 
