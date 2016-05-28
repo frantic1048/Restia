@@ -2,7 +2,7 @@
 // Karma configuration
 var path = require('path');
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: '',
 
@@ -67,7 +67,10 @@ module.exports = function(config) {
 
     reporters: ['spec', 'jasmine-diff', 'coverage'],
     coverageReporter: {
-      type: 'text',
+      reporters: [
+        { type: 'text' },
+        { type: 'lcov' },
+      ],
     },
 
     logLevel: config.LOG_INFO,
