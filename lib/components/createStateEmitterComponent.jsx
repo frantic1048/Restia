@@ -2,7 +2,7 @@ import React from 'react';
 
 import { updateRoutingState } from '../actions';
 
-export default function(store, stateName) {
+export default function (store, stateName) {
   class StateEmitter extends React.Component {
     componentDidMount() {
       store.dispatch(updateRoutingState({
