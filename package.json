@@ -18,6 +18,7 @@
     "react-dom": "16.8.6"
   },
   "devDependencies": {
+    "cz-customizable": "6.2.0",
     "prettier": "1.18.2"
   },
   "repository": {
@@ -26,5 +27,10 @@
   },
   "bugs": {
     "url": "https://github.com/frantic1048/Restia/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
