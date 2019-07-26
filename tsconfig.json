@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "jsx": "preserve",
+        "jsx": "react",
         "lib": ["dom"],
         "moduleResolution": "node",
         "module": "esnext",
