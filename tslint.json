@@ -1,4 +1,7 @@
 {
+    "linterOptions": {
+        "exclude": ["types/graphql-types.ts"]
+    },
     "extends": [
         "tslint:recommended",
         "tslint-react",
