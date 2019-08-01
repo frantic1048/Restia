@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 import { oc } from 'ts-optchain'
 import { GatsbyComponent } from 'util/types'
@@ -18,6 +18,9 @@ const Page: GatsbyComponent<SiteMetadataQuery> = ({ data }) => {
     return (
         <div>
             Welcome to <b>{oc(data).site.siteMetadata.title('')}</b>
+            <p>
+                <Link to="/posts">Pyon Pyon Posts</Link>
+            </p>
         </div>
     )
 }
