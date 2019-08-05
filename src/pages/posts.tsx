@@ -6,7 +6,7 @@ import { AllPostsQuery } from '../../types/graphql-types'
 
 export const query = graphql`
     query allPosts {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
             totalCount
             edges {
                 node {
@@ -14,6 +14,9 @@ export const query = graphql`
                     frontmatter {
                         title
                         date(formatString: "YYYY-MM-DD")
+                    }
+                    fields {
+                        slug
                     }
                     excerpt
                 }
@@ -30,13 +33,14 @@ const Page: GatsbyComponent<AllPostsQuery> = ({ data }) => {
             <ul>
                 {oc(data)
                     .allMarkdownRemark.edges([])
-                    .map(post => (
-                        <li key={post.node.id}>
-                            {oc(post).node.frontmatter.date('')},{oc(post).node.frontmatter.title('')}
-                        </li>
-                    ))}
+                    .map(post => {
+                        const title = `${oc(post).node.frontmatter.date('')},${oc(post).node.frontmatter.title('')}`
+                        const slug = oc(post).node.fields.slug('')
+                        return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
+                    })}
             </ul>
         </div>
     )
 }
+
 export default Page
