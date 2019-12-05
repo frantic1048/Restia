@@ -13,14 +13,13 @@ export const query = graphql`
     }
 `
 
-const Page: GatsbyComponent<SiteMetadataQuery> = ({ data }) => {
-    return (
-     <div>
-            Welcome to <b>{data.site?.siteMetadata?.title ?? ''}</b>
-            <p>
-                <Link to="/posts">Pyon Pyon Posts</Link>
-            </p>
-        </div>
-    )
-}
+const Page: GatsbyComponent<SiteMetadataQuery> = ({ data }) => (
+    <div>
+        Welcome to <b>{data.site?.siteMetadata?.title ?? ''}</b>
+        <p>
+            <Link to="/posts">Pyon Pyon Posts</Link>
+        </p>
+    </div>
+)
+
 export default Page

@@ -11,10 +11,7 @@
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
-        "typeRoots": [
-            "./types",
-            "./node_modules/@types"
-        ],
+        "typeRoots": ["./types", "./node_modules/@types"],
         "baseUrl": "./src"
     },
     "include": ["src"]

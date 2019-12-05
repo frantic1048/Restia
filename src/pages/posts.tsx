@@ -24,21 +24,18 @@ export const query = graphql`
     }
 `
 
-const Page: GatsbyComponent<AllPostsQuery> = ({ data }) => {
-    return (
-        <div>
-            <h1>Pyon Pyon Posts</h1>
-            <Link to="/">Pyon</Link>
-            <ul>
-                {(data.allMarkdownRemark?.edges ?? [])
-                    .map(post => {
-                        const title = `${post.node.frontmatter?.date ?? ''},${post.node.frontmatter?.title ?? ''}`
-                        const slug = post.node.fields?.slug ??''
-                        return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
-                    })}
-            </ul>
-        </div>
-    )
-}
+const Page: GatsbyComponent<AllPostsQuery> = ({ data }) => (
+    <div>
+        <h1>Pyon Pyon Posts</h1>
+        <Link to="/">Pyon</Link>
+        <ul>
+            {(data.allMarkdownRemark?.edges ?? []).map(post => {
+                const title = `${post.node.frontmatter?.date ?? ''},${post.node.frontmatter?.title ?? ''}`
+                const slug = post.node.fields?.slug ?? ''
+                return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
+            })}
+        </ul>
+    </div>
+)
 
 export default Page

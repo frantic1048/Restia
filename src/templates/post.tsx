@@ -16,8 +16,8 @@ export const query = graphql`
 `
 
 const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
-    const title = data.markdownRemark?.frontmatter?.title ??''
-    const date = data.markdownRemark?.frontmatter?.date??''
+    const title = data.markdownRemark?.frontmatter?.title ?? ''
+    const date = data.markdownRemark?.frontmatter?.date ?? ''
     const html = data.markdownRemark?.html ?? ''
     return (
         <div>
