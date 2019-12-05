@@ -1,6 +1,5 @@
 import { graphql, Link } from 'gatsby'
 import * as React from 'react'
-import { oc } from 'ts-optchain'
 import { GatsbyComponent } from 'util/types'
 import { AllPostsQuery } from '../../types/graphql-types'
 
@@ -31,11 +30,10 @@ const Page: GatsbyComponent<AllPostsQuery> = ({ data }) => {
             <h1>Pyon Pyon Posts</h1>
             <Link to="/">Pyon</Link>
             <ul>
-                {oc(data)
-                    .allMarkdownRemark.edges([])
+                {(data.allMarkdownRemark?.edges ?? [])
                     .map(post => {
-                        const title = `${oc(post).node.frontmatter.date('')},${oc(post).node.frontmatter.title('')}`
-                        const slug = oc(post).node.fields.slug('')
+                        const title = `${post.node.frontmatter?.date ?? ''},${post.node.frontmatter?.title ?? ''}`
+                        const slug = post.node.fields?.slug ??''
                         return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
                     })}
             </ul>
