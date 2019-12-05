@@ -1,50 +1,53 @@
 {
-  "name": "@frantic1048/restia",
-  "private": true,
-  "description": "",
-  "version": "0.1.0",
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "lint": "tslint -p .",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  },
-  "dependencies": {
-    "gatsby": "2.13.39",
-    "gatsby-source-filesystem": "2.1.8",
-    "gatsby-transformer-remark": "2.6.10",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "ts-optchain": "0.1.8"
-  },
-  "devDependencies": {
-    "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.5",
-    "cz-customizable": "6.2.0",
-    "gatsby-plugin-ts": "1.3.3",
-    "prettier": "1.18.2",
-    "tslint": "5.18.0",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-eslint-rules": "5.4.0",
-    "tslint-plugin-prettier": "2.0.1",
-    "tslint-react": "4.0.0",
-    "tslint-sonarts": "1.9.0",
-    "typescript": "3.5.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/frantic1048/Restia"
-  },
-  "bugs": {
-    "url": "https://github.com/frantic1048/Restia/issues"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-customizable"
+    "name": "@frantic1048/restia",
+    "private": true,
+    "description": "",
+    "version": "0.1.0",
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "lint:ts": "tslint -p .",
+        "lint:format": "prettier -c src/**/*.{js,jsx,ts,tsx}",
+        "lint": "npm run lint:ts && npm run lint:format",
+        "fix:format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
+        "fix": "npm run fix:format",
+        "start": "npm run develop",
+        "serve": "gatsby serve",
+        "test": "npm run lint"
+    },
+    "dependencies": {
+        "gatsby": "2.13.39",
+        "gatsby-source-filesystem": "2.1.8",
+        "gatsby-transformer-remark": "2.6.10",
+        "react": "16.8.6",
+        "react-dom": "16.8.6",
+        "ts-optchain": "0.1.8"
+    },
+    "devDependencies": {
+        "@types/react": "16.8.23",
+        "@types/react-dom": "16.8.5",
+        "cz-customizable": "6.2.0",
+        "gatsby-plugin-ts": "1.3.3",
+        "prettier": "1.18.2",
+        "tslint": "5.18.0",
+        "tslint-config-prettier": "1.18.0",
+        "tslint-eslint-rules": "5.4.0",
+        "tslint-plugin-prettier": "2.0.1",
+        "tslint-react": "4.0.0",
+        "tslint-sonarts": "1.9.0",
+        "typescript": "3.7.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/frantic1048/Restia"
+    },
+    "bugs": {
+        "url": "https://github.com/frantic1048/Restia/issues"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-customizable"
+        }
     }
-  }
 }
