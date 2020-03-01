@@ -2,9 +2,21 @@ import { graphql } from 'gatsby'
 import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
 import { PostDetailQuery } from '../../types/graphql-types'
+import Layout from '../components/Layout'
+import { percent, viewHeight } from 'csx'
+import { style } from 'typestyle'
+
+const postClassName = style({
+    $nest: {
+        img: {
+            maxHeight: viewHeight(70),
+            maxWidth: percent(100),
+        },
+    },
+})
 
 export const query = graphql`
-    query postDetail($slug: String!) {
+    query PostDetail($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
             html
             frontmatter {
@@ -20,11 +32,11 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
     const date = data.markdownRemark?.frontmatter?.date ?? ''
     const html = data.markdownRemark?.html ?? ''
     return (
-        <div>
+        <Layout className={postClassName}>
             <h1>{title}</h1>
             <p>{date}</p>
             <div dangerouslySetInnerHTML={{ __html: html }} />
-        </div>
+        </Layout>
     )
 }
 

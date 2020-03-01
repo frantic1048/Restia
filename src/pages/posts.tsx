@@ -1,10 +1,11 @@
 import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
-import { AllPostsQuery } from '../../types/graphql-types'
+import { ArchiveListQuery } from '../../types/graphql-types'
+import Layout from '../components/Layout'
 
 export const query = graphql`
-    query allPosts {
+    query ArchiveList {
         allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
             totalCount
             edges {
@@ -24,10 +25,9 @@ export const query = graphql`
     }
 `
 
-const Page: GatsbyComponent<AllPostsQuery> = ({ data }) => (
-    <div>
+const Page: GatsbyComponent<ArchiveListQuery> = ({ data }) => (
+    <Layout>
         <h1>Pyon Pyon Posts</h1>
-        <Link to="/">Pyon</Link>
         <ul>
             {(data.allMarkdownRemark?.edges ?? []).map(post => {
                 const title = `${post.node.frontmatter?.date ?? ''},${post.node.frontmatter?.title ?? ''}`
@@ -35,7 +35,7 @@ const Page: GatsbyComponent<AllPostsQuery> = ({ data }) => (
                 return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
             })}
         </ul>
-    </div>
+    </Layout>
 )
 
 export default Page

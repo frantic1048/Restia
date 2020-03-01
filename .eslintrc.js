@@ -62,7 +62,7 @@ module.exports = {
         'arrow-body-style': 'error',
         'arrow-parens': ['off', 'as-needed'],
         camelcase: 'error',
-        'capitalized-comments': 'error',
+        'capitalized-comments': 'off',
         'class-methods-use-this': 'error',
         'comma-dangle': 'off',
         complexity: 'error',
