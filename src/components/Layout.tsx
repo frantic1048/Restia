@@ -1,13 +1,15 @@
 import * as React from 'react'
 import { style, cssRule, classes, getStyles } from 'typestyle'
-import { rgb, linearGradient, deg, rgba, viewWidth, viewHeight, rem, em } from 'csx'
+import { rgb, linearGradient, deg, rgba, viewWidth, viewHeight, rem, em, percent } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '../../types/graphql-types'
 import { scaleAt } from '../util/constants'
 import { Helmet } from 'react-helmet'
 
 const layoutClassName = style({
-    margin: rem(2),
+    padding: rem(2),
+    minHeight: viewHeight(100),
+    boxSizing: 'border-box',
 })
 
 const headerClassName = style(
@@ -49,8 +51,6 @@ const Layout = ({ children, className }: LayoutProps) => {
         cssRule('html, body', {
             padding: 0,
             margin: 0,
-            height: viewHeight(100),
-            width: viewWidth(100),
             background: [
                 // Xjbg
                 linearGradient(deg(257), rgba(179, 232, 255, 0.6), rgba(255, 0, 0, 0)),
