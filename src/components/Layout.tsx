@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { style, cssRule, classes } from 'typestyle'
+import { style, cssRule, classes, getStyles } from 'typestyle'
 import { rgb, linearGradient, deg, rgba, viewWidth, viewHeight, rem, em } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '../../types/graphql-types'
 import { scaleAt } from '../util/constants'
+import { Helmet } from 'react-helmet'
 
 const layoutClassName = style({
     margin: rem(2),
@@ -79,6 +80,9 @@ const Layout = ({ children, className }: LayoutProps) => {
 
     return (
         <div className={classes(layoutClassName, className)}>
+            <Helmet>
+                <style>{getStyles()}</style>
+            </Helmet>
             <header className={headerClassName}>{data.site?.siteMetadata?.title ?? ''}</header>
             <nav>
                 <NavLink to="/">Home</NavLink>
