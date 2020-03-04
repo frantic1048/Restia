@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { style, cssRule, classes, getStyles, setStylesTarget } from 'typestyle'
-import { rgb, linearGradient, deg, rgba, viewWidth, viewHeight, rem, em, percent } from 'csx'
+import { style, cssRule, classes } from 'typestyle'
+import { rgb, linearGradient, deg, rgba, viewHeight, rem, em } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '../../types/graphql-types'
 import { scaleAt } from '../util/constants'
-import { Helmet } from 'react-helmet'
 
 const layoutClassName = style({
     padding: rem(2),
