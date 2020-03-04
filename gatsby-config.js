@@ -1,5 +1,11 @@
 module.exports = {
     plugins: [
+        {
+            resolve: 'gatsby-plugin-typestyle', // local plugin
+            options: {
+                styleTargetId: 'pyonpyon-style',
+            },
+        },
         'gatsby-plugin-react-helmet',
         {
             resolve: 'gatsby-plugin-ts',

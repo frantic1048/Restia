@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { style, cssRule, classes, getStyles } from 'typestyle'
+import { style, cssRule, classes, getStyles, setStylesTarget } from 'typestyle'
 import { rgb, linearGradient, deg, rgba, viewWidth, viewHeight, rem, em, percent } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '../../types/graphql-types'
@@ -44,30 +44,31 @@ const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps
 ))
 
 /**
+ * some global rules
+ */
+cssRule('html, body', {
+    padding: 0,
+    margin: 0,
+    background: [
+        // Xjbg
+        linearGradient(deg(257), rgba(179, 232, 255, 0.6), rgba(255, 0, 0, 0)),
+        linearGradient(deg(167), rgba(0, 0, 255, 0.45), rgba(255, 0, 0, 0)),
+        linearGradient(deg(376), rgba(135, 206, 251, 0.7), rgba(255, 0, 0, 0)),
+        rgb(253, 255, 245).toHexString(),
+    ].join(','),
+    backgroundAttachment: 'fixed',
+})
+cssRule('h1', ...scaleAt(2))
+cssRule('h2', ...scaleAt(1))
+cssRule('h3', ...scaleAt(-1))
+cssRule('h4', ...scaleAt(-2))
+cssRule('h5', ...scaleAt(-3))
+cssRule('h6', ...scaleAt(-4))
+
+/**
  * Top level layout container
  */
 const Layout = ({ children, className }: LayoutProps) => {
-    React.useEffect(() => {
-        cssRule('html, body', {
-            padding: 0,
-            margin: 0,
-            background: [
-                // Xjbg
-                linearGradient(deg(257), rgba(179, 232, 255, 0.6), rgba(255, 0, 0, 0)),
-                linearGradient(deg(167), rgba(0, 0, 255, 0.45), rgba(255, 0, 0, 0)),
-                linearGradient(deg(376), rgba(135, 206, 251, 0.7), rgba(255, 0, 0, 0)),
-                rgb(253, 255, 245).toHexString(),
-            ].join(','),
-            backgroundAttachment: 'fixed',
-        })
-        cssRule('h1', ...scaleAt(2))
-        cssRule('h2', ...scaleAt(1))
-        cssRule('h3', ...scaleAt(-1))
-        cssRule('h4', ...scaleAt(-2))
-        cssRule('h5', ...scaleAt(-3))
-        cssRule('h6', ...scaleAt(-4))
-    }, [])
-
     const data = useStaticQuery<LayoutQuery>(graphql`
         query layout {
             site {
@@ -80,9 +81,6 @@ const Layout = ({ children, className }: LayoutProps) => {
 
     return (
         <div className={classes(layoutClassName, className)}>
-            <Helmet>
-                <style>{getStyles()}</style>
-            </Helmet>
             <header className={headerClassName}>{data.site?.siteMetadata?.title ?? ''}</header>
             <nav>
                 <NavLink to="/">Home</NavLink>

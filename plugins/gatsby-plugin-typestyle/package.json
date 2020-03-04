@@ -1,0 +1,11 @@
+{
+    "name": "@frantic1048/gatsby-plugin-typestyle",
+    "description": "provides typestyle with SSR configured for Gatsby.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "frantic1048",
+    "peerDependencies": {
+        "typestyle": "2.0.0^"
+    }
+}
