@@ -7,6 +7,7 @@ export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }, { 
     replaceHeadComponents([
         ...getHeadComponents(),
         React.createElement('style', {
+            key: styleTargetId,
             id: styleTargetId,
             dangerouslySetInnerHTML: { __html: getStyles() },
         }),
