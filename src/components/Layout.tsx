@@ -93,9 +93,9 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
 
     const image = pageImage ?? data.site?.siteMetadata?.image ?? ''
 
-    const baseTitle = data.site?.siteMetadata?.title ?? ''
+    const siteName = data.site?.siteMetadata?.title ?? ''
     const titlePrefix = pageTitle ? `${pageTitle} | ` : ''
-    const title = `${titlePrefix}${baseTitle}`
+    const title = `${titlePrefix}${siteName}`
 
     /**
      * TODO
@@ -115,7 +115,8 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
                 <title>{title}</title>
                 <meta name="description" content={description} />
                 <meta name="image" content={image} />
-                <meta property="og:title" content={title} />
+                {pageTitle && <meta property="og:title" content={pageTitle} />}
+                <meta property="og:site_name" content={siteName} />
                 <meta property="og:description" content={description} />
                 <meta property="og:url" content={url} />
                 <meta property="og:image" content={image} />
