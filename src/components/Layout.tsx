@@ -4,6 +4,7 @@ import { rgb, linearGradient, deg, rgba, viewHeight, rem, em } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '../../types/graphql-types'
 import { scaleAt } from '../util/constants'
+import Helmet from 'react-helmet'
 
 const layoutClassName = style({
     padding: rem(2),
@@ -34,6 +35,11 @@ const navLinkClassName = style(
 interface LayoutProps {
     children: React.ReactNode
     className?: string
+    pageTitle?: string
+    pageImage?: string
+    pageDescription?: string
+    /** related to root, leading slash is NEEDED */
+    pageUrl?: string
 }
 
 // MEMO: is anything wrong here :thingking:?
@@ -67,19 +73,53 @@ cssRule('h6', ...scaleAt(-4))
 /**
  * Top level layout container
  */
-const Layout = ({ children, className }: LayoutProps) => {
+const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescription }: LayoutProps) => {
     const data = useStaticQuery<LayoutQuery>(graphql`
         query layout {
             site {
                 siteMetadata {
                     title
+                    description
+                    image
+                    siteUrl
                 }
             }
         }
     `)
 
+    const description = pageDescription ?? data.site?.siteMetadata?.description ?? ''
+
+    const url = `${data.site?.siteMetadata?.siteUrl ?? ''}${pageUrl ?? ''}`
+
+    const image = pageImage ?? data.site?.siteMetadata?.image ?? ''
+
+    const baseTitle = data.site?.siteMetadata?.title ?? ''
+    const titlePrefix = pageTitle ? `${pageTitle} | ` : ''
+    const title = `${titlePrefix}${baseTitle}`
+
+    /**
+     * TODO
+     *
+     * structured data
+     * https://developers.google.com/search/docs/guides/intro-structured-data
+     */
     return (
         <div className={classes(layoutClassName, className)}>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+                <link rel="shortcut icon" sizes="192x192" href="/favicon-192x192.png" />
+                <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png" />
+                <meta name="msapplication-TileColor" content="#3b6ece" />
+                <meta name="theme-color" content="#ffffff" />
+                <title>{title}</title>
+                <meta name="description" content={description} />
+                <meta name="image" content={image} />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:url" content={url} />
+                <meta property="og:image" content={image} />
+            </Helmet>
             <header className={headerClassName}>{data.site?.siteMetadata?.title ?? ''}</header>
             <nav>
                 <NavLink to="/">Home</NavLink>

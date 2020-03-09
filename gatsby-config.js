@@ -27,5 +27,6 @@ module.exports = {
         title: 'Pyon Pyon Today',
         description: 'Pyon Pyon Today',
         siteUrl: `https://pyonpyon.today`,
+        image: '/favicon.png',
     },
 }

@@ -29,6 +29,9 @@ export const query = graphql`
                 title
                 date
             }
+            fields {
+                slug
+            }
         }
     }
 `
@@ -37,8 +40,9 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
     const title = data.markdownRemark?.frontmatter?.title ?? ''
     const date = data.markdownRemark?.frontmatter?.date ?? ''
     const html = data.markdownRemark?.html ?? ''
+    const url = data.markdownRemark?.fields?.slug ?? ''
     return (
-        <Layout className={postClassName}>
+        <Layout className={postClassName} pageTitle={title} pageUrl={url}>
             <h1>{title}</h1>
             <p>{date}</p>
             <div dangerouslySetInnerHTML={{ __html: html }} />
