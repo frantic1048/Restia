@@ -21,8 +21,11 @@ module.exports = {
             },
         },
         'gatsby-transformer-remark',
+        'gatsby-plugin-feed',
     ],
     siteMetadata: {
         title: 'Pyon Pyon Today',
+        description: 'Pyon Pyon Today',
+        siteUrl: `https://pyonpyon.today`,
     },
 }
