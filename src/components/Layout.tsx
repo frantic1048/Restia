@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { style, cssRule, classes } from 'typestyle'
-import { rgb, linearGradient, deg, rgba, viewHeight, rem, em } from 'csx'
+import { rgb, viewHeight, rem, em } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '../../types/graphql-types'
 import { scaleAt } from '../util/constants'
@@ -10,11 +10,13 @@ const layoutClassName = style({
     padding: rem(2),
     minHeight: viewHeight(100),
     boxSizing: 'border-box',
+    fontFamily: 'serif',
+    color: '#333',
 })
 
 const headerClassName = style(
     {
-        color: rgb(253, 255, 245).toHexString(),
+        textAlign: 'center',
     },
     ...scaleAt(3),
 )
@@ -54,13 +56,7 @@ const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps
 cssRule('html, body', {
     padding: 0,
     margin: 0,
-    background: [
-        // Xjbg
-        linearGradient(deg(257), rgba(179, 232, 255, 0.6), rgba(255, 0, 0, 0)),
-        linearGradient(deg(167), rgba(0, 0, 255, 0.45), rgba(255, 0, 0, 0)),
-        linearGradient(deg(376), rgba(135, 206, 251, 0.7), rgba(255, 0, 0, 0)),
-        rgb(253, 255, 245).toHexString(),
-    ].join(','),
+    background: rgb(253, 255, 245).toHexString(),
     backgroundAttachment: 'fixed',
 })
 cssRule('h1', ...scaleAt(2))

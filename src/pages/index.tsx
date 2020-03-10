@@ -27,7 +27,7 @@ export const query = graphql`
 
 const Page: GatsbyComponent<IndexPageQuery> = ({ data }) => (
     <Layout>
-        <h1>Recent Posts</h1>
+        <p>Recent Posts</p>
         <ul>
             {(data.allMarkdownRemark?.edges ?? []).map(post => {
                 const title = `${post.node.frontmatter?.date ?? ''} | ${post.node.frontmatter?.title ?? ''}`

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
 import { PostDetailQuery } from '../../types/graphql-types'
 import Layout from '../components/Layout'
-import { percent, viewHeight, rgb, quote } from 'csx'
+import { percent, viewHeight, rgb, quote, px } from 'csx'
 import { style } from 'typestyle'
 
 const postClassName = style({
@@ -11,6 +11,7 @@ const postClassName = style({
         '& img': {
             maxHeight: viewHeight(70),
             maxWidth: percent(100),
+            boxShadow: `${px(3)} ${px(3)} ${px(3)} #aaa`,
         },
         /**
          * MEMO: just works, tune later

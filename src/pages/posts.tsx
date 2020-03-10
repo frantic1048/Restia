@@ -28,7 +28,6 @@ export const query = graphql`
 
 const Page: GatsbyComponent<ArchiveListQuery> = ({ data }) => (
     <Layout pageTitle="Pyon Pyon Posts" pageUrl="/posts">
-        <h1>Pyon Pyon Posts</h1>
         <ul>
             {(data.allMarkdownRemark?.edges ?? []).map(post => {
                 const title = `${post.node.frontmatter?.date ?? ''} | ${post.node.frontmatter?.category ?? ''} | ${post
