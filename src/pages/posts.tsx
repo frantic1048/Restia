@@ -14,6 +14,7 @@ export const query = graphql`
                     frontmatter {
                         title
                         date(formatString: "YYYY-MM-DD")
+                        category
                     }
                     fields {
                         slug
@@ -30,7 +31,8 @@ const Page: GatsbyComponent<ArchiveListQuery> = ({ data }) => (
         <h1>Pyon Pyon Posts</h1>
         <ul>
             {(data.allMarkdownRemark?.edges ?? []).map(post => {
-                const title = `${post.node.frontmatter?.date ?? ''},${post.node.frontmatter?.title ?? ''}`
+                const title = `${post.node.frontmatter?.date ?? ''} | ${post.node.frontmatter?.category ?? ''} | ${post
+                    .node.frontmatter?.title ?? ''}`
                 const slug = post.node.fields?.slug ?? ''
                 return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
             })}
