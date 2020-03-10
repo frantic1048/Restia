@@ -9,12 +9,12 @@ category: Photography
 
 # (FuRyu) Chino Ohana no Buranko
 
-![Chino Ohana no Buranko](/photo/furyu.chino_ohana_no_buranko/IMG_2292.webp)
-![Chino Ohana no Buranko](/photo/furyu.chino_ohana_no_buranko/IMG_2304.webp)
-![Chino Ohana no Buranko](/photo/furyu.chino_ohana_no_buranko/IMG_2311.webp)
-![Chino Ohana no Buranko](/photo/furyu.chino_ohana_no_buranko/IMG_2313.webp)
-![Chino Ohana no Buranko](/photo/furyu.chino_ohana_no_buranko/IMG_2320.webp)
-![Chino Ohana no Buranko](/photo/furyu.chino_ohana_no_buranko/IMG_2327.webp)
+![Chino Ohana no Buranko](/photo/figure/furyu__chino_ohana_no_buranko/IMG_2292.webp)
+![Chino Ohana no Buranko](/photo/figure/furyu__chino_ohana_no_buranko/IMG_2304.webp)
+![Chino Ohana no Buranko](/photo/figure/furyu__chino_ohana_no_buranko/IMG_2311.webp)
+![Chino Ohana no Buranko](/photo/figure/furyu__chino_ohana_no_buranko/IMG_2313.webp)
+![Chino Ohana no Buranko](/photo/figure/furyu__chino_ohana_no_buranko/IMG_2320.webp)
+![Chino Ohana no Buranko](/photo/figure/furyu__chino_ohana_no_buranko/IMG_2327.webp)
 
 # (Stronger) Chino Mahou Shuojo ver.
 
