@@ -85,9 +85,18 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
 
     const description = pageDescription ?? data.site?.siteMetadata?.description ?? ''
 
-    const url = `${data.site?.siteMetadata?.siteUrl ?? ''}${pageUrl ?? ''}`
+    const siteUrl = data.site?.siteMetadata?.siteUrl ?? ''
+    const url = `${siteUrl}${pageUrl ?? ''}`
 
     const image = pageImage ?? data.site?.siteMetadata?.image ?? ''
+
+    /**
+     * twitter likes full URL
+     *
+     * ref:
+     * https://twittercommunity.com/t/not-whitelisted-unable-to-render-or-no-image-read-this-first/62736
+     */
+    const twitterImage = `${siteUrl}${image}`
 
     const siteName = data.site?.siteMetadata?.title ?? ''
     const titlePrefix = pageTitle ? `${pageTitle} | ` : ''
@@ -119,7 +128,7 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={pageTitle ?? siteName} />
                 <meta name="twitter:description" content={description} />
-                <meta name="twitter:image" content={image} />
+                <meta name="twitter:image" content={twitterImage} />
             </Helmet>
             <header className={headerClassName}>{data.site?.siteMetadata?.title ?? ''}</header>
             <nav>
