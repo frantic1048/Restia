@@ -20,4 +20,4 @@ jobs:
         npm run build
 
     - name: Deploy
-      run: npx netlify deploy --dir=public
+      run: npx netlify-cli deploy --dir=public
