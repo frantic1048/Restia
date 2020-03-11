@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches: [ incarnation ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: Setup Node.js for use with actions
+      uses: actions/setup-node@v1.1.0
+
+    - name: Init and build
+      run: |
+        npm install
+        npm run build
+
+    - name: Deploy
+      run: npx netlify deploy --dir=public
