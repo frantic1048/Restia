@@ -59,7 +59,7 @@ export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }, { 
 
 现在跑一波构建，已经能看到 CSS 成功写入 HTML 里了。
 
-# 第二步：在客户端 ReactDOM 渲染完 **之后** 调用 `typestyle.setStylesTarget` 让 Typestyle 复用 SSR 输出 CSS 的那个 style 元素
+# 第二步：在客户端 ReactDOM 让 Typestyle 接手 SSR 输出的 CSS
 
 按照 Typestyle 文档来说，需要在客户端 ReactDOM 渲染完后跑这样一段逻辑：
 
