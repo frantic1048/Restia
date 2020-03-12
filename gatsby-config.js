@@ -20,7 +20,19 @@ module.exports = {
                 path: `${__dirname}/src/posts`,
             },
         },
-        'gatsby-transformer-remark',
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                plugins: [
+                    {
+                        resolve: 'gatsby-remark-highlights',
+                        options: {
+                            scopePrefix: 'syntax--',
+                        },
+                    },
+                ],
+            },
+        },
         'gatsby-plugin-feed',
     ],
     siteMetadata: {
