@@ -11,10 +11,10 @@ jobs:
       with:
         lfs: true
 
-    - name: Setup Node.js for use with actions
-      uses: actions/setup-node@v1.1.0
+    - uses: actions/setup-node@v1.1.0
 
-    - name: Init and build
-      run: |
-        npm install
-        npm run build
+    - name: Init deps
+      run: yarn --frozen-lockfile
+
+    - name: Build
+      run: yarn build
