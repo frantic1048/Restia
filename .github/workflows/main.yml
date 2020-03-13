@@ -14,10 +14,10 @@ jobs:
     - uses: actions/setup-node@v1.1.0
 
     - name: Init deps
-      run: npm install
+      run: yarn --frozen-lockfile
 
     - name: Build
-      run: npm run build
+      run: yarn build
 
     - name: Deploy
       env:
