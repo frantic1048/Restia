@@ -248,6 +248,6 @@ Pelican 使用Disqus评论, 可以在Disqus上申请一个站点, 然后在pelic
 [pelican doc]: http://docs.getpelican.com/en/3.1.1/
 [tucao]: https://github.com/getpelican/pelican/issues/876/
 
-[create-a-new-repo]: /image/create-a-new-repo.webp
-[create-a-new-repo2]: /image/craate-a-new-repo2.webp
-[auto-generator]: /image/auto-generator.webp
+[create-a-new-repo]: ../../static/image/create-a-new-repo.jpg
+[create-a-new-repo2]: ../../static/image/craate-a-new-repo2.jpg
+[auto-generator]: ../../static/image/auto-generator.jpg

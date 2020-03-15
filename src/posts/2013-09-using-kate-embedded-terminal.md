@@ -16,6 +16,6 @@ category: Tech
 
 ![][kate-terminal]
 
-[kate-no-terminal]: /image/kate-with-out-terminal.webp
-[kate-configure]: /image/kate-configure-terminal.webp
-[kate-terminal]: /image/kate-with-terminal.webp
+[kate-no-terminal]: ../../static/image/kate-with-out-terminal.jpg
+[kate-configure]: ../../static/image/kate-configure-terminal.jpg
+[kate-terminal]: ../../static/image/kate-with-terminal.jpg

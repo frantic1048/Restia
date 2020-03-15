@@ -103,5 +103,5 @@ CSS:
         transition:all 0.2s ease-in-out;
     }
 
-[demo-pure-css-tooltip-capture]: /image/demo-pure-css-tooltip.webp
+[demo-pure-css-tooltip-capture]: ../../static/image/demo-pure-css-tooltip.jpg
 [demo-pure-css-tooltip]: http://frantic1048.com/pages/demo-pure-css-tooltip/demo-pure-css-tooltip.html "View Demo"
