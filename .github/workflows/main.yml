@@ -16,6 +16,9 @@ jobs:
     - name: Init deps
       run: yarn --frozen-lockfile
 
+    - name: Test
+      run: yarn lint
+
     - name: Build
       run: yarn build
 
