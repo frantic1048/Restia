@@ -17,4 +17,4 @@ category: Tech
 
     ssl_version=tlsv1
 
-再次运行 rhc， 连接成功╮(￣▽￣)╭
+再次运行 rhc， 连接成功 ╮(￣ ▽ ￣)╭

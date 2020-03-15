@@ -5,22 +5,21 @@ tags: [CSS]
 category: Web
 ---
 
-
 ![][demo-pure-css-tooltip-capture]
 
 [VIEW DEMO][demo-pure-css-tooltip]
 
-tootip这个东西，真是什么地方都用得着，这段时间就不可避免的遇到了。
+tootip 这个东西，真是什么地方都用得着，这段时间就不可避免的遇到了。
 
-首先考虑一下tooltip的基本表现：
+首先考虑一下 tooltip 的基本表现：
 
 > 移动到某个元素上就会弹出的元素
 
-这应该是最简单的tooltip了。
+这应该是最简单的 tooltip 了。
 
-首先是移动到某个元素上触发效果，这里想必会用到`:hover`伪类。但是对其作出反应的却是另外一个元素，这里就需要实现一个联动的效果，最简单的方法，那就是嵌套咯，用外层元素做容器，使用`:hover`伪类派生的方法来让容器内部的元素也发生变化，在这儿就是让tooltip显示出来喽～
+首先是移动到某个元素上触发效果，这里想必会用到`:hover`伪类。但是对其作出反应的却是另外一个元素，这里就需要实现一个联动的效果，最简单的方法，那就是嵌套咯，用外层元素做容器，使用`:hover`伪类派生的方法来让容器内部的元素也发生变化，在这儿就是让 tooltip 显示出来喽～
 
-于是，就先来弄几个个自带容器的tooltip吧。
+于是，就先来弄几个个自带容器的 tooltip 吧。
 
 HTML:
 
@@ -32,12 +31,12 @@ HTML:
         <span><a href="#">D.C.</a><span class="tooltip">Da Capo</span></span>
     </div>
 
-接下来就是关键的CSS了,有这几个关键的地方：
+接下来就是关键的 CSS 了,有这几个关键的地方：
 
-* 一般情况下tooltip是不应该显示出来的，所以最简单的就是将它的透明度设置为0（`opacity:0;`）。
-* 对于tooltip的定位，在这个演示里面tooltip在其容器的正上方出现，为了给tooltip设置相对于容器的定位，将它的父元素设置为相对定位（`position:relative;`）。
-* 在tooltip的父元素处于光标下的时候让tooltip显示出来，这个样式就通过父元素的`:hover`伪类派生来设定。
-* 为了让tooltip的出现来得和谐点，给它加个`transition`。
+-   一般情况下 tooltip 是不应该显示出来的，所以最简单的就是将它的透明度设置为 0（`opacity:0;`）。
+-   对于 tooltip 的定位，在这个演示里面 tooltip 在其容器的正上方出现，为了给 tooltip 设置相对于容器的定位，将它的父元素设置为相对定位（`position:relative;`）。
+-   在 tooltip 的父元素处于光标下的时候让 tooltip 显示出来，这个样式就通过父元素的`:hover`伪类派生来设定。
+-   为了让 tooltip 的出现来得和谐点，给它加个`transition`。
 
 CSS:
 
@@ -104,4 +103,4 @@ CSS:
     }
 
 [demo-pure-css-tooltip-capture]: ../../static/image/demo-pure-css-tooltip.jpg
-[demo-pure-css-tooltip]: http://frantic1048.com/pages/demo-pure-css-tooltip/demo-pure-css-tooltip.html "View Demo"
+[demo-pure-css-tooltip]: http://frantic1048.com/pages/demo-pure-css-tooltip/demo-pure-css-tooltip.html 'View Demo'

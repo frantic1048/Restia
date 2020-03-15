@@ -13,13 +13,13 @@ category: Tech
 
 #环境准备
 
-- 系统：Linux 3.16.4-1-ARCH
-- 服务器与相关软件:
-  - nginx 1.6.2-1
-  - php 5.6.1-1
-  - php-fpm 5.6.1-1
-  - mariadb 10.0.14-2
-  - discuz x2.5
+-   系统：Linux 3.16.4-1-ARCH
+-   服务器与相关软件:
+    -   nginx 1.6.2-1
+    -   php 5.6.1-1
+    -   php-fpm 5.6.1-1
+    -   mariadb 10.0.14-2
+    -   discuz x2.5
 
 Discuz 是在这里获取的：[http://www.discuz.net/thread-2744369-1-1.html]()，我选择的是 `X2.5 UTF8 简体中文版`。
 

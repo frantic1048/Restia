@@ -11,52 +11,49 @@ category: Tech
 
 总览：
 
-- 源代码：100% ES6
-- 构建控制：Gulp
-- 模块绑定：Webpack
-- 架构：[Flux]（Facebook 的实现）
-- 界面库：[React]
-- 界面组件库：[Material UI]
-- 测试：人形自走测试框架
+-   源代码：100% ES6
+-   构建控制：Gulp
+-   模块绑定：Webpack
+-   架构：[Flux]（Facebook 的实现）
+-   界面库：[React]
+-   界面组件库：[Material UI]
+-   测试：人形自走测试框架
 
 # 读取和存放图片数据
 
 为了让程序能够不用修改跑浏览器上，我没用 Node.js 的文件接口，而是用浏览器的 `<input>` 元素来做输入，很方便啊！自带 MIME 过滤，自带系统的文件对话框，省了好多事情，监听一下 `Change` 事件，然后用 [FileReader] 把图片数据读进来这个工作就完成啦～
 
-关于存放数据，我最开始是解析成 [ImageData] 存放的，结果后面发现这玩意儿怎么用怎么别扭，而且 canvas 的 [putImageData()] 竟然比 [drawImage()] 少了俩参数，没了自动缩放的支持，而且[绘制还慢][slow_putImageData]。而 canvas 很方便转换不说，还没那么慢，所以就开心用 canvas 来存放图像咯。
+关于存放数据，我最开始是解析成 [ImageData] 存放的，结果后面发现这玩意儿怎么用怎么别扭，而且 canvas 的 [putImageData()] 竟然比 [drawImage()] 少了俩参数，没了自动缩放的支持，而且[绘制还慢][slow_putimagedata]。而 canvas 很方便转换不说，还没那么慢，所以就开心用 canvas 来存放图像咯。
 
 实现起来像这样子:
 
 ```jsx
-<input
-  type="file"
-  multiple
-  accept="image/*"
-  onchange={handleFile}
-/>
+<input type="file" multiple accept="image/*" onchange={handleFile} />
 ```
 
 ```js
 function handleFile() {
-  function extractDataAndDoSomething(f) {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const img = new Image();
-    const fr = new FileReader();
-    img.onload = () => {
-      canvas.setAttribute('width', img.width);
-      canvas.setAttribute('height', img.height);
-      ctx.drawImage(img, 0, 0);
+    function extractDataAndDoSomething(f) {
+        const canvas = document.createElement('canvas')
+        const ctx = canvas.getContext('2d')
+        const img = new Image()
+        const fr = new FileReader()
+        img.onload = () => {
+            canvas.setAttribute('width', img.width)
+            canvas.setAttribute('height', img.height)
+            ctx.drawImage(img, 0, 0)
 
-      // store loaded image.
-      storeMyImage(canvas);
-    };
-    fr.onload = () => { img.src = fr.result; };
-    fr.readAsDataURL(f);
-  }
-  for (const eachFile of new Array(...this.refs.fileInput.files)) {
-    extractDataAndDoSomething(eachFile);
-  }
+            // store loaded image.
+            storeMyImage(canvas)
+        }
+        fr.onload = () => {
+            img.src = fr.result
+        }
+        fr.readAsDataURL(f)
+    }
+    for (const eachFile of new Array(...this.refs.fileInput.files)) {
+        extractDataAndDoSomething(eachFile)
+    }
 }
 ```
 
@@ -76,31 +73,31 @@ function handleFile() {
 
 ```js
 function getAllPositions(width, height) {
-  return function* pos() {
-    for (let y = 0; y < height; ++y) {
-      for (let x = 0; x < width; ++x) {
-        yield [x, y, y * width * 4 + x * 4];
-      }
+    return function* pos() {
+        for (let y = 0; y < height; ++y) {
+            for (let x = 0; x < width; ++x) {
+                yield [x, y, y * width * 4 + x * 4]
+            }
+        }
     }
-  };
 }
 ```
 
 然后就可以用 `for...of` 直接遍历了：
 
 ```js
-const allPos = getAllpositions(imageData.width, imageData.height);
+const allPos = getAllpositions(imageData.width, imageData.height)
 for (const [x, y, index] of allPos()) {
-   imageData.data[index];     // Red
-   imageData.data[index + 1]; // Green
-   imageData.data[index + 2]; // Blue
-   imageData.data[index + 3]; // Alpha
+    imageData.data[index] // Red
+    imageData.data[index + 1] // Green
+    imageData.data[index + 2] // Blue
+    imageData.data[index + 3] // Alpha
 }
 ```
 
 # 在 Web Worker 里面使用 ES6 Module
 
-为了避免卡界面太厉害，我把关于图像计算工作丢给了 [Web Workers][Using Web Workers] 处理，使用的时候发现即使是 Electron 环境下，它也是没有 `require` 之类的模块相关功能，而只能用那个看起来很捉计的 `importScripts()` 来导入外部文件，不过有 webpack 在，把 worker 部分程序的入口文件交给 webpack 绑定一下，就可以在 worker 代码里面用 `import` 导入模块了，也避免了用 `importScripts()` 造成 ESLint 疯狂报变量未声明/未使用的警报。
+为了避免卡界面太厉害，我把关于图像计算工作丢给了 [Web Workers][using web workers] 处理，使用的时候发现即使是 Electron 环境下，它也是没有 `require` 之类的模块相关功能，而只能用那个看起来很捉计的 `importScripts()` 来导入外部文件，不过有 webpack 在，把 worker 部分程序的入口文件交给 webpack 绑定一下，就可以在 worker 代码里面用 `import` 导入模块了，也避免了用 `importScripts()` 造成 ESLint 疯狂报变量未声明/未使用的警报。
 
 具体的实现可参考 Mangekyou 的 [gulpfile 中的配置](https://github.com/frantic1048/mangekyou/blob/master/gulpfile.babel.js#L123-L128)与对应的 [worker 的代码](https://github.com/frantic1048/mangekyou/blob/master/src/app/script/worker/worker.js)的组织方式。
 
@@ -111,30 +108,29 @@ for (const [x, y, index] of allPos()) {
 postMessage() 第二个参数是要移交的变量的数组，对于数组的话，只能移交 ArrayBuffer（可以通过数组的 `buffer` 属性获得），所以以 transferable object 的方式传递 ImageData 的数据是这个样子：
 
 ```js
-self.postMessage({
-  width: image.width,
-  height: image.height,
-  buffer: image.data.buffer,
-},[image.data.buffer]);
+self.postMessage(
+    {
+        width: image.width,
+        height: image.height,
+        buffer: image.data.buffer,
+    },
+    [image.data.buffer],
+)
 ```
 
 然后在接收数据的那端将其重新包装成 ImageData 进行后续操作：
 
 ```js
-function onMessage({data}) {
-  const imgd = new ImageData(
-    new Uint8ClampedArray(data.image.buffer),
-    data.image.width,
-    data.image.height
-  );
+function onMessage({ data }) {
+    const imgd = new ImageData(new Uint8ClampedArray(data.image.buffer), data.image.width, data.image.height)
 
-  // do somthing with recived imageData~
+    // do somthing with recived imageData~
 }
 ```
 
 # React 的 setState() 的奇怪的更新行为
 
-原以为 setState() 是像 Object.assign() 类似的方式更新 state 的，结果又不完全是；最后发现是自己没仔细看 [`setState()` 的文档][setState doc]，`shallow merge` 在那儿摆着 （´＿｀）
+原以为 setState() 是像 Object.assign() 类似的方式更新 state 的，结果又不完全是；最后发现是自己没仔细看 [`setState()` 的文档][setstate doc]，`shallow merge` 在那儿摆着 （´＿｀）
 
 比如 state 原本是 `{kotori: 0, honoka: {x: 1, y: 2}}`。
 
@@ -146,16 +142,16 @@ function onMessage({data}) {
 
 ```js
 this.setState({
-  honoka: {
-    ...this.state.honoka,
-    x: 2,
-  },
+    honoka: {
+        ...this.state.honoka,
+        x: 2,
+    },
 })
 ```
 
 # canvas 用的颜色空间不像是 sRGB
 
-在写 [Rec. 709] Luma 的计算的时候，找不到资料关于 canvas 到底用的什么颜色空间，因为 sRGB 在网页上是如此的通用，所以先写了带 [sRGB Gamma 校正][sRGB transform]的灰度化算法，然后丢进 Krita 里面去发现并不科学，然后去掉 Gamma 校正之后就正确了，尝试了 Chromium 47.0.2526.73 (64-bit)
+在写 [Rec. 709] Luma 的计算的时候，找不到资料关于 canvas 到底用的什么颜色空间，因为 sRGB 在网页上是如此的通用，所以先写了带 [sRGB Gamma 校正][srgb transform]的灰度化算法，然后丢进 Krita 里面去发现并不科学，然后去掉 Gamma 校正之后就正确了，尝试了 Chromium 47.0.2526.73 (64-bit)
 ，Firefox 44.0a2 (2015-12-06) 结果均是如此，目前来看，直接把 canvas 里面的颜色值当线性 RGB 值处理就可以了。
 
 # 用 `<a>` 标签触发浏览器下载
@@ -164,35 +160,35 @@ this.setState({
 
 ```js
 function handleExportImage() {
-  const a = document.createElement('a');
-  a.setAttribute('download', 'proceed.png');
-  a.setAttribute('href', canvas.toDataURL());
-  a.setAttribute('style', 'position: fixed; width: 0; height: 0;');
+    const a = document.createElement('a')
+    a.setAttribute('download', 'proceed.png')
+    a.setAttribute('href', canvas.toDataURL())
+    a.setAttribute('style', 'position: fixed; width: 0; height: 0;')
 
-  const link = document.body.appendChild(a);
-  link.click();
-  document.body.removeChild(link);
+    const link = document.body.appendChild(a)
+    link.click()
+    document.body.removeChild(link)
 }
 ```
 
 噢对，Mangekyou 源代码传送：[https://github.com/frantic1048/mangekyou](https://github.com/frantic1048/mangekyou)
 
-继续写 (ง •̀_•́)ง
+继续写 (ง •̀\_•́)ง
 
-[Flux]: https://facebook.github.io/flux/
-[Material UI]: http://material-ui.com/
-[React]: https://facebook.github.io/react/
-[FileReader]: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
-[ImageData]: https://developer.mozilla.org/en-US/docs/Web/API/ImageData/ImageData
-[drawImage()]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
-[putImageData()]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/putImageData
-[slow_putImageData]: http://stackoverflow.com/questions/3952856/why-is-putimagedata-so-slow
-[Generator]: http://exploringjs.com/es6/ch_generators.html
-[Using Web Workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+[flux]: https://facebook.github.io/flux/
+[material ui]: http://material-ui.com/
+[react]: https://facebook.github.io/react/
+[filereader]: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+[imagedata]: https://developer.mozilla.org/en-US/docs/Web/API/ImageData/ImageData
+[drawimage()]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+[putimagedata()]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/putImageData
+[slow_putimagedata]: http://stackoverflow.com/questions/3952856/why-is-putimagedata-so-slow
+[generator]: http://exploringjs.com/es6/ch_generators.html
+[using web workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
 [transferable objects]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers#Passing_data_by_transferring_ownership_%28transferable_objects%29
 [fast transferable]: https://developers.google.com/web/updates/2011/12/Transferable-Objects-Lightning-Fast
 [perf transferable]: https://jsperf.com/web-workers-transferable-objects
-[Rec. 709]: https://en.wikipedia.org/wiki/Rec._709
-[sRGB transform]: https://en.wikipedia.org/wiki/SRGB#Specification_of_the_transformation
+[rec. 709]: https://en.wikipedia.org/wiki/Rec._709
+[srgb transform]: https://en.wikipedia.org/wiki/SRGB#Specification_of_the_transformation
 [stackoverflow shallow merge]: http://stackoverflow.com/questions/18933985/this-setstate-isnt-merging-states-as-i-would-expect
-[setState doc]: https://facebook.github.io/react/docs/component-api.html#setstate
+[setstate doc]: https://facebook.github.io/react/docs/component-api.html#setstate

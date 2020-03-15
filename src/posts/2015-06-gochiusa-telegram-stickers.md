@@ -28,7 +28,7 @@ png 图片长宽需均小于等于 512px，且长边为 512px。
 
 使用 [imagemagick][] 可以一键批量搞定：`mogrify -resize 512x512 -format png <your pictures>`
 
-**批量操作之前一定要记得先备份！**我就是因为这个操作导致原尺寸的文件全被原地 resize 到 512px 了，现在得手动重做出原尺寸的大图 ˊ_>ˋ
+**批量操作之前一定要记得先备份！**我就是因为这个操作导致原尺寸的文件全被原地 resize 到 512px 了，现在得手动重做出原尺寸的大图 ˊ\_>ˋ
 
 另外，单个 stickers set 的贴纸数量限制是 100（就这么轻易地触及上限了 \_(:з」∠)\_）
 
@@ -38,10 +38,10 @@ png 图片长宽需均小于等于 512px，且长边为 512px。
 
 之后你可以继续 `newstickerpack` 上传新的贴纸集。
 
-[imagemagick]:http://imagemagick.org/
-[bot]:https://telegram.me/stickers
-[mika]:https://twitter.com/MikaAkagi
-[gochiusa]:https://hummingbird.me/manga/gochuumon-wa-usagi-desu-ka
-[sticker1]:https://telegram.me/addstickers/Gochiusa
-[sticker2]:https://telegram.me/addstickers/Gochiusa2
-[da]:http://frantle.deviantart.com/art/Gochiusa-telegram-stickers-set-540414998
+[imagemagick]: http://imagemagick.org/
+[bot]: https://telegram.me/stickers
+[mika]: https://twitter.com/MikaAkagi
+[gochiusa]: https://hummingbird.me/manga/gochuumon-wa-usagi-desu-ka
+[sticker1]: https://telegram.me/addstickers/Gochiusa
+[sticker2]: https://telegram.me/addstickers/Gochiusa2
+[da]: http://frantle.deviantart.com/art/Gochiusa-telegram-stickers-set-540414998

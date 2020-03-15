@@ -1,17 +1,17 @@
 ---
-date: 2013-08-10 
+date: 2013-08-10
 title: 通过字体文件给 Arch Linux 安装字体
-tags: [Linux, Arch, font ]
+tags: [Linux, Arch, font]
 category: Tech
 ---
 
 适用情况：
 
-- 搬运 windows 那边的字体到 Arch Linux
-- 安装从网上下载的字体文件
-- 其它需要手动安装字体文件的情况
+-   搬运 windows 那边的字体到 Arch Linux
+-   安装从网上下载的字体文件
+-   其它需要手动安装字体文件的情况
 
-Arch的字体目录为`/usr/share/fonts`，安装字体时建议在这里建立单独的文件夹来存放手动安装的字体(比如这里建立了一个winfont文件夹)
+Arch 的字体目录为`/usr/share/fonts`，安装字体时建议在这里建立单独的文件夹来存放手动安装的字体(比如这里建立了一个 winfont 文件夹)
 
     sudo mkdir /usr/share/fonts/winfont
 

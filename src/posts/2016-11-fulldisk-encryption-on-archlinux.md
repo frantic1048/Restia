@@ -1,24 +1,24 @@
 ---
 title: 给 Arch Linux 换个文件系统和启用全盘加密
 date: 2016-11-02
-tags: [Arch Linux,dm-crypt,btrfs]
+tags: [Arch Linux, dm-crypt, btrfs]
 category: Linux
 ---
 
 近来组装好了一个新的小电脑，于是终于可以放心对之前的小本本做各种想做不敢做的大改动了。于是我就：
 
-- 分区表和引导方式从 MBR/Legacy 换到了 GPT/UEFI。
-- 文件系统从 ext4 换到了跨设备的 btrfs。
-- 启用了 btrfs on LUKS 的全盘加密。
+-   分区表和引导方式从 MBR/Legacy 换到了 GPT/UEFI。
+-   文件系统从 ext4 换到了跨设备的 btrfs。
+-   启用了 btrfs on LUKS 的全盘加密。
 
 当然，所有个过程里面是不包括装新系统的，前后的系统还是一模一样的系统～
 
 总体流程如下：
 
-- 备份系统
-- 创建新分区表和文件系统
-- 还原系统
-- 配置启动与引导程序
+-   备份系统
+-   创建新分区表和文件系统
+-   还原系统
+-   配置启动与引导程序
 
 最后的本本两块硬盘的存储结构是这样：
 
@@ -42,13 +42,13 @@ category: Linux
 
 由于之前饱受 20GB 根目录（系统装在了那个 20G 的 SSD 上）的限制，随着系统更新，软件体积的缓慢变大，根目录的分区长期不足 1G 剩余空间，所以我使用 btrfs 将两块盘上的空间连起来做根目录了。
 
-注意：在原味的 encrypt HOOK 支持[引导时解密多个 LUKS container][FS#23182 - Multiple device support for encrypt hook] 之前，让系统分区横跨一个以上的 LUKS container 这种事情务必三思，后文有述因此造成的麻烦。
+注意：在原味的 encrypt HOOK 支持[引导时解密多个 LUKS container][fs#23182 - multiple device support for encrypt hook] 之前，让系统分区横跨一个以上的 LUKS container 这种事情务必三思，后文有述因此造成的麻烦。
 
-这并不是唯一的**全盘加密**（即包括系统本身也加密）方案，更多的可参考 [dm-crypt/Encrypting an entire system - ArchWiki][]，我采用方案主体与其中介绍的 *Btrfs subvolumes with swap*  相似。
+这并不是唯一的**全盘加密**（即包括系统本身也加密）方案，更多的可参考 [dm-crypt/Encrypting an entire system - ArchWiki][]，我采用方案主体与其中介绍的 _Btrfs subvolumes with swap_ 相似。
 
 # 备份系统
 
-既然不想重装系统，那肯定就先要备份系统咯，这整个过程其实相当于完成了一次系统的迁移，可以参考[Arch Wiki 上关于迁移系统的介绍][Migrate installation to new hardware - ArchWiki]。
+既然不想重装系统，那肯定就先要备份系统咯，这整个过程其实相当于完成了一次系统的迁移，可以参考[Arch Wiki 上关于迁移系统的介绍][migrate installation to new hardware - archwiki]。
 
 我直接把原来本本的数据备份到了另一台电脑上，在局域网下通过网络来传输数据，确保一条尽量快的传输备份数据数据链路能够在这一步少花很多时间，让速度瓶颈卡在硬盘 IO 上是最好不过的～
 
@@ -67,7 +67,7 @@ ssh root@10.50.136.233 "dd if=/dev/sdb" | dd status=progress of=~/onmybackup/sdb
 
 # 创建新分区表和文件系统
 
-现在准备开始[硬盘擦除][dm-crypt/Drive preparation - ArchWiki]，在两块硬盘上开俩随机密钥的 LUKS container
+现在准备开始[硬盘擦除][dm-crypt/drive preparation - archwiki]，在两块硬盘上开俩随机密钥的 LUKS container
 
 ```sh
 cryptsetup open --type plain /dev/sda containera --key-file /dev/random
@@ -122,7 +122,7 @@ cryptsetup luksFormat /dev/sda1
 cryptsetup luksFormat /dev/sda2
 ```
 
-更多关于 luksFormat 的选项参见 [dm-crypt/Device encryption - ArchWiki#Encryption options for LUKS mode][]， 我的本本只有俩 USB 口，一个插着网卡，一个插着 U 盘，所以就用默认的手输密码作为密钥了 Q\_Q
+更多关于 luksFormat 的选项参见 [dm-crypt/Device encryption - ArchWiki#Encryption options for LUKS mode][]， 我的本本只有俩 USB 口，一个插着网卡，一个插着 U 盘，所以就用默认的手输密码作为密钥了 Q_Q
 
 接下来“打开”三块加密的分区，期间会被要求输入刚刚设置 LUKS 的密码：
 
@@ -168,7 +168,6 @@ mount /dev/sdb1 /mnt/boot/efi
 
 # 还原系统
 
-
 回到刚刚存了备份数据的系统，打开刚备份的硬盘镜像，（需要 root 用户来执行），然后在 Dolphin 上戳一下新出现的一个个分区就挂载上了。
 
 ```
@@ -200,7 +199,7 @@ rsync -SPAaXr PATH_TO_HOME root@10.50.136.233:/mnt/home/
 
 在 `/etc/mkinitcpio.conf` 的 HOOKS 行中，加入 `multiencrypt` ，以及为了能用键盘输密码，确保 `keyboard` 在它前面。
 
-在 Grub 的配置 `/etc/default/grub` 中添加 HOOK 对应参数，如果 `GRUB_CMDLINE_LINUX` 已经有别的参数，则用空格与其隔开即可，如下可见参数格式为 `"<device>:<device mapper name>;<device>:<device mapper name>;..."`，因为这个 HOOK 支持多设备，所以我就顺便把全部用到的设备都写上了，这样之后就不用单独创建一个 [crypttab][dm-crypt/System configuration - ArchWiki#crypttab] 来做这个事情了 (っ*'ω'*c)﻿
+在 Grub 的配置 `/etc/default/grub` 中添加 HOOK 对应参数，如果 `GRUB_CMDLINE_LINUX` 已经有别的参数，则用空格与其隔开即可，如下可见参数格式为 `"<device>:<device mapper name>;<device>:<device mapper name>;..."`，因为这个 HOOK 支持多设备，所以我就顺便把全部用到的设备都写上了，这样之后就不用单独创建一个 [crypttab][dm-crypt/system configuration - archwiki#crypttab] 来做这个事情了 (っ*'ω'*c)
 
 ```plain
 GRUB_CMDLINE_LINUX="cryptdevices=/dev/sdb2:cryroot;/dev/sda2:cryext;/dev/sda1:cryswap"
@@ -226,17 +225,16 @@ genfstab /mnt >> /mnt/etc/fstab
 
 # 参考
 
-- [FS#23182 - Multiple device support for encrypt hook][]
-- [dm-crypt/Encrypting an entire system - ArchWiki][]
-- [Migrate installation to new hardware - ArchWiki][]
-- [dm-crypt/Drive preparation - ArchWiki][]
-- [dm-crypt/Device encryption - ArchWiki#Encryption options for LUKS mode][]
-- [dm-crypt/System configuration - ArchWiki#crypttab][]
+-   [FS#23182 - Multiple device support for encrypt hook][]
+-   [dm-crypt/Encrypting an entire system - ArchWiki][]
+-   [Migrate installation to new hardware - ArchWiki][]
+-   [dm-crypt/Drive preparation - ArchWiki][]
+-   [dm-crypt/Device encryption - ArchWiki#Encryption options for LUKS mode][]
+-   [dm-crypt/System configuration - ArchWiki#crypttab][]
 
-[FS#23182 - Multiple device support for encrypt hook]: https://bugs.archlinux.org/task/23182
-[dm-crypt/Encrypting an entire system - ArchWiki]: https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system
-[Migrate installation to new hardware - ArchWiki]: https://wiki.archlinux.org/index.php/Migrate_installation_to_new_hardware
-[dm-crypt/Drive preparation - ArchWiki]: https://wiki.archlinux.org/index.php/Dm-crypt/Drive_preparation
-[dm-crypt/Device encryption - ArchWiki#Encryption options for LUKS mode]: https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption#Encryption_options_for_LUKS_mode
-[dm-crypt/System configuration - ArchWiki#crypttab]: https://wiki.archlinux.org/index.php/Dm-crypt/System_configuration#crypttab
-
+[fs#23182 - multiple device support for encrypt hook]: https://bugs.archlinux.org/task/23182
+[dm-crypt/encrypting an entire system - archwiki]: https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system
+[migrate installation to new hardware - archwiki]: https://wiki.archlinux.org/index.php/Migrate_installation_to_new_hardware
+[dm-crypt/drive preparation - archwiki]: https://wiki.archlinux.org/index.php/Dm-crypt/Drive_preparation
+[dm-crypt/device encryption - archwiki#encryption options for luks mode]: https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption#Encryption_options_for_LUKS_mode
+[dm-crypt/system configuration - archwiki#crypttab]: https://wiki.archlinux.org/index.php/Dm-crypt/System_configuration#crypttab

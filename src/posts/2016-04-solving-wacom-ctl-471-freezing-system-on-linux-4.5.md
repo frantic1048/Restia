@@ -9,10 +9,10 @@ category: Linux
 
 当时太懒就一时把内核滚回了 4.3.3 好长时间，最近滚上 4.5 了想着问题大概没有了，然而还是太天真，开机就给我冻住……于是终于不能忍了，得搞定一下才行。顺带记下打内核补丁的姿势。
 
-- 发行版： Arch Linux
-- **出现问题对应的 linux 版本**：linux-4.5.1-1-x86_64
-- **Wacom 驱动版本**：xf86-input-wacom-0.32.0-1-x86_64
-- **Wacom 数位板型号**：Wacom CTL-471
+-   发行版： Arch Linux
+-   **出现问题对应的 linux 版本**：linux-4.5.1-1-x86_64
+-   **Wacom 驱动版本**：xf86-input-wacom-0.32.0-1-x86_64
+-   **Wacom 数位板型号**：Wacom CTL-471
 
 先顺着 [Wacom Tablet - Arch Wiki](https://wiki.archlinux.org/index.php/Wacom_Tablet#System_freeze) 上关于 System Freeze 的解决方案，说是打个内核补丁就好，于是我找到了对应的内核补丁：[[PATCH v2] hid: usbhid: hid-core: fix recursive deadlock](https://lkml.org/lkml/2015/11/20/690)，然后到后面我准备好源码的时候却发现 4.5 内核已经有这个 patch 了，也就是解决问题这个 patch 还不够。
 
@@ -24,7 +24,7 @@ category: Linux
 +++ b/drivers/hid/wacom_wac.c
 @@ -2426,6 +2426,17 @@ void wacom_setup_device_quirks(struct wacom *wacom)
  	}
- 
+
  	/*
 +	 * Hack for the Bamboo One:
 +	 * the device presents a PAD/Touch interface as most Bamboos and even
@@ -40,7 +40,7 @@ category: Linux
  	 * Raw Wacom-mode pen and touch events both come from interface
  	 * 0, whose HID descriptor has an application usage of 0xFF0D
  	 * (i.e., WACOM_VENDORDEFINED_PEN). We route pen packets back
--- 
+--
 ```
 
 接着装个 `abs`，它说用来获取 ABS tree 的脚本，ABS tree 是一个树状的包含了 Arch 所有软件包源文件的目录（总之还是看 [Arch Build System - Arch Wiki](https://wiki.archlinux.org/index.php/Arch_Build_System#ABS_overview) 吧），用它来获取构建 linux 包所需的源文件（像 PKGBUILD 之类的），然后从 abs 同步下来的 /var/abs/ 里面取出 linux 包的目录，复制到准备对 Linux 进行 ~~魔改~~ 打补丁的目录：
@@ -65,7 +65,6 @@ makepkg -o # 这个选项下 makepkg 只会下载校验解压好所有源代码/
     linux-4.5.tar ... FAILED (unknown public key 79BE3E4300411886)
     patch-4.5.1 ... FAILED (unknown public key 38DBBDC86092693E)
 ```
-
 
 然后翻开看了一下 `/drivers/hid/wacom_wac.c` 对应的 2426 行附近，嗯，patch 没被打上的。把从 bugzilla 那边扒下来的 `fix-Bamboo-ONE-oops.patch` 放到和 PKGBUILD 相同目录下，然后在 PKGBUILD 里面添加上这个文件和对应的 shasum，并在 `prepare()` 里面 patch 它，由于个人口味顺带自定义了一下内核名字（修改 pkgbase 的值）。PKGBUILD 的开头看起来像这样（这不是完整的 PKGBUILD！，需要完整的源文件请跳到文末）：
 

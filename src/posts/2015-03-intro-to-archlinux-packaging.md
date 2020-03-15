@@ -53,10 +53,9 @@ category: Tech
 
 软件发布协议，如果是常见的 GPL 的话可以对照下面填写：
 
-- (L)GPL - (L)GPLv2 及更新版本。
-- (L)GPL2 - 仅 (L)GPL2
-- (L)GPL3 - (L)GPL3 及更新版本
-
+-   (L)GPL - (L)GPLv2 及更新版本。
+-   (L)GPL2 - 仅 (L)GPL2
+-   (L)GPL3 - (L)GPL3 及更新版本
 
 ##depends
 
@@ -64,7 +63,7 @@ category: Tech
 
 对于直接发布可执行程序的话，可以通过 ldd 来看程序连接了哪些库文件，结合搜索判断出具体依赖是什么软件包。你可以用谷歌在 https://www.archlinux.org 上搜索具体库的文件名，一般都能够找到对应的软件包。
 
-如果你已经用 makepkg 打出了 .tar.xz 的包，也可以用 [Namcap][Namcap - ArchWiki] 来检查依赖是否存在问题，它会提供一些有用的信息帮助修正依赖。对于他的输出含义可以直接参考 [ArchWiki][Namcap - ArchWiki]。
+如果你已经用 makepkg 打出了 .tar.xz 的包，也可以用 [Namcap][namcap - archwiki] 来检查依赖是否存在问题，它会提供一些有用的信息帮助修正依赖。对于他的输出含义可以直接参考 [ArchWiki][namcap - archwiki]。
 
 多测试多测试，确保依赖真的没问题。
 
@@ -88,36 +87,36 @@ install -m=775 $pkgname "${pkgdir}/usr/bin"
 
 ###常用目录
 
-目录 | 用途
-----|--
-/etc | 系统关键配置文件，如果件有多个，应该创建合适的子目录来存放
-/usr/bin | 二进制文件
-/usr/lib | 库
-/usr/include | 头文件
-/usr/lib/{pkg} | 模块，插件等
-/usr/share/doc/{pkg} | 应用程序文档
-/usr/share/info | GNU Info 系统文件
-/usr/share/man | 手册
-/usr/share/{pkg} | 程序数据
-/var/lib/{pkg} | 应用持久数据
-/etc/{pkg} | {pkg}的配置文件
-/opt/{pkg} | 大的独立程序，例如 Java 
-/usr/share/applications/ | Desktop Entry (.desktop) 文件
-/usr/share/icons/ | 图标，存在该目录下对应子目录位置
+| 目录                     | 用途                                                       |
+| ------------------------ | ---------------------------------------------------------- |
+| /etc                     | 系统关键配置文件，如果件有多个，应该创建合适的子目录来存放 |
+| /usr/bin                 | 二进制文件                                                 |
+| /usr/lib                 | 库                                                         |
+| /usr/include             | 头文件                                                     |
+| /usr/lib/{pkg}           | 模块，插件等                                               |
+| /usr/share/doc/{pkg}     | 应用程序文档                                               |
+| /usr/share/info          | GNU Info 系统文件                                          |
+| /usr/share/man           | 手册                                                       |
+| /usr/share/{pkg}         | 程序数据                                                   |
+| /var/lib/{pkg}           | 应用持久数据                                               |
+| /etc/{pkg}               | {pkg}的配置文件                                            |
+| /opt/{pkg}               | 大的独立程序，例如 Java                                    |
+| /usr/share/applications/ | Desktop Entry (.desktop) 文件                              |
+| /usr/share/icons/        | 图标，存在该目录下对应子目录位置                           |
 
 不该碰的目录：
 
-- /dev
-- /home
-- /srv
-- /media
-- /mnt
-- /proc
-- /root
-- /selinux
-- /sys
-- /tmp
-- /var/tmp
+-   /dev
+-   /home
+-   /srv
+-   /media
+-   /mnt
+-   /proc
+-   /root
+-   /selinux
+-   /sys
+-   /tmp
+-   /var/tmp
 
 #构建/调试包
 
@@ -131,7 +130,7 @@ install -m=775 $pkgname "${pkgdir}/usr/bin"
 
 在 PKGBUILD 所在目录执行 `makepkg --source`，会生成 `.src.tar.gz` 源码包，这就是需要上传到 AUR 的东西，注意不要把任何二进制文件加入源码包。
 
-在 [AUR][AUR] (Arch User Repository) 注册（登入）帐号。进入 Submit 页面，选择好软件包对应的分类，然后添加源码包上传即可。
+在 [AUR][aur] (Arch User Repository) 注册（登入）帐号。进入 Submit 页面，选择好软件包对应的分类，然后添加源码包上传即可。
 
 即使你是要更新一个包，也只需要直接在 Submit 页面上传，包的信息 AUR 会自己处理。
 
@@ -141,16 +140,16 @@ install -m=775 $pkgname "${pkgdir}/usr/bin"
 
 需要更详尽的内容以及更复杂的打包请参考以下。
 
-- [PKGBUILD(5) Manual Page]
-- [Creating packages - ArchWiki]
-- [Arch packaging standards - ArchWiki]
-- [Namcap - ArchWiki]
-- [VCS package guidelines - ArchWiki]
+-   [PKGBUILD(5) Manual Page]
+-   [Creating packages - ArchWiki]
+-   [Arch packaging standards - ArchWiki]
+-   [Namcap - ArchWiki]
+-   [VCS package guidelines - ArchWiki]
 
-[PKGBUILD(5) Manual Page]: https://www.archlinux.org/pacman/PKGBUILD.5.html
-[Creating packages - ArchWiki]: https://wiki.archlinux.org/index.php/Creating_packages
-[Arch packaging standards - ArchWiki]: https://wiki.archlinux.org/index.php/Arch_Packaging_Standards
-[Namcap - ArchWiki]: https://wiki.archlinux.org/index.php/Namcap
-[AUR]: https://aur.archlinux.org/
-[VCS package guidelines - ArchWiki]: https://wiki.archlinux.org/index.php/VCS_package_guidelines
+[pkgbuild(5) manual page]: https://www.archlinux.org/pacman/PKGBUILD.5.html
+[creating packages - archwiki]: https://wiki.archlinux.org/index.php/Creating_packages
+[arch packaging standards - archwiki]: https://wiki.archlinux.org/index.php/Arch_Packaging_Standards
+[namcap - archwiki]: https://wiki.archlinux.org/index.php/Namcap
+[aur]: https://aur.archlinux.org/
+[vcs package guidelines - archwiki]: https://wiki.archlinux.org/index.php/VCS_package_guidelines
 [aurupload]: https://aur.archlinux.org/packages/aurupload/

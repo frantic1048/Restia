@@ -12,10 +12,10 @@ category: Tech
 
 继续在网上搜索了一下，告知用命令行直接启动 Kate 可以看到一些缺失包造成的 import error。发现是这俩个包找不到
 
-- jedi
-- PyKDE4
+-   jedi
+-   PyKDE4
 
-jedi一下子就搞定了，然后发现根本找不到 `PyKDE4` ，在 Arch 论坛上发现这货改名字了，换成了 kdebindings 开头的包，随后 Pacman -Ss 了一下找出了这货。
+jedi 一下子就搞定了，然后发现根本找不到 `PyKDE4` ，在 Arch 论坛上发现这货改名字了，换成了 kdebindings 开头的包，随后 Pacman -Ss 了一下找出了这货。
 
     pacman -S python-jedi kdebindings-python
 

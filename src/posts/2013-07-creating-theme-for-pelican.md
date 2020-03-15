@@ -9,9 +9,9 @@ category: Translation
 
 翻译的时候好多地方都不知道怎么表达，望大神指点。
 
-#如何为Pelican制作主题
+# 如何为 Pelican 制作主题
 
-Pelican使用著名的 [Jinja2][] 模板引擎来生成它的HTML输出。Jinja2的语法非常简单。如果你想要制作你自己的主题，随意看看 [“simple”主题][simple-theme] 或许能给你一些灵感。
+Pelican 使用著名的 [Jinja2][] 模板引擎来生成它的 HTML 输出。Jinja2 的语法非常简单。如果你想要制作你自己的主题，随意看看 [“simple”主题][simple-theme] 或许能给你一些灵感。
 
 ##主题的结构
 
@@ -33,15 +33,17 @@ Pelican使用著名的 [Jinja2][] 模板引擎来生成它的HTML输出。Jinja2
         ├── tag.html  // 用来处理每个标签
         └── tags.html // 必须列出所有标签，可以是标签云
 
-- _static_包含了所有的静态文件，最后会被复制到输出中的_theme_目录下。我把CSS和image目录放在了这里，不过这只是举例，把你需要的东西放在这里。
-- _templates_ 包含了所有被用来生成页面的模板。我只在这里存放了必需的模板，你可以自己定义对你来说有用的模板。
+-   *static*包含了所有的静态文件，最后会被复制到输出中的*theme*目录下。我把 CSS 和 image 目录放在了这里，不过这只是举例，把你需要的东西放在这里。
+-   _templates_ 包含了所有被用来生成页面的模板。我只在这里存放了必需的模板，你可以自己定义对你来说有用的模板。
 
-##模板与变量
-我们的想法是使用可以嵌入进HTML的简单语法。这个文件描述了哪些模板存在于主题中，哪些变量将会在生成时被传递给每个模板。
+## 模板与变量
+
+我们的想法是使用可以嵌入进 HTML 的简单语法。这个文件描述了哪些模板存在于主题中，哪些变量将会在生成时被传递给每个模板。
 
 所有的模板都会接收到你在设置文件中定义的全部大写的变量。你可以直接访问这些变量。
 
-###公共变量
+### 公共变量
+
 这些设置对所有模板都有效。
 
 <table border-collapse=collapse>
@@ -54,7 +56,7 @@ Pelican使用著名的 [Jinja2][] 模板引擎来生成它的HTML输出。Jinja2
 <tr><td>pages</td><td>pages的列表</td></tr>
 </table>
 
-###排序
+### 排序
 
 URL wrappers (currently categories, tags, and authors), have comparison methods that allow them to be easily sorted by name:
 
@@ -62,13 +64,13 @@ URL wrappers (currently categories, tags, and authors), have comparison methods 
 
 如果你想依照其它标准进行排序, [Jinja 的 sort 命令][jinja sort command] 拥有很多选项。
 
-###日期格式化
+### 日期格式化
 
-Pelican依据你的设置和区域(`DATE_FORMATS`/`DEFAULT_DATE_FORMAT`)来提供一个`locale_date`属性。另一方面，`date`属性蒋成为一个`datetime`对象。如果你需要与当前设置不同的日期格式，使用Pelican自带的Jinja过滤器`strftime`，用法和Python中的 [strftime][] 是一样的，过滤器会正确地根据你设置的区域正确地对日期进行格式化。
+Pelican 依据你的设置和区域(`DATE_FORMATS`/`DEFAULT_DATE_FORMAT`)来提供一个`locale_date`属性。另一方面，`date`属性蒋成为一个`datetime`对象。如果你需要与当前设置不同的日期格式，使用 Pelican 自带的 Jinja 过滤器`strftime`，用法和 Python 中的 [strftime][] 是一样的，过滤器会正确地根据你设置的区域正确地对日期进行格式化。
 
     {{ article.date|strftime('%d %B %Y') }}
 
-###index.html
+### index.html
 
 这是博客的主页，生成到 output/index.html 。
 
@@ -83,9 +85,9 @@ Pelican依据你的设置和区域(`DATE_FORMATS`/`DEFAULT_DATE_FORMAT`)来提�
 <tr><td>page_name</td><td>“索引” - 很有用的分页链接</td></tr>
 </table>
 
-###author.html
+### author.html
 
-这个模板将用来处理每个作者的页面，输出为output/author/_author\_name_.html。
+这个模板将用来处理每个作者的页面，输出为 output/author/_author_name_.html。
 
 <table border-collapse=collapse>
 <tr><th>变量</th><th>描述</th></tr>
@@ -99,11 +101,11 @@ Pelican依据你的设置和区域(`DATE_FORMATS`/`DEFAULT_DATE_FORMAT`)来提�
 <tr><td>page_name</td><td>AUTHOR_URL：在{slug}后面的一切都被去掉了 - 对分页链接很有用</td></tr>
 </table>
 
-###category.html
+### category.html
 
-这个模板会用来处理每个分类，输出为output/category/_category\_name_.html。
+这个模板会用来处理每个分类，输出为 output/category/_category_name_.html。
 
-如果启用了分页，后续的页面将依照CATEGORY\_SAVE\_AS(默认值: output/category/_category\_name_’n’.html)输出。
+如果启用了分页，后续的页面将依照 CATEGORY*SAVE_AS(默认值: output/category/\_category_name*’n’.html)输出。
 
 <table border-collapse=collapse>
 <tr><th>变量</th><th>描述</th></tr>
@@ -117,9 +119,9 @@ Pelican依据你的设置和区域(`DATE_FORMATS`/`DEFAULT_DATE_FORMAT`)来提�
 <tr><td>page_name</td><td>CATEGORY\_URL:在{slug}后面的一切都被去掉了 - 对分页链接很有用</td></tr>
 </table>
 
-###article.html
+### article.html
 
-这个模板用来处理每篇文章，输出为output/_article\_name_.html。这里是它特有的变量。
+这个模板用来处理每篇文章，输出为 output/_article_name_.html。这里是它特有的变量。
 
 <table border-collapse=collapse>
 <tr><th>变量</th><th>描述</th></tr>
@@ -127,20 +129,20 @@ Pelican依据你的设置和区域(`DATE_FORMATS`/`DEFAULT_DATE_FORMAT`)来提�
 <tr><td>category</td><td>当前文章所属分类的名称</td></tr>
 </table>
 
-###page.html
+### page.html
 
-这个模板用来处理每个page页面，相应输出为output/_page\_name_.html。
+这个模板用来处理每个 page 页面，相应输出为 output/_page_name_.html。
 
 <table border-collapse=collapse>
 <tr><th>变量</th><th>描述</th></tr>
 <tr><td>page</td><td>要显示的page对象，你可以访问它的标题，slug和内容</td></tr>
 </table>
 
-###tag.html
+### tag.html
 
-这个模板用来处理各个标签，相应的输出为output/tag/_tag\_name_.html。
+这个模板用来处理各个标签，相应的输出为 output/tag/_tag_name_.html。
 
-如果启用了分页，后续的页面将依照TAG\_SAVE\_AS(默认值: output/tag/_tag\_name_’n’.html)输出。
+如果启用了分页，后续的页面将依照 TAG*SAVE_AS(默认值: output/tag/\_tag_name*’n’.html)输出。
 
 <table border-collapse=collapse>
 <tr><th>变量</th><th>描述</th></tr>
@@ -154,59 +156,59 @@ Pelican依据你的设置和区域(`DATE_FORMATS`/`DEFAULT_DATE_FORMAT`)来提�
 <tr><td>page_name</td><td>TAG_URL：在{slug}后面的一切都被去掉了 - 对分页链接很有用</td></tr>
 </table>
 
-##Feeds
+## Feeds
 
-feed变量在3.0版本(译者注：指Pelican，下同)中有所改变，现在每个变量在名字中显式列出是ATOM还是RSS。ATOM依然是默认的。旧主题可能因此需要更新。下面是所有的feed变量
+feed 变量在 3.0 版本(译者注：指 Pelican，下同)中有所改变，现在每个变量在名字中显式列出是 ATOM 还是 RSS。ATOM 依然是默认的。旧主题可能因此需要更新。下面是所有的 feed 变量
 
-- FEED_ATOM
-- FEED_RSS
-- FEED_ALL_ATOM
-- FEED_ALL_RSS
-- CATEGORY_FEED_ATOM
-- CATEGORY_FEED_RSS
-- TAG_FEED_ATOM
-- TAG_FEED_RSS
-- TRANSLATION_FEED_ATOM
-- TRANSLATION_FEED_RSS
+-   FEED_ATOM
+-   FEED_RSS
+-   FEED_ALL_ATOM
+-   FEED_ALL_RSS
+-   CATEGORY_FEED_ATOM
+-   CATEGORY_FEED_RSS
+-   TAG_FEED_ATOM
+-   TAG_FEED_RSS
+-   TRANSLATION_FEED_ATOM
+-   TRANSLATION_FEED_RSS
 
-##继承
+## 继承
 
-自从3.0版本开始，Pelican支持继承`simlpe`主题，你可以在你的主题里面重用`simple`主题中的模板。
+自从 3.0 版本开始，Pelican 支持继承`simlpe`主题，你可以在你的主题里面重用`simple`主题中的模板。
 
-如果你的`templates/`目录下的某个__必需模板__丢失了，它将被`simple`主题中的对应模板替代。因此，如果`simple`主题中的模板的HTML结构是适合你的，你就不需要从头写一个全新的模板。
+如果你的`templates/`目录下的某个**必需模板**丢失了，它将被`simple`主题中的对应模板替代。因此，如果`simple`主题中的模板的 HTML 结构是适合你的，你就不需要从头写一个全新的模板。
 
 你也可以在你的主题中对`simple`主题的模板进行扩展，像下面这个例子中一样使用`{% extends %}`来实现。
 
     {% extends "!simple/index.html" %}   <!-- extends the ``index.html`` template from the ``simple`` theme -->
-    
+
     {% extends "index.html" %}   <!-- "regular" extending -->
 
-###例子
+### 例子
 
 通过这个机制，你可以仅仅用两个文件来创建一个主题。
 
-###base.html
+### base.html
 
 第一个文件是`templates/base.html`模板：
 
     {% extends "!simple/base.html" %}
-    
+
     {% block head %}
     {{ super() }}
        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
     {% endblock %}
 
 1. 在第一行，我们扩展了`simple`主题中的`base.html`，所以我们不需要重写整个文件。
-2. 第三行，我们开始了在simple主题中定义好的 `head` 块。
+2. 第三行，我们开始了在 simple 主题中定义好的 `head` 块。
 3. 第四行，`super()` 函数保持先前插入的`head` 块不结束。
 4. 第五行，我们为页面添加了一个样式表。
 5. 最后一行，我们结束了`head` 块。
 
 这个文件将被所有其它的模板（译者注：tags.html，articles.html…）扩展，所以样式表会被连接到所有页面中。
 
-###style.css
+### style.css
 
-第二个文件就是`static/css/style.css`CSS样式表：
+第二个文件就是`static/css/style.css`CSS 样式表：
 
     body {
         font-family : monospace ;
@@ -222,41 +224,41 @@ feed变量在3.0版本(译者注：指Pelican，下同)中有所改变，现在�
         border-radius : 5px ;
         display : block ;
     }
-    
+
     a:link    { color : blue ; text-decoration : none ;      }
     a:hover   { color : blue ; text-decoration : underline ; }
     a:visited { color : blue ;                               }
-    
+
     h1 a { color : inherit !important }
     h2 a { color : inherit !important }
     h3 a { color : inherit !important }
     h4 a { color : inherit !important }
     h5 a { color : inherit !important }
     h6 a { color : inherit !important }
-    
+
     pre {
         margin : 2em 1em 2em 4em ;
     }
-    
+
     #menu li {
         display : inline ;
     }
-    
+
     #post-list {
         margin-bottom : 1em ;
         margin-top : 1em ;
     }
 
-###下载
+### 下载
 
 你可以从[这里][example-theme]下载这个样例主题
 
-###源文档
+### 源文档
 
-原文链接：[http://docs.getpelican.com/en/latest/themes.html](http://docs.getpelican.com/en/latest/themes.html "original-page")
+原文链接：[http://docs.getpelican.com/en/latest/themes.html](http://docs.getpelican.com/en/latest/themes.html 'original-page')
 
-[Jinja2]:http://jinja.pocoo.org/
-[simple-theme]:https://github.com/getpelican/pelican/tree/master/pelican/themes/simple/templates " “simple” theme "
-[jinja sort command]:http://jinja.pocoo.org/docs/templates/#sort "Jinja’s sort command "
-[strftime]:http://docs.python.org/2/library/datetime.html#strftime-strptime-behavior 
-[example-theme]:http://docs.getpelican.com/en/latest/_downloads/theme-basic.zip
+[jinja2]: http://jinja.pocoo.org/
+[simple-theme]: https://github.com/getpelican/pelican/tree/master/pelican/themes/simple/templates ' “simple” theme '
+[jinja sort command]: http://jinja.pocoo.org/docs/templates/#sort 'Jinja’s sort command '
+[strftime]: http://docs.python.org/2/library/datetime.html#strftime-strptime-behavior
+[example-theme]: http://docs.getpelican.com/en/latest/_downloads/theme-basic.zip

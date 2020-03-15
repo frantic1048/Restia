@@ -1,15 +1,15 @@
 ---
 date: 2013-07-10
 title: 去掉Pelican生成的代码区块中的红框
-tags: [Pelican,CSS,pygment]
+tags: [Pelican, CSS, pygment]
 category: Blog
 ---
 
 这几天折腾博客主题，无意间找到了最开始弄博客的时候代码区块中的一些字符会有红框框住的问题的原因。
 
-因为Pelican是使用pygment处理代码高亮的，而pygment的高亮颜色定义就在当前使用的主题目录中的`pygment.css`这个文件里，**要修改代码高亮的配色就要通过修改这个文件来实现**。现在打开它，可以看到里面是对代码的各种类型的内容的风格定义，其中有一行如下：
+因为 Pelican 是使用 pygment 处理代码高亮的，而 pygment 的高亮颜色定义就在当前使用的主题目录中的`pygment.css`这个文件里，**要修改代码高亮的配色就要通过修改这个文件来实现**。现在打开它，可以看到里面是对代码的各种类型的内容的风格定义，其中有一行如下：
 
-> .highlight .err { border: 1px solid #FF0000 } /* Error */
+> .highlight .err { border: 1px solid #FF0000 } /_ Error _/
 
 根据内容可以看出这是规定书写错误的代码的文本样式，可是平时代码中有的字符也会被识别成错误的代码，比如下面这句中的`@`:
 

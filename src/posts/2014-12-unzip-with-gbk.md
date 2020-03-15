@@ -5,9 +5,9 @@ tags: [Linux, zip, 乱码]
 category: Tech
 ---
 
-Linux 下 zip 文件名乱码的问题想必路人皆知，zip 就是事儿多ˊ_>ˋ
+Linux 下 zip 文件名乱码的问题想必路人皆知，zip 就是事儿多 ˊ\_>ˋ
 
-一个解压 zip 的小脚本，如果遇到非 `gbk` 的其他奇葩编码自行改变 `codeType` 的值尝试即可_(:з」∠)_
+一个解压 zip 的小脚本，如果遇到非 `gbk` 的其他奇葩编码自行改变 `codeType` 的值尝试即可*(:з」∠)*
 
 用法：`unzip-gbk.py xxx.zip`
 

@@ -7,9 +7,9 @@ category: Tech
 
 近来每天上班背着金属壳的 Poker2 来来回回真是难受，这些日子虽说出了新的 Type-C 的支持默认层 Colemak 的 Poker2，但是各种缺货，而且看起来也不能完全为所欲为，最后还是决定假期折腾一波定制力更强的 GH60 了。
 
-最先是看到大鹰写的 [定制GH60机械键盘](https://bigeagle.me/2015/07/gh60/) 发现定制并没有想象中的麻烦，然后网上翻了一通找到个有 Type-C 口的板子的 [卖家](https://shop65989013.taobao.com/)（正好解毒新版 Poker2 的接口），商讨一番支持代组（不包括键帽），然后定了 Poker 配列 + 白色外壳 + 红轴 + 玻纤板（卖家说这个和红轴搭配好于是就试试吧）。
+最先是看到大鹰写的 [定制 GH60 机械键盘](https://bigeagle.me/2015/07/gh60/) 发现定制并没有想象中的麻烦，然后网上翻了一通找到个有 Type-C 口的板子的 [卖家](https://shop65989013.taobao.com/)（正好解毒新版 Poker2 的接口），商讨一番支持代组（不包括键帽），然后定了 Poker 配列 + 白色外壳 + 红轴 + 玻纤板（卖家说这个和红轴搭配好于是就试试吧）。
 
-另外难以找到的 Colemak 布局的键帽，遂搞了套蓝色无刻的键帽来个蓝白组合，正好还送了几颗其他颜色的，总体感觉更可爱了 (っ´ω`c)♡
+另外难以找到的 Colemak 布局的键帽，遂搞了套蓝色无刻的键帽来个蓝白组合，正好还送了几颗其他颜色的，总体感觉更可爱了 (っ ´ω`c)♡
 
 ![layout](https://imgur.com/saOIv7G.png)
 
@@ -21,16 +21,16 @@ category: Tech
 
 板子的型号是 ORG60，网上相关信息相对很少，最后在 [QMK Firmware 的源码][qmk_firmware/keyboards/org60 at master]里面找到了这个板子的支持。
 
-于是就可以照着 [QMK 的文档][Install Build Tools - QMK Firmware]开始搞咯～
+于是就可以照着 [QMK 的文档][install build tools - qmk firmware]开始搞咯～
 
 ## 准备
 
 操作的环境是 Arch Linux，除了基本的 `git`，`make` 之类的基本构建工具之外需要这些包：
 
-- aur/dfu-programmer
-- dfu-util
-- avr-gcc
-- avr-libc
+-   aur/dfu-programmer
+-   dfu-util
+-   avr-gcc
+-   avr-libc
 
 然后直接拖 QMK 的源码，因为仓库包含 submodule，所以带上 `--recurse-submodules` 参数来把 submodule 也全都拉下来：
 
@@ -38,7 +38,7 @@ category: Tech
 git clone --recurse-submodules https://github.com/qmk/qmk_firmware
 ```
 
-然后按照 [QMK 的构建指南][Build/Compile instructions - QMK Firmware]，就可以先随便构建一个已有的 org60 的布局刷进去试试咯（目前不用在意配列是否一样），注意 **刷写操作需要 root 权限** 。这条 make 命令会构建 org60 下的 boardy 布局，然后通过 dfu 进行刷写：
+然后按照 [QMK 的构建指南][build/compile instructions - qmk firmware]，就可以先随便构建一个已有的 org60 的布局刷进去试试咯（目前不用在意配列是否一样），注意 **刷写操作需要 root 权限** 。这条 make 命令会构建 org60 下的 boardy 布局，然后通过 dfu 进行刷写：
 
 ```sh
 make org60-boardy-dfu
@@ -52,7 +52,7 @@ make org60-boardy-dfu
 
 ## 编写 `keymap.c`
 
-直接照着 [QMK 的 Keymap overview][Keymap overview - QMK Firmware] 可以写个 keymap 大体的框架出来：
+直接照着 [QMK 的 Keymap overview][keymap overview - qmk firmware] 可以写个 keymap 大体的框架出来：
 
 ```c
 /* 板子对应的头文件 */
@@ -85,7 +85,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt) {
 
 然后问题来了，keymap 上的键和我实际的配列不太一样，比如它的空格右边有五个键位需要定义，但我的配列实际上只有四个键，不过板子都是一样的，所以把那五个键挨个设置成 `KC_1, KC_2, ... , KC_5}`，然后刷到键盘上，挨着按一下键盘空格右边四个键看看触发了哪几个就能确认哪个是多余的了 （´＿｀）
 
-对于 Caps 那个键的行为，也可以照着 QMK 文档的 [Custom Functions][Custom Functions - QMK Firmware] 那节搞定。
+对于 Caps 那个键的行为，也可以照着 QMK 文档的 [Custom Functions][custom functions - qmk firmware] 那节搞定。
 
 # 我的 Keymap
 
@@ -119,16 +119,16 @@ http://www.keyboard-layout-editor.com/#/gists/88f938ed5626072761284364e5bae4de
 
 # 参考
 
-- [qmk_firmware/keyboards/org60 at master][]
-- [Install Build Tools - QMK Firmware][]
-- [Build/Compile instructions - QMK Firmware][]
-- [Keymap overview - QMK Firmware][]
-- [org60/boardy/keymap.c][]
-- [Custom Functions - QMK Firmware][]
+-   [qmk_firmware/keyboards/org60 at master][]
+-   [Install Build Tools - QMK Firmware][]
+-   [Build/Compile instructions - QMK Firmware][]
+-   [Keymap overview - QMK Firmware][]
+-   [org60/boardy/keymap.c][]
+-   [Custom Functions - QMK Firmware][]
 
 [qmk_firmware/keyboards/org60 at master]: https://github.com/qmk/qmk_firmware/tree/master/keyboards/org60
-[Install Build Tools - QMK Firmware]: https://docs.qmk.fm/getting_started_build_tools.html
-[Build/Compile instructions - QMK Firmware]: https://docs.qmk.fm/getting_started_make_guide.html
-[Keymap overview - QMK Firmware]: https://docs.qmk.fm/keymap.html
+[install build tools - qmk firmware]: https://docs.qmk.fm/getting_started_build_tools.html
+[build/compile instructions - qmk firmware]: https://docs.qmk.fm/getting_started_make_guide.html
+[keymap overview - qmk firmware]: https://docs.qmk.fm/keymap.html
 [org60/boardy/keymap.c]: https://github.com/frantic1048/qmk_firmware/blob/master/keyboards/org60/keymaps/boardy/keymap.c
-[Custom Functions - QMK Firmware]: https://docs.qmk.fm/keymap.html#custom-functions
+[custom functions - qmk firmware]: https://docs.qmk.fm/keymap.html#custom-functions
