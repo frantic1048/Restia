@@ -3,7 +3,7 @@ import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
 import { PostDetailQuery } from '../../types/graphql-types'
 import Layout from '../components/Layout'
-import { px, em } from 'csx'
+import { px, em, percent } from 'csx'
 import { style, cssRaw } from 'typestyle'
 
 /**
@@ -229,6 +229,9 @@ const postClassName = style({
             boxShadow: `${px(3)} ${px(3)} ${px(3)} #aaa`,
             marginTop: em(0.5),
             marginBottom: em(0.5),
+        },
+        '& :not(.gatsby-resp-image-wrapper) img': {
+            maxWidth: percent(100),
         },
         /**
          * MEMO: just works, tune later
