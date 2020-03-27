@@ -29,9 +29,10 @@ export const query = graphql`
 const Page: GatsbyComponent<ArchiveListQuery> = ({ data }) => (
     <Layout pageTitle="Pyon Pyon Posts" pageUrl="/posts">
         <ul>
-            {(data.allMarkdownRemark?.edges ?? []).map(post => {
-                const title = `${post.node.frontmatter?.date ?? ''} | ${post.node.frontmatter?.category ?? ''} | ${post
-                    .node.frontmatter?.title ?? ''}`
+            {(data.allMarkdownRemark?.edges ?? []).map((post) => {
+                const title = `${post.node.frontmatter?.date ?? ''} | ${post.node.frontmatter?.category ?? ''} | ${
+                    post.node.frontmatter?.title ?? ''
+                }`
                 const slug = post.node.fields?.slug ?? ''
                 return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
             })}

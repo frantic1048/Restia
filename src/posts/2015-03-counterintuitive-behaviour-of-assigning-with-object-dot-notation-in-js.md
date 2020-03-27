@@ -34,7 +34,7 @@ var Shoujo = Object.defineProperties(
         hairColor: { value: 'black', writable: true, enumerable: true, configurable: true },
         isReachable: { value: false, writable: false, enumerable: true, configurable: true },
         makeUpCode: {
-            set: function(value) {
+            set: function (value) {
                 console.log(value + ' Henshin !')
             },
             enumerable: true,
