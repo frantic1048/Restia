@@ -106,7 +106,7 @@ var server = null // 用来保存 http 服务器实例，在启动服务器测�
 var gulp = require('gulp')
 var eslint = require('gulp-eslint')
 
-gulp.task('lint', function() {
+gulp.task('lint', function () {
     return gulp
         .src(appSrc)
         .pipe(eslint({ rulePaths: ['./'] }))
@@ -122,7 +122,7 @@ gulp.task('lint', function() {
 var babel = require('gulp-babel')
 var newer = require('gulp-newer')
 
-gulp.task('compile', function() {
+gulp.task('compile', function () {
     return gulp
         .src(appSrc)
         .pipe(newer(appDestPath))
@@ -136,12 +136,12 @@ gulp.task('compile', function() {
 通过 Gulp 来控制服务器的开关。这里利用前面创建的 server 这个变量储存服务器实例，保证只有一个实例运行。
 
 ```javascript
-gulp.task('serve', function(callback) {
+gulp.task('serve', function (callback) {
     server = require('./build/app')
     callback()
 })
 
-gulp.task('end-serve', function(callback) {
+gulp.task('end-serve', function (callback) {
     if (server) {
         server.close()
         server = null
@@ -159,18 +159,15 @@ var jasmine = require('gulp-jasmine')
 var SpecReporter = require('jasmine-spec-reporter')
 var istanbul = require('gulp-istanbul')
 
-gulp.task('pre-test', function() {
-    return gulp
-        .src(appDest)
-        .pipe(istanbul())
-        .pipe(istanbul.hookRequire())
+gulp.task('pre-test', function () {
+    return gulp.src(appDest).pipe(istanbul()).pipe(istanbul.hookRequire())
 })
 
-gulp.task('test', function() {
+gulp.task('test', function () {
     return gulp
         .src(testSrc)
         .pipe(jasmine({ reporter: new SpecReporter() }))
-        .on('end', function() {
+        .on('end', function () {
             // 测试跑完关闭服务器
             server.close()
             server = null
@@ -185,15 +182,15 @@ gulp.task('test', function() {
 
 ```javascript
 var runSequence = require('run-sequence')
-gulp.task('watcher-appSrc', function(callback) {
+gulp.task('watcher-appSrc', function (callback) {
     runSequence('end-serve', 'compile', 'pre-test', 'serve', 'test', callback)
 })
 
-gulp.task('watcher-testSrc', function(callback) {
+gulp.task('watcher-testSrc', function (callback) {
     runSequence('pre-test', 'test', callback)
 })
 
-gulp.task('watch', function(callback) {
+gulp.task('watch', function (callback) {
     gulp.watch(appSrc, ['watcher-appSrc'])
     gulp.watch(testSrc, ['watcher-testSrc'])
     callback()
@@ -206,17 +203,17 @@ gulp.task('watch', function(callback) {
 
 ```javascript
 // once
-gulp.task('default', function(callback) {
+gulp.task('default', function (callback) {
     runSequence(['compile', 'lint'], 'pre-test', 'serve', 'test', 'end-serve', callback)
 })
 
 // develop
-gulp.task('dev', function(callback) {
+gulp.task('dev', function (callback) {
     runSequence('compile', 'pre-test', 'serve', 'test', 'watch', callback)
 })
 
 // run server
-gulp.task('run', function(callback) {
+gulp.task('run', function (callback) {
     runSequence('compile', 'serve', callback)
 })
 ```
@@ -252,14 +249,14 @@ module.exports = config
 var hippie = require('hippie')
 var port = require('../../config').serverPort
 
-describe('yahalo Spec !', function() {
-    it('should get 200 yooo', function(done) {
+describe('yahalo Spec !', function () {
+    it('should get 200 yooo', function (done) {
         hippie()
             .base('http://localhost:' + port)
             .get('/')
             .expectStatus(200)
             .expectBody('yahalo! GET!')
-            .end(function(err, res, body) {
+            .end(function (err, res, body) {
                 if (err) done.fail(err)
                 else done()
             })

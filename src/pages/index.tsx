@@ -29,7 +29,7 @@ const Page: GatsbyComponent<IndexPageQuery> = ({ data }) => (
     <Layout>
         <p>Recent Posts</p>
         <ul>
-            {(data.allMarkdownRemark?.edges ?? []).map(post => {
+            {(data.allMarkdownRemark?.edges ?? []).map((post) => {
                 const title = `${post.node.frontmatter?.date ?? ''} | ${post.node.frontmatter?.title ?? ''}`
                 const slug = post.node.fields?.slug ?? ''
                 return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>

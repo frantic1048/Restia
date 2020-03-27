@@ -35,7 +35,7 @@ export const types = {
 // 发起文章请求的 action，
 // 包含一个 postId 标识准备请求哪篇文章，
 // 可用于在 store 中标识拉取状态。
-const fetchPostRequest = postId => ({
+const fetchPostRequest = (postId) => ({
     type: types.FETCH_POST_REQUEST,
     payload: postId,
 })
@@ -56,7 +56,7 @@ const fetchPostFailure = ({ id, failedResponse }) => ({
 // 称之为 thunk action，会被 Redux Thunk 中间件接手
 // 使用的时候和普通 action 一样：
 // store.dispatch(fetchPost(postId))
-export const fetchPost = postId => dispatch => {
+export const fetchPost = (postId) => (dispatch) => {
     // 这个返回的函数会被 Redux Thunk 中间件执行，
     // 同时会在第一个参数接收到 redux store 的 `dispatch` 方法，
     // 从而可以在这里面自己触发 action。
@@ -65,9 +65,9 @@ export const fetchPost = postId => dispatch => {
     dispatch(fetchPostRequest(postId))
 
     return fetch(`/posts/${postId}.md`)
-        .then(response => response.text())
-        .then(content => fetchPostSuccess({ id: postId, content }))
-        .catch(failedResponse => fetchPostFailure({ id: postId, failedResponse }))
+        .then((response) => response.text())
+        .then((content) => fetchPostSuccess({ id: postId, content }))
+        .catch((failedResponse) => fetchPostFailure({ id: postId, failedResponse }))
 }
 ```
 
@@ -126,7 +126,7 @@ describe('Post fetching', () => {
             window.fetch.restore()
         })
 
-        it('should FETCH_POST_SUCCESS with post content', done => {
+        it('should FETCH_POST_SUCCESS with post content', (done) => {
             // 期望的发起请求的 action
             const actRequest = {
                 type: types.FETCH_POST_REQUEST,
@@ -173,7 +173,7 @@ describe('Post fetching', () => {
             window.fetch.restore()
         })
 
-        it('should FETCH_POST_FAILURE with errored response', done => {
+        it('should FETCH_POST_FAILURE with errored response', (done) => {
             const actRequest = {
                 type: types.FETCH_POST_REQUEST,
                 payload: testPostId,
