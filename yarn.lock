@@ -905,7 +905,7 @@
     "@graphql-toolkit/schema-merging" "0.9.9"
     tslib "1.11.1"
 
-"@graphql-codegen/plugin-helpers@1.13.1":
+"@graphql-codegen/plugin-helpers@1.13.1", "@graphql-codegen/plugin-helpers@^1.13.1":
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-1.13.1.tgz#83291f758a1bcb9c63fa3293c7b09d38bb1427f3"
   integrity sha512-75GkqYnpt79hHxnVNSaVn9ESHB2ORglTcJWfnKKuO5e6/IbW/TsMB9OR683W6Y9c+nZLmwrVJVCVYLckST+1EA==
@@ -6088,12 +6088,13 @@ gatsby-plugin-feed@2.4.1:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-graphql-codegen@^2.6.0:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-graphql-codegen/-/gatsby-plugin-graphql-codegen-2.6.1.tgz#00731a0e5e310d027d6245caf36bcb1f32111bd0"
-  integrity sha512-YE+TFGYduMDMDXANHYGQecOCB0/E0ywr+Q/EuNeizR+7p0HfOAjlBClgXal295fIetV5HgVGpCBALaDwTeBB3g==
+gatsby-plugin-graphql-codegen@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-graphql-codegen/-/gatsby-plugin-graphql-codegen-2.7.0.tgz#c894f7be30c26636a10c34279493ade33804ead2"
+  integrity sha512-GLpPY1JviM3i3Zgjav1blluQpqgPwbduYlxuIEjD+sn7CtpOOobpkcQrDVtv2w0S32GcsSQLiFJZY6X2Z+O/xA==
   dependencies:
     "@graphql-codegen/core" "^1.12.2"
+    "@graphql-codegen/plugin-helpers" "^1.13.1"
     "@graphql-codegen/typescript" "^1.12.2"
     "@graphql-codegen/typescript-operations" "^1.12.2"
     "@graphql-toolkit/code-file-loader" "^0.9.7"
@@ -6151,14 +6152,14 @@ gatsby-plugin-sharp@2.5.3:
     svgo "1.3.2"
     uuid "^3.4.0"
 
-gatsby-plugin-ts@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-ts/-/gatsby-plugin-ts-2.6.0.tgz#8eb30e8fdcbcbe2a3cc229a628eb779ff6670f33"
-  integrity sha512-XAV9c1zKaZpfL1qNxjH1IBZtwZ2QHRd/kRgqCO1wOI5JPK9ZTH9SbwDZOYxL8Vd333Y3z5saLsnWKm3+uaKVFw==
+gatsby-plugin-ts@2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-ts/-/gatsby-plugin-ts-2.7.0.tgz#1117fa72d91ea1e727ffc680f8e5c8bb506abe39"
+  integrity sha512-/xvFxKgoivJHqT/9m1A6I0NsC7KssJLnGDytjZS4F/z1m6z167k1Gk2QZO76Sy4beEHbTydR0BQfwnQc1m5wBw==
   dependencies:
     fork-ts-checker-webpack-plugin "^4.0.3"
     fs-extra "^7.0.1"
-    gatsby-plugin-graphql-codegen "^2.6.0"
+    gatsby-plugin-graphql-codegen "^2.7.0"
     ts-loader "^6.2.1"
 
 gatsby-react-router-scroll@^2.2.1:
