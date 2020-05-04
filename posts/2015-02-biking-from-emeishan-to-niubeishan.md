@@ -5,7 +5,7 @@ tags: [骑行, 牛背山]
 category: Journey
 ---
 
-![BroD_DSC00357.jpg](../../static/image/BroD_DSC00357.jpg)
+![BroD_DSC00357.jpg](../static/image/BroD_DSC00357.jpg)
 
 ---
 

@@ -5,7 +5,7 @@ tags: [Anime, Gochiusa, Telegram]
 category: Misc
 ---
 
-![sticker set preview](../../static/image/gochiusa___telegram_stickers_set_by_frantle_d8xqyvq-fullview.jpg)
+![sticker set preview](../static/image/gochiusa___telegram_stickers_set_by_frantle_d8xqyvq-fullview.jpg)
 
 Telegram 刚出贴纸功能的时候就想给做一个关于 [点兔][gochiusa] 的贴纸集了,因为考试迟迟没有动工，上周终于从动画截图中挑选了 100 多张图准备来做贴纸，扣了大概 10 多张之后在群里问了问，幸运的是 [Mika][mika] 来助力，三天帮我搞定了其中的 60 张，质量绝赞！前后快一个星期的时间最后出了 149 张贴纸 ！最后看到自己扣了这么多图也是感到不可思议，大概这就是爱得深沉吧 \_(:з」∠)\_ 随后段时间我会把原尺寸的 png 图包发到 DA 上去。同时记个创贴纸的流程～
 
