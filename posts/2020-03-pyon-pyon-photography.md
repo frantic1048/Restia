@@ -3,6 +3,7 @@ title: Random Pyon Pyon Photography
 date: 2020-03-15
 tags: [Gochiusa]
 category: Photography
+cover: ../static/photo/figure/compilation/IMG_1752.jpg
 ---
 
 [糊了一下图片的 build](https://github.com/frantic1048/Restia/commit/8584502bc4526d68e11cf4f9335430a3edd8a926)，现在没有 webp 支持的用户应该也能看个亮了，再来点照片看看 ( ಠ ͜ʖ ಠ)

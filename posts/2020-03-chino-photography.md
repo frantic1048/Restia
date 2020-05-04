@@ -3,6 +3,7 @@ title: Random Chino Photography
 date: 2020-03-11
 tags: [Chino, Gochiusa]
 category: Photography
+cover: ../static/photo/figure/easy_eight.chino_and_rabbits/chino7.jpg
 ---
 
 过去的一些智乃手办照片 ╰( ͡° ͜ʖ ͡° )つ ──☆\*:・ﾟ

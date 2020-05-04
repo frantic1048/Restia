@@ -257,6 +257,13 @@ export const query = graphql`
             frontmatter {
                 title
                 date
+                cover {
+                    childImageSharp {
+                        fluid(maxWidth: 800, fit: COVER, webpQuality: 93) {
+                            srcWebp
+                        }
+                    }
+                }
             }
             fields {
                 slug
@@ -272,8 +279,12 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
     const html = data.markdownRemark?.html ?? ''
     const url = data.markdownRemark?.fields?.slug ?? ''
     const excerpt = data.markdownRemark?.excerpt ?? ''
+
+    // convert null to undefined since Layout does not like null
+    const cover = data.markdownRemark?.frontmatter?.cover?.childImageSharp?.fluid?.srcWebp || undefined
+
     return (
-        <Layout className={postClassName} pageTitle={title} pageUrl={url} pageDescription={excerpt}>
+        <Layout className={postClassName} pageTitle={title} pageUrl={url} pageDescription={excerpt} pageImage={cover}>
             <h1>{title}</h1>
             <p>{date}</p>
             <div dangerouslySetInnerHTML={{ __html: html }} />
