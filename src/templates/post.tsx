@@ -259,8 +259,8 @@ export const query = graphql`
                 date
                 cover {
                     childImageSharp {
-                        fluid(maxWidth: 800, fit: COVER, webpQuality: 93) {
-                            srcWebp
+                        fluid(maxWidth: 800, fit: COVER, quality: 93) {
+                            src
                         }
                     }
                 }
@@ -280,8 +280,13 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
     const url = data.markdownRemark?.fields?.slug ?? ''
     const excerpt = data.markdownRemark?.excerpt ?? ''
 
+    /**
+     * MEMO:
+     *  Twitter card supports webp nice and well.
+     *  But some other clients does not support webp :(
+     */
     // convert null to undefined since Layout does not like null
-    const cover = data.markdownRemark?.frontmatter?.cover?.childImageSharp?.fluid?.srcWebp || undefined
+    const cover = data.markdownRemark?.frontmatter?.cover?.childImageSharp?.fluid?.src || undefined
 
     return (
         <Layout className={postClassName} pageTitle={title} pageUrl={url} pageDescription={excerpt} pageImage={cover}>
