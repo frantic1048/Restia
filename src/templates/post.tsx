@@ -256,7 +256,8 @@ export const query = graphql`
             html
             frontmatter {
                 title
-                date
+                date(formatString: "YYYY-MM-DD")
+                category
                 cover {
                     childImageSharp {
                         fluid(maxWidth: 800, fit: COVER, quality: 93) {
@@ -275,7 +276,7 @@ export const query = graphql`
 
 const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
     const title = data.markdownRemark?.frontmatter?.title ?? ''
-    const date = data.markdownRemark?.frontmatter?.date ?? ''
+    const info = `${data.markdownRemark?.frontmatter?.date} ${data.markdownRemark?.frontmatter?.category}`
     const html = data.markdownRemark?.html ?? ''
     const url = data.markdownRemark?.fields?.slug ?? ''
     const excerpt = data.markdownRemark?.excerpt ?? ''
@@ -291,7 +292,7 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
     return (
         <Layout className={postClassName} pageTitle={title} pageUrl={url} pageDescription={excerpt} pageImage={cover}>
             <h1>{title}</h1>
-            <p>{date}</p>
+            <p>{info}</p>
             <div dangerouslySetInnerHTML={{ __html: html }} />
         </Layout>
     )
