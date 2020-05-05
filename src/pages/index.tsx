@@ -38,8 +38,6 @@ export const query = graphql`
 `
 
 const postEntryClassName = style({
-    display: 'flex',
-    flexDirection: 'row',
     $nest: {
         '& .gatsby-image-wrapper': {
             ...contentImageStyle,
@@ -72,15 +70,13 @@ const Page: GatsbyComponent<IndexPageQuery> = ({ data }) => (
             const cover: any = post.node.frontmatter?.cover?.childImageSharp?.fluid
             return (
                 <article key={post.node.id} className={postEntryClassName}>
-                    <div>
-                        <h1>{slug ? <Link to={slug}>{title}</Link> : title}</h1>
-                        <p className={postInfoClassName}>
-                            <span>{post.node.frontmatter?.date}</span>
-                            <span>{post.node.frontmatter?.category}</span>
-                        </p>
-                        {cover && <Img fluid={cover} />}
-                        <p>{post.node.excerpt}</p>
-                    </div>
+                    <h1>{slug ? <Link to={slug}>{title}</Link> : title}</h1>
+                    <p className={postInfoClassName}>
+                        <span>{post.node.frontmatter?.date}</span>
+                        <span>{post.node.frontmatter?.category}</span>
+                    </p>
+                    {cover && <Img fluid={cover} />}
+                    <p>{post.node.excerpt}</p>
                 </article>
             )
         })}
