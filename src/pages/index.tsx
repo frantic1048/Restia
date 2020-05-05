@@ -3,6 +3,10 @@ import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
 import { IndexPageQuery } from '../../types/graphql-types'
 import Layout from '../components/Layout'
+import { style } from 'typestyle'
+import { quote, px } from 'csx'
+import Img from 'gatsby-image'
+import { contentImageStyle } from '../util/constants'
 
 export const query = graphql`
     query IndexPage {
@@ -14,6 +18,14 @@ export const query = graphql`
                     frontmatter {
                         title
                         date(formatString: "YYYY-MM-DD")
+                        category
+                        cover {
+                            childImageSharp {
+                                fluid(maxWidth: 800, fit: COVER, quality: 93) {
+                                    ...GatsbyImageSharpFluid_withWebp
+                                }
+                            }
+                        }
                     }
                     fields {
                         slug
@@ -25,16 +37,53 @@ export const query = graphql`
     }
 `
 
+const postEntryClassName = style({
+    display: 'flex',
+    flexDirection: 'row',
+    $nest: {
+        '& .gatsby-image-wrapper': {
+            ...contentImageStyle,
+        },
+    },
+})
+
+const postInfoClassName = style({
+    $nest: {
+        '&>span:not(:last-child)::after': {
+            content: quote(', '),
+        },
+    },
+})
+
 const Page: GatsbyComponent<IndexPageQuery> = ({ data }) => (
     <Layout>
-        <p>Recent Posts</p>
-        <ul>
-            {(data.allMarkdownRemark?.edges ?? []).map((post) => {
-                const title = `${post.node.frontmatter?.date ?? ''} | ${post.node.frontmatter?.title ?? ''}`
-                const slug = post.node.fields?.slug ?? ''
-                return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
-            })}
-        </ul>
+        {(data.allMarkdownRemark?.edges ?? []).map((post) => {
+            const title = post.node.frontmatter?.title
+            const slug = post.node.fields?.slug ?? ''
+
+            /**
+             * FIXME:
+             *
+             * gatsby-image and ImageSharpFluid does not have exactly same
+             * type interface, on base64 field,
+             * string|undefined|null (ImageSharpFluid) !== string|undefined (gatsby-image)
+             */
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const cover: any = post.node.frontmatter?.cover?.childImageSharp?.fluid
+            return (
+                <article key={post.node.id} className={postEntryClassName}>
+                    <div>
+                        <h1>{slug ? <Link to={slug}>{title}</Link> : title}</h1>
+                        <p className={postInfoClassName}>
+                            <span>{post.node.frontmatter?.date}</span>
+                            <span>{post.node.frontmatter?.category}</span>
+                        </p>
+                        {cover && <Img fluid={cover} />}
+                        <p>{post.node.excerpt}</p>
+                    </div>
+                </article>
+            )
+        })}
     </Layout>
 )
 

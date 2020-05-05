@@ -63,16 +63,27 @@ cssRule('html, body', {
     backgroundSize: px(500),
     backgroundAttachment: 'scroll',
 })
+cssRule('body', {
+    maxWidth: em(60),
+    margin: 'auto',
+})
 cssRule('a', {
     textDecoration: 'underline dotted',
     color: 'currentColor',
     padding: `${em(0)} ${em(0.2)}`,
     $nest: {
+        /**
+         * To `unshift` the left padding to make things
+         * still aligned.
+         * somewhat dirty, but works most of the time
+         */
+        '&:first-child': { marginLeft: em(-0.2) },
+
         '&:visited': {},
         '&:hover,&:focus': {
             textDecorationStyle: 'solid',
             color: 'white',
-            background: '#74c5ff',
+            background: rgba(0, 149, 255, 0.5).toString(),
         },
         '&:active': {},
     },

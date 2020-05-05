@@ -1,5 +1,5 @@
-import { style, media } from 'typestyle'
-import { rem } from 'csx'
+import { media } from 'typestyle'
+import { rem, px } from 'csx'
 import { NestedCSSProperties } from 'typestyle/lib/types'
 
 const primaryRatio = 1.5
@@ -24,4 +24,11 @@ export const scaleAt = (step: number) => {
     }
 
     return scales[step]
+}
+
+/**
+ * add a simple shadow to images
+ */
+export const contentImageStyle: NestedCSSProperties = {
+    boxShadow: `${px(3)} ${px(3)} ${px(3)} #aaa`,
 }

@@ -3,8 +3,9 @@ import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
 import { PostDetailQuery } from '../../types/graphql-types'
 import Layout from '../components/Layout'
-import { px, em, percent } from 'csx'
+import { em, percent } from 'csx'
 import { style, cssRaw } from 'typestyle'
+import { contentImageStyle } from '../util/constants'
 
 /**
  * Atom Base16 Tomorrow Light Syntax theme
@@ -226,7 +227,7 @@ const postClassName = style({
     wordBreak: 'break-word',
     $nest: {
         '& .gatsby-resp-image-wrapper': {
-            boxShadow: `${px(3)} ${px(3)} ${px(3)} #aaa`,
+            ...contentImageStyle,
             marginTop: em(0.5),
             marginBottom: em(0.5),
         },
