@@ -35,9 +35,7 @@ const postsClassName = style({
     listStyle: 'none',
 })
 
-const postEntryClassName = style({
-    display: 'block',
-})
+const postEntryClassName = style({})
 
 const postEntryInfoClassName = style({
     $nest: {

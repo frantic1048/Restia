@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { style, cssRule, classes } from 'typestyle'
-import { rgb, viewHeight, rem, em } from 'csx'
+import { rgb, viewHeight, rem, em, url, rgba, px } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '../../types/graphql-types'
 import { scaleAt } from '../util/constants'
@@ -11,7 +11,6 @@ const layoutClassName = style({
     minHeight: viewHeight(100),
     boxSizing: 'border-box',
     fontFamily: 'serif',
-    color: '#333',
 })
 
 const headerClassName = style(
@@ -28,6 +27,7 @@ const navLinkClassName = style(
             '&.active': {
                 fontWeight: 'bold',
                 fontStyle: 'italic',
+                textDecorationStyle: 'solid',
             },
         },
     },
@@ -56,8 +56,26 @@ const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps
 cssRule('html, body', {
     padding: 0,
     margin: 0,
-    background: rgb(253, 255, 245).toHexString(),
-    backgroundAttachment: 'fixed',
+    color: rgb(70, 70, 70).toString(),
+    backgroundImage: url('/texture.500.png'),
+    backgroundRepeat: 'repeat',
+    backgroundColor: '#EEF6FC',
+    backgroundSize: px(500),
+    backgroundAttachment: 'scroll',
+})
+cssRule('a', {
+    textDecoration: 'underline dotted',
+    color: 'currentColor',
+    padding: `${em(0)} ${em(0.2)}`,
+    $nest: {
+        '&:visited': {},
+        '&:hover,&:focus': {
+            textDecorationStyle: 'solid',
+            color: 'white',
+            background: '#74c5ff',
+        },
+        '&:active': {},
+    },
 })
 cssRule('h1', ...scaleAt(2))
 cssRule('h2', ...scaleAt(1))
@@ -86,7 +104,7 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
     const description = pageDescription ?? data.site?.siteMetadata?.description ?? ''
 
     const siteUrl = data.site?.siteMetadata?.siteUrl ?? ''
-    const url = `${siteUrl}${pageUrl ?? ''}`
+    const fullUrl = `${siteUrl}${pageUrl ?? ''}`
 
     const image = pageImage ?? data.site?.siteMetadata?.image ?? ''
 
@@ -123,7 +141,7 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
                 {pageTitle && <meta property="og:title" content={pageTitle} />}
                 <meta property="og:site_name" content={siteName} />
                 <meta property="og:description" content={description} />
-                <meta property="og:url" content={url} />
+                <meta property="og:url" content={fullUrl} />
                 <meta property="og:image" content={image} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={pageTitle ?? siteName} />
