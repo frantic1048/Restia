@@ -294,6 +294,7 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
         <Layout className={postClassName} pageTitle={title} pageUrl={url} pageDescription={excerpt} pageImage={cover}>
             <h1>{title}</h1>
             <p>{info}</p>
+            {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
             <div dangerouslySetInnerHTML={{ __html: html }} />
         </Layout>
     )

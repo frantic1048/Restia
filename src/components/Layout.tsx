@@ -46,7 +46,7 @@ interface LayoutProps {
 
 // MEMO: is anything wrong here :thingking:?
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps<{}>, ref: any) => (
+const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps<unknown>, ref: any) => (
     <Link className={navLinkClassName} activeClassName={activeClassName ?? 'active'} {...props} ref={ref} />
 ))
 
