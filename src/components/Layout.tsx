@@ -20,10 +20,15 @@ const headerClassName = style(
     ...scaleAt(3),
 )
 
+const navClassName = style({
+    display: 'flex',
+    justifyContent: 'space-between',
+})
+
 const navLinkClassName = style(
     {
-        marginRight: em(1),
         $nest: {
+            '&:not(:last-child)': { marginRight: em(1) },
             '&.active': {
                 fontWeight: 'bold',
                 fontStyle: 'italic',
@@ -160,9 +165,14 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
                 <meta name="twitter:image" content={twitterImage} />
             </Helmet>
             <header className={headerClassName}>{data.site?.siteMetadata?.title ?? ''}</header>
-            <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/posts">Archive</NavLink>
+            <nav className={navClassName}>
+                <div>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/posts">Archive</NavLink>
+                </div>
+                <div>
+                    <NavLink to="/rss.xml">Feed</NavLink>
+                </div>
             </nav>
             <main>{children}</main>
         </div>
