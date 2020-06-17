@@ -15,7 +15,15 @@ module.exports = {
         '@typescript-eslint/adjacent-overload-signatures': 'error',
         '@typescript-eslint/array-type': 'error',
         '@typescript-eslint/ban-types': 'error',
-        '@typescript-eslint/class-name-casing': 'error',
+        '@typescript-eslint/naming-convention': [
+            'error',
+            { selector: 'default', format: ['camelCase'] },
+            { selector: 'typeLike', format: ['PascalCase'] },
+            { selector: 'variable', types: ['function'], format: ['camelCase', 'PascalCase'] },
+            { selector: 'typeParameter', format: ['PascalCase'], prefix: ['T'] },
+            { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
+            { selector: 'property', format: ['camelCase'], leadingUnderscore: 'allow' },
+        ],
         '@typescript-eslint/consistent-type-assertions': 'error',
         '@typescript-eslint/consistent-type-definitions': 'error',
         '@typescript-eslint/explicit-member-accessibility': [
@@ -25,7 +33,6 @@ module.exports = {
             },
         ],
         '@typescript-eslint/indent': 'off',
-        '@typescript-eslint/interface-name-prefix': 'error',
         '@typescript-eslint/member-delimiter-style': [
             'off',
             'error',
