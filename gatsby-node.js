@@ -1,5 +1,14 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+        resolve: {
+            plugins: [new TsconfigPathsPlugin()],
+        },
+    })
+}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions

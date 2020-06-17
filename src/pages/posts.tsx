@@ -1,11 +1,11 @@
 import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
-import { ArchiveListQuery } from '../../types/graphql-types'
-import Layout from '../components/Layout'
+import { ArchiveListQuery } from '@restia-gql'
+import Layout from '@components/Layout'
 import { style } from 'typestyle'
-import { groupBy } from '../util/util'
-import { em, quote } from 'csx'
+import { groupBy } from '@util/util'
+import { quote } from 'csx'
 
 export const query = graphql`
     query ArchiveList {

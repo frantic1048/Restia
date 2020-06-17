@@ -1,11 +1,11 @@
 import { graphql } from 'gatsby'
 import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
-import { PostDetailQuery } from '../../types/graphql-types'
-import Layout from '../components/Layout'
+import { PostDetailQuery } from '@restia-gql'
+import Layout from '@components/Layout'
 import { em, percent } from 'csx'
 import { style, cssRaw } from 'typestyle'
-import { contentImageStyle } from '../util/constants'
+import { contentImageStyle } from '@util/constants'
 
 /**
  * Atom Base16 Tomorrow Light Syntax theme

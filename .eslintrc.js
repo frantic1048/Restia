@@ -8,8 +8,8 @@ module.exports = {
         project: 'tsconfig.json',
         sourceType: 'module',
     },
-    plugins: ['@typescript-eslint', '@typescript-eslint/tslint', 'sonarjs', 'prefer-arrow', 'prettier'],
-    extends: ['plugin:sonarjs/recommended', 'plugin:prettier/recommended'],
+    plugins: ['@typescript-eslint', '@typescript-eslint/tslint', 'sonarjs', 'prefer-arrow', 'prettier', 'import'],
+    extends: ['plugin:sonarjs/recommended', 'plugin:prettier/recommended', 'plugin:import/typescript'],
     rules: {
         'prettier/prettier': 'error',
         '@typescript-eslint/adjacent-overload-signatures': 'error',
@@ -66,6 +66,7 @@ module.exports = {
         '@typescript-eslint/triple-slash-reference': 'error',
         '@typescript-eslint/type-annotation-spacing': 'off',
         '@typescript-eslint/unified-signatures': 'error',
+        'import/no-relative-parent-imports': 'error',
         'arrow-body-style': 'error',
         'arrow-parens': ['off', 'as-needed'],
         camelcase: 'error',

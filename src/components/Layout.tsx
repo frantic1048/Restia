@@ -2,8 +2,8 @@ import * as React from 'react'
 import { style, cssRule, classes } from 'typestyle'
 import { rgb, viewHeight, rem, em, url, rgba, px } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
-import { LayoutQuery } from '../../types/graphql-types'
-import { scaleAt } from '../util/constants'
+import { LayoutQuery } from '@restia-gql'
+import { scaleAt } from '@util/constants'
 import { Helmet } from 'react-helmet'
 
 const layoutClassName = style({

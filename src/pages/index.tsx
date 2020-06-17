@@ -1,12 +1,12 @@
 import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
-import { IndexPageQuery } from '../../types/graphql-types'
-import Layout from '../components/Layout'
+import { IndexPageQuery } from '@restia-gql'
+import Layout from '@components/Layout'
 import { style } from 'typestyle'
-import { quote, px } from 'csx'
+import { quote } from 'csx'
 import Img from 'gatsby-image'
-import { contentImageStyle } from '../util/constants'
+import { contentImageStyle } from '@util/constants'
 
 export const query = graphql`
     query IndexPage {

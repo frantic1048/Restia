@@ -12,7 +12,12 @@
         "noImplicitThis": true,
         "strictNullChecks": true,
         "typeRoots": ["./types", "./node_modules/@types"],
-        "baseUrl": "./src"
+        "baseUrl": "./src",
+        "paths": {
+            "@components/*": ["components/*"],
+            "@util/*": ["util/*"],
+            "@restia-gql": ["../types/graphql-types"],
+        }
     },
     "include": ["src"]
 }
