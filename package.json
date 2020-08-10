@@ -62,8 +62,8 @@
         "typescript": "3.9.7"
     },
     "resolutions": {
-        "gatsby-transformer-remark/unified": "^9.0.0",
-        "gatsby-transformer-remark/remark/unified": "^9.0.0"
+        "gatsby-transformer-remark/unified": "^9.1.0",
+        "gatsby-transformer-remark/remark/unified": "^9.1.0"
     },
     "repository": {
         "type": "git",
