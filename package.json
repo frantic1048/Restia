@@ -39,7 +39,7 @@
     "devDependencies": {
         "@babel/plugin-proposal-nullish-coalescing-operator": "7.10.4",
         "@babel/plugin-proposal-optional-chaining": "7.11.0",
-        "@types/react": "16.9.48",
+        "@types/react": "16.9.49",
         "@types/react-dom": "16.9.8",
         "@types/react-helmet": "6.1.0",
         "@typescript-eslint/eslint-plugin": "3.10.1",
