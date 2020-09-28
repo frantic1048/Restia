@@ -12,6 +12,18 @@ module.exports = {
             resolve: 'gatsby-plugin-ts',
             options: {
                 fileName: 'types/graphql-types.ts',
+                documentPaths: [
+                    /**
+                     * gatsby-plugin-graphql-codegen seems loading some incorrect content as
+                     * graphql document from default paths, which causes codegen error.
+                     * TODO: investigate later
+                     */
+                    // default: './src/**/*.{ts,tsx}',
+                    './src/{pages,templates,components}/!(*.d).{ts,tsx}',
+
+                    './.cache/fragments/*.js',
+                    './node_modules/gatsby-*/**/*.js',
+                ],
             },
         },
         {

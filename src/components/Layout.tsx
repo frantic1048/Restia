@@ -171,6 +171,7 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
                     <NavLink to="/posts">Archive</NavLink>
                 </div>
                 <div>
+                    <NavLink to="/about">About</NavLink>
                     <NavLink to="/rss.xml">Feed</NavLink>
                 </div>
             </nav>
