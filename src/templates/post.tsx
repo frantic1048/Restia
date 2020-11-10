@@ -6,6 +6,7 @@ import Layout from '@components/Layout'
 import { em, percent } from 'csx'
 import { style, cssRaw } from 'typestyle'
 import { contentImageStyle } from '@util/constants'
+import Comments from '@components/Comments'
 
 /**
  * Atom Base16 Tomorrow Light Syntax theme
@@ -279,7 +280,7 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
     const title = data.markdownRemark?.frontmatter?.title ?? ''
     const info = `${data.markdownRemark?.frontmatter?.date} ${data.markdownRemark?.frontmatter?.category}`
     const html = data.markdownRemark?.html ?? ''
-    const url = data.markdownRemark?.fields?.slug ?? ''
+    const slug = data.markdownRemark?.fields?.slug ?? ''
     const excerpt = data.markdownRemark?.excerpt ?? ''
 
     /**
@@ -291,11 +292,12 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
     const cover = data.markdownRemark?.frontmatter?.cover?.childImageSharp?.fluid?.src || undefined
 
     return (
-        <Layout className={postClassName} pageTitle={title} pageUrl={url} pageDescription={excerpt} pageImage={cover}>
+        <Layout className={postClassName} pageTitle={title} pageUrl={slug} pageDescription={excerpt} pageImage={cover}>
             <h1>{title}</h1>
             <p>{info}</p>
             {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
             <div dangerouslySetInnerHTML={{ __html: html }} />
+            <Comments slug={slug} title={title} />
         </Layout>
     )
 }
