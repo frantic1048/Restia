@@ -42,9 +42,7 @@ export default ({ slug, title }: Props) => {
                         identifier: slug,
                         title,
                     }}
-                >
-                    Comments
-                </DiscussionEmbed>
+                />
             )}
         </>
     )
