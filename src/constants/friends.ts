@@ -39,15 +39,22 @@ const friends: Friend[] = [
         'quininer kel',
         'quininer',
         'https://quininer.github.io/',
-        '奎尼；<del>你怎么还没有用 Tox 啊？</del>好棒！好棒！好棒！',
+        '奎尼；掌握不管多拗口的昵称都能取一个顺口<del>又鬼畜</del>的别名的魔法。',
     ],
     ['CUI Hao', 'cuihaoleo', 'https://cvhc.cc/', '催土豪；有爱的 Arch Linux 中文社区源的维护者。'],
-    ['谷月轩', 'SilverRainZ', 'https://silverrainz.me/', 'SilverRainZ；又会画画又会写内核又会弹琴的 LA 酱'],
+    ['谷月轩', 'SilverRainZ', 'https://silverrainz.me/', 'SilverRainZ；又会画画又会写内核又会弹琴煮饭很香的辣酱。'],
     ['Steve Zhang', 'Stevearzh', 'https://stevearzh.github.io/', '前端大前辈史蒂夫。'],
     ['ヨイツの賢狼ホロ', 'KenOokamiHoro', 'https://blog.yoitsu.moe/', '抱一下萌狼尾巴。'],
     ['依云', 'lilydjwg', 'https://blog.lilydjwg.me/', '百合仙子；掌握各种技术经验丰富的仙子前辈。'],
     ['謝宇恆', 'xieyuheng', 'https://xieyuheng.github.io/', 'xyh，小妖狐，小药壶；语言设计之小药壶。'],
     ['夏娜(VOID001)', 'VOID001', 'https://void-shana.moe/', '向着内核大嗨卡前进的夏娜君。'],
+    [
+        'metal A-wing',
+        'a-wing',
+        'https://a-wing.top/',
+        '新一；<del>另外一位夏娜</del>，动手和行动力很强的 ArchCN 社群的小伙伴。',
+    ],
+    ['惠狐', 'MarvelousBlack', 'https://blog.megumifox.com/', '糊糊；糊糊怎么叫（'],
 
     /**
      * FIXME: broken links
