@@ -2033,13 +2033,12 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.14.0":
-  version "16.14.0"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.0.tgz#bc022cfe1609899b0f2196376b267724e7300f0e"
-  integrity sha512-jJjHo1uOe+NENRIBvF46tJimUvPnmbQ41Ax0pEm7pRvhPg+wuj8VMOHHiMvaGmZRzRrCtm7KnL5OOE/6kHPK8w==
+"@types/react@*", "@types/react@16.14.1":
+  version "16.14.1"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.1.tgz#da2ecb638385614a5573e16e4aa7daf936dbead5"
+  integrity sha512-32mxrbX62m5b+lMTSzucFKNIr8Eq4T6T3rDVxYzKqyRwyfnPcwZppWW0YXUlPNPUE+r6phBtHXYRgr8ad/Zl9A==
   dependencies:
     "@types/prop-types" "*"
-    csstype "^3.0.2"
 
 "@types/responselike@*":
   version "1.0.0"
@@ -4645,11 +4644,6 @@ csstype@^2.5.1:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.14.tgz#004822a4050345b55ad4dcc00be1d9cf2f4296de"
   integrity sha512-2mSc+VEpGPblzAxyeR+vZhJKgYg0Og0nnRi7pmRXFYYxSfnOnW8A5wwQb4n4cE2nIOzqKOAzLCaEX6aBmNEv8A==
-
-csstype@^3.0.2:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.5.tgz#7fdec6a28a67ae18647c51668a9ff95bb2fa7bb8"
-  integrity sha512-uVDi8LpBUKQj6sdxNaTetL6FpeCqTjOvAQuQUa/qAqq8oOd4ivkbhgnqayl0dnPal8Tb/yB1tF+gOvCBiicaiQ==
 
 csx@10.0.1:
   version "10.0.1"
