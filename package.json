@@ -29,7 +29,7 @@
         "gatsby-plugin-ts": "2.7.1",
         "gatsby-remark-highlights": "1.3.4",
         "gatsby-remark-images": "3.6.0",
-        "gatsby-source-filesystem": "2.6.0",
+        "gatsby-source-filesystem": "2.6.1",
         "gatsby-transformer-remark": "2.11.0",
         "gatsby-transformer-sharp": "2.7.0",
         "react": "17.0.1",
