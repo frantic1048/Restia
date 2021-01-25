@@ -65,6 +65,7 @@ module.exports = {
                             backgroundColor: 'none',
                             quality: 95,
                             withWebp: { quality: 93 },
+                            withAvif: { quality: 90 },
                             loading: 'lazy',
                         },
                     },
