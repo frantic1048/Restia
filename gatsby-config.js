@@ -63,10 +63,17 @@ module.exports = {
                             maxWidth: 1200,
                             linkImagesToOriginal: true,
                             backgroundColor: 'none',
-                            quality: 95,
+                            loading: 'auto',
+                            quality: 90,
                             withWebp: { quality: 93 },
-                            withAvif: { quality: 90 },
-                            loading: 'lazy',
+
+                            /**
+                             * MEMO: NOT TODAY...
+                             *
+                             * mobile firefox/chrome loading
+                             * avif but show nothing (¯ . ¯٥)
+                             */
+                            withAvif: false,
                         },
                     },
                 ],
