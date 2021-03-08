@@ -42,7 +42,7 @@
         "@babel/plugin-proposal-nullish-coalescing-operator": "7.13.8",
         "@babel/plugin-proposal-optional-chaining": "7.13.8",
         "@types/react": "17.0.3",
-        "@types/react-dom": "17.0.1",
+        "@types/react-dom": "17.0.2",
         "@types/react-helmet": "6.1.0",
         "@typescript-eslint/eslint-plugin": "4.17.0",
         "@typescript-eslint/eslint-plugin-tslint": "4.17.0",
