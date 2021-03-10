@@ -33,10 +33,10 @@ export default ({ slug, title }: Props) => {
     const [commentsLoaded, setCommentsLoaded] = React.useState(false)
 
     React.useEffect(() => {
-        if (isInViewport && fullUrl) {
+        if (isInViewport && siteUrl !== '') {
             setCommentsLoaded(true)
         }
-    }, [isInViewport, commentsLoaded, fullUrl])
+    }, [isInViewport, commentsLoaded, siteUrl])
 
     return (
         <>
