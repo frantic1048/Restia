@@ -22,7 +22,9 @@ jobs:
     - name: Build
       run: yarn build
 
-    - name: Deploy
+    - name: deploy to netlify
+      # using cloudflare pages instead
+      if: false
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
