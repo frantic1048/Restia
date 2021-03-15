@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { style, cssRule, classes } from 'typestyle'
-import { rgb, viewHeight, em, url, rgba, px } from 'csx'
+import { rgb, viewHeight, em, rgba } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '@restia-gql'
 import { scaleAt } from '@util/constants'

@@ -1,5 +1,5 @@
 import { contentImageStyle } from '@util/constants'
-import { rgba, em, rgb, linearGradient, hsl } from 'csx'
+import { rgba, em, rgb } from 'csx'
 import { Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
 import * as React from 'react'
