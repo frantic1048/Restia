@@ -1,13 +1,12 @@
 import * as React from 'react'
 import { style, cssRule, classes } from 'typestyle'
-import { rgb, viewHeight, rem, em, url, rgba, px } from 'csx'
+import { rgb, viewHeight, em, url, rgba, px } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '@restia-gql'
 import { scaleAt } from '@util/constants'
 import { Helmet } from 'react-helmet'
 
 const layoutClassName = style({
-    padding: rem(2),
     minHeight: viewHeight(100),
     boxSizing: 'border-box',
     fontFamily: 'serif',
@@ -58,15 +57,11 @@ const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps
 /**
  * some global rules
  */
-cssRule('html, body', {
+cssRule('html', {
     padding: 0,
     margin: 0,
     color: rgb(70, 70, 70).toString(),
-    backgroundImage: url('/texture.500.png'),
-    backgroundRepeat: 'repeat',
-    backgroundColor: '#EEF6FC',
-    backgroundSize: px(500),
-    backgroundAttachment: 'scroll',
+    backgroundColor: '#f2f2f2',
 })
 cssRule('body', {
     maxWidth: em(60),

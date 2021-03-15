@@ -23,9 +23,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    return graphql(`
+
+    const result = await graphql(`
         {
             allMarkdownRemark {
                 edges {
@@ -37,18 +38,38 @@ exports.createPages = ({ graphql, actions }) => {
                 }
             }
         }
-    `).then((result) => {
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-            const slug = node.fields.slug
+    `)
+
+    const posts = result.data.allMarkdownRemark.edges
+    const pageSize = 6
+    const numPages = Math.ceil(posts.length / pageSize)
+    Array.from({ length: numPages }).forEach((_, pageIndex) => {
+        // skip first page, since we have index page
+        if (pageIndex > 0) {
             createPage({
-                path: slug,
-                component: path.resolve(`./src/templates/post.tsx`),
+                path: `/page/${pageIndex + 1}`,
+                component: path.resolve('./src/templates/postList.tsx'),
                 context: {
-                    // Data passed to context is available
-                    // in page queries as GraphQL variables.
-                    slug: slug,
+                    limit: pageSize,
+                    skip: pageIndex * pageSize,
+                    numPages,
+                    currentPage: pageIndex + 1,
                 },
             })
+        }
+    })
+
+    // pages for each post
+    posts.forEach(({ node }) => {
+        const slug = node.fields.slug
+        createPage({
+            path: slug,
+            component: path.resolve(`./src/templates/post.tsx`),
+            context: {
+                // Data passed to context is available
+                // in page queries as GraphQL variables.
+                slug: slug,
+            },
         })
     })
 }

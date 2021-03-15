@@ -3,14 +3,12 @@ import * as React from 'react'
 import { GatsbyComponent } from 'util/types'
 import { IndexPageQuery } from '@restia-gql'
 import Layout from '@components/Layout'
-import { style } from 'typestyle'
-import { quote } from 'csx'
-import Img from 'gatsby-image'
-import { contentImageStyle } from '@util/constants'
+import PostEntry from '@components/PostEntry'
+import { paginationClassName } from 'templates/postList'
 
 export const query = graphql`
     query IndexPage {
-        allMarkdownRemark(limit: 5, sort: { fields: [frontmatter___date], order: DESC }) {
+        allMarkdownRemark(limit: 6, sort: { fields: [frontmatter___date], order: DESC }) {
             totalCount
             edges {
                 node {
@@ -18,7 +16,6 @@ export const query = graphql`
                     frontmatter {
                         title
                         date(formatString: "YYYY-MM-DD")
-                        category
                         cover {
                             childImageSharp {
                                 fluid(maxWidth: 800, fit: COVER, quality: 93) {
@@ -37,22 +34,6 @@ export const query = graphql`
     }
 `
 
-const postEntryClassName = style({
-    $nest: {
-        '& .gatsby-image-wrapper': {
-            ...contentImageStyle,
-        },
-    },
-})
-
-const postInfoClassName = style({
-    $nest: {
-        '&>span:not(:last-child)::after': {
-            content: quote(', '),
-        },
-    },
-})
-
 const Page: GatsbyComponent<IndexPageQuery> = ({ data }) => (
     <Layout>
         {(data.allMarkdownRemark?.edges ?? []).map((post) => {
@@ -69,17 +50,19 @@ const Page: GatsbyComponent<IndexPageQuery> = ({ data }) => (
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const cover: any = post.node.frontmatter?.cover?.childImageSharp?.fluid
             return (
-                <article key={post.node.id} className={postEntryClassName}>
-                    <h1>{slug ? <Link to={slug}>{title}</Link> : title}</h1>
-                    <p className={postInfoClassName}>
-                        <span>{post.node.frontmatter?.date}</span>
-                        <span>{post.node.frontmatter?.category}</span>
-                    </p>
-                    {cover && <Img fluid={cover} />}
-                    <p>{post.node.excerpt}</p>
-                </article>
+                <PostEntry
+                    key={post.node.id}
+                    title={title}
+                    slug={slug}
+                    cover={cover}
+                    excerpt={post.node.excerpt}
+                    date={post.node.frontmatter?.date}
+                />
             )
         })}
+        <nav aria-label="pagination" className={paginationClassName}>
+            <Link to={'/page/2'}>More ➠</Link>
+        </nav>
     </Layout>
 )
 
