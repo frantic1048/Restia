@@ -4,7 +4,7 @@ import friends from '@constants/friends'
 import { url } from 'csx'
 import * as React from 'react'
 import { classes, style } from 'typestyle'
-import { GatsbyComponent } from '@util/types'
+import { PageProps } from 'gatsby'
 
 const friendsListClassName = style({
     listStyle: 'none',
@@ -52,7 +52,7 @@ const friendsList = (
     </ul>
 )
 
-const Page: GatsbyComponent = () => (
+export default ({}: PageProps) => (
     <Layout pageTitle="Pyon Pyon About" pageUrl="/about" pageDescription="about">
         <h1>Site</h1>
         <p>
@@ -75,5 +75,3 @@ const Page: GatsbyComponent = () => (
         {enableFriendsList && friendsList}
     </Layout>
 )
-
-export default Page

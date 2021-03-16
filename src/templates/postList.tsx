@@ -2,9 +2,8 @@ import Layout from '@components/Layout'
 import PostEntry from '@components/PostEntry'
 import { PostListQuery } from '@restia-gql'
 import { scaleAt } from '@util/constants'
-import { GatsbyComponentRenderProps } from '@util/types'
 import { em } from 'csx'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import * as React from 'react'
 import { style } from 'typestyle'
 
@@ -49,47 +48,46 @@ export const paginationClassName = style(
     ...scaleAt(2),
 )
 
-class Page extends React.Component<GatsbyComponentRenderProps<PostListQuery>> {
-    public render() {
-        const { data } = this.props
-
-        // see gatsby-node.js
-        const { numPages, currentPage } = this.props.pageContext as { numPages: number; currentPage: number }
-
-        return (
-            <Layout>
-                {(data.allMarkdownRemark?.edges ?? []).map((post) => {
-                    const title = post.node.frontmatter?.title
-                    const slug = post.node.fields?.slug ?? ''
-
-                    /**
-                     * FIXME:
-                     *
-                     * gatsby-image and ImageSharpFluid does not have exactly same
-                     * type interface, on base64 field,
-                     * string|undefined|null (ImageSharpFluid) !== string|undefined (gatsby-image)
-                     */
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    const cover: any = post.node.frontmatter?.cover?.childImageSharp?.fluid
-                    return (
-                        <PostEntry
-                            key={post.node.id}
-                            title={title}
-                            slug={slug}
-                            cover={cover}
-                            excerpt={post.node.excerpt}
-                            date={post.node.frontmatter?.date}
-                        />
-                    )
-                })}
-                <nav aria-label="pagination" className={paginationClassName}>
-                    <Link to={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}>◃ Prev</Link>
-                    <Link to={`/page/${currentPage}`}>{currentPage}</Link>
-                    {currentPage < numPages && <Link to={`/page/${currentPage + 1}`}>Next ▹</Link>}
-                </nav>
-            </Layout>
-        )
-    }
+// see gatsby-node.js
+interface PageContextType {
+    numPages: number
+    currentPage: number
 }
 
-export default Page
+export default ({ data, pageContext }: PageProps<PostListQuery, PageContextType>) => {
+    const { numPages, currentPage } = pageContext
+
+    return (
+        <Layout>
+            {(data.allMarkdownRemark?.edges ?? []).map((post) => {
+                const title = post.node.frontmatter?.title
+                const slug = post.node.fields?.slug ?? ''
+
+                /**
+                 * FIXME:
+                 *
+                 * gatsby-image and ImageSharpFluid does not have exactly same
+                 * type interface, on base64 field,
+                 * string|undefined|null (ImageSharpFluid) !== string|undefined (gatsby-image)
+                 */
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const cover: any = post.node.frontmatter?.cover?.childImageSharp?.fluid
+                return (
+                    <PostEntry
+                        key={post.node.id}
+                        title={title}
+                        slug={slug}
+                        cover={cover}
+                        excerpt={post.node.excerpt}
+                        date={post.node.frontmatter?.date}
+                    />
+                )
+            })}
+            <nav aria-label="pagination" className={paginationClassName}>
+                <Link to={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}>◃ Prev</Link>
+                <Link to={`/page/${currentPage}`}>{currentPage}</Link>
+                {currentPage < numPages && <Link to={`/page/${currentPage + 1}`}>Next ▹</Link>}
+            </nav>
+        </Layout>
+    )
+}
