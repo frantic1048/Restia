@@ -1,6 +1,5 @@
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import * as React from 'react'
-import { GatsbyComponent } from 'util/types'
 import { PostDetailQuery } from '@restia-gql'
 import Layout from '@components/Layout'
 import { em, percent } from 'csx'
@@ -276,7 +275,7 @@ export const query = graphql`
     }
 `
 
-const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
+export default ({ data }: PageProps<PostDetailQuery>) => {
     const title = data.markdownRemark?.frontmatter?.title ?? ''
     const info = `${data.markdownRemark?.frontmatter?.date} ${data.markdownRemark?.frontmatter?.category}`
     const html = data.markdownRemark?.html ?? ''
@@ -301,5 +300,3 @@ const Page: GatsbyComponent<PostDetailQuery> = ({ data }) => {
         </Layout>
     )
 }
-
-export default Page

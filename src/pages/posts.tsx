@@ -1,6 +1,5 @@
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import * as React from 'react'
-import { GatsbyComponent } from 'util/types'
 import { ArchiveListQuery } from '@restia-gql'
 import Layout from '@components/Layout'
 import { style } from 'typestyle'
@@ -45,7 +44,7 @@ const postEntryInfoClassName = style({
     },
 })
 
-const Page: GatsbyComponent<ArchiveListQuery> = ({ data }) => {
+export default ({ data }: PageProps<ArchiveListQuery>) => {
     const posts = data.allMarkdownRemark.edges ?? []
 
     /**
@@ -84,5 +83,3 @@ const Page: GatsbyComponent<ArchiveListQuery> = ({ data }) => {
         </Layout>
     )
 }
-
-export default Page

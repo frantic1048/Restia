@@ -1,6 +1,5 @@
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import * as React from 'react'
-import { GatsbyComponent } from 'util/types'
 import { IndexPageQuery } from '@restia-gql'
 import Layout from '@components/Layout'
 import PostEntry from '@components/PostEntry'
@@ -34,7 +33,7 @@ export const query = graphql`
     }
 `
 
-const Page: GatsbyComponent<IndexPageQuery> = ({ data }) => (
+export default ({ data }: PageProps<IndexPageQuery>) => (
     <Layout>
         {(data.allMarkdownRemark?.edges ?? []).map((post) => {
             const title = post.node.frontmatter?.title
@@ -65,5 +64,3 @@ const Page: GatsbyComponent<IndexPageQuery> = ({ data }) => (
         </nav>
     </Layout>
 )
-
-export default Page
