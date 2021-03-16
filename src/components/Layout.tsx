@@ -1,27 +1,33 @@
 import * as React from 'react'
-import { style, cssRule, classes } from 'typestyle'
+import { style, cssRule, classes, media } from 'typestyle'
 import { rgb, viewHeight, em, rgba } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '@restia-gql'
-import { scaleAt } from '@util/constants'
+import { largeMedia, scaleAt, smallMedia, smallScreenBreakPoint } from '@util/constants'
 import { Helmet } from 'react-helmet'
 
-const layoutClassName = style({
-    minHeight: viewHeight(100),
-    boxSizing: 'border-box',
-    fontFamily: 'serif',
-})
+const layoutClassName = style(
+    {
+        minHeight: viewHeight(100),
+        boxSizing: 'border-box',
+        fontFamily: 'serif',
+    },
+    smallMedia({ padding: `0 ${em(1)}` }),
+)
 
 const headerClassName = style(
     {
+        maxWidth: em(60),
         textAlign: 'center',
     },
     ...scaleAt(3),
 )
 
 const navClassName = style({
+    maxWidth: em(60),
     display: 'flex',
     justifyContent: 'space-between',
+    margin: 'auto',
 })
 
 const navLinkClassName = style(
@@ -36,6 +42,17 @@ const navLinkClassName = style(
         },
     },
     ...scaleAt(1),
+)
+
+const contentClassName = style(
+    { margin: 'auto' },
+    smallMedia({
+        maxWidth: em(60),
+    }),
+    largeMedia({
+        // TODO: multi column ? grid ?
+        maxWidth: em(60),
+    }),
 )
 
 interface LayoutProps {
@@ -64,7 +81,6 @@ cssRule('html', {
     backgroundColor: '#f2f2f2',
 })
 cssRule('body', {
-    maxWidth: em(60),
     margin: 'auto',
 })
 cssRule('a', {
@@ -72,13 +88,6 @@ cssRule('a', {
     color: 'currentColor',
     padding: `${em(0)} ${em(0.2)}`,
     $nest: {
-        /**
-         * To `unshift` the left padding to make things
-         * still aligned.
-         * somewhat dirty, but works most of the time
-         */
-        '&:first-child': { marginLeft: em(-0.2) },
-
         '&:visited': {},
         '&:hover,&:focus': {
             textDecorationStyle: 'solid',
@@ -170,7 +179,7 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
                     <NavLink to="/rss.xml">Feed</NavLink>
                 </div>
             </nav>
-            <main>{children}</main>
+            <main className={contentClassName}>{children}</main>
         </div>
     )
 }

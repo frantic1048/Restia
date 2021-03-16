@@ -6,8 +6,9 @@ import * as React from 'react'
 import { style } from 'typestyle'
 
 const articleLinkClassName = style({
+    display: 'block',
     margin: `${em(1)} 0`,
-    background: 0,
+    background: 'none',
     textDecoration: 'none',
     $nest: {
         '&:hover': {
@@ -60,7 +61,7 @@ const excerptClassName = style({
     color: rgb(70, 70, 70).toString(),
 })
 
-interface Props {
+export interface PostEntryInfo {
     slug?: string | null
     title?: string | null
     date?: string | null
@@ -68,7 +69,7 @@ interface Props {
     cover?: IGatsbyImageData
 }
 
-export default ({ slug, title, cover, excerpt, date }: Props) => (
+export default ({ slug, title, cover, excerpt, date }: PostEntryInfo) => (
     <Link to={slug ?? '#'} className={articleLinkClassName}>
         <article className={postEntryClassName}>
             <div className={postInfoClassName}>

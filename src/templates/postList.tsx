@@ -1,5 +1,5 @@
 import Layout from '@components/Layout'
-import PostEntry from '@components/PostEntry'
+import PostEntryList from '@components/PostEntryList'
 import { PostListQuery } from '@restia-gql'
 import { scaleAt } from '@util/constants'
 import { em } from 'csx'
@@ -68,21 +68,22 @@ export default ({ data, pageContext }: PageProps<PostListQuery, PageContextType>
 
     return (
         <Layout>
-            {(data.allMarkdownRemark?.edges ?? []).map((post) => {
-                const title = post.node.frontmatter?.title
-                const slug = post.node.fields?.slug ?? ''
-                const cover = post.node.frontmatter?.cover?.childImageSharp?.gatsbyImageData
-                return (
-                    <PostEntry
-                        key={post.node.id}
-                        title={title}
-                        slug={slug}
-                        cover={cover}
-                        excerpt={post.node.excerpt}
-                        date={post.node.frontmatter?.date}
-                    />
-                )
-            })}
+            <PostEntryList
+                postList={(data.allMarkdownRemark?.edges ?? []).map((post) => {
+                    const title = post.node.frontmatter?.title
+                    const slug = post.node.fields?.slug ?? ''
+                    const cover = post.node.frontmatter?.cover?.childImageSharp?.gatsbyImageData
+                    return {
+                        id: post.node.id,
+                        title,
+                        slug,
+                        cover,
+                        excerpt: post.node.excerpt,
+                        date: post.node.frontmatter?.date,
+                    }
+                })}
+            />
+
             <nav aria-label="pagination" className={paginationClassName}>
                 <Link to={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}>◃ Prev</Link>
                 <Link to={`/page/${currentPage}`} className={currentPageClassName}>
