@@ -6,6 +6,7 @@ import { em, percent } from 'csx'
 import { style, cssRaw } from 'typestyle'
 import { contentImageStyle } from '@util/constants'
 import Comments from '@components/Comments'
+import { getSrc } from 'gatsby-plugin-image'
 
 /**
  * Atom Base16 Tomorrow Light Syntax theme
@@ -261,9 +262,12 @@ export const query = graphql`
                 category
                 cover {
                     childImageSharp {
-                        fluid(maxWidth: 800, fit: COVER, quality: 93) {
-                            src
-                        }
+                        gatsbyImageData(
+                            quality: 93
+                            placeholder: BLURRED
+                            transformOptions: { fit: COVER }
+                            layout: FULL_WIDTH
+                        )
                     }
                 }
             }
@@ -288,7 +292,7 @@ export default ({ data }: PageProps<PostDetailQuery>) => {
      *  But some other clients does not support webp :(
      */
     // convert null to undefined since Layout does not like null
-    const cover = data.markdownRemark?.frontmatter?.cover?.childImageSharp?.fluid?.src || undefined
+    const cover = getSrc(data.markdownRemark?.frontmatter?.cover?.childImageSharp?.gatsbyImageData)
 
     return (
         <Layout className={postClassName} pageTitle={title} pageUrl={slug} pageDescription={excerpt} pageImage={cover}>
