@@ -18,9 +18,12 @@ export const query = graphql`
                         date(formatString: "YYYY-MM-DD")
                         cover {
                             childImageSharp {
-                                fluid(maxWidth: 800, fit: COVER, quality: 93) {
-                                    ...GatsbyImageSharpFluid_withWebp
-                                }
+                                gatsbyImageData(
+                                    quality: 93
+                                    placeholder: BLURRED
+                                    transformOptions: { fit: COVER }
+                                    layout: FULL_WIDTH
+                                )
                             }
                         }
                     }
@@ -62,16 +65,7 @@ export default ({ data, pageContext }: PageProps<PostListQuery, PageContextType>
             {(data.allMarkdownRemark?.edges ?? []).map((post) => {
                 const title = post.node.frontmatter?.title
                 const slug = post.node.fields?.slug ?? ''
-
-                /**
-                 * FIXME:
-                 *
-                 * gatsby-image and ImageSharpFluid does not have exactly same
-                 * type interface, on base64 field,
-                 * string|undefined|null (ImageSharpFluid) !== string|undefined (gatsby-image)
-                 */
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const cover: any = post.node.frontmatter?.cover?.childImageSharp?.fluid
+                const cover = post.node.frontmatter?.cover?.childImageSharp?.gatsbyImageData
                 return (
                     <PostEntry
                         key={post.node.id}

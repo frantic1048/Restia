@@ -1,22 +1,23 @@
 import { contentImageStyle } from '@util/constants'
 import { rgba, em, rgb } from 'csx'
 import { Link } from 'gatsby'
-import Img, { FluidObject } from 'gatsby-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import * as React from 'react'
 import { style } from 'typestyle'
 
 const articleLinkClassName = style({
+    margin: `${em(1)} 0`,
     background: 0,
     textDecoration: 'none',
     $nest: {
         '&:hover': {
             background: 'none',
             $nest: {
-                '& span, & a': {
+                '& span, & h1': {
                     color: 'white',
                     background: rgba(0, 149, 255, 0.5).toString(),
                 },
-                '& a': {
+                '& h1': {
                     textDecorationStyle: 'solid',
                 },
             },
@@ -39,13 +40,10 @@ const postInfoClassName = style({
     marginLeft: em(1),
     $nest: {
         '&>h1': {
+            padding: `0 ${em(0.2)}`,
             marginBottom: 0,
-            $nest: {
-                '&>a': {
-                    marginLeft: 0,
-                    background: 'rgba(242, 242, 242, 0.79)',
-                },
-            },
+            background: 'rgba(242, 242, 242, 0.79)',
+            textDecoration: 'underline dotted',
         },
         '&>span': {
             background: 'rgba(242, 242, 242, 0.79)',
@@ -63,24 +61,21 @@ const excerptClassName = style({
 })
 
 interface Props {
-    slug?: string
+    slug?: string | null
     title?: string | null
     date?: string | null
     excerpt?: string | null
-    cover?: FluidObject | FluidObject[]
+    cover?: IGatsbyImageData
 }
 
-export default ({ slug, title, cover, excerpt, date }: Props) => {
-    const a = 0
-    return (
-        <Link to={slug || '#'} className={articleLinkClassName}>
-            <article className={postEntryClassName}>
-                <div className={postInfoClassName}>
-                    <h1>{slug ? <Link to={slug}>{title}</Link> : title}</h1>
-                    <span>{date}</span>
-                </div>
-                {cover ? <Img fluid={cover} /> : <p className={excerptClassName}>{excerpt}</p>}
-            </article>
-        </Link>
-    )
-}
+export default ({ slug, title, cover, excerpt, date }: Props) => (
+    <Link to={slug ?? '#'} className={articleLinkClassName}>
+        <article className={postEntryClassName}>
+            <div className={postInfoClassName}>
+                <h1>{title}</h1>
+                <span>{date}</span>
+            </div>
+            {cover ? <GatsbyImage image={cover} alt={title ?? ''} /> : <p className={excerptClassName}>{excerpt}</p>}
+        </article>
+    </Link>
+)
