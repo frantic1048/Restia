@@ -42,14 +42,20 @@ export const paginationClassName = style(
     {
         textAlign: 'center',
         marginBottom: em(1),
+        display: 'flex',
+        justifyContent: 'center',
         $nest: {
             '&>a': {
-                padding: `0 ${em(2)}`,
+                margin: `0 ${em(1)}`,
             },
         },
     },
     ...scaleAt(2),
 )
+
+const currentPageClassName = style({
+    padding: `0 ${em(1)}`,
+})
 
 // see gatsby-node.js
 interface PageContextType {
@@ -79,7 +85,9 @@ export default ({ data, pageContext }: PageProps<PostListQuery, PageContextType>
             })}
             <nav aria-label="pagination" className={paginationClassName}>
                 <Link to={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}>◃ Prev</Link>
-                <Link to={`/page/${currentPage}`}>{currentPage}</Link>
+                <Link to={`/page/${currentPage}`} className={currentPageClassName}>
+                    {currentPage}
+                </Link>
                 {currentPage < numPages && <Link to={`/page/${currentPage + 1}`}>Next ▹</Link>}
             </nav>
         </Layout>
