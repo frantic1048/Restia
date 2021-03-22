@@ -40,7 +40,7 @@
     },
     "devDependencies": {
         "@babel/plugin-proposal-nullish-coalescing-operator": "7.13.8",
-        "@babel/plugin-proposal-optional-chaining": "7.13.8",
+        "@babel/plugin-proposal-optional-chaining": "7.13.12",
         "@types/react": "17.0.3",
         "@types/react-dom": "17.0.2",
         "@types/react-helmet": "6.1.0",
