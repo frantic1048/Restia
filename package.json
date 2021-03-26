@@ -49,7 +49,7 @@
         "@typescript-eslint/parser": "4.19.0",
         "babel-preset-gatsby": "1.0.0",
         "cz-customizable": "6.3.0",
-        "eslint": "7.22.0",
+        "eslint": "7.23.0",
         "eslint-config-prettier": "8.1.0",
         "eslint-plugin-import": "2.22.1",
         "eslint-plugin-prefer-arrow": "1.2.3",
