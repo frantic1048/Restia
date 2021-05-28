@@ -12,7 +12,7 @@ const postListClassName = style(
     },
     smallMedia({ gridTemplateColumns: `repeat(1, 1fr)` }),
     largeMedia({ gridTemplateColumns: `repeat(2, 1fr)` }),
-    hiresMedia({ gridTemplateColumns: `repeat(2, 1fr)` }),
+    hiresMedia({ gridTemplateColumns: `repeat(3, 1fr)` }),
 )
 
 interface PostEntryInfoWithId extends PostEntryInfo {

@@ -62,6 +62,7 @@ const postInfoClassName = style({
             marginBottom: 0,
             background: 'rgba(242, 242, 242, 0.79)',
             textDecoration: 'underline dotted',
+            ...Object.assign({}, ...scaleAt(1)),
         },
         '&>span': {
             background: 'rgba(242, 242, 242, 0.79)',
@@ -92,7 +93,7 @@ const largeMediaColumnCount = 2
  *
  * see {@link generateGridRowClassName}
  */
-const hiresMediaColumnCount = 2
+const hiresMediaColumnCount = 3
 
 const minLargeMediaWidth = smallScreenBreakPoint + 1
 const minHiresMediaWidth = largeScreenBreakPoint + 1
@@ -115,8 +116,8 @@ const minSingleColumnContentWidthOnHiresMedia = minSingleColumnWidthOnHiresMedia
  * plan A: consider real text measuring, like node-canvas for more (still not 100%) accurate measuring.
  * plan B: assign cover image(with fixed aspect ratio) for EVERY post, then we can get 100% accurate aspect ratio (°Д°).
  */
-const measureTitleWidth = (text: string) => stringWidth(text) * 16
-const measureExcerptWidth = (text: string) => stringWidth(text) * 8
+const measureTitleWidth = (text: string) => stringWidth(text) * 24 * 0.5
+const measureExcerptWidth = (text: string) => stringWidth(text) * 16 * 0.5
 
 interface GenerateGridRowClassNameProps {
     cover?: IGatsbyImageData

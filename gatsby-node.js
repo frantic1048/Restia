@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
 
     const posts = result.data.allMarkdownRemark.edges
-    const pageSize = 8
+    const pageSize = 9
     const numPages = Math.ceil(posts.length / pageSize)
     Array.from({ length: numPages }).forEach((_, pageIndex) => {
         // skip first page, since we have index page
