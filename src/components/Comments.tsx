@@ -5,10 +5,14 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
 import { style } from 'typestyle'
 import { px } from 'csx'
+import { scaleAt } from '@util/constants'
 
 const disqusClassName = style({
     // make it easier to tirgger
     minHeight: px(300),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
 })
 
 interface Props {
@@ -33,14 +37,15 @@ export default ({ slug, title }: Props) => {
     const [commentsLoaded, setCommentsLoaded] = React.useState(false)
 
     React.useEffect(() => {
-        if (isInViewport && siteUrl !== '') {
+        if (isInViewport && siteUrl !== '' && window.location.origin === siteUrl) {
             setCommentsLoaded(true)
         }
     }, [isInViewport, commentsLoaded, siteUrl])
 
     return (
-        <>
-            <div id="disqus_thread" ref={targetRef} className={disqusClassName} />
+        <div className={disqusClassName}>
+            {!commentsLoaded && <p className={style(...scaleAt(2))}>Comments...</p>}
+            <div id="disqus_thread" ref={targetRef} />
             {commentsLoaded && (
                 <DiscussionEmbed
                     shortname="pyonpyontoday"
@@ -51,6 +56,6 @@ export default ({ slug, title }: Props) => {
                     }}
                 />
             )}
-        </>
+        </div>
     )
 }
