@@ -1,9 +1,18 @@
 import * as React from 'react'
 import { style, cssRule, classes, media } from 'typestyle'
-import { rgb, viewHeight, em, rgba } from 'csx'
+import { rgb, viewHeight, em, rgba, px } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '@restia-gql'
-import { largeMedia, scaleAt, smallMedia, smallScreenBreakPoint } from '@util/constants'
+import {
+    baseFontSize,
+    hiresMedia,
+    hiresMediaLayoutSideMargin,
+    largeMedia,
+    largeMediaLayoutSideMargin,
+    scaleAt,
+    smallMedia,
+    smallScreenBreakPoint,
+} from '@util/constants'
 import { Helmet } from 'react-helmet'
 
 const layoutClassName = style(
@@ -17,14 +26,14 @@ const layoutClassName = style(
 
 const headerClassName = style(
     {
-        maxWidth: em(60),
+        maxWidth: em(55),
         textAlign: 'center',
     },
     ...scaleAt(3),
 )
 
 const navClassName = style({
-    maxWidth: em(60),
+    maxWidth: em(55),
     display: 'flex',
     justifyContent: 'space-between',
     margin: 'auto',
@@ -46,13 +55,9 @@ const navLinkClassName = style(
 
 const contentClassName = style(
     { margin: 'auto' },
-    smallMedia({
-        maxWidth: em(60),
-    }),
-    largeMedia({
-        // TODO: multi column ? grid ?
-        maxWidth: em(60),
-    }),
+    smallMedia({ maxWidth: em(55) }),
+    largeMedia({ marginLeft: px(largeMediaLayoutSideMargin), marginRight: px(largeMediaLayoutSideMargin) }),
+    hiresMedia({ marginLeft: px(hiresMediaLayoutSideMargin), marginRight: px(hiresMediaLayoutSideMargin) }),
 )
 
 interface LayoutProps {
@@ -79,6 +84,7 @@ cssRule('html', {
     margin: 0,
     color: rgb(70, 70, 70).toString(),
     backgroundColor: '#f2f2f2',
+    fontSize: px(baseFontSize),
 })
 cssRule('body', {
     margin: 'auto',
@@ -99,10 +105,10 @@ cssRule('a', {
 })
 cssRule('h1', ...scaleAt(2))
 cssRule('h2', ...scaleAt(1))
-cssRule('h3', ...scaleAt(-1))
-cssRule('h4', ...scaleAt(-2))
-cssRule('h5', ...scaleAt(-3))
-cssRule('h6', ...scaleAt(-4))
+cssRule('h3', ...scaleAt(0))
+cssRule('h4', ...scaleAt(-1))
+cssRule('h5', ...scaleAt(-2))
+cssRule('h6', ...scaleAt(-3))
 
 /**
  * Top level layout container

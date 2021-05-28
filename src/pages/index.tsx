@@ -5,9 +5,15 @@ import Layout from '@components/Layout'
 import { paginationClassName } from 'templates/postList'
 import PostEntryList from '@components/PostEntryList'
 
+/**
+ * MEMO:
+ * unify pageSize(limit) setting?
+ *
+ * see gatsby-node.js for post list pageSize
+ */
 export const query = graphql`
     query IndexPage {
-        allMarkdownRemark(limit: 6, sort: { fields: [frontmatter___date], order: DESC }) {
+        allMarkdownRemark(limit: 8, sort: { fields: [frontmatter___date], order: DESC }) {
             totalCount
             edges {
                 node {
