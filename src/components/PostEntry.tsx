@@ -23,6 +23,7 @@ const articleLinkClassName = style({
     background: 'none',
     textDecoration: 'none',
     margin: px(articleBorderWidth),
+    padding: 0,
     $nest: {
         '&:hover': {
             background: 'none',
