@@ -125,7 +125,7 @@ interface GenerateGridRowClassNameProps {
     title?: string
     excerpt?: string
 }
-const generateGridRowClassName = ({ cover, title = '', excerpt = '1' }: GenerateGridRowClassNameProps) => {
+const generateGridItemClassName = ({ cover, title = '', excerpt = '1' }: GenerateGridRowClassNameProps) => {
     const columnSpanOnSmallMedia = smallMediaColumnCount
     const columnSpanOnLargeMedia = measureTitleWidth(title) > minSingleColumnContentWidthOnLargeMedia ? 2 : 1
     const columnSpanOnHiresMedia = measureTitleWidth(title) > minSingleColumnContentWidthOnHiresMedia ? 2 : 1
@@ -154,14 +154,27 @@ const generateGridRowClassName = ({ cover, title = '', excerpt = '1' }: Generate
          * if post with cover image spans across 2 columns,
          * it will be "scaled", thus height go with 2×
          */
-        cover && {
-            ...largeMedia({
-                gridRow: `span ${columnSpanOnLargeMedia}`,
+        cover &&
+            largeMedia({
+                $nest: {
+                    '&:first-child': { gridRow: 'span 2', gridColumn: 'span 2' },
+                    '&:not(:first-child)': {
+                        gridRow: `span ${columnSpanOnLargeMedia}`,
+                        gridColumn: `span ${columnSpanOnLargeMedia}`,
+                    },
+                },
             }),
-            ...hiresMedia({
-                gridRow: `span ${columnSpanOnHiresMedia}`,
+        cover &&
+            hiresMedia({
+                $nest: {
+                    '&:first-child': { gridRow: 'span 2', gridColumn: 'span 2' },
+                    '&:not(:first-child)': {
+                        gridRow: `span ${columnSpanOnHiresMedia}`,
+                        gridColumn: `span ${columnSpanOnHiresMedia}`,
+                    },
+                },
             }),
-        },
+
         /**
          * post without cover
          *
@@ -174,13 +187,9 @@ const generateGridRowClassName = ({ cover, title = '', excerpt = '1' }: Generate
                 '&>article': { flexGrow: 1 },
             },
         },
-        !cover && {
-            ...largeMedia({}),
-            ...hiresMedia({}),
-        },
+        !cover && largeMedia({ gridColumn: `span ${columnSpanOnLargeMedia}` }),
+        !cover && hiresMedia({ gridColumn: `span ${columnSpanOnHiresMedia}` }),
 
-        largeMedia({ gridColumn: `span ${columnSpanOnLargeMedia}` }),
-        hiresMedia({ gridColumn: `span ${columnSpanOnHiresMedia}` }),
         smallMedia({ gridColumn: `span ${columnSpanOnSmallMedia}` }),
     )
 }
@@ -198,7 +207,7 @@ export default ({ slug, title, cover, excerpt, date }: PostEntryInfo) => (
         to={slug ?? '#'}
         className={classes(
             articleLinkClassName,
-            generateGridRowClassName({
+            generateGridItemClassName({
                 cover: cover ?? undefined,
                 title: title ?? undefined,
                 excerpt: excerpt ?? undefined,
