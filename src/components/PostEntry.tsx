@@ -10,7 +10,7 @@ import {
     smallMedia,
     smallScreenBreakPoint,
 } from '@util/constants'
-import { rgba, em, rgb, px } from 'csx'
+import { rgba, em, rgb, px, percent } from 'csx'
 import { Link } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import * as React from 'react'
@@ -22,9 +22,7 @@ const articleLinkClassName = style({
     display: 'block',
     background: 'none',
     textDecoration: 'none',
-    borderStyle: 'solid',
-    borderColor: 'transparent',
-    borderWidth: px(articleBorderWidth),
+    margin: px(articleBorderWidth),
     $nest: {
         '&:hover': {
             background: 'none',
@@ -42,6 +40,8 @@ const articleLinkClassName = style({
 })
 
 const postEntryClassName = style({
+    display: 'grid',
+    height: percent(100),
     background: rgb(250, 250, 250).toString(),
     $nest: {
         '& .gatsby-image-wrapper': {
@@ -115,9 +115,9 @@ const minSingleColumnContentWidthOnHiresMedia = minSingleColumnWidthOnHiresMedia
  *
  * plan A: consider real text measuring, like node-canvas for more (still not 100%) accurate measuring.
  * plan B: assign cover image(with fixed aspect ratio) for EVERY post, then we can get 100% accurate aspect ratio (°Д°).
+ * plan C(current): fixed aspect ratio for every grid row, simple, and not bad ...
  */
 const measureTitleWidth = (text: string) => stringWidth(text) * 24 * 0.5
-const measureExcerptWidth = (text: string) => stringWidth(text) * 16 * 0.5
 
 interface GenerateGridRowClassNameProps {
     cover?: IGatsbyImageData
@@ -128,13 +128,6 @@ const generateGridRowClassName = ({ cover, title = '', excerpt = '1' }: Generate
     const columnSpanOnSmallMedia = smallMediaColumnCount
     const columnSpanOnLargeMedia = measureTitleWidth(title) > minSingleColumnContentWidthOnLargeMedia ? 2 : 1
     const columnSpanOnHiresMedia = measureTitleWidth(title) > minSingleColumnContentWidthOnHiresMedia ? 2 : 1
-
-    const minContentWidthOnLargeMedia =
-        minSingleColumnContentWidthOnLargeMedia * columnSpanOnLargeMedia +
-        (columnSpanOnLargeMedia - 1) * 2 * articleBorderWidth
-    const minContentWidthOnHiresMedia =
-        minSingleColumnContentWidthOnHiresMedia * columnSpanOnHiresMedia +
-        (columnSpanOnHiresMedia - 1) * 2 * articleBorderWidth
 
     /**
      * MEMO:
@@ -162,10 +155,10 @@ const generateGridRowClassName = ({ cover, title = '', excerpt = '1' }: Generate
          */
         cover && {
             ...largeMedia({
-                gridRow: `span ${Math.ceil((cover.height / cover.width) * columnSpanOnLargeMedia * 100)}`,
+                gridRow: `span ${columnSpanOnLargeMedia}`,
             }),
             ...hiresMedia({
-                gridRow: `span ${Math.ceil((cover.height / cover.width) * columnSpanOnHiresMedia * 100)}`,
+                gridRow: `span ${columnSpanOnHiresMedia}`,
             }),
         },
         /**
@@ -174,20 +167,15 @@ const generateGridRowClassName = ({ cover, title = '', excerpt = '1' }: Generate
          * assume 16px font size, plus 144px padding
          */
         !cover && {
-            ...largeMedia({
-                gridRow: `span ${Math.ceil(
-                    ((144 + (measureExcerptWidth(excerpt) / minContentWidthOnLargeMedia) * 23) /
-                        minContentWidthOnLargeMedia) *
-                        100,
-                )}`,
-            }),
-            ...hiresMedia({
-                gridRow: `span ${Math.ceil(
-                    ((144 + (measureExcerptWidth(excerpt) / minContentWidthOnHiresMedia) * 23) /
-                        minContentWidthOnHiresMedia) *
-                        100,
-                )}`,
-            }),
+            display: 'flex',
+            alignItems: 'stretch',
+            $nest: {
+                '&>article': { flexGrow: 1 },
+            },
+        },
+        !cover && {
+            ...largeMedia({}),
+            ...hiresMedia({}),
         },
 
         largeMedia({ gridColumn: `span ${columnSpanOnLargeMedia}` }),
