@@ -39,7 +39,7 @@ const friendsList = (
                 <figure>
                     <div className={classes(avatarClassName, makeAvatarImageClassName(githubId))} />
                     <figcaption>
-                        <a href={link} target="_blank">
+                        <a href={link} target="_blank" rel="noopener noreferrer">
                             {nick}
                         </a>
                     </figcaption>
