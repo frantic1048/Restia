@@ -4,7 +4,7 @@ import { CommentsQuery } from '@restia-gql'
 import { graphql, useStaticQuery } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
 import { style } from 'typestyle'
-import { px } from 'csx'
+import { percent, px } from 'csx'
 import { scaleAt } from '@util/constants'
 
 const disqusClassName = style({
@@ -13,6 +13,10 @@ const disqusClassName = style({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    $nest: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        '&>#disqus_thread': { width: percent(100) },
+    },
 })
 
 interface Props {
