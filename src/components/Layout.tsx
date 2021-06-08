@@ -53,7 +53,7 @@ const navLinkClassName = style(
     ...scaleAt(1),
 )
 
-const contentClassName = style(
+const layoutContentClassName = style(
     { margin: 'auto' },
     smallMedia({ maxWidth: em(55) }),
     largeMedia({ marginLeft: px(largeMediaLayoutSideMargin), marginRight: px(largeMediaLayoutSideMargin) }),
@@ -63,6 +63,8 @@ const contentClassName = style(
 interface LayoutProps {
     children: React.ReactNode
     className?: string
+    /** className of <main> */
+    contentClassName?: string
     pageTitle?: string
     pageImage?: string
     pageDescription?: string
@@ -110,10 +112,25 @@ cssRule('h4', ...scaleAt(-1))
 cssRule('h5', ...scaleAt(-2))
 cssRule('h6', ...scaleAt(-3))
 
+/** for markdown inline class name usage */
+cssRule('.font-scale-2', ...scaleAt(2))
+cssRule('.font-scale-1', ...scaleAt(1))
+cssRule('.font-scale-0', ...scaleAt(0))
+cssRule('.font-scale--1', ...scaleAt(-1))
+cssRule('.font-scale--2', ...scaleAt(-2))
+
 /**
  * Top level layout container
  */
-const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescription }: LayoutProps) => {
+const Layout = ({
+    children,
+    className,
+    contentClassName,
+    pageTitle,
+    pageImage,
+    pageUrl,
+    pageDescription,
+}: LayoutProps) => {
     const data = useStaticQuery<LayoutQuery>(graphql`
         query layout {
             site {
@@ -185,7 +202,7 @@ const Layout = ({ children, className, pageTitle, pageImage, pageUrl, pageDescri
                     <NavLink to="/rss.xml">Feed</NavLink>
                 </div>
             </nav>
-            <main className={contentClassName}>{children}</main>
+            <main className={classes(layoutContentClassName, contentClassName)}>{children}</main>
         </div>
     )
 }

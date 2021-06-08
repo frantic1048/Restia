@@ -252,6 +252,14 @@ const postClassName = style({
     },
 })
 
+const contentClassName = style({
+    /**
+     * FIXME: only limit width on text-only paragraph
+     */
+    maxWidth: em(70),
+    margin: 'auto',
+})
+
 export const query = graphql`
     query PostDetail($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -295,7 +303,14 @@ export default ({ data }: PageProps<PostDetailQuery>) => {
     const cover = getSrc(data.markdownRemark?.frontmatter?.cover?.childImageSharp?.gatsbyImageData)
 
     return (
-        <Layout className={postClassName} pageTitle={title} pageUrl={slug} pageDescription={excerpt} pageImage={cover}>
+        <Layout
+            className={postClassName}
+            contentClassName={contentClassName}
+            pageTitle={title}
+            pageUrl={slug}
+            pageDescription={excerpt}
+            pageImage={cover}
+        >
             <h1>{title}</h1>
             <p>{info}</p>
             {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
