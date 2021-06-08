@@ -8,7 +8,7 @@ cover: ../static/photo/figure/freeing.menma_usamimi/_DSC2197.jpg
 
 ![Menma usamimi](../static/photo/figure/freeing.menma_usamimi/_DSC2197.jpg)
 
-苦苦等待一年终于收到了这款面码，当初完全没发现到这个手办的，要不是某天晚上一不小心点到了 [GSC 官网](https://www.goodsmile.info/ja/product/9774/%E3%82%81%E3%82%93%E3%81%BE+%E3%81%86%E3%81%95%E3%81%BF%E3%81%BFVer.html)看到了照片导致瞬间心动……结果来说还是很值得的，甚至感觉比当初看到的照片还要更棒一些。只是这个面码是真的<span class="font-scale-2">大</span>，收到快递箱子的时候惊呆了，整个高度比之前最大的[大秋千智乃](/p/2020-03-chino-photography/)的秋千上的鸟窝还要高一个头。
+苦苦等待一年终于收到了这款面码，当初完全没发现到这个手办的，要不是某天晚上一不小心点到了[GSC 官网](https://www.goodsmile.info/ja/product/9774/%E3%82%81%E3%82%93%E3%81%BE+%E3%81%86%E3%81%95%E3%81%BF%E3%81%BFVer.html)看到了照片导致瞬间心动……结果来说还是很值得的，甚至感觉比当初看到的照片还要更棒一些。只是这个面码是真的<span class="font-scale-2">大</span>，收到快递箱子的时候惊呆了，整个高度比之前最大的[大秋千智乃](/p/2020-03-chino-photography/)的秋千上的鸟窝还要高一个头。
 
 ![Menma usamimi](../static/photo/figure/freeing.menma_usamimi/_DSC2056.jpg)
 
