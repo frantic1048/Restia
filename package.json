@@ -62,7 +62,7 @@
         "tslint-eslint-rules": "5.4.0",
         "tslint-react": "5.0.0",
         "tslint-sonarts": "1.9.0",
-        "typescript": "4.3.4"
+        "typescript": "4.3.5"
     },
     "resolutions": {
         "gatsby-transformer-remark/unified": "^9.2.1",
