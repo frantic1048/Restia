@@ -39,6 +39,12 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/static/lilypond`,
+            },
+        },
+        {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'posts',
@@ -56,6 +62,15 @@ module.exports = {
                         resolve: 'gatsby-remark-highlights',
                         options: {
                             scopePrefix: 'syntax--',
+                            additionalLangs: [
+                                /**
+                                 * in markdown: tex, latex
+                                 *
+                                 * FIXME:
+                                 * temporary, poor syntax highlight for LilyPond
+                                 */
+                                'language-latexsimple'
+                            ],
                         },
                     },
                     {
@@ -77,6 +92,9 @@ module.exports = {
                             withAvif: false,
                         },
                     },
+                    {
+                        resolve: 'gatsby-remark-copy-linked-files',
+                    }
                 ],
             },
         },
