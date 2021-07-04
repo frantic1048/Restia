@@ -69,7 +69,7 @@ module.exports = {
                                  * FIXME:
                                  * temporary, poor syntax highlight for LilyPond
                                  */
-                                'language-latexsimple'
+                                'language-latexsimple',
                             ],
                         },
                     },
@@ -94,7 +94,7 @@ module.exports = {
                     },
                     {
                         resolve: 'gatsby-remark-copy-linked-files',
-                    }
+                    },
                 ],
             },
         },
