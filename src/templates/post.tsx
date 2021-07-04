@@ -2,7 +2,7 @@ import { graphql, PageProps } from 'gatsby'
 import * as React from 'react'
 import { PostDetailQuery } from '@restia-gql'
 import Layout from '@components/Layout'
-import { em, percent } from 'csx'
+import { em, percent, rgb } from 'csx'
 import { style, cssRaw } from 'typestyle'
 import { contentImageStyle } from '@util/constants'
 import Comments from '@components/Comments'
@@ -248,6 +248,11 @@ const postClassName = style({
          */
         '& .editor': {
             overflow: 'auto',
+            paddingLeft: em(0.7),
+            borderLeft: `${em(0.3)} double ${rgb(0, 149, 255, 0.5)}`,
+            background: `#FAFAFA`,
+            paddingTop: em(0.5),
+            paddingBottom: em(0.5),
         },
     },
 })
