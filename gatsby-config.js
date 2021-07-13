@@ -59,6 +59,10 @@ module.exports = {
             options: {
                 plugins: [
                     {
+                        resolve: 'gatsby-remark-autolink-headers',
+                        options: {},
+                    },
+                    {
                         resolve: 'gatsby-remark-highlights',
                         options: {
                             scopePrefix: 'syntax--',
