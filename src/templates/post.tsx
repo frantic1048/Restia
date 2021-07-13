@@ -2,7 +2,7 @@ import { graphql, PageProps } from 'gatsby'
 import * as React from 'react'
 import { PostDetailQuery } from '@restia-gql'
 import Layout from '@components/Layout'
-import { em, percent, rgb } from 'csx'
+import { em, percent, quote, rgb } from 'csx'
 import { style, cssRaw } from 'typestyle'
 import { contentImageStyle } from '@util/constants'
 import Comments from '@components/Comments'
@@ -253,6 +253,15 @@ const postClassName = style({
             background: `#FAFAFA`,
             paddingTop: em(0.5),
             paddingBottom: em(0.5),
+        },
+        /**
+         * TODO: special styles for special links
+         */
+        '& a[href^="https://archlinux.org/packages/"]::after': {
+            content: quote('pkg'),
+            fontSize: 'smaller',
+            verticalAlign: 'super',
+            display: 'inline-block',
         },
     },
 })
