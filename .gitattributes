@@ -1,4 +1,12 @@
+# image
 *.ico filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.webp filter=lfs diff=lfs merge=lfs -text
+
+# audio
+*.m4a filter=lfs diff=lfs merge=lfs -text
+
+# other binary
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.midi filter=lfs diff=lfs merge=lfs -text
