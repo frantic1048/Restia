@@ -73,3 +73,8 @@ yarn-error.log
 
 # npm SUCKS.
 /package-lock.json
+
+# unwanted audio file format
+.mp3
+.aac
+.wav
