@@ -1,0 +1,350 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" width="210.00mm" height="297.00mm" viewBox="0 0 119.5016 169.0094">
+<style type="text/css">
+<![CDATA[
+tspan { white-space: pre; }
+]]>
+</style>
+<!-- Page: 1/1 -->
+<g transform="translate(14.2264, 13.5475)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="49.3504" y2="0"/>
+</g>
+<g transform="translate(14.2264, 12.5475)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="49.3504" y2="0"/>
+</g>
+<g transform="translate(14.2264, 11.5475)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="49.3504" y2="0"/>
+</g>
+<g transform="translate(14.2264, 10.5475)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="49.3504" y2="0"/>
+</g>
+<g transform="translate(14.2264, 9.5475)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="49.3504" y2="0"/>
+</g>
+<g transform="translate(63.4368, 11.5475)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(42.2911, 11.5475)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(49.6450, 11.5475)">
+<rect x="-0.0650" y="-4.4054" width="0.1300" height="3.7193" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:15:16:17">
+<g transform="translate(48.4058, 14.5475)">
+<path transform="scale(0.0040, -0.0040)" d="M-23 -116c0 28 11 42 40 42c33 0 78 -13 119 -31l-132 158c-7 9 -10 17 -10 25c0 34 50 66 87 99c25 22 37 52 37 83c0 24 -8 49 -25 69l-35 42c-3 3 -4 7 -4 10c0 9 9 15 17 15c4 0 8 -1 11 -5l151 -180c7 -9 10 -17 10 -25c0 -34 -50 -66 -87 -99
+c-25 -22 -37 -52 -37 -83c0 -24 7 -49 24 -69l84 -99c3 -3 4 -7 4 -10c0 -9 -8 -16 -16 -16c-4 0 -9 2 -12 6c-18 21 -63 38 -97 38c-41 0 -53 -26 -53 -67c0 -35 11 -74 28 -94c7 -8 -5 -19 -12 -11c-45 54 -92 148 -92 202z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:24:25">
+<g transform="translate(48.4058, 11.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:20:21">
+<g transform="translate(48.4058, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:30:31">
+<g transform="translate(50.9100, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(52.1493, 11.5475)">
+<rect x="-0.0650" y="-4.1955" width="0.1300" height="2.2751" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:34:35">
+<g transform="translate(53.4143, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:15:19:20">
+<g transform="translate(53.4143, 13.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(54.6535, 11.5475)">
+<rect x="-0.0650" y="-3.8100" width="0.1300" height="1.8896" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(44.8850, 11.5475)">
+<rect x="-0.0650" y="-4.8045" width="0.1300" height="2.3045" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(23.3353, 7.7375)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="7.6026 -0.2000 7.6026 0.2000 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(43.4640, 11.5475)">
+<rect x="-0.0650" y="1.6861" width="0.1300" height="2.1239" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:14:15">
+<g transform="translate(45.9016, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:15:12:13">
+<g transform="translate(45.9016, 13.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(47.1408, 11.5475)">
+<rect x="-0.0650" y="-4.6154" width="0.1300" height="2.6950" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(45.9666, 11.5475)">
+<rect x="-0.0650" y="1.6861" width="0.1300" height="2.1239" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:49:50">
+<g transform="translate(60.9269, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(62.1661, 11.5475)">
+<rect x="-0.0650" y="-3.8100" width="0.1300" height="1.8896" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(54.5885, 7.7375)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="7.6026 -0.2000 7.6026 0.2000 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(53.4143, 15.3575)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="2.5942 -0.2000 2.5942 0.2000 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(44.8200, 6.7375)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="7.3543 0.4200 7.3543 0.8200 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(43.3990, 15.3575)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="2.5926 -0.2000 2.5926 0.2000 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(33.3522, 7.3575)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="7.8223 -0.8200 7.8223 -0.4200 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:14:27:28">
+<g transform="translate(39.6635, 11.5475)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5042 2.0000C1.9727 2.5574 2.9321 2.5574 3.4005 2.0000L3.4005 2.0000C2.9321 2.4374 1.9727 2.4374 1.5042 2.0000z"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:51:52">
+<g transform="translate(39.6635, 11.5475)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.8860 -3.0000C2.3063 -3.5132 3.1152 -3.5132 3.5355 -3.0000L3.5355 -3.0000C3.1152 -3.3932 2.3063 -3.3932 1.8860 -3.0000z"/>
+</g>
+</a>
+<g transform="translate(32.1780, 15.3575)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="2.5942 -0.2000 2.5942 0.2000 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(55.9835, 11.5475)">
+<rect x="-0.0650" y="1.6861" width="0.1300" height="2.1239" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(53.4793, 11.5475)">
+<rect x="-0.0650" y="1.6861" width="0.1300" height="2.1239" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:36:37">
+<g transform="translate(55.9185, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:15:23:24">
+<g transform="translate(55.9185, 13.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(57.1577, 11.5475)">
+<rect x="-0.0650" y="-3.8100" width="0.1300" height="1.8896" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:39:40">
+<g transform="translate(58.4227, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:43:44">
+<g transform="translate(58.4227, 11.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:15:25:26">
+<g transform="translate(58.4227, 14.5475)">
+<path transform="scale(0.0040, -0.0040)" d="M-23 -116c0 28 11 42 40 42c33 0 78 -13 119 -31l-132 158c-7 9 -10 17 -10 25c0 34 50 66 87 99c25 22 37 52 37 83c0 24 -8 49 -25 69l-35 42c-3 3 -4 7 -4 10c0 9 9 15 17 15c4 0 8 -1 11 -5l151 -180c7 -9 10 -17 10 -25c0 -34 -50 -66 -87 -99
+c-25 -22 -37 -52 -37 -83c0 -24 7 -49 24 -69l84 -99c3 -3 4 -7 4 -10c0 -9 -8 -16 -16 -16c-4 0 -9 2 -12 6c-18 21 -63 38 -97 38c-41 0 -53 -26 -53 -67c0 -35 11 -74 28 -94c7 -8 -5 -19 -12 -11c-45 54 -92 148 -92 202z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(59.6619, 11.5475)">
+<rect x="-0.0650" y="-3.8100" width="0.1300" height="3.1239" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:16:17">
+<g transform="translate(27.1695, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:20:21">
+<g transform="translate(27.1695, 11.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:14:12:13">
+<g transform="translate(27.1695, 14.5475)">
+<path transform="scale(0.0040, -0.0040)" d="M-23 -116c0 28 11 42 40 42c33 0 78 -13 119 -31l-132 158c-7 9 -10 17 -10 25c0 34 50 66 87 99c25 22 37 52 37 83c0 24 -8 49 -25 69l-35 42c-3 3 -4 7 -4 10c0 9 9 15 17 15c4 0 8 -1 11 -5l151 -180c7 -9 10 -17 10 -25c0 -34 -50 -66 -87 -99
+c-25 -22 -37 -52 -37 -83c0 -24 7 -49 24 -69l84 -99c3 -3 4 -7 4 -10c0 -9 -8 -16 -16 -16c-4 0 -9 2 -12 6c-18 21 -63 38 -97 38c-41 0 -53 -26 -53 -67c0 -35 11 -74 28 -94c7 -8 -5 -19 -12 -11c-45 54 -92 148 -92 202z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(28.4088, 11.5475)">
+<rect x="-0.0650" y="-3.8100" width="0.1300" height="3.1239" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:26:27">
+<g transform="translate(29.6738, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(30.9130, 11.5475)">
+<rect x="-0.0650" y="-3.8100" width="0.1300" height="1.8896" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:30:31">
+<g transform="translate(32.1780, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(33.4172, 11.5475)">
+<rect x="-0.0650" y="-4.1951" width="0.1300" height="2.2748" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:8:9">
+<g transform="translate(22.1611, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:14:8:9">
+<g transform="translate(22.1611, 13.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(14.3564, 11.5475)">
+<path transform="scale(0.0040, -0.0040)" d="M490 -250h-92c-6 0 -10 4 -10 10v480c0 6 4 10 10 10h92c6 0 10 -4 10 -10v-480c0 -6 -4 -10 -10 -10zM270 -250h-93c-6 0 -10 4 -10 10v480c0 6 4 10 10 10h93c6 0 10 -4 10 -10v-480c0 -6 -4 -10 -10 -10z" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:7:4:5">
+<g transform="translate(18.5564, 11.5475)">
+<path transform="scale(0.0040, -0.0040)" d="M196 117h117c0 -48 27 -94 72 -94c8 0 12 -5 12 -11s-4 -12 -12 -12c-44 0 -87 13 -131 13s-87 -13 -131 -13c-8 0 -12 6 -12 12s4 11 12 11c45 0 73 46 73 94zM204 307c22 14 44 29 60 50c11 15 19 33 27 50c2 4 5 6 9 6c6 0 13 -5 13 -14v-245h72c10 0 15 -7 15 -14
+s-5 -15 -15 -15h-72v-8h-117v8h-167c-23 0 -31 14 -31 23c0 3 1 5 2 6c80 93 138 207 138 330c0 10 7 19 16 16c23 -7 47 -13 71 -13s48 6 71 13c14 4 23 -9 17 -16l-284 -330h167v131c0 8 1 17 8 22z" fill="currentColor"/>
+</g>
+<g transform="translate(18.5564, 13.5636)">
+<path transform="scale(0.0040, -0.0040)" d="M196 117h117c0 -48 27 -94 72 -94c8 0 12 -5 12 -11s-4 -12 -12 -12c-44 0 -87 13 -131 13s-87 -13 -131 -13c-8 0 -12 6 -12 12s4 11 12 11c45 0 73 46 73 94zM204 307c22 14 44 29 60 50c11 15 19 33 27 50c2 4 5 6 9 6c6 0 13 -5 13 -14v-245h72c10 0 15 -7 15 -14
+s-5 -15 -15 -15h-72v-8h-117v8h-167c-23 0 -31 14 -31 23c0 3 1 5 2 6c80 93 138 207 138 330c0 10 7 19 16 16c23 -7 47 -13 71 -13s48 6 71 13c14 4 23 -9 17 -16l-284 -330h167v131c0 8 1 17 8 22z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:5:4:5">
+<g transform="translate(18.5564, 6.5180)">
+<rect x="1.0449" y="-2.6727" width="0.1158" height="2.5129" ry="0.0193" fill="currentColor"/>
+</g>
+<g transform="translate(18.5564, 6.5180)">
+<path transform="scale(0.0036, -0.0036)" d="M215 137c57 0 111 -29 111 -92c0 -71 -54 -120 -101 -148c-35 -21 -74 -34 -114 -34c-57 0 -111 29 -111 92c0 71 54 120 101 148c35 21 74 34 114 34z" fill="currentColor"/>
+</g>
+<g transform="translate(19.7170, 7.0067)">
+<text font-family="serif" font-size="2.2001" text-anchor="start" fill="currentColor">
+<tspan> = 100</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(23.4003, 11.5475)">
+<rect x="-0.0650" y="-3.8100" width="0.1300" height="1.8896" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:14:15:16">
+<g transform="translate(32.1780, 13.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(22.2261, 11.5475)">
+<rect x="-0.0650" y="1.6861" width="0.1300" height="2.6472" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:12:13">
+<g transform="translate(24.6653, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(25.9045, 11.5475)">
+<rect x="-0.0650" y="-3.8100" width="0.1300" height="1.8896" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:14:24:25">
+<g transform="translate(39.6635, 13.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:36:37">
+<g transform="translate(37.1864, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:40:41">
+<g transform="translate(37.1864, 11.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:14:21:22">
+<g transform="translate(37.1864, 13.5475)">
+<path transform="scale(0.0040, -0.0040)" d="M72 -250l117 326c-34 -12 -69 -22 -105 -22c-46 0 -87 33 -87 79c0 40 33 72 73 72c25 0 48 -15 56 -39c10 -28 6 -59 35 -59c16 0 54 48 61 63c6 12 23 12 28 0l-123 -420c-8 -7 -17 -10 -27 -10s-20 3 -28 10z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:46:47">
+<g transform="translate(39.6635, 9.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M194 171c100 0 194 -73 194 -171s-94 -171 -194 -171s-194 73 -194 171s94 171 194 171zM166 0l-96 84c-22 -24 -30 -73 -34 -84c0 -30 12 -60 34 -84zM194 24l95 83c-27 18 -60 28 -95 28s-69 -10 -96 -28zM194 -24l-96 -83c27 -18 61 -28 96 -28s68 10 95 28zM221 0
+l97 -84c22 24 33 54 33 84s-11 60 -33 84z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(38.4256, 11.5475)">
+<rect x="-0.0650" y="-4.5901" width="0.1300" height="3.9040" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(41.1495, 11.5475)">
+<rect x="-0.0650" y="-4.8049" width="0.1300" height="2.3049" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(39.7285, 11.5475)">
+<rect x="-0.0650" y="1.6861" width="0.1300" height="2.8139" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(39.7935, 16.0075)">
+<path transform="scale(0.0040, -0.0040)" d="M0 0h-16v250h16v-250zM0 0v250c97 59 224 148 224 259c0 57 -15 112 -40 163c-3 16 10 27 23 27c7 0 15 -3 20 -11c25 -56 40 -117 40 -179c0 -203 -267 -306 -267 -509z" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:12:8:9">
+<g transform="translate(43.3990, 9.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M194 171c100 0 194 -73 194 -171s-94 -171 -194 -171s-194 73 -194 171s94 171 194 171zM166 0l-96 84c-22 -24 -30 -73 -34 -84c0 -30 12 -60 34 -84zM194 24l95 83c-27 18 -60 28 -95 28s-69 -10 -96 -28zM194 -24l-96 -83c27 -18 61 -28 96 -28s68 10 95 28zM221 0
+l97 -84c22 24 33 54 33 84s-11 60 -33 84z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:15:8:9">
+<g transform="translate(43.3990, 13.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:11:32:33">
+<g transform="translate(34.6822, 10.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M163 36l119 97c3 2 6 3 9 3s7 -1 10 -3l20 -16c3 -3 5 -8 5 -12s-2 -9 -5 -12l-115 -93l115 -93c3 -3 5 -8 5 -12s-2 -9 -5 -12l-20 -16c-3 -2 -7 -3 -10 -3s-6 1 -9 3l-119 97l-119 -97c-3 -2 -6 -3 -9 -3s-7 1 -10 3l-20 16c-3 3 -5 8 -5 12s2 9 5 12l115 93l-115 93
+c-3 3 -5 8 -5 12s2 9 5 12l20 16c3 2 7 3 10 3s6 -1 9 -3z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///mnt/waifuh1t/repo/Restia/static/lilypond/lilypond-for-drums/tie.ly:14:19:20">
+<g transform="translate(34.6822, 13.0475)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c55 0 108 -28 108 -89c0 -71 -55 -121 -102 -149c-35 -21 -75 -34 -116 -34c-55 0 -108 28 -108 89c0 71 55 121 102 149c35 21 75 34 116 34z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(35.9214, 11.5475)">
+<rect x="-0.0650" y="-4.3926" width="0.1300" height="2.4722" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(34.7472, 11.5475)">
+<rect x="-0.0650" y="1.6861" width="0.1300" height="2.1239" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(32.2430, 11.5475)">
+<rect x="-0.0650" y="1.6861" width="0.1300" height="2.1239" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(30.5412, 164.9944)">
+<a xlink:href="https://lilypond.org/">
+<rect x="0.0000" y="-0.6006" width="58.4192" height="2.3761" fill="none" stroke="none" stroke-width="0.0"/>
+</a>
+</g>
+<g transform="translate(30.5412, 164.9944)">
+<text font-family="serif" font-size="2.2001" text-anchor="start" fill="currentColor">
+<tspan>Music engraving by LilyPond 2.22.1—www.lilypond.org</tspan>
+</text>
+</g>
+</svg>
