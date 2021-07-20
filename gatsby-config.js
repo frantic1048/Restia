@@ -165,6 +165,55 @@ module.exports = {
                 ],
             },
         },
+        {
+            resolve: 'gatsby-plugin-sitemap',
+            options: {
+                query: `
+                {
+                    site {
+                      siteMetadata {
+                        siteUrl
+                      }
+                    }
+                    allSitePage {
+                      nodes {
+                        path
+                      }
+                    }
+                    allMarkdownRemark {
+                      edges {
+                        node {
+                          fields {
+                            slug
+                          }
+                          frontmatter {
+                            date
+                          }
+                        }
+                      }
+                    }
+                  }                  
+            `,
+                resolvePages: ({ allSitePage: { nodes: allPages }, allMarkdownRemark: { edges } }) => {
+                    const markdownPageLastmodMap = edges.reduce((acc, { node }) => {
+                        const uri = node.fields.slug
+                        acc[uri] = { lastmod: node.frontmatter.date }
+
+                        return acc
+                    }, {})
+
+                    return allPages.map((page) => {
+                        return { ...page, ...markdownPageLastmodMap[page.path] }
+                    })
+                },
+                serialize: ({ path, lastmod }) => {
+                    return {
+                        url: path,
+                        lastmod,
+                    }
+                },
+            },
+        },
     ],
     siteMetadata: {
         title: 'Pyon Pyon Today',
