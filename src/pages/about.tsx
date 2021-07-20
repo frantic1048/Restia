@@ -1,45 +1,71 @@
 import Layout from '@components/Layout'
-import { shuffle } from '@util/util'
 import friends from '@constants/friends'
-import { url } from 'csx'
+import { calc, em, px, quote, url } from 'csx'
 import * as React from 'react'
 import { classes, style } from 'typestyle'
 import { PageProps } from 'gatsby'
+import { largeMedia, scaleAt, smallMedia } from '@util/constants'
 
-const friendsListClassName = style({
-    listStyle: 'none',
+const friendsListClassName = style(
+    {
+        listStyle: 'none',
+        display: 'grid',
+        gridAutoFlow: 'dense',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        padding: 0,
+        rowGap: px(10),
+        columnGap: px(10),
+    },
+    smallMedia({ gridTemplateColumns: `repeat(1, 1fr)` }),
+    largeMedia({ gridTemplateColumns: `repeat(2, 1fr)` }),
+)
+const friendEntryClassName = style({
+    margin: 0,
+    $nest: {
+        '&>p': { margin: 0 },
+    },
 })
+const friendCaptionClassName = style(
+    {
+        textAlign: 'left',
+        $nest: {
+            '&>a': {
+                display: 'inline-block',
+                // avatar size 60px
+                // avatar margin 1em
+                // avatar border 2 * 5px
+                width: `calc(100% - 60px - 1em - 10px)`,
+            },
+        },
+    },
+    ...scaleAt(1),
+)
 const avatarClassName = style({
     position: 'relative',
-    float: 'left',
-    clear: 'left',
     width: '60px',
     height: '60px',
-    marginRight: '1em',
+    float: 'left',
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
     backgroundColor: 'white',
     border: '2px solid white',
-    borderRadius: '50px',
+    borderRadius: px(5),
+    marginRight: em(1),
 })
 const makeAvatarImageClassName = (githubId: string) =>
     style({
         backgroundImage: url(`https://avatars.githubusercontent.com/${githubId}?v=3&amp;s=60`),
     })
-
-/**
- * FIXME: broken links and outdated infos in friends list
- */
-const enableFriendsList = false
+const makeGithubLink = (githubId: string) => `https://github.com/${githubId}`
 
 const friendsList = (
     <ul className={friendsListClassName}>
-        {shuffle(friends).map(([nick, githubId, link, descriptionHtml]) => (
+        {friends.map(([nick, githubId, link, descriptionHtml, metOffline]) => (
             <li key={githubId}>
-                <figure>
+                <figure className={friendEntryClassName}>
                     <div className={classes(avatarClassName, makeAvatarImageClassName(githubId))} />
-                    <figcaption>
-                        <a href={link} target="_blank" rel="noopener noreferrer">
+                    <figcaption className={friendCaptionClassName}>
+                        <a href={link ?? makeGithubLink(githubId)} target="_blank" rel="noopener noreferrer">
                             {nick}
                         </a>
                     </figcaption>
@@ -71,7 +97,6 @@ export default ({}: PageProps) => (
         </p>
         <h1>Friends</h1>
         <p>线上线下遇到的小伙伴们：</p>
-        <p>发现过去记录的不少链接坏掉了或者信息需要更新，待整理。 ˊ_&gt;ˋ</p>
-        {enableFriendsList && friendsList}
+        {friendsList}
     </Layout>
 )

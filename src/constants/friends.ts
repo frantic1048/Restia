@@ -1,12 +1,11 @@
 /**
  * TODO: legacy definition from old logdown about.md, refactor with readable structure and drop html usage
  */
-type Friend = [nick: string, githubId: string, link: string, descriptionHtml: string]
+type Friend = [nick: string, githubId: string, link: string | undefined, descriptionHtml: string, metOffline?: boolean]
 
 const friends: Friend[] = [
     ['cold', 'coldnight', 'https://www.linuxzen.com/', '最开始折腾博客给予我很多支持的 cold 大大。'],
     ['Lazy Mind', 'mapleray', 'https://lazymind.me/', '低调沉稳的学长。'],
-
     ['Ayase-252', 'Ayase-252', 'https://ayase.moe/', '可爱的自动化<del>LL神教徒</del>学长。'],
     ['飞狐', 'lucumt', 'https://lucumt.info/', '活动于帝都的程序猿前辈。'],
     [
@@ -14,13 +13,15 @@ const friends: Friend[] = [
         'farseerfc',
         'https://farseerfc.me/',
         '<del>远见 RFC，爱复习</del>；经验丰富的 Arch Linux TU，人生赢家 fc 前辈。',
+        true,
     ],
-    ['EAGzzyCSL', 'EAGzzyCSL', 'https://eagzzycsl.github.io/', '同门室友，安静敲代码的男子。'],
+    ['EAGzzyCSL', 'EAGzzyCSL', 'https://eagzzycsl.github.io/', '同门室友，安静敲代码的男子。', true],
     [
         'Lyken Syu',
         'Lyken17',
         'https://lzhu.me/',
         '想要追上我们仍未知道那个夏天要以多快的速度前进才能企及的魔法少年力霸是否搞错了什么。',
+        true,
     ],
     [
         'Phoenix Nemo',
@@ -33,19 +34,27 @@ const friends: Friend[] = [
         'felixonmars',
         'https://felixc.at/',
         '火星猫，肥猫；带领众 Archer <del>一起吞并全太阳系发行版</del>的肥猫领袖。',
+        true,
     ],
-    ['acgtyrant', 'acgtyrant', 'http://acgtyrant.com', '御宅暴君；一本正经的萌。'],
+    ['acgtyrant', 'acgtyrant', 'http://acgtyrant.com', '御宅暴君；一本正经的萌。', true],
     [
         'quininer kel',
         'quininer',
         'https://quininer.github.io/',
         '奎尼；掌握不管多拗口的昵称都能取一个顺口<del>又鬼畜</del>的别名的魔法。',
+        true,
     ],
     ['CUI Hao', 'cuihaoleo', 'https://cvhc.cc/', '催土豪；有爱的 Arch Linux 中文社区源的维护者。'],
-    ['谷月轩', 'SilverRainZ', 'https://silverrainz.me/', 'SilverRainZ；又会画画又会写内核又会弹琴煮饭很香的辣酱。'],
-    ['Steve Zhang', 'Stevearzh', 'https://stevearzh.github.io/', '前端大前辈史蒂夫。'],
-    ['ヨイツの賢狼ホロ', 'KenOokamiHoro', 'https://blog.yoitsu.moe/', '抱一下萌狼尾巴。'],
-    ['依云', 'lilydjwg', 'https://blog.lilydjwg.me/', '百合仙子；掌握各种技术经验丰富的仙子前辈。'],
+    [
+        '谷月轩',
+        'SilverRainZ',
+        'https://silverrainz.me/',
+        'SilverRainZ；又会画画又会写内核又会弹琴煮饭很香的辣酱。',
+        true,
+    ],
+    ['Steve Zhang', 'Stevearzh', 'https://stevearzh.github.io/', '前端大前辈史蒂夫。', true],
+    ['ヨイツの賢狼ホロ', 'KenOokamiHoro', 'https://blog.yoitsu.moe/', '抱一下萌狼尾巴。', true],
+    ['依云', 'lilydjwg', 'https://blog.lilydjwg.me/', '百合仙子；掌握各种技术经验丰富的仙子前辈。', true],
     ['謝宇恆', 'xieyuheng', 'https://xieyuheng.github.io/', 'xyh，小妖狐，小药壶；语言设计之小药壶。'],
     ['夏娜(VOID001)', 'VOID001', 'https://void-shana.moe/', '向着内核大嗨卡前进的夏娜君。'],
     [
@@ -59,8 +68,8 @@ const friends: Friend[] = [
     /**
      * FIXME: broken links
      */
-    // ['星光', 'starlightme', 'http://jimmy66.com/', '在现代魔法研究协会相遇的闪闪的星光。'],
-    // ['晓风', 'dongdxf', 'http://www.dongxf.com/', '最开始折腾博客认识的 Pelican 同伴。'],
+    // ['星光', 'starlightme', undefined /* 'http://jimmy66.com/'*/, '在现代魔法研究协会相遇的闪闪的星光。'],
+    // ['晓风', 'dongdxf', undefined /* 'http://www.dongxf.com/'*/, '最开始折腾博客认识的 Pelican 同伴。'],
 ]
 
 export default friends
