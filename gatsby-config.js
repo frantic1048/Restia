@@ -67,13 +67,8 @@ module.exports = {
                         options: {
                             scopePrefix: 'syntax--',
                             additionalLangs: [
-                                /**
-                                 * in markdown: tex, latex
-                                 *
-                                 * FIXME:
-                                 * temporary, poor syntax highlight for LilyPond
-                                 */
-                                'language-latexsimple',
+                                /** in markdown: lilypond */
+                                'linter-lilypond',
                             ],
                         },
                     },
