@@ -74,6 +74,7 @@ module.exports = {
                                  * temporary, poor syntax highlight for LilyPond
                                  */
                                 'language-latexsimple',
+                                'linter-lilypond',
                             ],
                         },
                     },

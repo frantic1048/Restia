@@ -107,7 +107,7 @@ LilyPond 不能输出能听个响的音频文件，但是它能将乐谱输出�
 
 注：没有找到合适的 LilyPond 语法高亮，先用着语法比较接近的 LaTeX 高亮顶一顶。
 
-```tex
+```lilypond
 \version "2.22.1"
 
 main = {
