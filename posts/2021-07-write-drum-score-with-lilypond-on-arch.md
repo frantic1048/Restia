@@ -105,9 +105,7 @@ LilyPond 不能输出能听个响的音频文件，但是它能将乐谱输出�
 
 对应的 LilyPond 文件可以这样写（个人总结的比较方便的写法）：
 
-注：没有找到合适的 LilyPond 语法高亮，先用着语法比较接近的 LaTeX 高亮顶一顶。
-
-```tex
+```lilypond
 \version "2.22.1"
 
 main = {
@@ -168,7 +166,7 @@ timidity simple-rhythm.midi  -Ow -o - | ffmpeg -i - simple-rhythm.m4a
 
 首先，通过对照乐谱的图片和上面的内容，应该可以脑补到其中这段是记录音符的部分：
 
-```tex
+```lilypond
 <<
   {
     hh8 hh8 <<hh8 sn8>> hh8 hh8 hh8 <<hh8 sn8>> hh8
@@ -190,7 +188,7 @@ timidity simple-rhythm.midi  -Ow -o - | ffmpeg -i - simple-rhythm.m4a
 
 再把视野放大一点，看到包裹所有音符的那一大块符号：
 
-```tex
+```lilypond
 <<
   {
     % 手上的音符
@@ -212,7 +210,7 @@ timidity simple-rhythm.midi  -Ow -o - | ffmpeg -i - simple-rhythm.m4a
 `audio: ../static/lilypond/lilypond-for-drums/shorthand-1.m4a`  
 [shorthand-1.ly](../static/lilypond/lilypond-for-drums/shorthand-1.ly)
 
-```tex
+```lilypond
 sn8 sn16 sn16 sn16 sn16 sn8
 % 可以简写成
 sn8 16 16 16 16 8
@@ -224,7 +222,7 @@ sn8 16 16 16 16 8
 `audio: ../static/lilypond/lilypond-for-drums/shorthand-2.m4a`  
 [shorthand-2.ly](../static/lilypond/lilypond-for-drums/shorthand-2.ly)
 
-```tex
+```lilypond
 sn16 tomh16 toml16 sn16 toml16 sn16 tommh16 sn16
 % 可以简写成
 sn16 tomh toml sn toml sn tommh sn
@@ -240,7 +238,7 @@ sn16 tomh toml sn toml sn tommh sn
 `audio: ../static/lilypond/lilypond-for-drums/text.m4a`  
 [text.ly](../static/lilypond/lilypond-for-drums/text.ly)
 
-```tex
+```lilypond
 sn4^"L" 4^"R" 4_"L" 4_"R"
 16^"L" 16^"R" 8^"L" 8^"L" 16^"L" 16^"R"
 16_"L" 8_"R" 16_"R" r16 sn16_"R" 16_"L" 16_"R"
@@ -258,7 +256,7 @@ sn4^"L" 4^"R" 4_"L" 4_"R"
 `audio: ../static/lilypond/lilypond-for-drums/triplets.m4a`  
 [triplets.ly](../static/lilypond/lilypond-for-drums/triplets.ly)
 
-```tex
+```lilypond
 sn8 8 8 8 \tuplet 3/2 4 {8 8 8 8 8 8}
 ```
 
@@ -272,7 +270,7 @@ sn8 8 8 8 \tuplet 3/2 4 {8 8 8 8 8 8}
 `audio: ../static/lilypond/lilypond-for-drums/tie.m4a`  
 [tie.ly](../static/lilypond/lilypond-for-drums/tie.ly)
 
-```tex
+```lilypond
 <<
   {
     hh8 8 <<hh8 sn8>> hh8 8 8 <<hh8 sn8>> cymc8~
@@ -294,7 +292,7 @@ sn8 8 8 8 \tuplet 3/2 4 {8 8 8 8 8 8}
 `audio: ../static/lilypond/lilypond-for-drums/improvisation.m4a`  
 [improvisation.ly](../static/lilypond/lilypond-for-drums/improvisation.ly)
 
-```tex
+```lilypond
 <<
   {
     hh 8 8 8 8
@@ -351,7 +349,7 @@ sn8 8 8 8 \tuplet 3/2 4 {8 8 8 8 8 8}
 
 一个乐谱除了音符之外，还需要一些额外的信息才能变得完整，比如拍号、速度之类的，这就是把音符括起来的外面一圈内容表示的信息：
 
-```tex
+```lilypond
 \drums {
   \tempo 4 = 100
   \numericTimeSignature
@@ -375,7 +373,7 @@ sn8 8 8 8 \tuplet 3/2 4 {8 8 8 8 8 8}
 
 虽然已经能表示鼓谱，能写音符了，还需要一些操作让 LilyPond 知道总共有哪些乐谱，需要怎么被输出，所以有了剩下的一块内容：
 
-```tex
+```lilypond
 \version "2.22.1"
 
 main = {
@@ -404,7 +402,7 @@ main = {
 
 (注意：鼓谱的音符需要用 `\drummode` 包起来)
 
-```tex
+```lilypond
 dadada = { \drummode { sn8 8 8 8 8 8 8 8 } }
 zizizi = { \drummode { hh8 8 8 8 8 8 8 8 } }
 
@@ -425,7 +423,7 @@ main = {
 
 理论上一个乐谱只需要一个 `\score {}`，直接写成：
 
-```tex
+```lilypond
 \score {
   {
     % 令人心动的音乐
