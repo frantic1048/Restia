@@ -41,5 +41,5 @@ export const scaleAt = (step: number) => {
  * add a simple shadow to images
  */
 export const contentImageStyle: NestedCSSProperties = {
-    boxShadow: `${px(3)} ${px(3)} ${px(3)} #aaa`,
+    boxShadow: `${px(1)} ${px(1)} ${px(3)} #aaa`,
 }
