@@ -11488,14 +11488,14 @@ string-similarity@^1.2.2:
     lodash.map "^4.6.0"
     lodash.maxby "^4.6.0"
 
-string-width@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/string-width/-/string-width-5.0.0.tgz#19191f152f937b96f4ec54ba0986a5656660c5a2"
-  integrity sha512-zwXcRmLUdiWhMPrHz6EXITuyTgcEnUqDzspTkCLhQovxywWz6NP9VHgqfVg20V/1mUg0B95AKbXxNT+ALRmqCw==
+string-width@5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-5.0.1.tgz#0d8158335a6cfd8eb95da9b6b262ce314a036ffd"
+  integrity sha512-5ohWO/M4//8lErlUUtrFy3b11GtNOuMOU0ysKCDXFcfXuuvUXu95akgj/i8ofmaGdN0hCqyl6uu9i8dS/mQp5g==
   dependencies:
     emoji-regex "^9.2.2"
     is-fullwidth-code-point "^4.0.0"
-    strip-ansi "^7.0.0"
+    strip-ansi "^7.0.1"
 
 string-width@^1.0.1:
   version "1.0.2"
@@ -11618,7 +11618,7 @@ strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   dependencies:
     ansi-regex "^4.1.0"
 
-strip-ansi@^7.0.0:
+strip-ansi@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-7.0.1.tgz#61740a08ce36b61e50e65653f07060d000975fb2"
   integrity sha512-cXNxvT8dFNRVfhVME3JAe98mkXDYN2O1l7jmcwMnOslDeESg1rF/OZMtK0nRAhiari1unG5cD4jG3rapUAkLbw==
