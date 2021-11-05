@@ -1,6 +1,7 @@
 ---
 title: 在 Arch Linux 上使用 LilyPond 记录鼓谱
 date: 2021-07-19
+update: 2021-11-06
 tags: [LilyPond, MuseScore, Drum score, Arch Linux, 鼓，乐谱]
 category: Music
 cover: ../static/photo/drums/_DSC0838.jpg
@@ -94,6 +95,16 @@ LilyPond 不能输出能听个响的音频文件，但是它能将乐谱输出�
 -   SoundFont：[FluidR3](http://www.hammersound.net/)，对应仓库里的 `soundfont-fluid` 包
 
 由于 LilyPond 是基于纯文本的乐谱格式，和写程序一样，要是有个语法高亮是再好不过的，如果能再随时看到刚刚编辑的输出那就更好了，搜寻一番之后找到的现成的程序是 [Frescobaldi](https://www.frescobaldi.org/)，可以通过仓库里的 `frescobaldi` 包安装。它有语法高亮，有实时预览，有一键播放，很够用了。只是作为文本编辑器，我目前最顺手的是 VSCode，理论上这套功能也能在 VSCode 上糊出来，获得更好的文本编辑体验，就差一位勇士去填这个坑了:p
+
+### 配置 Timidity++
+
+安装 Timidity++ 之后，需要在它的配置文件里指定一下要使用的 SoundFont，具体来说是在配置文件里面新增一行形如 `soundfont <SoundFont 文件路径>` 的内容，在 Arch Linux 上配置文件位于 `/etc/timidity/timidity.cfg`，关于配置文件更多操作参见 [timidity.cfg(5)](https://man.archlinux.org/man/timidity.cfg.5)。
+
+```sh
+# /etc/timidity/timidity.cfg
+# 使用 FluidR3 SoundFont
+soundfont /usr/share/soundfonts/FluidR3_GM.sf2
+```
 
 ## 整体使用流程
 
