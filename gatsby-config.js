@@ -131,7 +131,20 @@ module.exports = {
                                     date: edge.node.frontmatter.date,
                                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                                    custom_elements: [{ 'content:encoded': edge.node.html }],
+                                    custom_elements: [
+                                        /** elements reference: https://validator.w3.org/feed/docs/rss2.html */
+                                        /**
+                                         * TODO: automatically generate this field ?
+                                         *
+                                         * by checking:
+                                         *      - modified date of article (via git, ez)
+                                         *      - and all linked resource files inside repo (have to parse all links inside md files)
+                                         */
+                                        edge.node.frontmatter.update && {
+                                            lastBuildDate: edge.node.frontmatter.update,
+                                        },
+                                        { 'content:encoded': edge.node.html },
+                                    ],
                                 })
                             })
                         },
@@ -148,11 +161,12 @@ module.exports = {
                                   frontmatter {
                                     title
                                     date
+                                    update
                                   }
                                 }
                               }
                             }
-                          }            
+                          }
                         `,
                         output: '/rss.xml',
                         title: "Pyon Pyon Today's RSS Feed",
