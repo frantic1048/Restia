@@ -12849,10 +12849,10 @@ typescript@4.5.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.2.tgz#8ac1fba9f52256fdb06fb89e4122fa6a346c2998"
   integrity sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==
 
-typestyle@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/typestyle/-/typestyle-2.1.0.tgz#7c5cc567de72cd8bfb686813150b92791aaa7636"
-  integrity sha512-6uCYPdG4xWLeEcl9O0GtNFnNGhami+irKiLsXSuvWHC/aTS7wdj49WeikWAKN+xHN3b1hm+9v0svwwgSBhCsNA==
+typestyle@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/typestyle/-/typestyle-2.2.0.tgz#0b89231c405dda47e5acdcc2c33143ec7257134a"
+  integrity sha512-2lfoH6Wp0B2fhEwy+aXzRxAaLEz/JLKUKmlttYT2yYSZhoyI2MEgv5iQjvtIBu5q/EwyqTNuYcoL1Mioqv7dsA==
   dependencies:
     csstype "2.6.9"
     free-style "3.1.0"
