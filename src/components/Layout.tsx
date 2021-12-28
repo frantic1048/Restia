@@ -173,9 +173,6 @@ const Layout = ({
         <div className={classes(layoutClassName, className)}>
             <Helmet>
                 <meta charSet="utf-8" />
-                <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-                <link rel="shortcut icon" sizes="192x192" href="/favicon-192x192.png" />
-                <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png" />
                 <meta name="msapplication-TileColor" content="#3b6ece" />
                 <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
