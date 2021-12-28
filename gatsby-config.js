@@ -224,6 +224,32 @@ module.exports = {
                 },
             },
         },
+        {
+            resolve: 'gatsby-plugin-manifest',
+            options: {
+                name: 'Pyon Pyon Today',
+                short_name: 'Pyon Pyon Today',
+                start_url: '/',
+                background_color: `#ffffff`,
+                theme_color: `#3b6ece`,
+                display: `standalone`,
+                icon: `resource/IMG_2628_02.png`,
+                icon_options: {
+                    purpose: `any maskable`,
+                },
+                cache_busting_mode: 'none',
+                lang: 'zh-cmn-Hans',
+
+                // already in <head>
+                theme_color_in_head: false,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-offline',
+            options: {
+                precachePages: ['/about', '/p/*', '/page/*'],
+            },
+        },
     ],
     siteMetadata: {
         title: 'Pyon Pyon Today',
