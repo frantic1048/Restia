@@ -64,6 +64,8 @@ const friends: Friend[] = [
         '新一；<del>另外一位夏娜</del>，动手和行动力很强的 ArchCN 社群的小伙伴。',
     ],
     ['惠狐', 'MarvelousBlack', 'https://blog.megumifox.com/', '糊糊；糊糊怎么叫（'],
+    ['DuckSoft', 'DuckSoft', 'https://www.ducksoft.site/', '各方面都很厉害的可爱鸭鸭'],
+    ['千千', 'wwyqianqian', 'https://wwyqianqian.github.io/', '据说很美味的千千'],
 
     /**
      * FIXME: broken links
