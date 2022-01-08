@@ -66,6 +66,7 @@ const friends: Friend[] = [
     ['惠狐', 'MarvelousBlack', 'https://blog.megumifox.com/', '糊糊；糊糊怎么叫（'],
     ['DuckSoft', 'DuckSoft', 'https://www.ducksoft.site/', '各方面都很厉害的可爱鸭鸭'],
     ['千千', 'wwyqianqian', 'https://wwyqianqian.github.io/', '据说很美味的千千'],
+    ['Leo Shen', 'szclsya', 'https://szclsya.me/', '音乐真是开心！'],
 
     /**
      * FIXME: broken links
