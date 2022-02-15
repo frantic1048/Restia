@@ -1,82 +1,10 @@
 import * as React from 'react'
-import { style, cssRule, classes, media } from 'typestyle'
-import { rgb, viewHeight, em, rgba, px } from 'csx'
+import { style, cssRule, classes } from 'typestyle'
+import { rgb, viewHeight, em, rgba, px, rem, percent } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '@restia-gql'
-import {
-    baseFontSize,
-    hiresMedia,
-    hiresMediaLayoutSideMargin,
-    largeMedia,
-    largeMediaLayoutSideMargin,
-    scaleAt,
-    smallMedia,
-    smallScreenBreakPoint,
-} from '@util/constants'
+import { baseFontSize, scaleAt, smallMedia } from '@util/constants'
 import { Helmet } from 'react-helmet'
-
-const layoutClassName = style(
-    {
-        minHeight: viewHeight(100),
-        boxSizing: 'border-box',
-        fontFamily: 'serif',
-    },
-    smallMedia({ padding: `0 ${em(1)}` }),
-)
-
-const headerClassName = style(
-    {
-        maxWidth: em(55),
-        textAlign: 'center',
-    },
-    ...scaleAt(3),
-)
-
-const navClassName = style({
-    maxWidth: em(55),
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: 'auto',
-})
-
-const navLinkClassName = style(
-    {
-        $nest: {
-            '&:not(:last-child)': { marginRight: em(1) },
-            '&.active': {
-                fontWeight: 'bold',
-                fontStyle: 'italic',
-                textDecorationStyle: 'solid',
-            },
-        },
-    },
-    ...scaleAt(1),
-)
-
-const layoutContentClassName = style(
-    { margin: 'auto' },
-    smallMedia({ maxWidth: em(55) }),
-    largeMedia({ marginLeft: px(largeMediaLayoutSideMargin), marginRight: px(largeMediaLayoutSideMargin) }),
-    hiresMedia({ marginLeft: px(hiresMediaLayoutSideMargin), marginRight: px(hiresMediaLayoutSideMargin) }),
-)
-
-interface LayoutProps {
-    children: React.ReactNode
-    className?: string
-    /** className of <main> */
-    contentClassName?: string
-    pageTitle?: string
-    pageImage?: string
-    pageDescription?: string
-    /** related to root, leading slash is NEEDED */
-    pageUrl?: string
-}
-
-// MEMO: is anything wrong here :thingking:?
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps<unknown>, ref: any) => (
-    <Link className={navLinkClassName} activeClassName={activeClassName ?? 'active'} {...props} ref={ref} />
-))
 
 /**
  * some global rules
@@ -85,8 +13,9 @@ cssRule('html', {
     padding: 0,
     margin: 0,
     color: rgb(70, 70, 70).toString(),
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#fbfbfb',
     fontSize: px(baseFontSize),
+    fontFamily: `"Viaoda Libre","Noto Serif SC",serif`,
 })
 cssRule('body', {
     margin: 'auto',
@@ -118,6 +47,96 @@ cssRule('.font-scale-1', ...scaleAt(1))
 cssRule('.font-scale-0', ...scaleAt(0))
 cssRule('.font-scale--1', ...scaleAt(-1))
 cssRule('.font-scale--2', ...scaleAt(-2))
+
+const layoutClassName = style(
+    {
+        minHeight: viewHeight(100),
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        justifyContent: 'flex-start',
+    },
+    smallMedia({ padding: `0 ${em(1)}`, flexDirection: 'column' }),
+)
+
+const navClassName = style(
+    {
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'nowrap',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        textAlign: 'center',
+        userSelect: 'none',
+    },
+    smallMedia({ justifyContent: 'center' }),
+)
+
+const headerClassName = style({
+    maxWidth: em(55),
+})
+
+const logoLinkClassName = style({
+    $nest: {
+        '&:hover,&:focus': { background: 'transparent' },
+    },
+})
+const logoImgClassName = style({
+    height: rem(8),
+    /** TODO: gather this through gatsby */
+    aspectRatio: '714 / 292',
+})
+
+const navLinkWrapperClassName = style(
+    {
+        marginTop: em(2),
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'nowrap',
+        width: percent(50),
+        lineHeight: 1.8,
+    },
+    smallMedia({
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: percent(100),
+        maxWidth: em(30),
+    }),
+)
+
+const navLinkClassName = style(
+    {
+        $nest: {
+            '&.active': {
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                textDecorationStyle: 'solid',
+            },
+        },
+    },
+    ...scaleAt(1),
+)
+
+const layoutContentClassName = style({ width: percent(100) })
+
+interface LayoutProps {
+    children: React.ReactNode
+    className?: string
+    /** className of <main> */
+    contentClassName?: string
+    pageTitle?: string
+    pageImage?: string
+    pageDescription?: string
+    /** related to root, leading slash is NEEDED */
+    pageUrl?: string
+}
+
+// MEMO: is anything wrong here :thingking:?
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps<unknown>, ref: any) => (
+    <Link className={navLinkClassName} activeClassName={activeClassName ?? 'active'} {...props} ref={ref} />
+))
 
 /**
  * Top level layout container
@@ -187,16 +206,26 @@ const Layout = ({
                 <meta name="twitter:title" content={pageTitle ?? siteName} />
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content={twitterImage} />
+                <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+                <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&family=Noto+Serif+SC&display=swap"
+                />
             </Helmet>
-            <header className={headerClassName}>{data.site?.siteMetadata?.title ?? ''}</header>
             <nav className={navClassName}>
-                <div>
+                <header className={headerClassName} role="banner">
+                    <NavLink to="/" className={logoLinkClassName}>
+                        <img className={logoImgClassName} src="/image/logo.svg" alt="Pyon Pyon Today" />
+                    </NavLink>
+                </header>
+                <div className={navLinkWrapperClassName}>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/posts">Archive</NavLink>
-                </div>
-                <div>
                     <NavLink to="/about">About</NavLink>
-                    <NavLink to="/rss.xml">Feed</NavLink>
+                    <NavLink to="/rss.xml" rel="alternate" type="application/rss+xml">
+                        RSS
+                    </NavLink>
                 </div>
             </nav>
             <main className={classes(layoutContentClassName, contentClassName)}>{children}</main>

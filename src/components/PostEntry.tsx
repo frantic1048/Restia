@@ -10,7 +10,7 @@ import {
     smallMedia,
     smallScreenBreakPoint,
 } from '@util/constants'
-import { rgba, em, rgb, px, percent, scale } from 'csx'
+import { rgba, em, rgb, px, percent } from 'csx'
 import { Link } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import * as React from 'react'
@@ -51,7 +51,6 @@ const postEntryClassName = style(
         display: 'grid',
         height: percent(100),
         background: rgb(250, 250, 250).toString(),
-        boxShadow: `${px(1)} ${px(1)} ${px(3)} #aaa`,
     },
     smallMedia({
         padding: em(0.5),

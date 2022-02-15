@@ -9,6 +9,7 @@ const postListClassName = style(
         display: 'grid',
         gridAutoFlow: 'dense',
         gridGap: px(1),
+        userSelect: 'none',
     },
     smallMedia({ gridTemplateColumns: `repeat(1, 1fr)` }),
     largeMedia({ gridTemplateColumns: `repeat(2, 1fr)` }),
