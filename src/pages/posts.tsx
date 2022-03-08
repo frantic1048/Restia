@@ -2,9 +2,10 @@ import { graphql, Link, PageProps } from 'gatsby'
 import * as React from 'react'
 import { ArchiveListQuery } from '@restia-gql'
 import Layout from '@components/Layout'
-import { style } from 'typestyle'
+import { classes, style } from 'typestyle'
 import { groupBy } from '@util/util'
 import { quote } from 'csx'
+import { hiresMedia, largeMedia, smallMedia } from '@util/constants'
 
 export const query = graphql`
     query ArchiveList {
@@ -30,6 +31,18 @@ export const query = graphql`
     }
 `
 
+const wrapperClassName = style(
+    {
+        display: 'grid',
+        gridAutoFlow: 'dense',
+    },
+    smallMedia({ gridTemplateColumns: '1fr' }),
+    largeMedia({ gridTemplateColumns: 'repeat(2, max-content)' }),
+    hiresMedia({ gridTemplateColumns: 'repeat(3, max-content)' }),
+)
+const postGroupClassName = style({
+    display: 'inline-block',
+})
 const postsClassName = style({
     listStyle: 'none',
 })
@@ -56,9 +69,17 @@ export default ({ data }: PageProps<ArchiveListQuery>) => {
     const groupNames = Object.keys(postGroupsByYear).sort((a, b) => parseInt(b, 10) - parseInt(a, 10))
 
     return (
-        <Layout pageTitle="Pyon Pyon Posts" pageUrl="/posts">
+        <Layout pageTitle="Pyon Pyon Posts" pageUrl="/posts" contentClassName={wrapperClassName}>
             {groupNames.map((groupName) => (
-                <section key={groupName}>
+                <section
+                    key={groupName}
+                    className={classes(
+                        postGroupClassName,
+                        style({
+                            gridRow: `span ${Math.ceil(postGroupsByYear[groupName].length / 5)}`,
+                        }),
+                    )}
+                >
                     <h2>{groupName}</h2>
                     <ul className={postsClassName}>
                         {postGroupsByYear[groupName].map((post) => {
