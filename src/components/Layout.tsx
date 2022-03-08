@@ -97,6 +97,7 @@ const parallaxForegroundClassName = style(
         flexWrap: 'nowrap',
         justifyContent: 'flex-start',
         padding: `0 ${em(0.5)}`,
+        $nest: { '&:focus': { outline: 'none' } },
     },
     smallMedia({
         flexDirection: 'column',
@@ -238,6 +239,16 @@ const Layout = ({
     const titlePrefix = pageTitle ? `${pageTitle} | ` : ''
     const title = `${titlePrefix}${siteName}`
 
+    const parallaxForegroundElement = React.createRef<HTMLDivElement>()
+    React.useEffect(() => {
+        // by default brower focus to body element
+        // which not scrollable with keyboard, because it has
+        // smaller height(100vh) than actual content
+        if (parallaxForegroundElement.current) {
+            parallaxForegroundElement.current.focus()
+        }
+    }, [])
+
     /**
      * TODO
      *
@@ -270,7 +281,7 @@ const Layout = ({
                 />
             </Helmet>
             <div className={parallaxContainerClassName}>
-                <div className={parallaxForegroundClassName}>
+                <div className={parallaxForegroundClassName} tabIndex={-1} ref={parallaxForegroundElement}>
                     <div className={parallaxBackgroundLayer1ClassName} />
                     <div className={parallaxBackgroundLayer2ClassName} />
                     <div className={parallaxBackgroundLayer3ClassName} />
