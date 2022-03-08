@@ -50,7 +50,7 @@ const postEntryClassName = style(
     {
         display: 'grid',
         height: percent(100),
-        background: rgb(250, 250, 250).toString(),
+        background: rgba(253, 253, 253, 0.7).toString(),
     },
     smallMedia({
         padding: em(0.5),

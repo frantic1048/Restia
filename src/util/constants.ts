@@ -5,8 +5,8 @@ import { NestedCSSProperties } from 'typestyle/lib/types'
 export const baseFontSize = 16
 const primaryRatio = 1.5
 const secondaryRatio = 1.25 // For small screens
-export const smallScreenBreakPoint = 1080 // px
-export const largeScreenBreakPoint = 1440 // px
+export const smallScreenBreakPoint = 1070 // px
+export const largeScreenBreakPoint = 1430 // px
 
 export const smallMedia = (style: NestedCSSProperties) => media({ maxWidth: smallScreenBreakPoint }, style)
 export const largeMedia = (style: NestedCSSProperties) =>

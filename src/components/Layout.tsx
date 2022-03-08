@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { style, cssRule, classes } from 'typestyle'
-import { rgb, viewHeight, em, rgba, px, rem, percent } from 'csx'
+import { rgb, viewHeight, em, rgba, px, rem, percent, url, translateZ, scale } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '@restia-gql'
 import { baseFontSize, scaleAt, smallMedia } from '@util/constants'
 import { Helmet } from 'react-helmet'
+import { NestedCSSProperties } from 'typestyle/src/types'
 
 /**
  * some global rules
@@ -13,7 +14,6 @@ cssRule('html', {
     padding: 0,
     margin: 0,
     color: rgb(70, 70, 70).toString(),
-    backgroundColor: '#fbfbfb',
     fontSize: px(baseFontSize),
     fontFamily: `"Viaoda Libre","Noto Serif SC",serif`,
 })
@@ -50,15 +50,71 @@ cssRule('.font-scale--2', ...scaleAt(-2))
 
 const layoutClassName = style(
     {
+        position: 'relative',
         minHeight: viewHeight(100),
         boxSizing: 'border-box',
+    },
+    smallMedia({ padding: `0 ${em(1)}` }),
+)
+
+const perspective = 1000
+/**
+ * @param z in px, should be smaller than {@link perspective}
+ * @returns CSS transform rule string
+ */
+const getParallaxItemTransform = (z: number): string => [translateZ(px(z)), scale(1 - z / perspective)].join(' ')
+const transformOrigin = 'bottom center'
+const parallaxContainerClassName = style({
+    position: 'relative',
+    top: 0,
+    left: 0,
+    height: viewHeight(100),
+    width: percent(100),
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    scrollBehavior: 'smooth',
+    perspective: px(perspective),
+    perspectiveOrigin: transformOrigin,
+})
+const parallaxBackgroundLayerStyle: NestedCSSProperties = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    transformOrigin,
+    pointerEvents: 'none',
+}
+const parallaxForegroundClassName = style(
+    {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        minHeight: viewHeight(100),
+        transform: getParallaxItemTransform(0),
+        transformOrigin,
+        transformStyle: 'preserve-3d',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         justifyContent: 'flex-start',
     },
-    smallMedia({ padding: `0 ${em(1)}`, flexDirection: 'column' }),
+    smallMedia({ flexDirection: 'column' }),
 )
+/** TODO: combine these SVG image after new design is done */
+const parallaxBackgroundLayer1ClassName = style(parallaxBackgroundLayerStyle, {
+    background: [`left top / 50px repeat scroll ${url('/image/bg-pattern.svg')}`, `#f3faff`].join(','),
+    transform: getParallaxItemTransform(-1000),
+})
+const parallaxBackgroundLayer2ClassName = style(parallaxBackgroundLayerStyle, {
+    background: `left top / 500px repeat scroll ${url('/image/bg-pattern-flowers.svg')}`,
+    transform: getParallaxItemTransform(-600),
+})
+const parallaxBackgroundLayer3ClassName = style(parallaxBackgroundLayerStyle, {
+    background: `left top / 800px repeat scroll ${url('/image/bg-pattern-flowers2.svg')}`,
+    transform: getParallaxItemTransform(-300),
+})
 
 const navClassName = style(
     {
@@ -213,22 +269,29 @@ const Layout = ({
                     href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&family=Noto+Serif+SC&display=swap"
                 />
             </Helmet>
-            <nav className={navClassName}>
-                <header className={headerClassName} role="banner">
-                    <NavLink to="/" className={logoLinkClassName}>
-                        <img className={logoImgClassName} src="/image/logo.svg" alt="Pyon Pyon Today" />
-                    </NavLink>
-                </header>
-                <div className={navLinkWrapperClassName}>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/posts">Archive</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/rss.xml" rel="alternate" type="application/rss+xml">
-                        RSS
-                    </NavLink>
+            <div className={parallaxContainerClassName}>
+                <div className={parallaxForegroundClassName}>
+                    <div className={parallaxBackgroundLayer1ClassName} />
+                    <div className={parallaxBackgroundLayer2ClassName} />
+                    <div className={parallaxBackgroundLayer3ClassName} />
+                    <nav className={navClassName}>
+                        <header className={headerClassName} role="banner">
+                            <NavLink to="/" className={logoLinkClassName}>
+                                <img className={logoImgClassName} src="/image/logo.svg" alt="Pyon Pyon Today" />
+                            </NavLink>
+                        </header>
+                        <div className={navLinkWrapperClassName}>
+                            <NavLink to="/">Home</NavLink>
+                            <NavLink to="/posts">Archive</NavLink>
+                            <NavLink to="/about">About</NavLink>
+                            <NavLink to="/rss.xml" rel="alternate" type="application/rss+xml">
+                                RSS
+                            </NavLink>
+                        </div>
+                    </nav>
+                    <main className={classes(layoutContentClassName, contentClassName)}>{children}</main>
                 </div>
-            </nav>
-            <main className={classes(layoutContentClassName, contentClassName)}>{children}</main>
+            </div>
         </div>
     )
 }

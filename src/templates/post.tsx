@@ -2,7 +2,7 @@ import { graphql, PageProps } from 'gatsby'
 import * as React from 'react'
 import { PostDetailQuery } from '@restia-gql'
 import Layout from '@components/Layout'
-import { em, percent, px, quote, rgb } from 'csx'
+import { em, percent, px, quote, rgb, rgba } from 'csx'
 import { style, cssRaw } from 'typestyle'
 import { contentImageStyle } from '@util/constants'
 import Comments from '@components/Comments'
@@ -250,7 +250,7 @@ const postClassName = style({
             overflow: 'auto',
             paddingLeft: em(0.7),
             borderLeft: `${em(0.3)} double ${rgb(0, 149, 255, 0.5)}`,
-            background: `#FAFAFA`,
+            background: `rgba(248,248,248,0.6)`,
             paddingTop: em(0.5),
             paddingBottom: em(0.5),
         },
@@ -283,6 +283,11 @@ const contentClassName = style({
      */
     maxWidth: em(70),
     margin: 'auto',
+    background: rgba(253, 253, 253, 0.7).toString(),
+})
+
+const articleClassName = style({
+    padding: `0 ${em(1.5)}`,
 })
 
 export const query = graphql`
@@ -336,11 +341,13 @@ export default ({ data }: PageProps<PostDetailQuery>) => {
             pageDescription={excerpt}
             pageImage={cover}
         >
-            <h1>{title}</h1>
-            <p>{info}</p>
-            {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-            <Comments slug={slug} title={title} />
+            <article className={articleClassName}>
+                <h1>{title}</h1>
+                <p>{info}</p>
+                {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+                <Comments slug={slug} title={title} />
+            </article>
         </Layout>
     )
 }
