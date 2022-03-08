@@ -48,14 +48,11 @@ cssRule('.font-scale-0', ...scaleAt(0))
 cssRule('.font-scale--1', ...scaleAt(-1))
 cssRule('.font-scale--2', ...scaleAt(-2))
 
-const layoutClassName = style(
-    {
-        position: 'relative',
-        minHeight: viewHeight(100),
-        boxSizing: 'border-box',
-    },
-    smallMedia({ padding: `0 ${em(1)}` }),
-)
+const layoutClassName = style({
+    position: 'relative',
+    minHeight: viewHeight(100),
+    boxSizing: 'border-box',
+})
 
 const perspective = 1000
 /**
@@ -99,8 +96,11 @@ const parallaxForegroundClassName = style(
         flexDirection: 'row',
         flexWrap: 'nowrap',
         justifyContent: 'flex-start',
+        padding: `0 ${em(0.5)}`,
     },
-    smallMedia({ flexDirection: 'column' }),
+    smallMedia({
+        flexDirection: 'column',
+    }),
 )
 /** TODO: combine these SVG image after new design is done */
 const parallaxBackgroundLayer1ClassName = style(parallaxBackgroundLayerStyle, {
