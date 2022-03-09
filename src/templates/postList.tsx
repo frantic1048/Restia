@@ -22,7 +22,8 @@ export const query = graphql`
                                     quality: 93
                                     placeholder: BLURRED
                                     transformOptions: { fit: COVER }
-                                    layout: FULL_WIDTH
+                                    layout: CONSTRAINED
+                                    width: 800
                                 )
                             }
                         }
