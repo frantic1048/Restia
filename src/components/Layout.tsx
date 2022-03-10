@@ -276,8 +276,9 @@ const Layout = ({
                 <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
                 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
                 <link
-                    rel="stylesheet"
+                    rel="preload"
                     href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&family=Noto+Serif+SC&display=swap"
+                    as="style"
                 />
             </Helmet>
             <div className={parallaxContainerClassName}>
