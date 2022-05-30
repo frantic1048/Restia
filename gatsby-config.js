@@ -1,5 +1,6 @@
 module.exports = {
     plugins: [
+        'gatsby-plugin-pnpm',
         {
             resolve: 'gatsby-plugin-typestyle', // local plugin
             options: {

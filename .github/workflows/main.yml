@@ -49,4 +49,7 @@ jobs:
 
     - name: "TODO: deploy to cf pages"
       if: false
-      run: echo TBD
+      env:
+        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        CF_PROJECT_NAME: ${{ secrets.CF_PROJECT_NAME }}
+      run: npx wrangler pages publish ./public --project-name=$CF_PROJECT_NAME

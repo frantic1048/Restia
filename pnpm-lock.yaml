@@ -25,6 +25,7 @@ specifiers:
   gatsby-plugin-image: 2.15.0
   gatsby-plugin-manifest: 4.15.0
   gatsby-plugin-offline: 5.15.0
+  gatsby-plugin-pnpm: 1.2.10
   gatsby-plugin-react-helmet: 5.15.0
   gatsby-plugin-sharp: 4.15.0
   gatsby-plugin-sitemap: 5.15.0
@@ -98,6 +99,7 @@ devDependencies:
   eslint-plugin-prefer-arrow: 1.2.3_eslint@8.16.0
   eslint-plugin-prettier: 4.0.0_j7rsahgqtkecno6yauhsgsglf4
   eslint-plugin-sonarjs: 0.13.0_eslint@8.16.0
+  gatsby-plugin-pnpm: 1.2.10_gatsby@4.15.1
   prettier: 2.6.2
   tsconfig-paths-webpack-plugin: 3.5.2
   tslint: 6.1.3_typescript@4.7.2
@@ -8291,6 +8293,16 @@ packages:
       - supports-color
     dev: false
 
+  /gatsby-plugin-pnpm/1.2.10_gatsby@4.15.1:
+    resolution: {integrity: sha512-29xjIakNEUY42OBb3wI9Thmawr5EcUUOB3dB8nE51yr/TfKQFCREk+HAOATQHTNedG3VZhgU4wVjl2V3wgOXJA==}
+    peerDependencies:
+      gatsby: ~2.x.x || ~3.x.x || ~4.x.x
+    dependencies:
+      gatsby: 4.15.1_k26rfrdk2uh2ao3d3jcmn6wejm
+      lodash.get: 4.4.2
+      lodash.uniq: 4.5.0
+    dev: true
+
   /gatsby-plugin-react-helmet/5.15.0_wvwegcnzqoddz3wwobpyydb3kq:
     resolution: {integrity: sha512-hxazz0Eea2CAUxglarK9XdtFChzbypLkD8Doe6l83cgdeLv7C5KJw2vZEpkvRyd4fgztNSkKprXT84if7IvD2g==}
     engines: {node: '>=14.15.0'}
@@ -10368,7 +10380,6 @@ packages:
 
   /lodash.get/4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
-    dev: false
 
   /lodash.map/4.6.0:
     resolution: {integrity: sha512-worNHGKLDetmcEYDvh2stPCrrQRkP20E4l0iIS7F8EvzMqBBi7ltvFN5m1HvTf1P7Jk1txKhvFcmYsCr8O2F1Q==}
@@ -10404,7 +10415,6 @@ packages:
 
   /lodash.uniq/4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
-    dev: false
 
   /lodash.without/4.4.0:
     resolution: {integrity: sha512-M3MefBwfDhgKgINVuBJCO1YR3+gf6s9HNJsIiZ/Ru77Ws6uTb9eBuvrkpzO+9iLoAaRodGuq7tyrPCx+74QYGQ==}
@@ -14888,7 +14898,7 @@ packages:
     dev: false
 
   github.com/nwhetsell/linter-lilypond/d1a7aec004807fe4682dc28dea6fcefdb46076ea:
-    resolution: {tarball: https://codeload.github.com/nwhetsell/linter-lilypond/tar.gz/d1a7aec004807fe4682dc28dea6fcefdb46076ea}
+    resolution: {commit: d1a7aec004807fe4682dc28dea6fcefdb46076ea, repo: git+ssh://git@github.com/nwhetsell/linter-lilypond.git, type: git}
     name: linter-lilypond
     version: 1.0.9
     engines: {atom: '>=1.0.0 <2.0.0'}
