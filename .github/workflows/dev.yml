@@ -10,12 +10,31 @@ jobs:
     - uses: nschloe/action-cached-lfs-checkout@v1
 
     - uses: actions/setup-node@v3.2.0
+      with:
+        node-version: 16
 
-    - name: Init deps
-      run: yarn --frozen-lockfile
+    - uses: pnpm/action-setup@v2.2.2
+      with:
+        run_install: false
+
+    - name: Get pnpm store directory
+      id: pnpm-cache
+      run: |
+        echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+    - name: Setup pnpm cache
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
 
     - name: Test
-      run: yarn lint
+      run: pnpm lint
 
     - name: Build
-      run: yarn build
+      run: pnpm build
