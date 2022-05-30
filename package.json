@@ -17,6 +17,10 @@
         "serve": "gatsby serve",
         "test": "npm run lint"
     },
+    "packageManager": "pnpm@7.1.0",
+    "engines": {
+        "node": ">=v16.15.0"
+    },
     "dependencies": {
         "csx": "10.0.2",
         "disqus-react": "1.1.2",
