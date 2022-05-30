@@ -64,14 +64,14 @@ public
 # Mac files
 .DS_Store
 
-# yarn
+# Yarn
 yarn-error.log
 .pnp/
 .pnp.js
-/yarn.lock
+# Yarn Integrity file
 .yarn-integrity
 
-# npm
+# npm SUCKS.
 /package-lock.json
 
 # unwanted audio file format
