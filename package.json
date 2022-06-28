@@ -56,7 +56,7 @@
         "@typescript-eslint/eslint-plugin-tslint": "5.13.0",
         "@typescript-eslint/parser": "5.13.0",
         "babel-preset-gatsby": "2.16.0",
-        "cz-customizable": "6.6.0",
+        "cz-customizable": "6.7.0",
         "eslint": "8.18.0",
         "eslint-config-prettier": "8.5.0",
         "eslint-plugin-import": "2.26.0",

@@ -4591,10 +4591,10 @@ csx@10.0.2:
   dependencies:
     csstype "^2.5.1"
 
-cz-customizable@6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/cz-customizable/-/cz-customizable-6.6.0.tgz#f684b4e18471174e063aae45a38da4288c371414"
-  integrity sha512-25wamZQHbenHZ64+yfc3cDthaKnAFqCzCcoou9Op/MN432WoRXLOQTdQy6BZaUhN8voEVGQiL/816oLn66CCog==
+cz-customizable@6.7.0:
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/cz-customizable/-/cz-customizable-6.7.0.tgz#68c8ba70dd5fb9d445d20392848035b8be1204a3"
+  integrity sha512-Pu81S0gBm8MLsRN3bi1WHIQQo4IubeGEPY8fs/niZwco9RQ5GQXLhdaUOL+mdHC8kOVxfBm0r9Ry9DkQb8uuvw==
   dependencies:
     editor "1.0.0"
     find-config "^1.0.0"
