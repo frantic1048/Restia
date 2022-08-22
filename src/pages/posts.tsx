@@ -96,7 +96,7 @@ export default ({ data }: PageProps<ArchiveListQuery>) => {
                                     <span>{post.node.frontmatter?.title}</span>
                                 </span>
                             )
-                            return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : { title }}</li>
+                            return <li key={post.node.id}>{slug ? <Link to={slug}>{title}</Link> : title}</li>
                         })}
                     </ul>
                 </section>
