@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { style, cssRule, classes } from 'typestyle'
-import { rgb, viewHeight, em, rgba, px, rem, percent, url, translateZ, scale } from 'csx'
+import { rgb, viewHeight, em, rgba, px, rem, percent, url, translateZ, scale, calc, viewWidth } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
 import { LayoutQuery } from '@restia-gql'
 import { baseFontSize, scaleAt, smallMedia } from '@util/constants'
@@ -175,7 +175,10 @@ const navLinkClassName = style(
     ...scaleAt(1),
 )
 
-const layoutContentClassName = style({ width: percent(100) })
+const layoutContentClassName = style({
+    width: percent(100),
+    marginBottom: calc(`min(${viewWidth(50)},${rem(30)})`),
+})
 
 interface LayoutProps {
     children: React.ReactNode
