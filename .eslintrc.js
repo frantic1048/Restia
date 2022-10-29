@@ -22,7 +22,9 @@ module.exports = {
             { selector: 'variable', types: ['function'], format: ['camelCase', 'PascalCase'] },
             { selector: 'typeParameter', format: ['PascalCase'], prefix: ['T'] },
             { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
-            { selector: 'property', format: ['camelCase'], leadingUnderscore: 'allow' },
+
+            // typestyle does not play well with this rule.
+            { selector: 'property', format: null, leadingUnderscore: 'allow' },
         ],
         '@typescript-eslint/consistent-type-assertions': 'error',
         '@typescript-eslint/consistent-type-definitions': 'error',
