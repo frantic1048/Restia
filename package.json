@@ -50,7 +50,7 @@
         "@babel/plugin-proposal-nullish-coalescing-operator": "7.18.6",
         "@babel/plugin-proposal-optional-chaining": "7.18.9",
         "@types/react": "18.0.25",
-        "@types/react-dom": "18.0.8",
+        "@types/react-dom": "18.0.9",
         "@types/react-helmet": "6.1.5",
         "@typescript-eslint/eslint-plugin": "5.42.1",
         "@typescript-eslint/eslint-plugin-tslint": "5.42.1",
