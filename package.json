@@ -57,7 +57,7 @@
         "@typescript-eslint/parser": "5.43.0",
         "babel-preset-gatsby": "2.24.0",
         "cz-customizable": "7.0.0",
-        "eslint": "8.27.0",
+        "eslint": "8.28.0",
         "eslint-config-prettier": "8.5.0",
         "eslint-plugin-import": "2.26.0",
         "eslint-plugin-prefer-arrow": "1.2.3",
