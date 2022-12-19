@@ -2013,10 +2013,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rabbithouse/eslint-config@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.3.tgz#5b29a4cbb84a30cfa08ebf7c420e13c40cda874b"
-  integrity sha512-CQSyyKHqltFpk6s93+jAlup0k1j8etxvTv5wrt4YVcNy/YITcORZd5f2e0RnG0yptB9OmABL94uKnXZRLwmDgQ==
+"@rabbithouse/eslint-config@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.4.tgz#9bc484ef7adfc3ed7e351f54e03f0b7bfa65a53f"
+  integrity sha512-OiNoU25ElPTRh2p576q95puxQz+C8M4ZZ25hEMl4SFiAz2O52Ayck62rSfs2SYOqzu24JAPTGjshQdcAQxQtOQ==
   dependencies:
     "@rushstack/eslint-config" "3.1.1"
     eslint "8.29.0"
