@@ -1,21 +1,21 @@
 name: CI
 on:
-  push:
-    branches-ignore: [ incarnation ]
+    push:
+        branches-ignore: [incarnation]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: nschloe/action-cached-lfs-checkout@v1
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: nschloe/action-cached-lfs-checkout@v1
 
-    - uses: actions/setup-node@v3.5.1
+            - uses: actions/setup-node@v3.5.1
 
-    - name: Init deps
-      run: yarn --frozen-lockfile
+            - name: Init deps
+              run: yarn --frozen-lockfile
 
-    - name: Test
-      run: yarn lint
+            - name: Build
+              run: yarn build
 
-    - name: Build
-      run: yarn build
+            - name: Test
+              run: yarn lint
