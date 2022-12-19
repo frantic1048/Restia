@@ -1,3 +1,21 @@
 {
-  "eslint.enable": true
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "editor.tabSize": 4,
+    "editor.wordWrap": "on",
+    "eslint.packageManager": "yarn",
+    "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+    "files.associations": {
+        ".prettierignore": "ignore"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }
