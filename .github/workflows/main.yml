@@ -9,7 +9,10 @@ jobs:
         steps:
             - uses: nschloe/action-cached-lfs-checkout@v1
 
-            - uses: actions/setup-node@v3.6.0
+            - name: Prepare Node.js
+              uses: actions/setup-node@v3.6.0
+              with:
+                  node-version-file: .node-version
 
             - name: Init deps
               run: yarn --frozen-lockfile
