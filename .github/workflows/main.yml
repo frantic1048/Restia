@@ -23,10 +23,10 @@ jobs:
             - name: Test
               run: yarn lint
 
-            - name: deploy to netlify
-              # using cloudflare pages instead
-              if: false
-              env:
-                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-                  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-              run: npx netlify-cli deploy --prod --dir=public
+            - name: Deploy to Cloudflare Pages
+              uses: cloudflare/pages-action@v1
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+                  directory: public
