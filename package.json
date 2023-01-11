@@ -58,7 +58,7 @@
         "@types/react-helmet": "6.1.6",
         "babel-preset-gatsby": "2.25.0",
         "cz-customizable": "7.0.0",
-        "eslint-import-resolver-typescript": "^3.5.2",
+        "eslint-import-resolver-typescript": "^3.5.3",
         "eslint-plugin-import": "2.26.0",
         "prettier": "2.8.2",
         "tsconfig-paths-webpack-plugin": "4.0.0",
