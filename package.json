@@ -60,7 +60,7 @@
         "cz-customizable": "7.0.0",
         "eslint-import-resolver-typescript": "^3.5.3",
         "eslint-plugin-import": "2.27.5",
-        "prettier": "2.8.5",
+        "prettier": "2.8.6",
         "tsconfig-paths-webpack-plugin": "4.0.1",
         "typescript": "5.0.2"
     },
