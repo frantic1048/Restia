@@ -69,6 +69,12 @@ const friends: Friend[] = [
     ['Leo Shen', 'szclsya', 'https://szclsya.me/', '音乐真是开心！'],
     ['比特客栈', 'bitinn', 'https://bitinn.net/', '精通魔理沙的店长'],
     ['NovaDNG', 'NovaDNG', 'https://novadng.studio/', '观星者'],
+    [
+        'NoirGif',
+        'noirgif',
+        'https://nir.moe/',
+        '<del>黑动图</del>（奎尼道）；同为折腾博客 n 次的 Arch CN 社群结识的小伙伴，称呼所有人都以「老」开头，然后我真的老了６Д９',
+    ],
 
     /**
      * FIXME: broken links
