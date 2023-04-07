@@ -62,7 +62,7 @@
         "eslint-plugin-import": "2.27.5",
         "prettier": "2.8.7",
         "tsconfig-paths-webpack-plugin": "4.0.1",
-        "typescript": "5.0.3"
+        "typescript": "5.0.4"
     },
     "resolutions": {},
     "repository": {
