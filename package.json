@@ -23,7 +23,7 @@
     "dependencies": {
         "csx": "10.0.2",
         "disqus-react": "1.1.5",
-        "gatsby": "4.25.6",
+        "gatsby": "4.25.7",
         "gatsby-plugin-catch-links": "4.25.0",
         "gatsby-plugin-feed": "4.25.0",
         "gatsby-plugin-image": "3.9.0",
