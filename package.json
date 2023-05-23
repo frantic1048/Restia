@@ -45,7 +45,7 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-helmet": "6.1.0",
-        "string-width": "6.1.0",
+        "string-width": "5.1.2",
         "typestyle": "2.4.0",
         "use-is-in-viewport": "1.0.9"
     },
