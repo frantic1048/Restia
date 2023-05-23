@@ -1,0 +1,15 @@
+{
+    extends: ['@whtsky'],
+    packageRules: [
+        {
+            /**
+             * string-width@6 is not compatible with all Firefox versions
+             * issue: https://github.com/sindresorhus/string-width/issues/50#issue-1722323414
+             * root cause: https://github.com/sindresorhus/string-width/pull/47
+             * TODO: add basic E2E test (ﾟ∀。)
+             */
+            matchPackageNames: ['string-width'],
+            enabled: false,
+        },
+    ],
+}
