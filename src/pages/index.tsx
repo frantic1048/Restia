@@ -13,7 +13,7 @@ import PostEntryList from '@components/PostEntryList'
  */
 export const query = graphql`
     query IndexPage {
-        allMarkdownRemark(limit: 9, sort: { fields: [frontmatter___date], order: DESC }) {
+        allMarkdownRemark(limit: 9, sort: { frontmatter: { date: DESC } }) {
             totalCount
             edges {
                 node {
