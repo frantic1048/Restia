@@ -9,7 +9,7 @@ import { hiresMedia, largeMedia, smallMedia } from '@util/constants'
 
 export const query = graphql`
     query ArchiveList {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
             totalCount
             edges {
                 node {

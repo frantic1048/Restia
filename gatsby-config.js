@@ -1,4 +1,11 @@
 module.exports = {
+    siteMetadata: {
+        title: 'Pyon Pyon Today',
+        description: 'Pyon Pyon Today',
+        siteUrl: 'https://pyonpyon.today',
+        image: '/favicon.png',
+    },
+    trailingSlash: 'never',
     plugins: [
         {
             resolve: 'gatsby-plugin-typestyle', // local plugin
@@ -149,25 +156,24 @@ module.exports = {
                             })
                         },
                         query: `
-                        {
-                            allMarkdownRemark(
-                              limit: 16,
-                              sort: { order: DESC, fields: [frontmatter___date] },
-                            ) {
-                              edges {
-                                node {
-                                  excerpt(format: PLAIN, truncate: true, pruneLength: 80)
-                                  html
-                                  fields { slug }
-                                  frontmatter {
-                                    title
-                                    date
-                                    update
-                                  }
-                                }
-                              }
-                            }
-                          }
+{
+  allMarkdownRemark(limit: 16, sort: { frontmatter: { date: DESC } }) {
+    edges {
+      node {
+        excerpt(format: PLAIN, truncate: true, pruneLength: 80)
+        html
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date
+          update
+        }
+      }
+    }
+  }
+}
                         `,
                         output: '/rss.xml',
                         title: "Pyon Pyon Today's RSS Feed",
@@ -251,10 +257,4 @@ module.exports = {
             },
         },
     ],
-    siteMetadata: {
-        title: 'Pyon Pyon Today',
-        description: 'Pyon Pyon Today',
-        siteUrl: `https://pyonpyon.today`,
-        image: '/favicon.png',
-    },
 }
