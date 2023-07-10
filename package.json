@@ -52,7 +52,7 @@
     "devDependencies": {
         "@babel/plugin-proposal-nullish-coalescing-operator": "7.18.6",
         "@babel/plugin-proposal-optional-chaining": "7.21.0",
-        "@rabbithouse/eslint-config": "^1.0.5",
+        "@rabbithouse/eslint-config": "^1.0.6",
         "@types/react": "18.2.14",
         "@types/react-dom": "18.2.6",
         "@types/react-helmet": "6.1.6",
