@@ -2209,17 +2209,17 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@rabbithouse/eslint-config@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.5.tgz#5e0c76fe0ee5782b070197e7383c50fde182c7cb"
-  integrity sha512-S3YcqBGw7/OW+nbI13xPk+fkd6m6i24hBDGj3TZXTxeXrtG0usuocvisMYMyyCQN9YAiyhyk8nsbrBCz2Yk8xg==
+"@rabbithouse/eslint-config@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.6.tgz#e8db7330852d9c58d2e1dd434982747ffb3c222b"
+  integrity sha512-4GfpLTZLLfwI9WPqFyNJrmQ84RVHzDJE4kMDrz2FI7FBBvMQ2Eq+eYRh3thzM1M9v7oArZ9JwQnWaEw0cexl9Q==
   dependencies:
     "@rushstack/eslint-config" "3.3.2"
     eslint "8.44.0"
     eslint-config-prettier "8.8.0"
-    eslint-plugin-prettier "4.2.1"
+    eslint-plugin-prettier "5.0.0-alpha.2"
     eslint-plugin-sonarjs "0.19.0"
-    prettier "2.8.8"
+    prettier "3.0.0"
 
 "@rushstack/eslint-config@3.3.2":
   version "3.3.2"
@@ -5255,12 +5255,13 @@ eslint-plugin-jsx-a11y@^6.7.1:
     object.fromentries "^2.0.6"
     semver "^6.3.0"
 
-eslint-plugin-prettier@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.2.1.tgz#651cbb88b1dab98bfd42f017a12fa6b2d993f94b"
-  integrity sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==
+eslint-plugin-prettier@5.0.0-alpha.2:
+  version "5.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.0.0-alpha.2.tgz#4dd7edf88ff9bc13a3bbd91c059aae267dac4576"
+  integrity sha512-F6YBCbrRzvZwcINw3crm1+/uX/i+rJYaFErPtwCfUoPLywRfY7pwBtI3yMe5OpIotuaiws8cd29oM80ca6NQSQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
+    synckit "^0.8.5"
 
 eslint-plugin-promise@~6.0.0:
   version "6.0.1"
@@ -9739,6 +9740,11 @@ prettier@2.8.8:
   version "2.8.8"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
+
+prettier@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.0.0.tgz#e7b19f691245a21d618c68bc54dc06122f6105ae"
+  integrity sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==
 
 pretty-bytes@^5.1.0, pretty-bytes@^5.6.0:
   version "5.6.0"
