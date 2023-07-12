@@ -54,7 +54,7 @@
         "@babel/plugin-proposal-optional-chaining": "7.21.0",
         "@rabbithouse/eslint-config": "^1.0.7",
         "@types/react": "18.2.14",
-        "@types/react-dom": "18.2.6",
+        "@types/react-dom": "18.2.7",
         "@types/react-helmet": "6.1.6",
         "babel-preset-gatsby": "3.11.0",
         "cz-customizable": "7.0.0",
