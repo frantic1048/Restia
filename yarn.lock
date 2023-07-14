@@ -2209,15 +2209,15 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@rabbithouse/eslint-config@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.7.tgz#aade00f1ee481ecf68fcbc6b9b955c4c9eb58005"
-  integrity sha512-Jk6FCGjuKmDGSrz3FuRsuea2e7/h0zRrZxcCRFL3QLsBrNVphXVX1NyrZmjg18AzLBZtAMpVJRoeR+QXfiix2w==
+"@rabbithouse/eslint-config@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.8.tgz#531d567fcd786d904a9096ca7dd6708354bb582f"
+  integrity sha512-DVok/WIg6GuN/0mMadVuDexinq5JQRSS/irql4aTB2+VR6jOEsvS7juMeXLJ03wR2ydF5jKePhWBpffXdDE1KQ==
   dependencies:
     "@rushstack/eslint-config" "3.3.2"
     eslint "8.44.0"
     eslint-config-prettier "8.8.0"
-    eslint-plugin-prettier "5.0.0-alpha.2"
+    eslint-plugin-prettier "5.0.0"
     eslint-plugin-sonarjs "0.19.0"
     prettier "3.0.0"
 
@@ -5255,10 +5255,10 @@ eslint-plugin-jsx-a11y@^6.7.1:
     object.fromentries "^2.0.6"
     semver "^6.3.0"
 
-eslint-plugin-prettier@5.0.0-alpha.2:
-  version "5.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.0.0-alpha.2.tgz#4dd7edf88ff9bc13a3bbd91c059aae267dac4576"
-  integrity sha512-F6YBCbrRzvZwcINw3crm1+/uX/i+rJYaFErPtwCfUoPLywRfY7pwBtI3yMe5OpIotuaiws8cd29oM80ca6NQSQ==
+eslint-plugin-prettier@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.0.0.tgz#6887780ed95f7708340ec79acfdf60c35b9be57a"
+  integrity sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==
   dependencies:
     prettier-linter-helpers "^1.0.0"
     synckit "^0.8.5"
