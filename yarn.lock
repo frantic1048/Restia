@@ -2201,13 +2201,13 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@rabbithouse/eslint-config@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.8.tgz#531d567fcd786d904a9096ca7dd6708354bb582f"
-  integrity sha512-DVok/WIg6GuN/0mMadVuDexinq5JQRSS/irql4aTB2+VR6jOEsvS7juMeXLJ03wR2ydF5jKePhWBpffXdDE1KQ==
+"@rabbithouse/eslint-config@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.9.tgz#e8f5ce1c1f5d148c84403a694ab97f41784357c4"
+  integrity sha512-DBBSCIlzn3kRNQsWwm4eHmFxPCBrsEhaaMF4Mm4DAAvbj+gXbh9x6Mj554c5eOvgZUEy5+ZYkVjehmMrWJcxFw==
   dependencies:
     "@rushstack/eslint-config" "3.3.2"
-    eslint "8.44.0"
+    eslint "8.45.0"
     eslint-config-prettier "8.8.0"
     eslint-plugin-prettier "5.0.0"
     eslint-plugin-sonarjs "0.19.0"
@@ -5386,10 +5386,10 @@ eslint-webpack-plugin@^2.7.0:
     normalize-path "^3.0.0"
     schema-utils "^3.1.1"
 
-eslint@8.44.0:
-  version "8.44.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.44.0.tgz#51246e3889b259bbcd1d7d736a0c10add4f0e500"
-  integrity sha512-0wpHoUbDUHgNCyvFB5aXLiQVfK9B0at6gUvzy83k4kAsQ/u769TQDX6iKC+aO4upIHO9WSaA3QoXYQDHbNwf1A==
+eslint@8.45.0:
+  version "8.45.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.45.0.tgz#bab660f90d18e1364352c0a6b7c6db8edb458b78"
+  integrity sha512-pd8KSxiQpdYRfYa9Wufvdoct3ZPQQuVuU5O6scNgMuOMYuxvH0IGaYK0wUFjo4UYYQQCUndlXiMbnxopwvvTiw==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@eslint-community/regexpp" "^4.4.0"
@@ -5416,7 +5416,6 @@ eslint@8.44.0:
     globals "^13.19.0"
     graphemer "^1.4.0"
     ignore "^5.2.0"
-    import-fresh "^3.0.0"
     imurmurhash "^0.1.4"
     is-glob "^4.0.0"
     is-path-inside "^3.0.3"
@@ -5428,7 +5427,6 @@ eslint@8.44.0:
     natural-compare "^1.4.0"
     optionator "^0.9.3"
     strip-ansi "^6.0.1"
-    strip-json-comments "^3.1.0"
     text-table "^0.2.0"
 
 eslint@^7.32.0:
