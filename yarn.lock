@@ -2196,10 +2196,10 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@rabbithouse/eslint-config@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.10.tgz#4db04044ceca81a6bc78ba354eaa612abc008930"
-  integrity sha512-AmU6c/0J+6M7IBpLN6I3/1O/jOTR03IIDNRovBAZ0b0+fBdSXpWwlIRIggPbCZ8bfbG4Jl+xSmJCv63bnhA2lw==
+"@rabbithouse/eslint-config@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.11.tgz#7a41bbe39a156f22779c6e802bfc7b0bfc71707d"
+  integrity sha512-LbhC1C3htuAj6XtcUdgKoWwmNeavchs/tFf5eEOWB4EW1h73r7QKZ6HMIb9tVX14ATAlF6/d9mL+NLhp3YAryg==
   dependencies:
     "@rushstack/eslint-config" "3.3.2"
     eslint "8.45.0"
