@@ -2196,17 +2196,17 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@rabbithouse/eslint-config@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.13.tgz#7cdd9ad210074b4118a81e4ed2b6e3d1824cb4d7"
-  integrity sha512-rkZ+INAIBRQikvTWSo3v44wv2hWdkfl6F0/XwDTeqvzlYa7JoHIjmLgJ9Kw+6HCmYGfFcRKWDNvE9P5maQ1jQQ==
+"@rabbithouse/eslint-config@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.14.tgz#3f215c3662abe6ec1f3a8dd10757b8e78b2008dd"
+  integrity sha512-euhVNLNBoEPScSin5sw2LiMbjEn1FeIPlxMDLQVV3BdvD8fq6P+91qwFNegZWb9TD4TR2F+Mrx80MTAcOCT/4Q==
   dependencies:
     "@rushstack/eslint-config" "3.3.2"
     eslint "8.46.0"
     eslint-config-prettier "8.8.0"
     eslint-plugin-prettier "5.0.0"
     eslint-plugin-sonarjs "0.19.0"
-    prettier "3.0.0"
+    prettier "3.0.1"
 
 "@rushstack/eslint-config@3.3.2":
   version "3.3.2"
@@ -9768,11 +9768,6 @@ prettier-linter-helpers@^1.0.0:
   integrity sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==
   dependencies:
     fast-diff "^1.1.2"
-
-prettier@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.0.0.tgz#e7b19f691245a21d618c68bc54dc06122f6105ae"
-  integrity sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==
 
 prettier@3.0.1:
   version "3.0.1"
