@@ -2182,16 +2182,16 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@rabbithouse/eslint-config@^1.0.21":
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.21.tgz#58423d023bf12099d8b1c28564494bae5761a5d5"
-  integrity sha512-lVSiYhZ5pwbeFk7CqQRXU+c7ZCgb8MtDI/+kn2LRthiTKeXpJcq5WS2k7WHPyHr/KYllhAExrdO1lYFx7Kl4wQ==
+"@rabbithouse/eslint-config@^1.0.22":
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/@rabbithouse/eslint-config/-/eslint-config-1.0.22.tgz#d72208415bef21cba4c6ee1b745684544a24e548"
+  integrity sha512-T1F44yr7SqHM51lS+e8AqU6ug92fFRadZHd/iUHPyMFECtIauMOqChH4DMCXS5s1U72+CaM+Bow54sXJ9lMOKg==
   dependencies:
     "@rushstack/eslint-config" "3.3.3"
     eslint "8.47.0"
     eslint-config-prettier "9.0.0"
     eslint-plugin-prettier "5.0.0"
-    eslint-plugin-sonarjs "0.20.0"
+    eslint-plugin-sonarjs "0.21.0"
     prettier "3.0.2"
 
 "@rushstack/eslint-config@3.3.3":
@@ -5346,10 +5346,10 @@ eslint-plugin-react@~7.27.1:
     semver "^6.3.0"
     string.prototype.matchall "^4.0.6"
 
-eslint-plugin-sonarjs@0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.20.0.tgz#215529e6e89c5c9b5cb6af9e7ef9a1ce45c53bb0"
-  integrity sha512-BRhZ7BY/oTr6DDaxvx58ReTg7R+J8T+Y2ZVGgShgpml25IHBTIG7EudUtHuJD1zhtMgUEt59x3VNvUQRo2LV6w==
+eslint-plugin-sonarjs@0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.21.0.tgz#1917f4d3de0ae72495a594142f51c1576f82e2c7"
+  integrity sha512-oezUDfFT5S6j3rQheZ4DLPrbetPmMS7zHIKWGHr0CM3g5JgyZroz1FpIKa4jV83NsGpmgIeagpokWDKIJzRQmw==
 
 eslint-plugin-tsdoc@~0.2.16:
   version "0.2.17"
