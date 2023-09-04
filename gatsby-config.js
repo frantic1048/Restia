@@ -1,11 +1,22 @@
 module.exports = {
     siteMetadata: {
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         title: 'Pyon Pyon Today',
         description: 'Pyon Pyon Today',
         siteUrl: 'https://pyonpyon.today',
         image: '/favicon.png',
     },
     trailingSlash: 'never',
+    // https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/#graphqltypegen
+    graphqlTypegen: {
+        typesOutputPath: './src/types/graphql-types.ts',
+        documentSearchPaths: [
+            './gatsby-node.ts', // default
+            './plugins/**/gatsby-node.ts', // default
+            './src/{pages,templates,components}/!(*.d).{ts,tsx}',
+        ],
+        generateOnBuild: true,
+    },
     plugins: [
         {
             resolve: 'gatsby-plugin-typestyle', // local plugin
@@ -15,24 +26,6 @@ module.exports = {
         },
         'gatsby-plugin-catch-links',
         'gatsby-plugin-react-helmet',
-        {
-            resolve: 'gatsby-plugin-ts',
-            options: {
-                fileName: 'types/graphql-types.ts',
-                documentPaths: [
-                    /**
-                     * gatsby-plugin-graphql-codegen seems loading some incorrect content as
-                     * graphql document from default paths, which causes codegen error.
-                     * TODO: investigate later
-                     */
-                    // default: './src/**/*.{ts,tsx}',
-                    './src/{pages,templates,components}/!(*.d).{ts,tsx}',
-
-                    './.cache/fragments/*.js',
-                    './node_modules/gatsby-*/**/*.js',
-                ],
-            },
-        },
         {
             resolve: `gatsby-source-filesystem`,
             options: {

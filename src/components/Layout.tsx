@@ -2,8 +2,8 @@ import * as React from 'react'
 import { style, cssRule, classes } from 'typestyle'
 import { rgb, viewHeight, em, rgba, px, rem, percent, url, translateZ, scale, calc, viewWidth } from 'csx'
 import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
-import { LayoutQuery } from '@restia-gql'
-import { baseFontSize, scaleAt, smallMedia } from '@util/constants'
+import { LayoutQuery } from '../types/graphql-types'
+import { baseFontSize, scaleAt, smallMedia } from '../util/constants'
 import { Helmet } from 'react-helmet'
 import { NestedCSSProperties } from 'typestyle/src/types'
 
@@ -289,10 +289,15 @@ const Layout = ({
                     <div className={parallaxBackgroundLayer1ClassName} />
                     <div className={parallaxBackgroundLayer2ClassName} />
                     <div className={parallaxBackgroundLayer3ClassName} />
-                    <nav className={navClassName}>
+                    <nav className={navClassName} data-testid="navigation">
                         <header className={headerClassName} role="banner">
-                            <NavLink to="/" className={logoLinkClassName}>
-                                <img className={logoImgClassName} src="/image/logo.svg" alt="Pyon Pyon Today" />
+                            <NavLink to="/" className={logoLinkClassName} data-testid="logo-link">
+                                <img
+                                    className={logoImgClassName}
+                                    src="/image/logo.svg"
+                                    alt="Pyon Pyon Today"
+                                    data-testid="logo"
+                                />
                             </NavLink>
                         </header>
                         <div className={navLinkWrapperClassName}>

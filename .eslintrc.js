@@ -5,11 +5,11 @@ module.exports = {
     root: true,
     reportUnusedDisableDirectives: true,
     overrides: [
-        { files: ['*.js'], extends: ['@rabbithouse/eslint-config/node'] },
+        { files: ['*.js'], extends: ['@rabbithouse/eslint-config/node'], parserOptions: { ecmaVersion: 'latest' } },
         {
             files: ['*.ts', '*.tsx'],
             extends: ['@rabbithouse/eslint-config/react-app', 'plugin:import/recommended', 'plugin:import/typescript'],
-            parserOptions: { tsconfigRootDir: __dirname },
+            parserOptions: { tsconfigRootDir: __dirname, EXPERIMENTAL_useSourceOfProjectReferenceRedirect: true },
             settings: {
                 'import/resolver': {
                     typescript: {

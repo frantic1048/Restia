@@ -1,10 +1,10 @@
-import Layout from '@components/Layout'
-import friends from '@constants/friends'
+import Layout from '../components/Layout'
+import friends from '../constants/friends'
 import { calc, em, px, quote, url } from 'csx'
 import * as React from 'react'
 import { classes, style } from 'typestyle'
 import { PageProps } from 'gatsby'
-import { largeMedia, scaleAt, smallMedia } from '@util/constants'
+import { largeMedia, scaleAt, smallMedia } from '../util/constants'
 
 const friendsListClassName = style(
     {
@@ -70,7 +70,7 @@ const friendsList = (
                         </a>
                     </figcaption>
                     {/** TODO: legacy implementation form old logdown site, could use safer rendering */}
-                    {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
+                    {}
                     <p dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
                 </figure>
             </li>

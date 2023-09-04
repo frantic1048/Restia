@@ -1,24 +1,3 @@
 {
-    "compilerOptions": {
-        "jsx": "react",
-        "lib": ["dom"],
-        "moduleResolution": "node",
-        "module": "esnext",
-        "target": "esnext",
-        "sourceMap": true,
-        "forceConsistentCasingInFileNames": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "strictNullChecks": true,
-        "typeRoots": ["./types", "./node_modules/@types"],
-        "baseUrl": "./src",
-        "paths": {
-            "@components/*": ["components/*"],
-            "@util/*": ["util/*"],
-            "@constants/*": ["constants/*"],
-            "@restia-gql": ["../types/graphql-types"],
-        }
-    },
-    "include": ["src"]
+    "references": [{ "path": "./tsconfig.src.json" }, { "path": "./tsconfig.node.json" }]
 }

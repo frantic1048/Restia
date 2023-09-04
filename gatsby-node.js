@@ -1,18 +1,10 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-    actions.setWebpackConfig({
-        resolve: {
-            plugins: [new TsconfigPathsPlugin()],
-        },
-    })
-}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
     if (node.internal.type === `MarkdownRemark`) {
+        // eslint-disable-next-line sonarjs/no-nested-template-literals
         const slug = `/p${createFilePath({ node, getNode, basePath: `posts` })}`
         console.log('slug:', slug)
         createNodeField({

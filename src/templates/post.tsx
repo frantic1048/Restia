@@ -1,11 +1,11 @@
 import { graphql, PageProps } from 'gatsby'
 import * as React from 'react'
-import { PostDetailQuery } from '@restia-gql'
-import Layout from '@components/Layout'
+import { PostDetailQuery } from '../types/graphql-types'
+import Layout from '../components/Layout'
 import { em, percent, px, quote, rgb, rgba } from 'csx'
 import { style, cssRaw } from 'typestyle'
-import { contentImageStyle } from '@util/constants'
-import Comments from '@components/Comments'
+import { contentImageStyle } from '../util/constants'
+import Comments from '../components/Comments'
 import { getSrc } from 'gatsby-plugin-image'
 
 /**
@@ -344,7 +344,7 @@ export default ({ data }: PageProps<PostDetailQuery>) => {
             <article className={articleClassName}>
                 <h1>{title}</h1>
                 <p>{info}</p>
-                {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
+                {}
                 <div dangerouslySetInnerHTML={{ __html: html }} />
                 <Comments slug={slug} title={title} />
             </article>
