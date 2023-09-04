@@ -1,5 +1,5 @@
-import PostEntry, { PostEntryInfo } from '@components/PostEntry'
-import { hiresMedia, largeMedia, smallMedia } from '@util/constants'
+import PostEntry, { PostEntryInfo } from '../components/PostEntry'
+import { hiresMedia, largeMedia, smallMedia } from '../util/constants'
 import { px } from 'csx'
 import * as React from 'react'
 import { style } from 'typestyle'
@@ -26,7 +26,7 @@ interface Props {
 }
 
 export default ({ postList }: Props) => (
-    <div className={postListClassName}>
+    <div className={postListClassName} data-testid="postList">
         {postList.map(({ id, ...postInfo }) => (
             <PostEntry key={id} {...postInfo} />
         ))}

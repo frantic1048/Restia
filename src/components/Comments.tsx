@@ -1,11 +1,11 @@
 import * as React from 'react'
 import useIsInViewport from 'use-is-in-viewport'
-import { CommentsQuery } from '@restia-gql'
+import { CommentsQuery } from '../types/graphql-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
 import { style } from 'typestyle'
 import { percent, px } from 'csx'
-import { scaleAt } from '@util/constants'
+import { scaleAt } from '../util/constants'
 
 const disqusClassName = style({
     // make it easier to tirgger
@@ -14,7 +14,6 @@ const disqusClassName = style({
     alignItems: 'center',
     justifyContent: 'center',
     $nest: {
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         '&>#disqus_thread': { width: percent(100) },
     },
 })

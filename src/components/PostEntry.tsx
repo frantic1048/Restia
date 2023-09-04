@@ -9,7 +9,7 @@ import {
     scaleAt,
     smallMedia,
     smallScreenBreakPoint,
-} from '@util/constants'
+} from '../util/constants'
 import { rgba, em, rgb, px, percent } from 'csx'
 import { Link } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'

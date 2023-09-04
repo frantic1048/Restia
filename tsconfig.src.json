@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "jsx": "react",
+        "lib": ["dom"],
+        "moduleResolution": "node",
+        "module": "esnext",
+        "target": "esnext",
+        "sourceMap": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true
+    },
+    "include": ["src"]
+}
