@@ -13,6 +13,17 @@ jobs:
         steps:
             - uses: nschloe/action-cached-lfs-checkout@v1
 
+            - name: Gatsby build cache
+              id: gatsby-cache
+              uses: actions/cache@v3
+              with:
+                  path: |
+                    ~/.cache/gatsby
+                    public
+                  key: ${{ runner.os }}-gatsby-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-
+
             - name: Prepare Node.js
               uses: actions/setup-node@v3.8.1
               with:
