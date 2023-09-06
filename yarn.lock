@@ -1646,7 +1646,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:^8.47.0":
+"@eslint/js@npm:8.48.0":
   version: 8.48.0
   resolution: "@eslint/js@npm:8.48.0"
   checksum: b2755f9c0ee810c886eba3c50dcacb184ba5a5cd1cbc01988ee506ad7340653cae0bd55f1d95c64b56dfc6d25c2caa7825335ffd2c50165bae9996fe0f396851
@@ -1660,7 +1660,7 @@ __metadata:
     "@babel/plugin-proposal-nullish-coalescing-operator": 7.18.6
     "@babel/plugin-proposal-optional-chaining": 7.21.0
     "@playwright/test": ^1.37.1
-    "@rabbithouse/eslint-config": ^1.0.23
+    "@rabbithouse/eslint-config": ^1.0.26
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
     "@types/react-helmet": 6.1.6
@@ -2958,19 +2958,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rabbithouse/eslint-config@npm:^1.0.23":
-  version: 1.0.23
-  resolution: "@rabbithouse/eslint-config@npm:1.0.23"
+"@rabbithouse/eslint-config@npm:^1.0.26":
+  version: 1.0.26
+  resolution: "@rabbithouse/eslint-config@npm:1.0.26"
   dependencies:
     "@rushstack/eslint-config": 3.3.3
-    eslint: 8.47.0
+    eslint: 8.48.0
     eslint-config-prettier: 9.0.0
     eslint-plugin-prettier: 5.0.0
     eslint-plugin-sonarjs: 0.21.0
-    prettier: 3.0.2
+    prettier: 3.0.3
   peerDependencies:
     typescript: ">=5.2.2"
-  checksum: 6b5fa9ab26b7a7b3ab7aaa518d8ec262c2fcfb42709f121e00a437a323140b5571fedc3d7df96f71fa12200efa891aacef99d9026a3d2115d271135f74a35593
+  checksum: 5d46bba21d3edc998616cc96f620e627386a65df700e259d8672d0ed8c1ee29b3c4179bba8ff27eb29a78295c39cfcdc9cf965002432ce3e60f6f214b74c07c5
   languageName: node
   linkType: hard
 
@@ -7341,14 +7341,14 @@ atom-linter@latest:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.47.0":
-  version: 8.47.0
-  resolution: "eslint@npm:8.47.0"
+"eslint@npm:8.48.0":
+  version: 8.48.0
+  resolution: "eslint@npm:8.48.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@eslint-community/regexpp": ^4.6.1
     "@eslint/eslintrc": ^2.1.2
-    "@eslint/js": ^8.47.0
+    "@eslint/js": 8.48.0
     "@humanwhocodes/config-array": ^0.11.10
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -7384,7 +7384,7 @@ atom-linter@latest:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 1988617f703eadc5c7540468d54dc8e5171cf2bb9483f6172799cd1ff54a9a5e4470f003784e8cef92687eaa14de37172732787040e67817581a20bcb9c15970
+  checksum: f20b359a4f8123fec5c033577368cc020d42978b1b45303974acd8da7a27063168ee3fe297ab5b35327162f6a93154063e3ce6577102f70f9809aff793db9bd0
   languageName: node
   linkType: hard
 
@@ -13482,15 +13482,6 @@ atom-linter@latest:
   dependencies:
     fast-diff: ^1.1.2
   checksum: 00ce8011cf6430158d27f9c92cfea0a7699405633f7f1d4a45f07e21bf78e99895911cbcdc3853db3a824201a7c745bd49bfea8abd5fb9883e765a90f74f8392
-  languageName: node
-  linkType: hard
-
-"prettier@npm:3.0.2":
-  version: 3.0.2
-  resolution: "prettier@npm:3.0.2"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 118b59ddb6c80abe2315ab6d0f4dd1b253be5cfdb20622fa5b65bb1573dcd362e6dd3dcf2711dd3ebfe64aecf7bdc75de8a69dc2422dcd35bdde7610586b677a
   languageName: node
   linkType: hard
 
