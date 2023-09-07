@@ -18,8 +18,8 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: |
-                    ~/.cache/gatsby
-                    public
+                      ~/.cache/gatsby
+                      public
                   key: ${{ runner.os }}-gatsby-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-gatsby-
@@ -34,6 +34,8 @@ jobs:
               run: yarn install
 
             - name: Build
+              env:
+                  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: ${{ vars.GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES}}
               run: yarn build
 
             - name: Lint
