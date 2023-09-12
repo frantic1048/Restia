@@ -1660,7 +1660,7 @@ __metadata:
     "@babel/plugin-proposal-nullish-coalescing-operator": 7.18.6
     "@babel/plugin-proposal-optional-chaining": 7.21.0
     "@playwright/test": ^1.37.1
-    "@rabbithouse/eslint-config": ^1.0.27
+    "@rabbithouse/eslint-config": ^1.0.28
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
     "@types/react-helmet": 6.1.6
@@ -2958,9 +2958,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rabbithouse/eslint-config@npm:^1.0.27":
-  version: 1.0.27
-  resolution: "@rabbithouse/eslint-config@npm:1.0.27"
+"@rabbithouse/eslint-config@npm:^1.0.28":
+  version: 1.0.28
+  resolution: "@rabbithouse/eslint-config@npm:1.0.28"
   dependencies:
     "@rushstack/eslint-config": 3.3.3
     eslint: 8.49.0
@@ -2970,7 +2970,7 @@ __metadata:
     prettier: 3.0.3
   peerDependencies:
     typescript: ">=5.2.2"
-  checksum: 0014fd0fdfad3a78d4eb72435bf779c8a9fe938e2e5e2a403a42983e3385958b775ad055f1daf9b3c4818fae51dd3c414a11b1dee2aff24bbbe69d5a37bf1597
+  checksum: a00cc70148300e687cbf8ed6a647e5c68beacd3e7e372c6856276d66adc02c259cab1a1aea7a07ee14763aa11c663c37ab575af7c7ac6f9b58521dd1f920f8a2
   languageName: node
   linkType: hard
 
