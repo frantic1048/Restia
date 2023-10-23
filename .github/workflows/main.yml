@@ -25,7 +25,7 @@ jobs:
                       ${{ runner.os }}-gatsby-
 
             - name: Prepare Node.js
-              uses: actions/setup-node@v3.8.2
+              uses: actions/setup-node@v4.0.0
               with:
                   node-version-file: .node-version
                   cache: yarn
@@ -57,7 +57,7 @@ jobs:
             - uses: nschloe/action-cached-lfs-checkout@v1
 
             - name: Prepare Node.js
-              uses: actions/setup-node@v3.8.2
+              uses: actions/setup-node@v4.0.0
               with:
                   node-version-file: .node-version
                   cache: yarn
