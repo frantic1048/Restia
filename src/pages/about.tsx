@@ -1,9 +1,10 @@
-import Layout from '../components/Layout'
-import friends from '../constants/friends'
 import { calc, em, px, quote, url } from 'csx'
+import { PageProps } from 'gatsby'
 import * as React from 'react'
 import { classes, style } from 'typestyle'
-import { PageProps } from 'gatsby'
+
+import Layout from '../components/Layout'
+import friends from '../constants/friends'
 import { largeMedia, scaleAt, smallMedia } from '../util/constants'
 
 const friendsListClassName = style(

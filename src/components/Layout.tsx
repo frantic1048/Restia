@@ -1,11 +1,12 @@
+import { calc, em, percent, px, rem, rgb, rgba, scale, translateZ, url, viewHeight, viewWidth } from 'csx'
+import { GatsbyLinkProps, graphql, Link, useStaticQuery } from 'gatsby'
 import * as React from 'react'
-import { style, cssRule, classes } from 'typestyle'
-import { rgb, viewHeight, em, rgba, px, rem, percent, url, translateZ, scale, calc, viewWidth } from 'csx'
-import { graphql, useStaticQuery, Link, GatsbyLinkProps } from 'gatsby'
+import { Helmet } from 'react-helmet'
+import { classes, cssRule, style } from 'typestyle'
+import { NestedCSSProperties } from 'typestyle/src/types'
+
 import { LayoutQuery } from '../types/graphql-types'
 import { baseFontSize, scaleAt, smallMedia } from '../util/constants'
-import { Helmet } from 'react-helmet'
-import { NestedCSSProperties } from 'typestyle/src/types'
 
 /**
  * some global rules

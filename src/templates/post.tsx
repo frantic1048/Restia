@@ -1,12 +1,13 @@
-import { graphql, PageProps } from 'gatsby'
-import * as React from 'react'
-import { PostDetailQuery } from '../types/graphql-types'
-import Layout from '../components/Layout'
 import { em, percent, px, quote, rgb, rgba } from 'csx'
-import { style, cssRaw } from 'typestyle'
-import { contentImageStyle } from '../util/constants'
-import Comments from '../components/Comments'
+import { graphql, PageProps } from 'gatsby'
 import { getSrc } from 'gatsby-plugin-image'
+import * as React from 'react'
+import { cssRaw, style } from 'typestyle'
+
+import Comments from '../components/Comments'
+import Layout from '../components/Layout'
+import { PostDetailQuery } from '../types/graphql-types'
+import { contentImageStyle } from '../util/constants'
 
 /**
  * Atom Base16 Tomorrow Light Syntax theme
