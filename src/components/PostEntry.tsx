@@ -1,3 +1,10 @@
+import { em, percent, px, rgb, rgba } from 'csx'
+import { Link } from 'gatsby'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import * as React from 'react'
+import stringWidth from 'string-width'
+import { classes, style } from 'typestyle'
+
 import {
     baseFontSize,
     contentImageStyle,
@@ -10,12 +17,6 @@ import {
     smallMedia,
     smallScreenBreakPoint,
 } from '../util/constants'
-import { rgba, em, rgb, px, percent } from 'csx'
-import { Link } from 'gatsby'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
-import * as React from 'react'
-import stringWidth from 'string-width'
-import { classes, style } from 'typestyle'
 
 const articleBorderWidth = 16
 const articleLinkClassName = style(

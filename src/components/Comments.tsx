@@ -1,10 +1,11 @@
-import * as React from 'react'
-import useIsInViewport from 'use-is-in-viewport'
-import { CommentsQuery } from '../types/graphql-types'
-import { graphql, useStaticQuery } from 'gatsby'
-import { DiscussionEmbed } from 'disqus-react'
-import { style } from 'typestyle'
 import { percent, px } from 'csx'
+import { DiscussionEmbed } from 'disqus-react'
+import { graphql, useStaticQuery } from 'gatsby'
+import * as React from 'react'
+import { style } from 'typestyle'
+import useIsInViewport from 'use-is-in-viewport'
+
+import { CommentsQuery } from '../types/graphql-types'
 import { scaleAt } from '../util/constants'
 
 const disqusClassName = style({

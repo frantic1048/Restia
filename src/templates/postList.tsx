@@ -1,11 +1,12 @@
-import Layout from '../components/Layout'
-import PostEntryList from '../components/PostEntryList'
-import { PostListQuery } from '../types/graphql-types'
-import { scaleAt } from '../util/constants'
 import { em } from 'csx'
 import { graphql, Link, PageProps } from 'gatsby'
 import * as React from 'react'
 import { style } from 'typestyle'
+
+import Layout from '../components/Layout'
+import PostEntryList from '../components/PostEntryList'
+import { PostListQuery } from '../types/graphql-types'
+import { scaleAt } from '../util/constants'
 
 export const query = graphql`
     query PostList($skip: Int!, $limit: Int!) {
