@@ -1673,7 +1673,7 @@ __metadata:
     "@babel/plugin-proposal-optional-chaining": "npm:7.21.0"
     "@playwright/test": "npm:^1.39.0"
     "@rabbithouse/eslint-config": "npm:^6.0.4"
-    "@types/react": "npm:18.2.37"
+    "@types/react": "npm:18.2.39"
     "@types/react-dom": "npm:18.2.15"
     "@types/react-helmet": "npm:6.1.9"
     babel-preset-gatsby: "npm:3.12.1"
@@ -3471,14 +3471,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.2.37":
-  version: 18.2.37
-  resolution: "@types/react@npm:18.2.37"
+"@types/react@npm:*, @types/react@npm:18.2.39":
+  version: 18.2.39
+  resolution: "@types/react@npm:18.2.39"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 79dd5d23da05bec54e7423ca17096e345eb8fd80a3bf8dd916bb5cdd60677d27c298523aa5b245d090fcc4ec100cfd58c1af4631fbac709d0a9d8be75f9d78a9
+  checksum: e91a5419d7615ab4fcaa7cb3ad2bd372093676e86c082748ab36ac394d3ed560070482d092a5488f74d6b1d913369e4dabf6eb287debed4d70cd3eb7dc135542
   languageName: node
   linkType: hard
 
