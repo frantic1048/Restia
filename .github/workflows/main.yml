@@ -28,7 +28,22 @@ jobs:
               uses: actions/setup-node@v4.0.0
               with:
                   node-version-file: .node-version
-                  cache: yarn
+
+            - run: corepack enable
+
+            - name: Get yarn cache folder
+              id: yarn-cache-folder
+              run: echo "folder=$(yarn config get globalFolder)" >> "$GITHUB_OUTPUT"
+
+            - name: yarn cache
+              id: yarn-cache
+              uses: actions/cache@v3
+              with:
+                  path: |
+                      ${{ steps.yarn-cache-folder.outputs.folder }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
 
             - name: Init deps
               run: yarn install
