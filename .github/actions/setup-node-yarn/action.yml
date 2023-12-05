@@ -2,7 +2,7 @@ name: 'Setup Node.js and Yarn'
 inputs:
     node-version-file:
         description: 'path to .node-version'
-        required: true
+        default: .node-version
     cache:
         description: 'enable cache for Yarn dependencies'
         default: false

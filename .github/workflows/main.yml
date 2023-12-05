@@ -18,7 +18,7 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: |
-                      ~/.cache/gatsby
+                      .cache
                       public
                   key: ${{ runner.os }}-gatsby-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
@@ -27,7 +27,6 @@ jobs:
             - name: Prepare Node.js and Yarn
               uses: ./.github/actions/setup-node-yarn
               with:
-                  node-version-file: .node-version
                   cache: true
 
             - name: Init deps
@@ -59,7 +58,6 @@ jobs:
             - name: Prepare Node.js and Yarn
               uses: ./.github/actions/setup-node-yarn
               with:
-                  node-version-file: .node-version
                   cache: true
 
             - run: yarn install
