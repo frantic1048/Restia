@@ -50,8 +50,10 @@ jobs:
     e2e:
         runs-on: ubuntu-latest
         needs: build
+        container:
+            image: mcr.microsoft.com/playwright:v1.40.0-jammy
         steps:
-            - uses: nschloe/action-cached-lfs-checkout@v1
+            - uses: actions/checkout@v4
 
             - name: Prepare Node.js and Yarn
               uses: ./.github/actions/setup-node-yarn
@@ -59,11 +61,12 @@ jobs:
                   cache: true
 
             - run: yarn install
-            - run: yarn playwright install --with-deps
+
             - name: Run Playwright tests
               env:
                   RESTIA_E2E_URL: ${{ needs.build.outputs.deploy-url }}
               run: yarn playwright test
+
             - uses: actions/upload-artifact@v3
               if: always()
               with:
