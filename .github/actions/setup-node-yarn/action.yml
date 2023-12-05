@@ -1,0 +1,35 @@
+name: 'Setup Node.js and Yarn'
+inputs:
+    node-version-file:
+        description: 'path to .node-version'
+        required: true
+    cache:
+        description: 'enable cache for Yarn dependencies'
+        default: false
+runs:
+    using: 'composite'
+    steps:
+        - name: Prepare Node.js
+          uses: actions/setup-node@v4.0.0
+          with:
+              node-version-file: ${{ inputs.node-version-file }}
+
+        - run: corepack enable
+          shell: bash
+
+        - name: Get yarn cache folder
+          id: yarn-cache-folder
+          if: ${{ inputs.cache }}
+          run: echo "folder=$(yarn config get globalFolder)" >> "$GITHUB_OUTPUT"
+          shell: bash
+
+        - name: yarn cache
+          id: yarn-cache
+          if: ${{ inputs.cache }}
+          uses: actions/cache@v3
+          with:
+              path: |
+                  ${{ steps.yarn-cache-folder.outputs.folder }}
+              key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+              restore-keys: |
+                  ${{ runner.os }}-yarn-

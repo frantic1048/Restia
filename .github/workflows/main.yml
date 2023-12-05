@@ -24,26 +24,11 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-gatsby-
 
-            - name: Prepare Node.js
-              uses: actions/setup-node@v4.0.0
+            - name: Prepare Node.js and Yarn
+              uses: ./.github/actions/setup-node-yarn
               with:
                   node-version-file: .node-version
-
-            - run: corepack enable
-
-            - name: Get yarn cache folder
-              id: yarn-cache-folder
-              run: echo "folder=$(yarn config get globalFolder)" >> "$GITHUB_OUTPUT"
-
-            - name: yarn cache
-              id: yarn-cache
-              uses: actions/cache@v3
-              with:
-                  path: |
-                      ${{ steps.yarn-cache-folder.outputs.folder }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
+                  cache: true
 
             - name: Init deps
               run: yarn install
@@ -71,11 +56,11 @@ jobs:
         steps:
             - uses: nschloe/action-cached-lfs-checkout@v1
 
-            - name: Prepare Node.js
-              uses: actions/setup-node@v4.0.0
+            - name: Prepare Node.js and Yarn
+              uses: ./.github/actions/setup-node-yarn
               with:
                   node-version-file: .node-version
-                  cache: yarn
+                  cache: true
 
             - run: yarn install
             - run: yarn playwright install --with-deps
