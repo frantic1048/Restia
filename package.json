@@ -56,7 +56,7 @@
         "@rabbithouse/eslint-config": "^6.0.8",
         "@types/react": "18.2.42",
         "@types/react-dom": "18.2.17",
-        "@types/react-helmet": "6.1.10",
+        "@types/react-helmet": "6.1.11",
         "babel-preset-gatsby": "3.12.1",
         "cz-customizable": "7.0.0",
         "eslint-import-resolver-typescript": "^3.6.1",
