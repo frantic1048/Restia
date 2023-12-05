@@ -1675,7 +1675,7 @@ __metadata:
     "@rabbithouse/eslint-config": "npm:^6.0.8"
     "@types/react": "npm:18.2.42"
     "@types/react-dom": "npm:18.2.17"
-    "@types/react-helmet": "npm:6.1.9"
+    "@types/react-helmet": "npm:6.1.10"
     babel-preset-gatsby: "npm:3.12.1"
     csx: "npm:10.0.2"
     cz-customizable: "npm:7.0.0"
@@ -3462,12 +3462,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-helmet@npm:6.1.9":
-  version: 6.1.9
-  resolution: "@types/react-helmet@npm:6.1.9"
+"@types/react-helmet@npm:6.1.10":
+  version: 6.1.10
+  resolution: "@types/react-helmet@npm:6.1.10"
   dependencies:
     "@types/react": "npm:*"
-  checksum: d1823582903d6e70f1f447c7bec9e844b6f85f5de84cbcde5c8bbeecc064db1394c786ed9b9ded30544afe5c91e57c7e8105171df1643998f64c0aeab9f7f2aa
+  checksum: aa6583878380915c7bf8a622d2b4662bf690e76b78f29fb2dd510a601721dd2b57b34958fc7b7ad9e43d81d7763736a988665f43bab92020c233271ba82f6de4
   languageName: node
   linkType: hard
 
