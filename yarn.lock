@@ -1672,7 +1672,7 @@ __metadata:
     "@babel/plugin-proposal-nullish-coalescing-operator": "npm:7.18.6"
     "@babel/plugin-proposal-optional-chaining": "npm:7.21.0"
     "@playwright/test": "npm:^1.40.1"
-    "@rabbithouse/eslint-config": "npm:^6.0.8"
+    "@rabbithouse/eslint-config": "npm:^6.0.9"
     "@types/react": "npm:18.2.42"
     "@types/react-dom": "npm:18.2.17"
     "@types/react-helmet": "npm:6.1.11"
@@ -2985,9 +2985,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rabbithouse/eslint-config@npm:^6.0.8":
-  version: 6.0.8
-  resolution: "@rabbithouse/eslint-config@npm:6.0.8"
+"@rabbithouse/eslint-config@npm:^6.0.9":
+  version: 6.0.9
+  resolution: "@rabbithouse/eslint-config@npm:6.0.9"
   dependencies:
     "@rushstack/eslint-config": "npm:3.5.0"
     eslint: "npm:8.54.0"
@@ -2996,8 +2996,8 @@ __metadata:
     eslint-plugin-simple-import-sort: "npm:10.0.0"
     prettier: "npm:3.1.0"
   peerDependencies:
-    typescript: ">=5.3.2"
-  checksum: fc4fff723d54811582475d310430fa711c0f9a0fa79517eacff0a2c353fd91c59443610cdbeb968a6f7167031532afac350233272ece931f746aba555df6b3c1
+    typescript: ">=5.3.3"
+  checksum: 056b2aca6ef793faebee0b36dbf269c88fa1ad403ed41985ca59ad92cfda8b49d81e7a7b9388213221df762942cd1e4ed5a59c2160b1f573382f2f7cda4dffad
   languageName: node
   linkType: hard
 
