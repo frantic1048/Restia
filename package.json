@@ -10,14 +10,13 @@
     "packageManager": "yarn@4.0.2",
     "scripts": {
         "build": "gatsby build",
-        "develop": "gatsby develop",
+        "dev": "gatsby develop",
         "lint:ts": "eslint src/**/*.{ts,tsx}",
         "lint:format": "prettier -c './*.{js,md}' 'posts/*.md'",
         "lint": "npm run lint:ts && npm run lint:format",
         "fix:ts": "eslint --fix src/**/*.{ts,tsx}",
         "fix:format": "prettier --write './*.{js,md}' 'posts/*.md' 'src/**/*.{js,jsx,ts,tsx}'",
         "fix": "npm run fix:ts && npm run fix:format",
-        "start": "npm run develop",
         "serve": "gatsby serve",
         "test": "npm run lint"
     },

@@ -93,10 +93,11 @@ const parallaxForegroundClassName = style(
         transform: getParallaxItemTransform(0),
         transformOrigin,
         transformStyle: 'preserve-3d',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        justifyContent: 'flex-start',
+        display: 'grid',
+        gridTemplateColumns: 'max-content 1fr',
+        // flexDirection: 'row',
+        // flexWrap: 'nowrap',
+        // justifyContent: 'flex-start',
         padding: `0 ${em(0.5)}`,
         $nest: { '&:focus': { outline: 'none' } },
     },
@@ -179,6 +180,12 @@ const navLinkClassName = style(
 const layoutContentClassName = style({
     width: percent(100),
     marginBottom: calc(`min(${viewWidth(50)},${rem(30)})`),
+})
+
+const footerClassName = style({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
 })
 
 interface LayoutProps {
@@ -311,6 +318,13 @@ const Layout = ({
                         </div>
                     </nav>
                     <main className={classes(layoutContentClassName, contentClassName)}>{children}</main>
+
+                    <footer className={footerClassName}>
+                        <span>@2013-2023, frantic1048</span>
+                        <a href="https://icp.gov.moe/?keyword=20231048" target="_blank" rel="noreferrer">
+                            萌ICP备20231048号
+                        </a>
+                    </footer>
                 </div>
             </div>
         </div>
