@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig } from "gatsby"
+
+const config:GatsbyConfig = {
     siteMetadata: {
         // eslint-disable-next-line sonarjs/no-duplicate-string
         title: 'Pyon Pyon Today',
@@ -251,3 +253,5 @@ module.exports = {
         },
     ],
 }
+
+export default config
