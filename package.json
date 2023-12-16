@@ -55,7 +55,7 @@
         "@playwright/test": "^1.40.1",
         "@rabbithouse/eslint-config": "^6.0.12",
         "@types/react": "18.2.45",
-        "@types/react-dom": "18.2.17",
+        "@types/react-dom": "18.2.18",
         "@types/react-helmet": "6.1.11",
         "babel-preset-gatsby": "3.12.1",
         "cz-customizable": "7.0.0",
