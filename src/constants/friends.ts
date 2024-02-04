@@ -52,7 +52,6 @@ const friends: Friend[] = [
         'SilverRainZ；又会画画又会写内核又会弹琴煮饭很香的辣酱。',
         true,
     ],
-    ['Steve Zhang', 'Stevearzh', 'https://stevearzh.github.io/', '前端大前辈史蒂夫。', true],
     ['ヨイツの賢狼ホロ', 'KenOokamiHoro', 'https://blog.yoitsu.moe/', '抱一下萌狼尾巴。', true],
     ['依云', 'lilydjwg', 'https://blog.lilydjwg.me/', '百合仙子；掌握各种技术经验丰富的仙子前辈。', true],
     ['謝宇恆', 'xieyuheng', 'https://xieyuheng.github.io/', 'xyh，小妖狐，小药壶；语言设计之小药壶。'],
