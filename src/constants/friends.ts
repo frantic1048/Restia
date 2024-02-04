@@ -75,6 +75,7 @@ const friends: Friend[] = [
         '<del>黑动图</del>（奎尼道）；同为折腾博客 n 次的 Arch CN 社群结识的小伙伴，称呼所有人都以「老」开头，然后我真的老了６Д９',
     ],
     ['Pink Champagne', 'PinkChampagne17', 'https://pinkchampagne.moe/', '萌萌二次元大表哥，生料王启蒙者'],
+    ['羽灵光', 'snake89322', 'https://www.fsl.moe/', '元气满满吉他主唱、发发爆头弓箭侠！'],
 
     /**
      * FIXME: broken links
