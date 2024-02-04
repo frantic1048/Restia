@@ -52,7 +52,6 @@ const friends: Friend[] = [
         'SilverRainZ；又会画画又会写内核又会弹琴煮饭很香的辣酱。',
         true,
     ],
-    ['Steve Zhang', 'Stevearzh', 'https://stevearzh.github.io/', '前端大前辈史蒂夫。', true],
     ['ヨイツの賢狼ホロ', 'KenOokamiHoro', 'https://blog.yoitsu.moe/', '抱一下萌狼尾巴。', true],
     ['依云', 'lilydjwg', 'https://blog.lilydjwg.me/', '百合仙子；掌握各种技术经验丰富的仙子前辈。', true],
     ['謝宇恆', 'xieyuheng', 'https://xieyuheng.github.io/', 'xyh，小妖狐，小药壶；语言设计之小药壶。'],
@@ -76,6 +75,7 @@ const friends: Friend[] = [
         '<del>黑动图</del>（奎尼道）；同为折腾博客 n 次的 Arch CN 社群结识的小伙伴，称呼所有人都以「老」开头，然后我真的老了６Д９',
     ],
     ['Pink Champagne', 'PinkChampagne17', 'https://pinkchampagne.moe/', '萌萌二次元大表哥，生料王启蒙者'],
+    ['snake89322', 'snake89322', 'https://www.fsl.moe/', '元气满满吉他主唱、发发爆头弓箭侠！'],
 
     /**
      * FIXME: broken links
