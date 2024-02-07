@@ -262,6 +262,7 @@ const Layout = ({
     return (
         <div className={classes(layoutClassName, className)}>
             <Helmet>
+                <html lang="zh-cmn-Hans" />
                 <meta charSet="utf-8" />
                 <meta name="msapplication-TileColor" content="#3b6ece" />
                 <meta name="theme-color" content="#ffffff" />
