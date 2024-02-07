@@ -1,0 +1,7 @@
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: *
+Disallow: /_gatsby/
+Disallow: /page/
+Sitemap: https://pyonpyon.today/sitemap-index.xml
