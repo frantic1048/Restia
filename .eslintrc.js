@@ -25,6 +25,7 @@ module.exports = {
                     { selector: 'variable', types: ['function'], format: ['camelCase', 'PascalCase'] },
                     { selector: 'typeParameter', format: ['PascalCase'], prefix: ['T'] },
                     { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
+                    { selector: 'import', format: null },
 
                     // typestyle does not play well with this rule.
                     { selector: 'property', format: null, leadingUnderscore: 'allow' },
