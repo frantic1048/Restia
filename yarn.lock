@@ -1733,7 +1733,7 @@ __metadata:
     "@playwright/test": "npm:^1.42.1"
     "@rabbithouse/eslint-config": "npm:^6.0.32"
     "@types/react": "npm:18.2.64"
-    "@types/react-dom": "npm:18.2.20"
+    "@types/react-dom": "npm:18.2.21"
     "@types/react-helmet": "npm:6.1.11"
     babel-preset-gatsby: "npm:3.13.1"
     commitizen: "npm:^4.3.0"
@@ -3528,12 +3528,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.20":
-  version: 18.2.20
-  resolution: "@types/react-dom@npm:18.2.20"
+"@types/react-dom@npm:18.2.21":
+  version: 18.2.21
+  resolution: "@types/react-dom@npm:18.2.21"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 10c0/d352fb9c4fbb773f1db1e463b0228dfb0dc0a670a742983ae840d77f54ad9d4ac38084b23c975487fc37814f44425fc6d1adafbb432a7c48957669c124b5f8df
+  checksum: 10c0/a887b4b647071df48173f054854713b68fdacfceeba7fa14f64ba26688d7d43574d7dc88a2a346e28f2e667eeab1b9bdbcad8a54353869835e52638607f61ff5
   languageName: node
   linkType: hard
 
