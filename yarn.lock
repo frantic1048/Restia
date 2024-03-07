@@ -1730,17 +1730,17 @@ __metadata:
   dependencies:
     "@babel/plugin-proposal-nullish-coalescing-operator": "npm:7.18.6"
     "@babel/plugin-proposal-optional-chaining": "npm:7.21.0"
-    "@playwright/test": "npm:^1.42.1"
-    "@rabbithouse/eslint-config": "npm:^6.0.32"
+    "@playwright/test": "npm:1.42.1"
+    "@rabbithouse/eslint-config": "npm:6.0.32"
     "@types/react": "npm:18.2.64"
     "@types/react-dom": "npm:18.2.21"
     "@types/react-helmet": "npm:6.1.11"
     babel-preset-gatsby: "npm:3.13.1"
-    commitizen: "npm:^4.3.0"
+    commitizen: "npm:4.3.0"
     csx: "npm:10.0.2"
     cz-customizable: "npm:7.0.0"
     disqus-react: "npm:1.1.5"
-    eslint-import-resolver-typescript: "npm:^3.6.1"
+    eslint-import-resolver-typescript: "npm:3.6.1"
     eslint-plugin-import: "npm:2.29.1"
     gatsby: "npm:5.13.3"
     gatsby-plugin-catch-links: "npm:5.13.1"
@@ -2961,7 +2961,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.42.1":
+"@playwright/test@npm:1.42.1":
   version: 1.42.1
   resolution: "@playwright/test@npm:1.42.1"
   dependencies:
@@ -3038,7 +3038,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rabbithouse/eslint-config@npm:^6.0.32":
+"@rabbithouse/eslint-config@npm:6.0.32":
   version: 6.0.32
   resolution: "@rabbithouse/eslint-config@npm:6.0.32"
   dependencies:
@@ -5723,7 +5723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:^4.0.3, commitizen@npm:^4.3.0":
+"commitizen@npm:4.3.0, commitizen@npm:^4.0.3":
   version: 4.3.0
   resolution: "commitizen@npm:4.3.0"
   dependencies:
@@ -7285,7 +7285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^3.6.1":
+"eslint-import-resolver-typescript@npm:3.6.1":
   version: 3.6.1
   resolution: "eslint-import-resolver-typescript@npm:3.6.1"
   dependencies:
