@@ -19,7 +19,8 @@
         "fix": "npm run fix:ts && npm run fix:format",
         "start": "npm run develop",
         "serve": "gatsby serve",
-        "test": "npm run lint"
+        "test": "npm run lint",
+        "update:renovatejson": "./scripts/update-renovatejson.nu"
     },
     "dependencies": {
         "csx": "10.0.2",

@@ -1,0 +1,19 @@
+{
+    "extends": [
+        "config:best-practices",
+        ":pinVersions",
+        ":automergePatch",
+        ":maintainLockFilesWeekly",
+        ":semanticCommits",
+        ":semanticCommitType(chore)",
+        ":semanticCommitScope(deps)"
+    ],
+    "postUpdateOptions": ["yarnDedupeHighest"],
+    "reviewers": ["frantic1048"],
+    "packageRules": [
+        {
+            "matchPackageNames": ["string-width"],
+            "enabled": false
+        }
+    ]
+}
