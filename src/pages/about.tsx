@@ -55,7 +55,7 @@ const avatarClassName = style({
 })
 const makeAvatarImageClassName = (githubId: string) =>
     style({
-        backgroundImage: url(`https://avatars.githubusercontent.com/${githubId}?v=3&amp;s=60`),
+        backgroundImage: url(`https://avatars.githubusercontent.com/${githubId}?v=4&s=256`),
     })
 const makeGithubLink = (githubId: string) => `https://github.com/${githubId}`
 
