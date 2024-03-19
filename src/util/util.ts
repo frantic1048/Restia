@@ -19,7 +19,7 @@ export const groupBy = <TItem>(list: TItem[], resolveGroupNameFromItem: (item: T
  * ported from old logdown about.md
  * http://stackoverflow.com/a/2450976
  */
-export const shuffle = <T extends unknown>(list: T[]): T[] => {
+export const shuffle = <T>(list: T[]): T[] => {
     let currentIndex = list.length
     let temporaryValue: T
     let randomIndex: number

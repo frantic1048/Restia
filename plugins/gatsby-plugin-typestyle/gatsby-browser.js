@@ -1,4 +1,5 @@
 import { setStylesTarget } from 'typestyle'
+
 import { defaultStyleId } from './constants'
 
 export const onInitialClientRender = (_, { styleTargetId = defaultStyleId }) => {

@@ -1,10 +1,11 @@
 import { quote } from 'csx'
-import { graphql, Link, PageProps } from 'gatsby'
+import type { PageProps } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 import { classes, style } from 'typestyle'
 
 import Layout from '../components/Layout'
-import { ArchiveListQuery } from '../types/graphql-types'
+import type { ArchiveListQuery } from '../types/graphql-types'
 import { hiresMedia, largeMedia, smallMedia } from '../util/constants'
 import { groupBy } from '../util/util'
 

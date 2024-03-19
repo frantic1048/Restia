@@ -1,5 +1,5 @@
 import { calc, em, px, quote, url } from 'csx'
-import { PageProps } from 'gatsby'
+import type { PageProps } from 'gatsby'
 import * as React from 'react'
 import { classes, style } from 'typestyle'
 

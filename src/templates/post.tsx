@@ -1,12 +1,13 @@
 import { em, percent, px, quote, rgb, rgba } from 'csx'
-import { graphql, PageProps } from 'gatsby'
+import type { PageProps } from 'gatsby'
+import { graphql } from 'gatsby'
 import { getSrc } from 'gatsby-plugin-image'
 import * as React from 'react'
 import { cssRaw, style } from 'typestyle'
 
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
-import { PostDetailQuery } from '../types/graphql-types'
+import type { PostDetailQuery } from '../types/graphql-types'
 import { contentImageStyle } from '../util/constants'
 
 /**

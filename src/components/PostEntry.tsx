@@ -1,6 +1,7 @@
 import { em, percent, px, rgb, rgba } from 'csx'
 import { Link } from 'gatsby'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import type { IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import stringWidth from 'string-width'
 import { classes, style } from 'typestyle'

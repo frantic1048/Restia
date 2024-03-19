@@ -1,10 +1,11 @@
-import { graphql, Link, PageProps } from 'gatsby'
+import type { PageProps } from 'gatsby';
+import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 
 import Layout from '../components/Layout'
 import PostEntryList from '../components/PostEntryList'
 import { paginationClassName } from '../templates/postList'
-import { IndexPageQuery } from '../types/graphql-types'
+import type { IndexPageQuery } from '../types/graphql-types'
 
 /**
  * MEMO:
