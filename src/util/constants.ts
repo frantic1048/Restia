@@ -1,6 +1,6 @@
 import { px, rem } from 'csx'
 import { media } from 'typestyle'
-import { NestedCSSProperties } from 'typestyle/lib/types'
+import type { NestedCSSProperties } from 'typestyle/lib/types'
 
 export const baseFontSize = 16
 const primaryRatio = 1.5

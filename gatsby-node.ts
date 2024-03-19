@@ -6,7 +6,6 @@ import { createFilePath } from 'gatsby-source-filesystem'
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
     if (node.internal.type === `MarkdownRemark`) {
-        // eslint-disable-next-line sonarjs/no-nested-template-literals
         const slug = `/p${createFilePath({ node, getNode, basePath: `posts` })}`
         console.log('slug:', slug)
         createNodeField({
@@ -20,7 +19,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, action
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
     const { createPage } = actions
 
-    const result = await graphql(`
+    const result = await graphql<Queries.createPagesQuery>(`
         query createPages {
             allMarkdownRemark {
                 edges {
@@ -34,7 +33,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         }
     `)
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data?.allMarkdownRemark.edges ?? []
     const pageSize = 9
     const numPages = Math.ceil(posts.length / pageSize)
     Array.from({ length: numPages }).forEach((_, pageIndex) => {

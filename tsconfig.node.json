@@ -7,5 +7,5 @@
         "target": "esnext",
         "strict": true
     },
-    "include": ["./*.ts", "tests"]
+    "include": ["./*.ts", "tests", "./src/types/graphql-types.d.ts"]
 }

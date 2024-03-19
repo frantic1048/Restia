@@ -1,12 +1,12 @@
 import { em, percent, px, quote, rgb, rgba } from 'csx'
-import { graphql, PageProps } from 'gatsby'
+import type { PageProps } from 'gatsby'
+import { graphql } from 'gatsby'
 import { getSrc } from 'gatsby-plugin-image'
 import * as React from 'react'
 import { cssRaw, style } from 'typestyle'
 
 import Comments from '../components/Comments'
 import Layout from '../components/Layout'
-import { PostDetailQuery } from '../types/graphql-types'
 import { contentImageStyle } from '../util/constants'
 
 /**
@@ -250,7 +250,7 @@ const postClassName = style({
         '& .editor': {
             overflow: 'auto',
             paddingLeft: em(0.7),
-            borderLeft: `${em(0.3)} double ${rgb(0, 149, 255, 0.5)}`,
+            borderLeft: `${em(0.3)} double ${rgb(0, 149, 255, 0.5).toString()}`,
             background: `rgba(248,248,248,0.6)`,
             paddingTop: em(0.5),
             paddingBottom: em(0.5),
@@ -318,7 +318,7 @@ export const query = graphql`
     }
 `
 
-export default ({ data }: PageProps<PostDetailQuery>) => {
+export default ({ data }: PageProps<Queries.PostDetailQuery>) => {
     const title = data.markdownRemark?.frontmatter?.title ?? ''
     const info = `${data.markdownRemark?.frontmatter?.date} ${data.markdownRemark?.frontmatter?.category}`
     const html = data.markdownRemark?.html ?? ''
@@ -331,7 +331,9 @@ export default ({ data }: PageProps<PostDetailQuery>) => {
      *  But some other clients does not support webp :(
      */
     // convert null to undefined since Layout does not like null
-    const cover = getSrc(data.markdownRemark?.frontmatter?.cover?.childImageSharp?.gatsbyImageData)
+    const cover = data.markdownRemark?.frontmatter?.cover?.childImageSharp?.gatsbyImageData
+        ? getSrc(data.markdownRemark.frontmatter.cover.childImageSharp.gatsbyImageData)
+        : undefined
 
     return (
         <Layout

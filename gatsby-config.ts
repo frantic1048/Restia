@@ -1,8 +1,12 @@
-import type { GatsbyConfig } from "gatsby"
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 
-const config:GatsbyConfig = {
+import type { GatsbyConfig } from 'gatsby'
+
+import { graphql } from './util'
+
+const config: GatsbyConfig = {
     siteMetadata: {
-        // eslint-disable-next-line sonarjs/no-duplicate-string
         title: 'Pyon Pyon Today',
         description: 'Pyon Pyon Today',
         siteUrl: 'https://pyonpyon.today',
@@ -11,10 +15,11 @@ const config:GatsbyConfig = {
     trailingSlash: 'never',
     // https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/#graphqltypegen
     graphqlTypegen: {
-        typesOutputPath: './src/types/graphql-types.ts',
+        typesOutputPath: './src/types/graphql-types.d.ts',
         documentSearchPaths: [
             './gatsby-node.ts', // default
             './plugins/**/gatsby-node.ts', // default
+            './gatsby-config.ts',
             './src/{pages,templates,components}/!(*.d).{ts,tsx}',
         ],
         generateOnBuild: true,
@@ -112,8 +117,8 @@ const config:GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-feed',
             options: {
-                query: `
-                    {
+                query: graphql`
+                    query gatsbyConfigPluginFeedSiteInfo {
                         site {
                             siteMetadata {
                                 title
@@ -126,11 +131,18 @@ const config:GatsbyConfig = {
                 `,
                 feeds: [
                     {
-                        serialize: ({ query: { site, allMarkdownRemark } }) => {
+                        serialize: ({
+                            query: { site, allMarkdownRemark },
+                        }: {
+                            query: {
+                                site: Queries.gatsbyConfigPluginFeedSiteInfoQuery['site']
+                                allMarkdownRemark: Queries.gatsbyConfigPluginFeedAllMarkdownRemarkQuery['allMarkdownRemark']
+                            }
+                        }) => {
                             return allMarkdownRemark.edges.map((edge) => {
                                 return Object.assign({}, edge.node.frontmatter, {
                                     description: edge.node.excerpt,
-                                    date: edge.node.frontmatter.date,
+                                    date: edge.node.frontmatter?.date,
                                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                                     custom_elements: [
@@ -150,25 +162,25 @@ const config:GatsbyConfig = {
                                 })
                             })
                         },
-                        query: `
-{
-  allMarkdownRemark(limit: 16, sort: { frontmatter: { date: DESC } }) {
-    edges {
-      node {
-        excerpt(format: PLAIN, truncate: true, pruneLength: 80)
-        html
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          date
-          update
-        }
-      }
-    }
-  }
-}
+                        query: graphql`
+                            query gatsbyConfigPluginFeedAllMarkdownRemark {
+                                allMarkdownRemark(limit: 16, sort: { frontmatter: { date: DESC } }) {
+                                    edges {
+                                        node {
+                                            excerpt(format: PLAIN, truncate: true, pruneLength: 80)
+                                            html
+                                            fields {
+                                                slug
+                                            }
+                                            frontmatter {
+                                                title
+                                                date
+                                                update
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         `,
                         output: '/rss.xml',
                         title: "Pyon Pyon Today's RSS Feed",
@@ -179,33 +191,36 @@ const config:GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
-                query: `
-                {
-                    site {
-                      siteMetadata {
-                        siteUrl
-                      }
-                    }
-                    allSitePage {
-                      nodes {
-                        path
-                      }
-                    }
-                    allMarkdownRemark {
-                      edges {
-                        node {
-                          fields {
-                            slug
-                          }
-                          frontmatter {
-                            date
-                          }
+                query: graphql`
+                    query gatsbyPluginSitemap {
+                        site {
+                            siteMetadata {
+                                siteUrl
+                            }
                         }
-                      }
+                        allSitePage {
+                            nodes {
+                                path
+                            }
+                        }
+                        allMarkdownRemark {
+                            edges {
+                                node {
+                                    fields {
+                                        slug
+                                    }
+                                    frontmatter {
+                                        date
+                                    }
+                                }
+                            }
+                        }
                     }
-                  }                  
-            `,
-                resolvePages: ({ allSitePage: { nodes: allPages }, allMarkdownRemark: { edges } }) => {
+                `,
+                resolvePages: ({
+                    allSitePage: { nodes: allPages },
+                    allMarkdownRemark: { edges },
+                }: Queries.gatsbyPluginSitemapQuery) => {
                     const markdownPageLastmodMap = edges.reduce((acc, { node }) => {
                         const uri = node.fields.slug
                         acc[uri] = { lastmod: node.frontmatter.date }

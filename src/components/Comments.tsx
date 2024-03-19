@@ -5,7 +5,6 @@ import * as React from 'react'
 import { style } from 'typestyle'
 import useIsInViewport from 'use-is-in-viewport'
 
-import { CommentsQuery } from '../types/graphql-types'
 import { scaleAt } from '../util/constants'
 
 const disqusClassName = style({
@@ -25,7 +24,7 @@ interface Props {
 }
 
 export default ({ slug, title }: Props) => {
-    const data = useStaticQuery<CommentsQuery>(graphql`
+    const data = useStaticQuery<Queries.CommentsQuery>(graphql`
         query Comments {
             site {
                 siteMetadata {

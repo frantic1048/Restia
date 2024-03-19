@@ -2,7 +2,8 @@ import { px } from 'csx'
 import * as React from 'react'
 import { style } from 'typestyle'
 
-import PostEntry, { PostEntryInfo } from '../components/PostEntry'
+import type { PostEntryInfo } from '../components/PostEntry'
+import PostEntry from '../components/PostEntry'
 import { hiresMedia, largeMedia, smallMedia } from '../util/constants'
 
 const postListClassName = style(

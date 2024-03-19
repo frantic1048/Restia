@@ -1,13 +1,13 @@
 import { em, percent, px, rgb, rgba } from 'csx'
 import { Link } from 'gatsby'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import stringWidth from 'string-width'
 import { classes, style } from 'typestyle'
 
 import {
     baseFontSize,
-    contentImageStyle,
     hiresMedia,
     hiresMediaLayoutSideMargin,
     largeMedia,
@@ -66,10 +66,12 @@ const postInfoClassName = style(
         zIndex: 1,
         marginLeft: px(postEntrySidePadding),
         $nest: {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             '&>h1': {
                 padding: `0 ${em(0.2)}`,
                 marginBottom: 0,
                 textDecoration: 'underline dotted',
+                // FIXME: refine usage of scaleAt for better typing
                 ...Object.assign({}, ...scaleAt(1)),
             },
             '&>span': {
@@ -84,6 +86,7 @@ const postInfoClassName = style(
         position: 'static',
         marginLeft: 0,
         $nest: {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             '&>h1': {
                 ...Object.assign({}, ...scaleAt(0)),
                 background: 0,
@@ -153,9 +156,10 @@ const measureTitleWidth = (text: string) => stringWidth(text) * 24 * 0.5
 interface GenerateGridRowClassNameProps {
     cover?: IGatsbyImageData
     title?: string
+    /** TODO: render this? */
     excerpt?: string
 }
-const generateGridItemClassName = ({ cover, title = '', excerpt = '1' }: GenerateGridRowClassNameProps) => {
+const generateGridItemClassName = ({ cover, title = '' }: GenerateGridRowClassNameProps) => {
     const columnSpanOnSmallMedia = smallMediaColumnCount
     const columnSpanOnLargeMedia = measureTitleWidth(title) > minSingleColumnContentWidthOnLargeMedia ? 2 : 1
     const columnSpanOnHiresMedia = measureTitleWidth(title) > minSingleColumnContentWidthOnHiresMedia ? 2 : 1

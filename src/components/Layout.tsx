@@ -1,11 +1,11 @@
 import { calc, em, percent, px, rem, rgb, rgba, scale, translateZ, url, viewHeight, viewWidth } from 'csx'
-import { GatsbyLinkProps, graphql, Link, useStaticQuery } from 'gatsby'
+import type { GatsbyLinkProps } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import { classes, cssRule, style } from 'typestyle'
-import { NestedCSSProperties } from 'typestyle/src/types'
+import type { NestedCSSProperties } from 'typestyle/src/types'
 
-import { LayoutQuery } from '../types/graphql-types'
 import { baseFontSize, scaleAt, smallMedia } from '../util/constants'
 
 /**
@@ -193,11 +193,9 @@ interface LayoutProps {
     pageUrl?: string
 }
 
-// MEMO: is anything wrong here :thingking:?
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const NavLink = React.forwardRef(({ activeClassName, ...props }: GatsbyLinkProps<unknown>, ref: any) => (
-    <Link className={navLinkClassName} activeClassName={activeClassName ?? 'active'} {...props} ref={ref} />
-))
+const NavLink = ({ activeClassName, ...props }: Omit<GatsbyLinkProps<unknown>, 'ref'>) => (
+    <Link className={navLinkClassName} activeClassName={activeClassName ?? 'active'} {...props} />
+)
 
 /**
  * Top level layout container
@@ -211,7 +209,7 @@ const Layout = ({
     pageUrl,
     pageDescription,
 }: LayoutProps) => {
-    const data = useStaticQuery<LayoutQuery>(graphql`
+    const data = useStaticQuery<Queries.layoutQuery>(graphql`
         query layout {
             site {
                 siteMetadata {

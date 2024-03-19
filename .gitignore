@@ -1,5 +1,5 @@
 # GraphQL typing
-/src/types/graphql-types.ts
+/src/types/graphql-types.d.ts
 
 # package managers and dependencies
 node_modules/

@@ -1,5 +1,5 @@
-import { calc, em, px, quote, url } from 'csx'
-import { PageProps } from 'gatsby'
+import { em, px, url } from 'csx'
+import type { PageProps } from 'gatsby'
 import * as React from 'react'
 import { classes, style } from 'typestyle'
 
@@ -61,7 +61,7 @@ const makeGithubLink = (githubId: string) => `https://github.com/${githubId}`
 
 const friendsList = (
     <ul className={friendsListClassName}>
-        {friends.map(([nick, githubId, link, descriptionHtml, metOffline]) => (
+        {friends.map(([nick, githubId, link, descriptionHtml]) => (
             <li key={githubId}>
                 <figure className={friendEntryClassName}>
                     <div className={classes(avatarClassName, makeAvatarImageClassName(githubId))} />

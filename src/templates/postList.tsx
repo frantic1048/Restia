@@ -1,11 +1,11 @@
 import { em } from 'csx'
-import { graphql, Link, PageProps } from 'gatsby'
+import type { PageProps } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 import { style } from 'typestyle'
 
 import Layout from '../components/Layout'
 import PostEntryList from '../components/PostEntryList'
-import { PostListQuery } from '../types/graphql-types'
 import { scaleAt } from '../util/constants'
 
 export const query = graphql`
@@ -65,7 +65,7 @@ interface PageContextType {
     currentPage: number
 }
 
-export default ({ data, pageContext }: PageProps<PostListQuery, PageContextType>) => {
+export default ({ data, pageContext }: PageProps<Queries.PostListQuery, PageContextType>) => {
     const { numPages, currentPage } = pageContext
 
     return (
