@@ -1746,7 +1746,7 @@ __metadata:
     "@babel/plugin-proposal-nullish-coalescing-operator": "npm:7.18.6"
     "@babel/plugin-proposal-optional-chaining": "npm:7.21.0"
     "@playwright/test": "npm:1.42.1"
-    "@rabbithouse/eslint-config": "npm:6.0.34"
+    "@rabbithouse/eslint-config": "npm:6.0.35"
     "@types/react": "npm:18.2.67"
     "@types/react-dom": "npm:18.2.22"
     "@types/react-helmet": "npm:6.1.11"
@@ -3053,11 +3053,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rabbithouse/eslint-config@npm:6.0.34":
-  version: 6.0.34
-  resolution: "@rabbithouse/eslint-config@npm:6.0.34"
+"@rabbithouse/eslint-config@npm:6.0.35":
+  version: 6.0.35
+  resolution: "@rabbithouse/eslint-config@npm:6.0.35"
   dependencies:
-    "@rushstack/eslint-config": "npm:3.6.4"
+    "@rushstack/eslint-config": "npm:3.6.5"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-prettier: "npm:5.1.3"
@@ -3065,15 +3065,15 @@ __metadata:
     prettier: "npm:3.2.5"
   peerDependencies:
     typescript: ">=5.4.2"
-  checksum: 10c0/dc674d5edb9b8531c32f70e53e9ca5057c4d84238337ea149840e40bf6897dcc9291cf34da3429fa25cd3877a759c25f7e4ed2774022e4fba88755849e821a44
+  checksum: 10c0/5205ec8f4412061fe9e3224301b0d2904d07fccd66359e5b4da5965a05fbbc6bb2dcb432e62238d0bf077dfee5212940921d6544f387920f757a575e18c37ccd
   languageName: node
   linkType: hard
 
-"@rushstack/eslint-config@npm:3.6.4":
-  version: 3.6.4
-  resolution: "@rushstack/eslint-config@npm:3.6.4"
+"@rushstack/eslint-config@npm:3.6.5":
+  version: 3.6.5
+  resolution: "@rushstack/eslint-config@npm:3.6.5"
   dependencies:
-    "@rushstack/eslint-patch": "npm:1.7.2"
+    "@rushstack/eslint-patch": "npm:1.8.0"
     "@rushstack/eslint-plugin": "npm:0.15.1"
     "@rushstack/eslint-plugin-packlets": "npm:0.9.1"
     "@rushstack/eslint-plugin-security": "npm:0.8.1"
@@ -3087,14 +3087,14 @@ __metadata:
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
     typescript: ">=4.7.0"
-  checksum: 10c0/96f637d055f1785197677187cfac00989b16275ffc6d92264db050b0938d74f03564c6648f0b988c49c600ea5dc56ed2637c8553238e46e45f6b6bf44e514807
+  checksum: 10c0/87edbc651ef6b19a94e3ab453e8e281e0d87522369bac29855e66ce8fd1ffc8cb0b7d1fa4a1eeeab9a9cc0ae0ef8b7e66e303c84ff2d098b0025a3aa4e691e14
   languageName: node
   linkType: hard
 
-"@rushstack/eslint-patch@npm:1.7.2":
-  version: 1.7.2
-  resolution: "@rushstack/eslint-patch@npm:1.7.2"
-  checksum: 10c0/bfb3e2110bfaf4cf9f900db2626bec62f5cd492907de0c5e43feaac0aa8c1fb13d6c89978dc60f6d7a1bc5d6906e8a3bf009aa2cd79d031b70ab1d8026a0975d
+"@rushstack/eslint-patch@npm:1.8.0":
+  version: 1.8.0
+  resolution: "@rushstack/eslint-patch@npm:1.8.0"
+  checksum: 10c0/b8cb64176fe6f0778fccb8294f98acd325625cf75968cf3537c4d51b5d9b7dc62e3cbb82165aa473830555070ff6cc0d01ca64da3d734a5d0ce1bd90b5f24d7e
   languageName: node
   linkType: hard
 
