@@ -87,7 +87,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.14.0, @babel/core@npm:^7.20.12":
+"@babel/core@npm:7.24.3, @babel/core@npm:^7.14.0, @babel/core@npm:^7.20.12":
   version: 7.24.3
   resolution: "@babel/core@npm:7.24.3"
   dependencies:
@@ -408,7 +408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.14.0, @babel/parser@npm:^7.16.8, @babel/parser@npm:^7.20.13, @babel/parser@npm:^7.24.0, @babel/parser@npm:^7.24.1":
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.14.0, @babel/parser@npm:^7.16.8, @babel/parser@npm:^7.20.13, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.24.0, @babel/parser@npm:^7.24.1":
   version: 7.24.1
   resolution: "@babel/parser@npm:7.24.1"
   bin:
@@ -465,7 +465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-nullish-coalescing-operator@npm:7.18.6, @babel/plugin-proposal-nullish-coalescing-operator@npm:^7.18.6":
+"@babel/plugin-proposal-nullish-coalescing-operator@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/plugin-proposal-nullish-coalescing-operator@npm:7.18.6"
   dependencies:
@@ -504,7 +504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-optional-chaining@npm:7.21.0, @babel/plugin-proposal-optional-chaining@npm:^7.20.7":
+"@babel/plugin-proposal-optional-chaining@npm:^7.20.7":
   version: 7.21.0
   resolution: "@babel/plugin-proposal-optional-chaining@npm:7.21.0"
   dependencies:
@@ -1756,10 +1756,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@frantic1048/restia@workspace:."
   dependencies:
-    "@babel/plugin-proposal-nullish-coalescing-operator": "npm:7.18.6"
-    "@babel/plugin-proposal-optional-chaining": "npm:7.21.0"
+    "@babel/core": "npm:7.24.3"
     "@eslint/js": "npm:8.57.0"
     "@playwright/test": "npm:1.42.1"
+    "@types/babel__core": "npm:^7"
     "@types/eslint": "npm:8.56.5"
     "@types/eslint__js": "npm:^8"
     "@types/react": "npm:18.2.72"
@@ -1767,6 +1767,7 @@ __metadata:
     "@types/react-helmet": "npm:6.1.11"
     babel-preset-gatsby: "npm:3.13.1"
     commitizen: "npm:4.3.0"
+    core-js: "npm:3.36.1"
     csx: "npm:10.0.2"
     cz-customizable: "npm:7.0.0"
     disqus-react: "npm:1.1.5"
@@ -3177,6 +3178,47 @@ __metadata:
   version: 0.0.2
   resolution: "@turist/time@npm:0.0.2"
   checksum: 10c0/5a929b8ceec3caf1e88af9e91f5c2d4d847dba5f6f3e2d9f8d30e48d688e3b59cbe5688680fb4279a18764eb649602501f3bd66a05a4aec4414fa0281b5407bd
+  languageName: node
+  linkType: hard
+
+"@types/babel__core@npm:^7":
+  version: 7.20.5
+  resolution: "@types/babel__core@npm:7.20.5"
+  dependencies:
+    "@babel/parser": "npm:^7.20.7"
+    "@babel/types": "npm:^7.20.7"
+    "@types/babel__generator": "npm:*"
+    "@types/babel__template": "npm:*"
+    "@types/babel__traverse": "npm:*"
+  checksum: 10c0/bdee3bb69951e833a4b811b8ee9356b69a61ed5b7a23e1a081ec9249769117fa83aaaf023bb06562a038eb5845155ff663e2d5c75dd95c1d5ccc91db012868ff
+  languageName: node
+  linkType: hard
+
+"@types/babel__generator@npm:*":
+  version: 7.6.8
+  resolution: "@types/babel__generator@npm:7.6.8"
+  dependencies:
+    "@babel/types": "npm:^7.0.0"
+  checksum: 10c0/f0ba105e7d2296bf367d6e055bb22996886c114261e2cb70bf9359556d0076c7a57239d019dee42bb063f565bade5ccb46009bce2044b2952d964bf9a454d6d2
+  languageName: node
+  linkType: hard
+
+"@types/babel__template@npm:*":
+  version: 7.4.4
+  resolution: "@types/babel__template@npm:7.4.4"
+  dependencies:
+    "@babel/parser": "npm:^7.1.0"
+    "@babel/types": "npm:^7.0.0"
+  checksum: 10c0/cc84f6c6ab1eab1427e90dd2b76ccee65ce940b778a9a67be2c8c39e1994e6f5bbc8efa309f6cea8dc6754994524cd4d2896558df76d92e7a1f46ecffee7112b
+  languageName: node
+  linkType: hard
+
+"@types/babel__traverse@npm:*":
+  version: 7.20.5
+  resolution: "@types/babel__traverse@npm:7.20.5"
+  dependencies:
+    "@babel/types": "npm:^7.20.7"
+  checksum: 10c0/033abcb2f4c084ad33e30c3efaad82161240f351e3c71b6154ed289946b33b363696c0fbd42502b68e4582a87413c418321f40eb1ea863e34fe525641345e05b
   languageName: node
   linkType: hard
 
@@ -5871,17 +5913,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:3.36.1, core-js@npm:^3.31.0":
+  version: 3.36.1
+  resolution: "core-js@npm:3.36.1"
+  checksum: 10c0/4f0ad2464535d809ba659226feca15bff14b9b5452518bddff8d81b9c94b0227b3027d9838f22f1dce664958acb4107b935cc0037695ae545edc2a303bca98bf
+  languageName: node
+  linkType: hard
+
 "core-js@npm:^2.4.0":
   version: 2.6.12
   resolution: "core-js@npm:2.6.12"
   checksum: 10c0/00128efe427789120a06b819adc94cc72b96955acb331cb71d09287baf9bd37bebd191d91f1ee4939c893a050307ead4faea08876f09115112612b6a05684b63
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^3.31.0":
-  version: 3.36.1
-  resolution: "core-js@npm:3.36.1"
-  checksum: 10c0/4f0ad2464535d809ba659226feca15bff14b9b5452518bddff8d81b9c94b0227b3027d9838f22f1dce664958acb4107b935cc0037695ae545edc2a303bca98bf
   languageName: node
   linkType: hard
 
