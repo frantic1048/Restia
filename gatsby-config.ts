@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 
 import type { GatsbyConfig } from 'gatsby'
-
-import { graphql } from './util'
 
 const config: GatsbyConfig = {
     siteMetadata: {
@@ -117,7 +117,7 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-feed',
             options: {
-                query: graphql`
+                query: `
                     query gatsbyConfigPluginFeedSiteInfo {
                         site {
                             siteMetadata {
@@ -131,14 +131,7 @@ const config: GatsbyConfig = {
                 `,
                 feeds: [
                     {
-                        serialize: ({
-                            query: { site, allMarkdownRemark },
-                        }: {
-                            query: {
-                                site: Queries.gatsbyConfigPluginFeedSiteInfoQuery['site']
-                                allMarkdownRemark: Queries.gatsbyConfigPluginFeedAllMarkdownRemarkQuery['allMarkdownRemark']
-                            }
-                        }) => {
+                        serialize: ({ query: { site, allMarkdownRemark } }) => {
                             return allMarkdownRemark.edges.map((edge) => {
                                 return Object.assign({}, edge.node.frontmatter, {
                                     description: edge.node.excerpt,
@@ -162,7 +155,7 @@ const config: GatsbyConfig = {
                                 })
                             })
                         },
-                        query: graphql`
+                        query: `
                             query gatsbyConfigPluginFeedAllMarkdownRemark {
                                 allMarkdownRemark(limit: 16, sort: { frontmatter: { date: DESC } }) {
                                     edges {
@@ -191,7 +184,7 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
-                query: graphql`
+                query: `
                     query gatsbyPluginSitemap {
                         site {
                             siteMetadata {
@@ -217,10 +210,7 @@ const config: GatsbyConfig = {
                         }
                     }
                 `,
-                resolvePages: ({
-                    allSitePage: { nodes: allPages },
-                    allMarkdownRemark: { edges },
-                }: Queries.gatsbyPluginSitemapQuery) => {
+                resolvePages: ({ allSitePage: { nodes: allPages }, allMarkdownRemark: { edges } }) => {
                     const markdownPageLastmodMap = edges.reduce((acc, { node }) => {
                         const uri = node.fields.slug
                         acc[uri] = { lastmod: node.frontmatter.date }
