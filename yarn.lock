@@ -1738,7 +1738,7 @@ __metadata:
     "@babel/core": "npm:7.24.3"
     "@eslint/js": "npm:8.57.0"
     "@playwright/test": "npm:1.42.1"
-    "@types/babel__core": "npm:^7"
+    "@types/babel__core": "npm:7.20.5"
     "@types/eslint": "npm:8.56.7"
     "@types/eslint__js": "npm:8.42.3"
     "@types/react": "npm:18.2.73"
@@ -3160,7 +3160,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7":
+"@types/babel__core@npm:7.20.5":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
   dependencies:
