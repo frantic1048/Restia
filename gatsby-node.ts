@@ -1,7 +1,28 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import * as path from 'node:path'
 
+import { codecovWebpackPlugin } from '@codecov/webpack-plugin'
 import type { GatsbyNode } from 'gatsby'
 import { createFilePath } from 'gatsby-source-filesystem'
+
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ getConfig, actions }) => {
+    const config = getConfig()
+
+    config.plugins = [
+        ...(Array.isArray(config.plugins) ? config.plugins : []),
+        // add your plugins here
+        process.env.CODECOV_TOKEN &&
+            codecovWebpackPlugin({
+                enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+                bundleName: 'example-webpack-bundle',
+                uploadToken: process.env.CODECOV_TOKEN,
+            }),
+    ].filter(Boolean)
+
+    actions.replaceWebpackConfig(config)
+}
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
