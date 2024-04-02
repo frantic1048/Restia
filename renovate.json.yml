@@ -2,27 +2,47 @@
 # Why YAML? JSONSchema + comments
 # to update the renovate.json file, run `yarn update:renovatejson`
 extends:
-    # https://docs.renovatebot.com/presets-config/#configbest-practices
-    - config:best-practices
+  # https://docs.renovatebot.com/presets-config/#configbest-practices
+  - config:best-practices
 
-    # https://docs.renovatebot.com/presets-default/#pinversions
-    - :pinVersions
-    # https://docs.renovatebot.com/presets-default/#automergepatch
-    - :automergePatch
-    - :maintainLockFilesWeekly
+  # https://docs.renovatebot.com/presets-default/#pinversions
+  - :pinVersions
+  # https://docs.renovatebot.com/presets-default/#automergepatch
+  - :automergePatch
+  - :maintainLockFilesWeekly
 
-    # https://docs.renovatebot.com/presets-default/#semanticcommits
-    - :semanticCommits
-    - :semanticCommitType(chore)
-    - :semanticCommitScope(deps)
+  # https://docs.renovatebot.com/presets-default/#semanticcommits
+  - :semanticCommits
+  - :semanticCommitType(chore)
+  - :semanticCommitScope(deps)
 postUpdateOptions:
-    - yarnDedupeHighest
+  - yarnDedupeHighest
 reviewers:
-    - frantic1048
+  - frantic1048
 packageRules:
-    # string-width@6 is not compatible with all Firefox versions
-    # issue: https://github.com/sindresorhus/string-width/issues/50#issue-1722323414
-    # root cause: https://github.com/sindresorhus/string-width/pull/47
-    # TODO: add basic E2E test (ﾟ∀。)
-    - matchPackageNames: ['string-width']
-      enabled: false
+  # string-width@6 is not compatible with all Firefox versions
+  # issue: https://github.com/sindresorhus/string-width/issues/50#issue-1722323414
+  # root cause: https://github.com/sindresorhus/string-width/pull/47
+  # TODO: add basic E2E test (ﾟ∀。)
+  - matchPackageNames: ['string-width']
+    enabled: false
+  - groupName: 'linters and formatters'
+    matchPackagePatterns:
+      - '^eslint$'
+      - '^@types/eslint$'
+      - '^@eslint/'
+      - '^@types/eslint__js$'
+      - '^typescript-eslint$'
+      - '^eslint-plugin-'
+      - '^prettier$'
+  - groupName: 'commitizen'
+    matchPackageNames:
+      - 'commitizen'
+      - 'cz-customizable'
+  - groupName: 'gatsby'
+    matchPackagePatterns:
+      - '^gatsby$'
+      - '^gatsby-plugin-'
+      - '^gatsby-source-'
+      - '^gatsby-transformer-'
+      - '^gatsby-remark-'

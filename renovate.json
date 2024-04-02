@@ -14,6 +14,32 @@
         {
             "matchPackageNames": ["string-width"],
             "enabled": false
+        },
+        {
+            "groupName": "linters and formatters",
+            "matchPackagePatterns": [
+                "^eslint$",
+                "^@types/eslint$",
+                "^@eslint/",
+                "^@types/eslint__js$",
+                "^typescript-eslint$",
+                "^eslint-plugin-",
+                "^prettier$"
+            ]
+        },
+        {
+            "groupName": "commitizen",
+            "matchPackageNames": ["commitizen", "cz-customizable"]
+        },
+        {
+            "groupName": "gatsby",
+            "matchPackagePatterns": [
+                "^gatsby$",
+                "^gatsby-plugin-",
+                "^gatsby-source-",
+                "^gatsby-transformer-",
+                "^gatsby-remark-"
+            ]
         }
     ]
 }

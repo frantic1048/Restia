@@ -1,72 +1,72 @@
 name: CI
 on:
-    push:
-        branches: [incarnation]
-    pull_request:
-        branches: [incarnation]
+  push:
+    branches: [incarnation]
+  pull_request:
+    branches: [incarnation]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        outputs:
-            deploy-url: ${{ steps.pages.outputs.url }}
-        steps:
-            - uses: nschloe/action-cached-lfs-checkout@d481127c3821f9c278a6019c39a108ac7004c133 # v1
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      deploy-url: ${{ steps.pages.outputs.url }}
+    steps:
+      - uses: nschloe/action-cached-lfs-checkout@d481127c3821f9c278a6019c39a108ac7004c133 # v1
 
-            - name: Gatsby build cache
-              id: gatsby-cache
-              uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
-              with:
-                  path: |
-                      .cache
-                      public
-                  key: ${{ runner.os }}-gatsby-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-gatsby-
+      - name: Gatsby build cache
+        id: gatsby-cache
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        with:
+          path: |
+            .cache
+            public
+          key: ${{ runner.os }}-gatsby-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-
 
-            - name: Prepare Node.js and Yarn
-              uses: ./.github/actions/setup-node-yarn
-              with:
-                  cache: true
+      - name: Prepare Node.js and Yarn
+        uses: ./.github/actions/setup-node-yarn
+        with:
+          cache: true
 
-            - name: Init deps
-              run: yarn install
+      - name: Init deps
+        run: yarn install
 
-            - name: Build
-              run: yarn build
+      - name: Build
+        run: yarn build
 
-            - name: Lint
-              run: yarn lint
+      - name: Lint
+        run: yarn lint
 
-            - id: pages
-              name: Deploy to Cloudflare Pages
-              uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1
-              with:
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
-                  directory: public
+      - id: pages
+        name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          directory: public
 
-    e2e:
-        runs-on: ubuntu-latest
-        needs: build
-        steps:
-            - uses: nschloe/action-cached-lfs-checkout@d481127c3821f9c278a6019c39a108ac7004c133 # v1
+  e2e:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: nschloe/action-cached-lfs-checkout@d481127c3821f9c278a6019c39a108ac7004c133 # v1
 
-            - name: Prepare Node.js and Yarn
-              uses: ./.github/actions/setup-node-yarn
-              with:
-                  cache: true
+      - name: Prepare Node.js and Yarn
+        uses: ./.github/actions/setup-node-yarn
+        with:
+          cache: true
 
-            - run: yarn install
-            - run: yarn playwright install --with-deps
-            - name: Run Playwright tests
-              env:
-                  RESTIA_E2E_URL: ${{ needs.build.outputs.deploy-url }}
-              run: yarn playwright test
-            - uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4
-              if: always()
-              with:
-                  name: playwright-report
-                  path: playwright-report/
-                  retention-days: 20
+      - run: yarn install
+      - run: yarn playwright install --with-deps
+      - name: Run Playwright tests
+        env:
+          RESTIA_E2E_URL: ${{ needs.build.outputs.deploy-url }}
+        run: yarn playwright test
+      - uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 20
