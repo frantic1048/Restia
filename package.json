@@ -59,7 +59,7 @@
         "@types/eslint": "8.56.7",
         "@types/eslint__js": "8.42.3",
         "@types/react": "18.2.74",
-        "@types/react-dom": "18.2.23",
+        "@types/react-dom": "18.2.24",
         "@types/react-helmet": "6.1.11",
         "babel-preset-gatsby": "3.13.1",
         "commitizen": "4.3.0",
