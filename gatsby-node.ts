@@ -16,7 +16,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ get
         process.env.CODECOV_TOKEN &&
             codecovWebpackPlugin({
                 enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
-                bundleName: 'example-webpack-bundle',
+                bundleName: 'main',
                 uploadToken: process.env.CODECOV_TOKEN,
             }),
     ].filter(Boolean)
