@@ -1740,10 +1740,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.57.0":
-  version: 8.57.0
-  resolution: "@eslint/js@npm:8.57.0"
-  checksum: 10c0/9a518bb8625ba3350613903a6d8c622352ab0c6557a59fe6ff6178bf882bf57123f9d92aa826ee8ac3ee74b9c6203fe630e9ee00efb03d753962dcf65ee4bd94
+"@eslint/js@npm:9.0.0":
+  version: 9.0.0
+  resolution: "@eslint/js@npm:9.0.0"
+  checksum: 10c0/ec3242a60a2525d2785d96d1e95b8060235f47f3b953aa81626968591ef8c1eb4f7f8b3647db2c97fdfa524eace949a5695be50521f64b8dcc4ed3b493ee409e
   languageName: node
   linkType: hard
 
@@ -1760,7 +1760,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:7.24.4"
     "@codecov/webpack-plugin": "npm:0.0.1-beta.5"
-    "@eslint/js": "npm:8.57.0"
+    "@eslint/js": "npm:9.0.0"
     "@playwright/test": "npm:1.42.1"
     "@types/babel__core": "npm:7.20.5"
     "@types/eslint": "npm:8.56.7"
