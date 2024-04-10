@@ -52,7 +52,7 @@
     },
     "devDependencies": {
         "@babel/core": "7.24.4",
-        "@codecov/webpack-plugin": "0.0.1-beta.5",
+        "@codecov/webpack-plugin": "0.0.1-beta.6",
         "@eslint/js": "9.0.0",
         "@playwright/test": "1.43.0",
         "@types/babel__core": "7.20.5",
