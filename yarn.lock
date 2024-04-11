@@ -1782,12 +1782,12 @@ __metadata:
     disqus-react: "npm:1.1.5"
     eslint: "npm:9.0.0"
     eslint-plugin-simple-import-sort: "npm:12.0.0"
-    gatsby: "npm:5.13.3"
+    gatsby: "npm:5.13.4"
     gatsby-plugin-catch-links: "npm:5.13.1"
     gatsby-plugin-feed: "npm:5.13.1"
     gatsby-plugin-image: "npm:3.13.1"
     gatsby-plugin-manifest: "npm:5.13.1"
-    gatsby-plugin-offline: "npm:6.13.1"
+    gatsby-plugin-offline: "npm:6.13.2"
     gatsby-plugin-react-helmet: "npm:6.13.1"
     gatsby-plugin-sharp: "npm:5.13.1"
     gatsby-plugin-sitemap: "npm:6.13.1"
@@ -4763,7 +4763,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-preset-gatsby@npm:3.13.2, babel-preset-gatsby@npm:^3.13.1":
+"babel-preset-gatsby@npm:3.13.2, babel-preset-gatsby@npm:^3.13.2":
   version: 3.13.2
   resolution: "babel-preset-gatsby@npm:3.13.2"
   dependencies:
@@ -8453,9 +8453,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-cli@npm:^5.13.2":
-  version: 5.13.2
-  resolution: "gatsby-cli@npm:5.13.2"
+"gatsby-cli@npm:^5.13.3":
+  version: 5.13.3
+  resolution: "gatsby-cli@npm:5.13.3"
   dependencies:
     "@babel/code-frame": "npm:^7.18.6"
     "@babel/core": "npm:^7.20.12"
@@ -8500,7 +8500,7 @@ __metadata:
     yurnalist: "npm:^2.1.0"
   bin:
     gatsby: cli.js
-  checksum: 10c0/85a94f63f7d7b70165954d0faa118305550f15d6c4499b0005f764fe3367a3ec269056dfbfb32774e2b6e273311486d5b0baf45a6aec80e357ab21332200419a
+  checksum: 10c0/d030e7a751c1b907020ebdfe4e50ab6f2502b4981f49ca0eee8e4e5c47c84d55b672d1bbff403374b9145ec1970ce1b71b93e655bda6fd84f836ddb7ff04ed94
   languageName: node
   linkType: hard
 
@@ -8535,7 +8535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-legacy-polyfills@npm:^3.13.0, gatsby-legacy-polyfills@npm:^3.13.1":
+"gatsby-legacy-polyfills@npm:^3.13.1":
   version: 3.13.1
   resolution: "gatsby-legacy-polyfills@npm:3.13.1"
   dependencies:
@@ -8677,9 +8677,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-offline@npm:6.13.1":
-  version: 6.13.1
-  resolution: "gatsby-plugin-offline@npm:6.13.1"
+"gatsby-plugin-offline@npm:6.13.2":
+  version: 6.13.2
+  resolution: "gatsby-plugin-offline@npm:6.13.2"
   dependencies:
     "@babel/runtime": "npm:^7.20.13"
     cheerio: "npm:^1.0.0-rc.10"
@@ -8692,7 +8692,7 @@ __metadata:
     gatsby: ^5.0.0-next
     react: ^18.0.0 || ^0.0.0
     react-dom: ^18.0.0 || ^0.0.0
-  checksum: 10c0/cdf3237095a56c35ed68e2910890cc09e8eedfe58d72a6db4fbd12019047bcefe9cbfcaaa748874004ba010e6fb48debbb556e8cf41d6a608cf0d3a12e25b446
+  checksum: 10c0/f693dbc89e2a987c66c662794c8387a3c89ab72c40ede2a7b8452be12450bedb4ed3f0de1c8f1c544782ce4c08d81ddb2ef1de896dd9099309b7eea09c800461
   languageName: node
   linkType: hard
 
@@ -9019,9 +9019,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:5.13.3":
-  version: 5.13.3
-  resolution: "gatsby@npm:5.13.3"
+"gatsby@npm:5.13.4":
+  version: 5.13.4
+  resolution: "gatsby@npm:5.13.4"
   dependencies:
     "@babel/code-frame": "npm:^7.18.6"
     "@babel/core": "npm:^7.20.12"
@@ -9062,7 +9062,7 @@ __metadata:
     babel-plugin-add-module-exports: "npm:^1.0.4"
     babel-plugin-dynamic-import-node: "npm:^2.3.3"
     babel-plugin-remove-graphql-queries: "npm:^5.13.1"
-    babel-preset-gatsby: "npm:^3.13.1"
+    babel-preset-gatsby: "npm:^3.13.2"
     better-opn: "npm:^2.1.1"
     bluebird: "npm:^3.7.2"
     body-parser: "npm:1.20.1"
@@ -9104,10 +9104,10 @@ __metadata:
     find-cache-dir: "npm:^3.3.2"
     fs-exists-cached: "npm:1.0.0"
     fs-extra: "npm:^11.1.1"
-    gatsby-cli: "npm:^5.13.2"
+    gatsby-cli: "npm:^5.13.3"
     gatsby-core-utils: "npm:^4.13.1"
     gatsby-graphiql-explorer: "npm:^3.13.1"
-    gatsby-legacy-polyfills: "npm:^3.13.0"
+    gatsby-legacy-polyfills: "npm:^3.13.1"
     gatsby-link: "npm:^5.13.1"
     gatsby-page-utils: "npm:^3.13.1"
     gatsby-parcel-config: "npm:1.13.1"
@@ -9199,7 +9199,7 @@ __metadata:
       optional: true
   bin:
     gatsby: ./cli.js
-  checksum: 10c0/b4cd7127625d54a1ec98431931c31dd8dda27a60101ef63aa24042d82e0f34a357f4a4cac6111ce4e7b54c63160906e144725877e8d1b25c2476756d4c9bb037
+  checksum: 10c0/1fe52e9dc94377c5766aacdcd7ff3373eec057d18ce13820329689a4fe7590b5c02b271480b0c9819591ed838e9b859fb65496ee2bca72be502092dfb3f2b73d
   languageName: node
   linkType: hard
 
