@@ -1769,7 +1769,7 @@ __metadata:
     "@eslint/js": "npm:9.0.0"
     "@playwright/test": "npm:1.43.0"
     "@types/babel__core": "npm:7.20.5"
-    "@types/eslint": "npm:8.56.8"
+    "@types/eslint": "npm:8.56.9"
     "@types/eslint__js": "npm:8.42.3"
     "@types/react": "npm:18.2.77"
     "@types/react-dom": "npm:18.2.25"
@@ -3299,13 +3299,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:*, @types/eslint@npm:8.56.8":
-  version: 8.56.8
-  resolution: "@types/eslint@npm:8.56.8"
+"@types/eslint@npm:*, @types/eslint@npm:8.56.9":
+  version: 8.56.9
+  resolution: "@types/eslint@npm:8.56.9"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: 10c0/62a0b22cd086d22682858437939afd96fe5639d6375b85044c886612522f67023b9c2bfee662d5a8ac457cbef55531785d59e6f43f93eb4e80532a51c5dba2da
+  checksum: 10c0/a800e3d10bd12fc837773101c35a65c189528e306bc41eca9f30176f5ede4d35944a0c0e16b668971db3521df2f2bef62ab2471740eadc72aeb39dbaba6c9101
   languageName: node
   linkType: hard
 
