@@ -5227,9 +5227,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001587, caniuse-lite@npm:^1.0.30001599":
-  version: 1.0.30001610
-  resolution: "caniuse-lite@npm:1.0.30001610"
-  checksum: 10c0/015956a0bf2e3e233da3dc00c5632bbb4d416bcd6ced2f839e33e45b197a856234f97cb046e7427b83d7e3a3d6df314dfab1c86eb9d970970e00ad85a50b4933
+  version: 1.0.30001612
+  resolution: "caniuse-lite@npm:1.0.30001612"
+  checksum: 10c0/d6b405ff06f4e913bc779f9183fa68001c9d6b8526a7dd1b99c60587dd21a01aa8def3d8462cf6214f0181f1c21b9245611ff65241cf9c967fc742e86ece5065
   languageName: node
   linkType: hard
 
@@ -5913,18 +5913,18 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.31.0, core-js-compat@npm:^3.36.1":
-  version: 3.36.1
-  resolution: "core-js-compat@npm:3.36.1"
+  version: 3.37.0
+  resolution: "core-js-compat@npm:3.37.0"
   dependencies:
     browserslist: "npm:^4.23.0"
-  checksum: 10c0/70fba18a4095cd8ac04e5ba8cee251e328935859cf2851c1f67770068ea9f9fe71accb1b7de17cd3c9a28d304a4c41712bd9aa895110ebb6e3be71b666b029d1
+  checksum: 10c0/ca6ba7d200f7a4a850fd5cba58b40ab78139d3f301bad7b53816eafe0cfb000523e72882069ddaba440794b950ed101225668bf7b97b73e54a5e3384a8215e03
   languageName: node
   linkType: hard
 
 "core-js-pure@npm:^3.23.3":
-  version: 3.36.1
-  resolution: "core-js-pure@npm:3.36.1"
-  checksum: 10c0/b964c7aa35665a4ecd513f62d695d99e96bb9e42621f7fcc823a613fab4155525d5c2875e46fcc4e6a3396c1fb7d543aee8f7afd83aa34531261b30af759c3d6
+  version: 3.37.0
+  resolution: "core-js-pure@npm:3.37.0"
+  checksum: 10c0/0559e5f7862674136754cdef7b2386f9a19f29fd834008d3fa3fb3b3d9ec31180e4c0c6b3b7cef35933665832489236846cf39b11f1f8f003cd848e7f834357a
   languageName: node
   linkType: hard
 
@@ -6814,9 +6814,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.736
-  resolution: "electron-to-chromium@npm:1.4.736"
-  checksum: 10c0/f3acb515dcb9333b318f9a8ee80a0c3975162da6cc45d9c00152e0de7004b2bfe1246fe6cdf0c41a1b7016780bd4324aff848830aba4227cb55480c1aa32d248
+  version: 1.4.745
+  resolution: "electron-to-chromium@npm:1.4.745"
+  checksum: 10c0/2dd1842e0ee84f88e78ee6e81dbd9dd554a589cf612ab2e5920d8be837aaea78b4c00cf189e545ee25d36777514fed80c11c9a867b2194f94f173d063873ec18
   languageName: node
   linkType: hard
 
@@ -12435,11 +12435,11 @@ __metadata:
   linkType: hard
 
 "node-abi@npm:^3.3.0":
-  version: 3.57.0
-  resolution: "node-abi@npm:3.57.0"
+  version: 3.60.0
+  resolution: "node-abi@npm:3.60.0"
   dependencies:
     semver: "npm:^7.3.5"
-  checksum: 10c0/8d78542e39a3c49ac476d12c70ef0366f26a40a215af44498656e75fc85e5646309765a3277e1cbb2ec40283a9e86f7aefcdd699e30576c582f6bb931e6c802b
+  checksum: 10c0/e375d13b2c9ed60d233cf3943d34a29b7502350626508659b8097cb9ce12e97263f8931c5fd177a974681e3ca6518d6f8a6ae2bc6b3aab0e0bd40970fb6599c8
   languageName: node
   linkType: hard
 
@@ -17545,9 +17545,9 @@ __metadata:
   linkType: hard
 
 "zod@npm:^3.22.4":
-  version: 3.22.4
-  resolution: "zod@npm:3.22.4"
-  checksum: 10c0/7578ab283dac0eee66a0ad0fc4a7f28c43e6745aadb3a529f59a4b851aa10872b3890398b3160f257f4b6817b4ce643debdda4fb21a2c040adda7862cab0a587
+  version: 3.23.0
+  resolution: "zod@npm:3.23.0"
+  checksum: 10c0/9678cc8bb4943b05145015430d730cae31564489816854cac23718344ffc26855b33e6744c948dd7906acb337108d9881298de4851ceaa290425222827492568
   languageName: node
   linkType: hard
 
