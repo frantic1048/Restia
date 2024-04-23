@@ -325,7 +325,7 @@ sn8 8 8 8 \tuplet 3/2 4 {8 8 8 8 8 8}
 
 ### 鬼音（Ghost note）
 
-在音符前面加上 `\parenthesize` 就会把原来的音符变成鬼音，比如 `sn8` 对应的鬼音的话写成 `\parenthesize sn8`。这个方法只会改变音符的显示，不会改变生成的音频，如果要能听到的效果的鬼音，参见[在 LilyPond 乐谱中插入有动态的 Ghost Note](p/2022-09-add-dynamic-ghost-note-with-lilypond)。
+在音符前面加上 `\parenthesize` 就会把原来的音符变成鬼音，比如 `sn8` 对应的鬼音的话写成 `\parenthesize sn8`。这个方法只会改变音符的显示，不会改变生成的音频，如果要能听到的效果的鬼音，参见[在 LilyPond 乐谱中插入有动态的 Ghost Note](2022-09-add-dynamic-ghost-note-with-lilypond)。
 
 更多细节参见[LilyPond — Notation Reference v2.22.1: 2.5.1 Common notation for percussion#Ghost notes](http://lilypond.org/doc/v2.22/Documentation/notation/common-notation-for-percussion#ghost-notes)
 
