@@ -13,10 +13,6 @@
     "reviewers": ["frantic1048"],
     "packageRules": [
         {
-            "matchPackageNames": ["string-width"],
-            "enabled": false
-        },
-        {
             "groupName": "linters and formatters",
             "automerge": true,
             "matchPackagePatterns": [
