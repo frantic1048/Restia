@@ -3,6 +3,7 @@
         "config:best-practices",
         ":pinVersions",
         ":automergePatch",
+        ":automergeDigest",
         ":maintainLockFilesWeekly",
         ":semanticCommits",
         ":semanticCommitType(chore)",
@@ -17,6 +18,7 @@
         },
         {
             "groupName": "linters and formatters",
+            "automerge": true,
             "matchPackagePatterns": [
                 "^eslint$",
                 "^@types/eslint$",
