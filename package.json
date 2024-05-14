@@ -63,7 +63,7 @@
         "@types/react-helmet": "6.1.11",
         "babel-preset-gatsby": "3.13.2",
         "commitizen": "4.3.0",
-        "core-js": "3.37.0",
+        "core-js": "3.37.1",
         "cz-customizable": "7.0.0",
         "eslint": "9.2.0",
         "eslint-plugin-simple-import-sort": "12.1.0",
