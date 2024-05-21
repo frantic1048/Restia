@@ -265,6 +265,7 @@ const Layout = ({
                 <meta name="msapplication-TileColor" content="#3b6ece" />
                 <meta name="theme-color" content="#ffffff" />
                 <title>{title}</title>
+                <link rel="canonical" href={fullUrl} />
                 <meta name="description" content={description} />
                 <meta name="image" content={image} />
                 {pageTitle && <meta property="og:title" content={pageTitle} />}
@@ -277,11 +278,11 @@ const Layout = ({
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content={twitterImage} />
                 <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
-                <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
                 <link
-                    rel="preload"
                     href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&family=Noto+Serif+SC&display=swap"
-                    as="style"
+                    rel="stylesheet"
                 />
             </Helmet>
             <div className={parallaxContainerClassName}>
