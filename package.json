@@ -54,7 +54,7 @@
         "@babel/core": "7.24.5",
         "@codecov/webpack-plugin": "0.0.1-beta.6",
         "@eslint/js": "9.3.0",
-        "@playwright/test": "1.44.0",
+        "@playwright/test": "1.44.1",
         "@types/babel__core": "7.20.5",
         "@types/eslint": "8.56.10",
         "@types/eslint__js": "8.42.3",
