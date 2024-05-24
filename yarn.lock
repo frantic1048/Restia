@@ -1611,26 +1611,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codecov/bundler-plugin-core@npm:^0.0.1-beta.6":
-  version: 0.0.1-beta.6
-  resolution: "@codecov/bundler-plugin-core@npm:0.0.1-beta.6"
+"@codecov/bundler-plugin-core@npm:^0.0.1-beta.8":
+  version: 0.0.1-beta.8
+  resolution: "@codecov/bundler-plugin-core@npm:0.0.1-beta.8"
   dependencies:
     chalk: "npm:4.1.2"
     semver: "npm:^7.5.4"
-    unplugin: "npm:^1.6.0"
+    unplugin: "npm:^1.10.1"
     zod: "npm:^3.22.4"
-  checksum: 10c0/480b2a05d28555153cae051472e8d90ddf79ef5d4cef2730a187667d19a394cfcb19d0c472e3112f7b2760e114bcfc56122bb9e425b0524fce1d6c879b1fccff
+  checksum: 10c0/a0f01dc9265a1503494873763908179e4b0bc9eb72f67372252ea0550f1e35412bbe8864818f958f451d3fe3df36b5cbbd740f309f5cf414a4e22df960a39bf8
   languageName: node
   linkType: hard
 
-"@codecov/webpack-plugin@npm:0.0.1-beta.6":
-  version: 0.0.1-beta.6
-  resolution: "@codecov/webpack-plugin@npm:0.0.1-beta.6"
+"@codecov/webpack-plugin@npm:0.0.1-beta.8":
+  version: 0.0.1-beta.8
+  resolution: "@codecov/webpack-plugin@npm:0.0.1-beta.8"
   dependencies:
-    "@codecov/bundler-plugin-core": "npm:^0.0.1-beta.6"
+    "@codecov/bundler-plugin-core": "npm:^0.0.1-beta.8"
+    unplugin: "npm:^1.10.1"
   peerDependencies:
     webpack: 5.x
-  checksum: 10c0/405048682507a014a1dded091e6e2ea44a121c0f165fd915601cfd037e108e3955ecd88f7d32717b9cfcbd7ff852904fa6b3f75c237ef7b90f1c4bbea6641afe
+  checksum: 10c0/016286745311b11ae7470ae576733a4558329e6a9184165d86f36dc8b2c7c8d2869056e99b9552a504108ec2fbbcce623e4b92403ecdf2c83be2a6b9121d8a3a
   languageName: node
   linkType: hard
 
@@ -1757,7 +1758,7 @@ __metadata:
   resolution: "@frantic1048/restia@workspace:."
   dependencies:
     "@babel/core": "npm:7.24.6"
-    "@codecov/webpack-plugin": "npm:0.0.1-beta.6"
+    "@codecov/webpack-plugin": "npm:0.0.1-beta.8"
     "@eslint/js": "npm:9.3.0"
     "@playwright/test": "npm:1.44.1"
     "@types/babel__core": "npm:7.20.5"
@@ -16626,7 +16627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin@npm:^1.6.0":
+"unplugin@npm:^1.10.1":
   version: 1.10.1
   resolution: "unplugin@npm:1.10.1"
   dependencies:
