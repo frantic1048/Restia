@@ -69,7 +69,7 @@
         "eslint-plugin-simple-import-sort": "12.1.0",
         "prettier": "3.2.5",
         "typescript": "5.4.5",
-        "typescript-eslint": "7.10.0"
+        "typescript-eslint": "7.11.0"
     },
     "repository": {
         "type": "git",
