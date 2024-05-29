@@ -1775,7 +1775,7 @@ __metadata:
     disqus-react: "npm:1.1.5"
     eslint: "npm:9.3.0"
     eslint-plugin-simple-import-sort: "npm:12.1.0"
-    gatsby: "npm:5.13.5"
+    gatsby: "npm:5.13.6"
     gatsby-plugin-catch-links: "npm:5.13.1"
     gatsby-plugin-feed: "npm:5.13.1"
     gatsby-plugin-image: "npm:3.13.1"
@@ -9021,9 +9021,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:5.13.5":
-  version: 5.13.5
-  resolution: "gatsby@npm:5.13.5"
+"gatsby@npm:5.13.6":
+  version: 5.13.6
+  resolution: "gatsby@npm:5.13.6"
   dependencies:
     "@babel/code-frame": "npm:^7.18.6"
     "@babel/core": "npm:^7.20.12"
@@ -9201,7 +9201,7 @@ __metadata:
       optional: true
   bin:
     gatsby: ./cli.js
-  checksum: 10c0/7592d18bfb15ce870bc3e62f3647e480df8739bdfaf9308a3e290963189208fd5c331a01c82b4f46d3774e25b05eac073754afecfb2a897e1b1344f959e50420
+  checksum: 10c0/3790121391201edf68285a120bd48625c4f878d03fcff76e9f3badca2902c093dbae56032bc0d0bc82427682c66274ade283eafc537946a6e783943f0d6272d9
   languageName: node
   linkType: hard
 
