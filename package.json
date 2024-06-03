@@ -13,13 +13,13 @@
         "develop": "gatsby develop",
         "lint:eslint": "eslint",
         "lint:format": "prettier -c .",
-        "lint": "npm run lint:eslint && npm run lint:format",
+        "lint": "run lint:eslint && run lint:format",
         "fix:eslint": "eslint --fix",
         "fix:format": "prettier --write .",
-        "fix": "npm run fix:eslint && npm run fix:format",
-        "start": "npm run develop",
+        "fix": "run fix:eslint && run fix:format",
+        "start": "run develop",
         "serve": "gatsby serve",
-        "test": "npm run lint",
+        "test": "run lint",
         "update:renovatejson": "./scripts/update-renovatejson.nu"
     },
     "dependencies": {

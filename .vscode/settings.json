@@ -12,7 +12,6 @@
     "editor.formatOnType": false,
     "editor.tabSize": 4,
     "editor.wordWrap": "on",
-    "eslint.packageManager": "yarn",
     "eslint.validate": ["javascript", "typescript", "typescriptreact"],
     "files.associations": {
         ".prettierignore": "ignore"
