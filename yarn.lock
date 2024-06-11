@@ -1619,27 +1619,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codecov/bundler-plugin-core@npm:^0.0.1-beta.8":
-  version: 0.0.1-beta.8
-  resolution: "@codecov/bundler-plugin-core@npm:0.0.1-beta.8"
+"@codecov/bundler-plugin-core@npm:^0.0.1-beta.9":
+  version: 0.0.1-beta.9
+  resolution: "@codecov/bundler-plugin-core@npm:0.0.1-beta.9"
   dependencies:
     chalk: "npm:4.1.2"
     semver: "npm:^7.5.4"
     unplugin: "npm:^1.10.1"
     zod: "npm:^3.22.4"
-  checksum: 10c0/a0f01dc9265a1503494873763908179e4b0bc9eb72f67372252ea0550f1e35412bbe8864818f958f451d3fe3df36b5cbbd740f309f5cf414a4e22df960a39bf8
+  checksum: 10c0/e8198f20ecd5419dde5d414b5e2951e001f25329381e7020fe062587cba859372940a8f86c390c1c3cc0945d20ef3fdff8dbf3b557ef1f845504c17ef3afa9ac
   languageName: node
   linkType: hard
 
-"@codecov/webpack-plugin@npm:0.0.1-beta.8":
-  version: 0.0.1-beta.8
-  resolution: "@codecov/webpack-plugin@npm:0.0.1-beta.8"
+"@codecov/webpack-plugin@npm:0.0.1-beta.9":
+  version: 0.0.1-beta.9
+  resolution: "@codecov/webpack-plugin@npm:0.0.1-beta.9"
   dependencies:
-    "@codecov/bundler-plugin-core": "npm:^0.0.1-beta.8"
+    "@codecov/bundler-plugin-core": "npm:^0.0.1-beta.9"
     unplugin: "npm:^1.10.1"
   peerDependencies:
     webpack: 5.x
-  checksum: 10c0/016286745311b11ae7470ae576733a4558329e6a9184165d86f36dc8b2c7c8d2869056e99b9552a504108ec2fbbcce623e4b92403ecdf2c83be2a6b9121d8a3a
+  checksum: 10c0/f67546e83d20d17f798e82bcdbead50efa886d74949346a96e53201228006545b30eb61f43d4ba73b6bc6deeb8001678bc2e4423d51c53ff46bb4d35d6eab0b3
   languageName: node
   linkType: hard
 
@@ -1784,7 +1784,7 @@ __metadata:
   resolution: "@frantic1048/restia@workspace:."
   dependencies:
     "@babel/core": "npm:7.24.7"
-    "@codecov/webpack-plugin": "npm:0.0.1-beta.8"
+    "@codecov/webpack-plugin": "npm:0.0.1-beta.9"
     "@eslint/js": "npm:9.4.0"
     "@playwright/test": "npm:1.44.1"
     "@types/babel__core": "npm:7.20.5"
