@@ -103,7 +103,11 @@ export const onInitialClientRender = () => {
 ~~哈哈哈哈呼呼成功把几行破事水一篇了~~
 
 [^1]: Typestyle SSR 文档： https://typestyle.github.io/#/server
+
 [^2]: onPreRenderHTML API：https://www.gatsbyjs.org/docs/ssr-apis/#onPreRenderHTML
+
 [^3]: onClientEntry API：https://www.gatsbyjs.org/docs/browser-apis/#onClientEntry
+
 [^4]: Typestyle 的 setStylesTarget 实现：https://github.com/typestyle/typestyle/blob/f8cd6a01ab005efc638937615b87cbe9e562c8dd/src/internal/typestyle.ts#L195
+
 [^5]: onInitialClientRender API：https://www.gatsbyjs.org/docs/browser-apis/#onInitialClientRender
