@@ -7,7 +7,7 @@
     "engines": {
         "node": "20.15.0"
     },
-    "packageManager": "yarn@4.3.0",
+    "packageManager": "yarn@4.3.1",
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
