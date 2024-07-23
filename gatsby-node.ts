@@ -45,6 +45,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
             allMarkdownRemark {
                 edges {
                     node {
+                        frontmatter {
+                            isDraft
+                        }
                         fields {
                             slug
                         }
@@ -54,7 +57,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         }
     `)
 
-    const posts = result.data?.allMarkdownRemark.edges ?? []
+    const posts = (result.data?.allMarkdownRemark.edges ?? []).filter(
+        // show draft posts only in development
+        (post) => process.env.NODE_ENV === 'development' || !post.node.frontmatter?.isDraft,
+    )
+
     const pageSize = 9
     const numPages = Math.ceil(posts.length / pageSize)
     Array.from({ length: numPages }).forEach((_, pageIndex) => {
