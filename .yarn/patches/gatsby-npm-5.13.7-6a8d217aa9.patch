@@ -1,0 +1,12 @@
+diff --git a/index.d.ts b/index.d.ts
+index 6b7af9f0a86b0b57b7c1bf4780f5a53ad14d1985..c08527456094079259756233659d433567580da0 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -950,6 +950,7 @@ export type PluginCallback<R = any> = (err: Error | null, result?: R) => void
+ 
+ export interface CreatePagesArgs extends ParentSpanPluginArgs {
+   graphql<TData, TVariables = any>(
++    this: void,
+     query: string,
+     variables?: TVariables
+   ): Promise<{
