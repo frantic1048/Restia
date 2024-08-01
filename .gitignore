@@ -8,7 +8,8 @@ yarn-error.log
 .pnp/
 .pnp.js
 .yarn-integrity
-/.yarn
+/.yarn/*
+!/.yarn/patches
 # npm
 /package-lock.json
 
