@@ -64,7 +64,7 @@
         "babel-preset-gatsby": "3.13.2",
         "commitizen": "4.3.0",
         "concurrently": "8.2.2",
-        "core-js": "3.37.1",
+        "core-js": "3.38.0",
         "cz-customizable": "7.0.0",
         "eslint": "9.9.0",
         "eslint-plugin-simple-import-sort": "12.1.1",
