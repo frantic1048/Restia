@@ -1624,7 +1624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codecov/bundler-plugin-core@npm:^0.0.1-beta.10":
+"@codecov/bundler-plugin-core@npm:^0.0.1-beta.12":
   version: 0.0.1-beta.12
   resolution: "@codecov/bundler-plugin-core@npm:0.0.1-beta.12"
   dependencies:
@@ -1636,15 +1636,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codecov/webpack-plugin@npm:0.0.1-beta.10":
-  version: 0.0.1-beta.10
-  resolution: "@codecov/webpack-plugin@npm:0.0.1-beta.10"
+"@codecov/webpack-plugin@npm:0.0.1-beta.12":
+  version: 0.0.1-beta.12
+  resolution: "@codecov/webpack-plugin@npm:0.0.1-beta.12"
   dependencies:
-    "@codecov/bundler-plugin-core": "npm:^0.0.1-beta.10"
+    "@codecov/bundler-plugin-core": "npm:^0.0.1-beta.12"
     unplugin: "npm:^1.10.1"
   peerDependencies:
     webpack: 5.x
-  checksum: 10c0/852f8a1eed84282dfbf86ca69c8814bdcfda3967a6bff63acd79d3ceed6fa5a1423b13b999f5a03b467fc3f905656ffee6268ab51e2844783aeaf90828c77781
+  checksum: 10c0/249ecbfb1a7820ef1acc622d9f132b96f0b250c43e0267dbd9de85fda610d09997a319ba1b1692b7d7a5f6191a78a89a8a48aa72453751a4f30be3fd94dbeaa9
   languageName: node
   linkType: hard
 
@@ -1789,7 +1789,7 @@ __metadata:
   resolution: "@frantic1048/restia@workspace:."
   dependencies:
     "@babel/core": "npm:7.24.9"
-    "@codecov/webpack-plugin": "npm:0.0.1-beta.10"
+    "@codecov/webpack-plugin": "npm:0.0.1-beta.12"
     "@eslint/js": "npm:9.9.1"
     "@playwright/test": "npm:1.46.1"
     "@types/babel__core": "npm:7.20.5"
