@@ -9,34 +9,41 @@
         ":semanticCommitType(chore)",
         ":semanticCommitScope(deps)"
     ],
-    "postUpdateOptions": ["yarnDedupeHighest"],
-    "reviewers": ["frantic1048"],
+    "postUpdateOptions": [
+        "yarnDedupeHighest"
+    ],
+    "reviewers": [
+        "frantic1048"
+    ],
     "packageRules": [
         {
             "groupName": "linters and formatters",
             "automerge": true,
-            "matchPackagePatterns": [
-                "^eslint$",
-                "^@types/eslint$",
-                "^@eslint/",
-                "^@types/eslint__js$",
-                "^typescript-eslint$",
-                "^eslint-plugin-",
-                "^prettier$"
+            "matchPackageNames": [
+                "/^eslint$/",
+                "/^@types/eslint$/",
+                "/^@eslint//",
+                "/^@types/eslint__js$/",
+                "/^typescript-eslint$/",
+                "/^eslint-plugin-/",
+                "/^prettier$/"
             ]
         },
         {
             "groupName": "commitizen",
-            "matchPackageNames": ["commitizen", "cz-customizable"]
+            "matchPackageNames": [
+                "commitizen",
+                "cz-customizable"
+            ]
         },
         {
             "groupName": "gatsby",
-            "matchPackagePatterns": [
-                "^gatsby$",
-                "^gatsby-plugin-",
-                "^gatsby-source-",
-                "^gatsby-transformer-",
-                "^gatsby-remark-"
+            "matchPackageNames": [
+                "/^gatsby$/",
+                "/^gatsby-plugin-/",
+                "/^gatsby-source-/",
+                "/^gatsby-transformer-/",
+                "/^gatsby-remark-/"
             ]
         }
     ]
