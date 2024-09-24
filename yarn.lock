@@ -1819,7 +1819,7 @@ __metadata:
     concurrently: "npm:8.2.2"
     core-js: "npm:3.38.1"
     csx: "npm:10.0.2"
-    cz-customizable: "npm:7.0.0"
+    cz-customizable: "npm:7.2.1"
     disqus-react: "npm:1.1.5"
     eslint: "npm:9.11.1"
     eslint-plugin-simple-import-sort: "npm:12.1.1"
@@ -6353,9 +6353,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cz-customizable@npm:7.0.0":
-  version: 7.0.0
-  resolution: "cz-customizable@npm:7.0.0"
+"cz-customizable@npm:7.2.1":
+  version: 7.2.1
+  resolution: "cz-customizable@npm:7.2.1"
   dependencies:
     editor: "npm:1.0.0"
     find-config: "npm:^1.0.0"
@@ -6366,7 +6366,7 @@ __metadata:
   bin:
     cz-cust: standalone.js
     cz-customizable: standalone.js
-  checksum: 10c0/3cd283200ca71f9e53faf41cbf3aaf097e50298c86ca33dcf439590bc497e8b19beca0b00db2c53a952158c959f24ee5fe3f9315a449dc5de3152ba05fd0e33c
+  checksum: 10c0/9ebd741812ca10e4eeb57d1ce27bd282350f064a909f2cdff9b4df44a84a63dab11fda79693a0857eca2938db9511d642475beebc29a4bdee373fab862a6f47b
   languageName: node
   linkType: hard
 
