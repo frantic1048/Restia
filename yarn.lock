@@ -1815,7 +1815,7 @@ __metadata:
     "@types/react-dom": "npm:18.3.0"
     "@types/react-helmet": "npm:6.1.11"
     babel-preset-gatsby: "npm:3.13.2"
-    commitizen: "npm:4.3.0"
+    commitizen: "npm:4.3.1"
     concurrently: "npm:8.2.2"
     core-js: "npm:3.38.1"
     csx: "npm:10.0.2"
@@ -5740,9 +5740,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:4.3.0, commitizen@npm:^4.0.3":
-  version: 4.3.0
-  resolution: "commitizen@npm:4.3.0"
+"commitizen@npm:4.3.1, commitizen@npm:^4.0.3":
+  version: 4.3.1
+  resolution: "commitizen@npm:4.3.1"
   dependencies:
     cachedir: "npm:2.3.0"
     cz-conventional-changelog: "npm:3.3.0"
@@ -5762,7 +5762,7 @@ __metadata:
     commitizen: bin/commitizen
     cz: bin/git-cz
     git-cz: bin/git-cz
-  checksum: 10c0/889d2d28e3029e397a77ee05f123eab92148fa2880f904f973307a5156cb991e7361ff1e32ccf9608895672dced84a3038a9cafa7e687fbcaf4b2df1e4ae3142
+  checksum: 10c0/3422c6f8b24075a650582f3939def379954714d3fc613dd60a927923f52b93742a196346f0669b63adf367e40127c0e481573ab1aa6cb8b96a06dfc903e923ab
   languageName: node
   linkType: hard
 
