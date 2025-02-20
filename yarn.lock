@@ -1700,7 +1700,7 @@ __metadata:
     core-js: "npm:3.38.1"
     csx: "npm:10.0.2"
     cz-customizable: "npm:7.0.0"
-    disqus-react: "npm:1.1.5"
+    disqus-react: "npm:1.1.6"
     eslint: "npm:9.11.1"
     eslint-plugin-simple-import-sort: "npm:12.1.1"
     gatsby: "patch:gatsby@npm%3A5.13.7#~/.yarn/patches/gatsby-npm-5.13.7-6a8d217aa9.patch"
@@ -6574,13 +6574,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"disqus-react@npm:1.1.5":
-  version: 1.1.5
-  resolution: "disqus-react@npm:1.1.5"
+"disqus-react@npm:1.1.6":
+  version: 1.1.6
+  resolution: "disqus-react@npm:1.1.6"
   peerDependencies:
-    react: ^15.6.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^15.6.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/129fce2d9d5f23f31bebe7083d70e3d89f239bacbed46dbfe24385790e6ceffc2480c129f69b72c823e63e86511ab08304d55e84a0699af758afefd363ab7211
+    react: ^15.6.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^15.6.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/09c68fb97db554828b71d3789a782be5230d04357a354d856f91c4b80556275a403b16602485d33455ff0ca297ccef4cb9d86c81c3e5bcab707e45beca12a6d4
   languageName: node
   linkType: hard
 
