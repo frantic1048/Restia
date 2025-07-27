@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "csx": "10.0.2",
-        "disqus-react": "1.1.6",
+        "disqus-react": "1.1.7",
         "gatsby": "patch:gatsby@npm%3A5.13.7#~/.yarn/patches/gatsby-npm-5.13.7-6a8d217aa9.patch",
         "gatsby-plugin-catch-links": "5.13.1",
         "gatsby-plugin-feed": "5.13.1",
