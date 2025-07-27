@@ -1751,7 +1751,7 @@ __metadata:
     babel-preset-gatsby: "npm:3.14.0"
     commitizen: "npm:4.3.1"
     concurrently: "npm:9.2.0"
-    core-js: "npm:3.38.1"
+    core-js: "npm:3.44.0"
     csx: "npm:10.0.2"
     cz-customizable: "npm:7.0.0"
     disqus-react: "npm:1.1.6"
@@ -6086,10 +6086,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:3.38.1, core-js@npm:^3.31.0":
-  version: 3.38.1
-  resolution: "core-js@npm:3.38.1"
-  checksum: 10c0/7df063b6f13a54e46515817ac3e235c6c598a4d3de65cd188a061fc250642be313b895fb9fb2f36e1e31890a1bb4ef61d82666a340413f540b7ce3c65689739b
+"core-js@npm:3.44.0, core-js@npm:^3.31.0":
+  version: 3.44.0
+  resolution: "core-js@npm:3.44.0"
+  checksum: 10c0/759bf3dc5f75068e9425dddf895fd5531c38794a11ea1c2b65e5ef7c527fe3652d59e8c287e574a211af9bab3c057c5c3fa6f6a773f4e142af895106efad38a4
   languageName: node
   linkType: hard
 
