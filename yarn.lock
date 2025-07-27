@@ -1741,7 +1741,7 @@ __metadata:
     "@babel/core": "npm:7.28.0"
     "@codecov/webpack-plugin": "npm:1.9.1"
     "@eslint/js": "npm:9.32.0"
-    "@playwright/test": "npm:1.46.1"
+    "@playwright/test": "npm:1.54.1"
     "@types/babel__core": "npm:7.20.5"
     "@types/eslint": "npm:9.6.1"
     "@types/eslint__js": "npm:8.42.3"
@@ -3076,14 +3076,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.46.1":
-  version: 1.46.1
-  resolution: "@playwright/test@npm:1.46.1"
+"@playwright/test@npm:1.54.1":
+  version: 1.54.1
+  resolution: "@playwright/test@npm:1.54.1"
   dependencies:
-    playwright: "npm:1.46.1"
+    playwright: "npm:1.54.1"
   bin:
     playwright: cli.js
-  checksum: 10c0/b2d33f33bedfa5a5c72cfc5ee212dfbf531d9c46320b0af901e71ab61b96845e43cc636181b33b3faae27f2f87ce2d44017ac65235bf9c95209f476477b16f93
+  checksum: 10c0/1b414356bc1049927d7b9efc14d5b3bf000ef6483313926bb795b4f27fe3707e8e0acf0db59063a452bb4f7e34559758d17640401b6f3e2f5290f299a8d8d02f
   languageName: node
   linkType: hard
 
@@ -13717,27 +13717,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.46.1":
-  version: 1.46.1
-  resolution: "playwright-core@npm:1.46.1"
+"playwright-core@npm:1.54.1":
+  version: 1.54.1
+  resolution: "playwright-core@npm:1.54.1"
   bin:
     playwright-core: cli.js
-  checksum: 10c0/98e48e271caccaa6c54b3c591cbddbef36a679eef011b38e2af11fbaba0aab1f997b45f9207c4099468a0c79047a1e879bbd9e81bd880ae24501a0ee3c7a33c7
+  checksum: 10c0/b821262b024d7753b1bfa71eb2bc99f2dda12a869d175b2e1bc6ac2764bd661baf36d9d42f45caf622854ad7e4a6077b9b57014c74bb5a78fe339c9edf1c9019
   languageName: node
   linkType: hard
 
-"playwright@npm:1.46.1":
-  version: 1.46.1
-  resolution: "playwright@npm:1.46.1"
+"playwright@npm:1.54.1":
+  version: 1.54.1
+  resolution: "playwright@npm:1.54.1"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.46.1"
+    playwright-core: "npm:1.54.1"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10c0/2a328a2073313136192d74b48b981d9aeb1d4cc54926ed235f638c875f9de59c41370bb20bb2d8cf30126c52c6e25cc02db21ffafeb487c92c84c52c84846912
+  checksum: 10c0/c5fedae31a03a1f4c4846569aef3ffb98da23000a4d255abfc8c2ede15b43cc7cd87b80f6fa078666c030373de8103787cf77ef7653ae9458aabbbd4320c2599
   languageName: node
   linkType: hard
 
