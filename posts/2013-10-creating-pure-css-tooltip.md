@@ -33,10 +33,10 @@ HTML:
 
 接下来就是关键的 CSS 了,有这几个关键的地方：
 
--   一般情况下 tooltip 是不应该显示出来的，所以最简单的就是将它的透明度设置为 0（`opacity:0;`）。
--   对于 tooltip 的定位，在这个演示里面 tooltip 在其容器的正上方出现，为了给 tooltip 设置相对于容器的定位，将它的父元素设置为相对定位（`position:relative;`）。
--   在 tooltip 的父元素处于光标下的时候让 tooltip 显示出来，这个样式就通过父元素的`:hover`伪类派生来设定。
--   为了让 tooltip 的出现来得和谐点，给它加个`transition`。
+- 一般情况下 tooltip 是不应该显示出来的，所以最简单的就是将它的透明度设置为 0（`opacity:0;`）。
+- 对于 tooltip 的定位，在这个演示里面 tooltip 在其容器的正上方出现，为了给 tooltip 设置相对于容器的定位，将它的父元素设置为相对定位（`position:relative;`）。
+- 在 tooltip 的父元素处于光标下的时候让 tooltip 显示出来，这个样式就通过父元素的`:hover`伪类派生来设定。
+- 为了让 tooltip 的出现来得和谐点，给它加个`transition`。
 
 CSS:
 

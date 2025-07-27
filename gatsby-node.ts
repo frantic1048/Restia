@@ -8,6 +8,7 @@ import type { GatsbyNode } from 'gatsby'
 import { createFilePath } from 'gatsby-source-filesystem'
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ getConfig, actions }) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const config = getConfig()
 
     config.plugins = [

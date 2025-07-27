@@ -24,13 +24,13 @@ category: Translation
 
 ### 可选参数
 
--   `-h`,`--help` 显示帮助
--   `-l`, `--list` 显示已安装的主题
--   `-i theme_path` , `--install theme_path` 安装一个或多个主题
--   `-r theme_name` , `--remove theme_name` 卸载一个或多个主题
--   `-s theme_path` , `--symlink theme_path` 和 `–install` 一样都是安装,但是只创建一个符号链接，并不会复制主题目录，对主题开发很有用
--   `-v` , `--verbose` 显示详细输出信息
--   `--version` 显示版本
+- `-h`,`--help` 显示帮助
+- `-l`, `--list` 显示已安装的主题
+- `-i theme_path` , `--install theme_path` 安装一个或多个主题
+- `-r theme_name` , `--remove theme_name` 卸载一个或多个主题
+- `-s theme_path` , `--symlink theme_path` 和 `–install` 一样都是安装,但是只创建一个符号链接，并不会复制主题目录，对主题开发很有用
+- `-v` , `--verbose` 显示详细输出信息
+- `--version` 显示版本
 
 > 译者补充
 >
@@ -123,6 +123,6 @@ category: Translation
 
 ## 参见
 
--   [http://docs.notmyidea.org/alexis/pelican/](http://docs.notmyidea.org/alexis/pelican/)
--   `/usr/share/doc/pelican/` 如果你用 [APT repository](http://skami18.github.com/pelican-packages/) 安装了 Pelican
--   原版文档：[http://docs.getpelican.com/en/latest/pelican-themes.html](http://docs.getpelican.com/en/latest/pelican-themes.html 'pelican-themes documentation')
+- [http://docs.notmyidea.org/alexis/pelican/](http://docs.notmyidea.org/alexis/pelican/)
+- `/usr/share/doc/pelican/` 如果你用 [APT repository](http://skami18.github.com/pelican-packages/) 安装了 Pelican
+- 原版文档：[http://docs.getpelican.com/en/latest/pelican-themes.html](http://docs.getpelican.com/en/latest/pelican-themes.html 'pelican-themes documentation')

@@ -7,9 +7,9 @@ category: Tech
 
 适用情况：
 
--   搬运 windows 那边的字体到 Arch Linux
--   安装从网上下载的字体文件
--   其它需要手动安装字体文件的情况
+- 搬运 windows 那边的字体到 Arch Linux
+- 安装从网上下载的字体文件
+- 其它需要手动安装字体文件的情况
 
 Arch 的字体目录为`/usr/share/fonts`，安装字体时建议在这里建立单独的文件夹来存放手动安装的字体(比如这里建立了一个 winfont 文件夹)
 

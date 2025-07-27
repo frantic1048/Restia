@@ -9,21 +9,21 @@ category: Web
 
 此次目的是建立一个只提供 API 的服务器，所以前端什么的就不用管了，直接上 Node.js 搞。关于各项工具的进一步使用，建议顺着下面的链接查阅对应文档，总览如下：
 
--   服务器：[Express][express]@4.12.3
--   数据库：[MongoDB][mongodb]@3.0.7
--   测试框架：[Jasmine][jasmine]@2.3.2
--   API 测试工具：[hippie][hippie]@0.4.0
--   测试覆盖率报告：[Istanbul][istanbul]@0.3.22
--   工作流：[Gulp][gulp]@3.9.0
--   版本管理：[git][git]@2.6.1（Github）
--   Lint：[eslint][eslint]@1.6.0
--   编译（[ES6][es6] -> ES5）：[Babel][babel]@5.8.25
--   源代码：
-    -   程序：JavaScript（ES6）
-    -   测试及其它：JavaScript（ES5）
--   在线平台：
-    -   [Code Climate][codeclimate]：覆盖率报告，静态分析
-    -   [Travis CI][travis-ci]：自动测试、报告
+- 服务器：[Express][express]@4.12.3
+- 数据库：[MongoDB][mongodb]@3.0.7
+- 测试框架：[Jasmine][jasmine]@2.3.2
+- API 测试工具：[hippie][hippie]@0.4.0
+- 测试覆盖率报告：[Istanbul][istanbul]@0.3.22
+- 工作流：[Gulp][gulp]@3.9.0
+- 版本管理：[git][git]@2.6.1（Github）
+- Lint：[eslint][eslint]@1.6.0
+- 编译（[ES6][es6] -> ES5）：[Babel][babel]@5.8.25
+- 源代码：
+    - 程序：JavaScript（ES6）
+    - 测试及其它：JavaScript（ES5）
+- 在线平台：
+    - [Code Climate][codeclimate]：覆盖率报告，静态分析
+    - [Travis CI][travis-ci]：自动测试、报告
 
 [express]: http://expressjs.com/
 [mongodb]: https://www.mongodb.org/

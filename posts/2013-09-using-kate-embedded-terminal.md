@@ -5,8 +5,8 @@ tags: [Linux, KDE, Kate]
 category: Tech
 ---
 
--   操作系统：Arch Linux 3.11.1-1
--   桌面环境：KDE 4.11.1
+- 操作系统：Arch Linux 3.11.1-1
+- 桌面环境：KDE 4.11.1
 
 ![][kate-no-terminal]
 

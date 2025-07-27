@@ -95,7 +95,7 @@ ghost = #(define-scheme-function
 
 # 参考
 
--   `midi-extra-velocity`: http://lilypond.org/doc/v2.22/Documentation/internals/music-properties
--   `make-articulation`: https://github.com/lilypond/lilypond/blob/92eceab070090ffa3eca29489733868b0c6d2d11/scm/music-functions.scm#L729-L741
--   LilyPond - Extending v2.22.2 - 2.2 Scheme functions: http://lilypond.org/doc/v2.22/Documentation/extending/scheme-functions
--   LilyPond — Notation Reference v2.23.12 - 5.4.7 Visibility of objects, Removing the stencil: https://lilypond.org/doc/v2.23/Documentation/notation/visibility-of-objects#removing-the-stencil
+- `midi-extra-velocity`: http://lilypond.org/doc/v2.22/Documentation/internals/music-properties
+- `make-articulation`: https://github.com/lilypond/lilypond/blob/92eceab070090ffa3eca29489733868b0c6d2d11/scm/music-functions.scm#L729-L741
+- LilyPond - Extending v2.22.2 - 2.2 Scheme functions: http://lilypond.org/doc/v2.22/Documentation/extending/scheme-functions
+- LilyPond — Notation Reference v2.23.12 - 5.4.7 Visibility of objects, Removing the stencil: https://lilypond.org/doc/v2.23/Documentation/notation/visibility-of-objects#removing-the-stencil

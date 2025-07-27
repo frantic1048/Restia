@@ -9,10 +9,10 @@ category: Web
 
 测试环境是 Karma/Jasmine 的组合，尝试了如下几种工具/方法：
 
--   [jasmine-ajax][]：对 Jasmine 来说是最原生的工具了，写起来略繁，且[尚未支持 fetch][support_window.fetch_jasmine-ajax]。
--   [sinon][sinonjs].fakeServer：写起来很简洁，然而[尚未支持 fetch][fakefetch_sinonjs]。
--   [fakeserver][]：依赖的 sinon 导致 Karma 的 webpack 预处理器爆炸。
--   [fake-fetch][]：太久没更新依赖，挂了……
+- [jasmine-ajax][]：对 Jasmine 来说是最原生的工具了，写起来略繁，且[尚未支持 fetch][support_window.fetch_jasmine-ajax]。
+- [sinon][sinonjs].fakeServer：写起来很简洁，然而[尚未支持 fetch][fakefetch_sinonjs]。
+- [fakeserver][]：依赖的 sinon 导致 Karma 的 webpack 预处理器爆炸。
+- [fake-fetch][]：太久没更新依赖，挂了……
 
 当然，不能因为这点问题就放弃治疗 ~(>\_<~)，后来翻到 RJ Zaworski 的[Testing API requests from window.fetch][test fetch with sinon.stub] 这篇文章，直接用 sinon.stub 来吃掉 window.fetch，还是蛮好用的。RJ Zaworski 已经介绍了最小化的测试写法，下面就搭着 Redux 一起上啦。
 
