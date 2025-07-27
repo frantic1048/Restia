@@ -27,10 +27,10 @@ category: Tech
 
 操作的环境是 Arch Linux，除了基本的 `git`，`make` 之类的基本构建工具之外需要这些包：
 
--   aur/dfu-programmer
--   dfu-util
--   avr-gcc
--   avr-libc
+- aur/dfu-programmer
+- dfu-util
+- avr-gcc
+- avr-libc
 
 然后直接拖 QMK 的源码，因为仓库包含 submodule，所以带上 `--recurse-submodules` 参数来把 submodule 也全都拉下来：
 
@@ -119,12 +119,12 @@ http://www.keyboard-layout-editor.com/#/gists/88f938ed5626072761284364e5bae4de
 
 # 参考
 
--   [qmk_firmware/keyboards/org60 at master][]
--   [Install Build Tools - QMK Firmware][]
--   [Build/Compile instructions - QMK Firmware][]
--   [Keymap overview - QMK Firmware][]
--   [org60/boardy/keymap.c][]
--   [Custom Functions - QMK Firmware][]
+- [qmk_firmware/keyboards/org60 at master][]
+- [Install Build Tools - QMK Firmware][]
+- [Build/Compile instructions - QMK Firmware][]
+- [Keymap overview - QMK Firmware][]
+- [org60/boardy/keymap.c][]
+- [Custom Functions - QMK Firmware][]
 
 [qmk_firmware/keyboards/org60 at master]: https://github.com/qmk/qmk_firmware/tree/master/keyboards/org60
 [install build tools - qmk firmware]: https://docs.qmk.fm/getting_started_build_tools.html

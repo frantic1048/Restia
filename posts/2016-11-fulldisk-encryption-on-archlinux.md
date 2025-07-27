@@ -7,18 +7,18 @@ category: Linux
 
 近来组装好了一个新的小电脑，于是终于可以放心对之前的小本本做各种想做不敢做的大改动了。于是我就：
 
--   分区表和引导方式从 MBR/Legacy 换到了 GPT/UEFI。
--   文件系统从 ext4 换到了跨设备的 btrfs。
--   启用了 btrfs on LUKS 的全盘加密。
+- 分区表和引导方式从 MBR/Legacy 换到了 GPT/UEFI。
+- 文件系统从 ext4 换到了跨设备的 btrfs。
+- 启用了 btrfs on LUKS 的全盘加密。
 
 当然，所有个过程里面是不包括装新系统的，前后的系统还是一模一样的系统～
 
 总体流程如下：
 
--   备份系统
--   创建新分区表和文件系统
--   还原系统
--   配置启动与引导程序
+- 备份系统
+- 创建新分区表和文件系统
+- 还原系统
+- 配置启动与引导程序
 
 最后的本本两块硬盘的存储结构是这样：
 
@@ -225,12 +225,12 @@ genfstab /mnt >> /mnt/etc/fstab
 
 # 参考
 
--   [FS#23182 - Multiple device support for encrypt hook][]
--   [dm-crypt/Encrypting an entire system - ArchWiki][]
--   [Migrate installation to new hardware - ArchWiki][]
--   [dm-crypt/Drive preparation - ArchWiki][]
--   [dm-crypt/Device encryption - ArchWiki#Encryption options for LUKS mode][]
--   [dm-crypt/System configuration - ArchWiki#crypttab][]
+- [FS#23182 - Multiple device support for encrypt hook][]
+- [dm-crypt/Encrypting an entire system - ArchWiki][]
+- [Migrate installation to new hardware - ArchWiki][]
+- [dm-crypt/Drive preparation - ArchWiki][]
+- [dm-crypt/Device encryption - ArchWiki#Encryption options for LUKS mode][]
+- [dm-crypt/System configuration - ArchWiki#crypttab][]
 
 [fs#23182 - multiple device support for encrypt hook]: https://bugs.archlinux.org/task/23182
 [dm-crypt/encrypting an entire system - archwiki]: https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system

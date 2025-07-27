@@ -33,8 +33,8 @@ Pelican 使用著名的 [Jinja2][] 模板引擎来生成它的 HTML 输出。Jin
         ├── tag.html  // 用来处理每个标签
         └── tags.html // 必须列出所有标签，可以是标签云
 
--   *static*包含了所有的静态文件，最后会被复制到输出中的*theme*目录下。我把 CSS 和 image 目录放在了这里，不过这只是举例，把你需要的东西放在这里。
--   _templates_ 包含了所有被用来生成页面的模板。我只在这里存放了必需的模板，你可以自己定义对你来说有用的模板。
+- *static*包含了所有的静态文件，最后会被复制到输出中的*theme*目录下。我把 CSS 和 image 目录放在了这里，不过这只是举例，把你需要的东西放在这里。
+- _templates_ 包含了所有被用来生成页面的模板。我只在这里存放了必需的模板，你可以自己定义对你来说有用的模板。
 
 ## 模板与变量
 
@@ -160,16 +160,16 @@ Pelican 依据你的设置和区域(`DATE_FORMATS`/`DEFAULT_DATE_FORMAT`)来提�
 
 feed 变量在 3.0 版本(译者注：指 Pelican，下同)中有所改变，现在每个变量在名字中显式列出是 ATOM 还是 RSS。ATOM 依然是默认的。旧主题可能因此需要更新。下面是所有的 feed 变量
 
--   FEED_ATOM
--   FEED_RSS
--   FEED_ALL_ATOM
--   FEED_ALL_RSS
--   CATEGORY_FEED_ATOM
--   CATEGORY_FEED_RSS
--   TAG_FEED_ATOM
--   TAG_FEED_RSS
--   TRANSLATION_FEED_ATOM
--   TRANSLATION_FEED_RSS
+- FEED_ATOM
+- FEED_RSS
+- FEED_ALL_ATOM
+- FEED_ALL_RSS
+- CATEGORY_FEED_ATOM
+- CATEGORY_FEED_RSS
+- TAG_FEED_ATOM
+- TAG_FEED_RSS
+- TRANSLATION_FEED_ATOM
+- TRANSLATION_FEED_RSS
 
 ## 继承
 

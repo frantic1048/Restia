@@ -15,27 +15,27 @@ category: Tech
 
 #解决步骤
 
--   用写过 ArchLinux 镜像的 U 盘启动，进入 64 位的 Live 系统（我的系统是 64 位的）
--   挂载本本上的分区，_一定要先挂载根目录_
+- 用写过 ArchLinux 镜像的 U 盘启动，进入 64 位的 Live 系统（我的系统是 64 位的）
+- 挂载本本上的分区，_一定要先挂载根目录_
 
-          mount /dev/sdb1 /mnt
-          mount /dev/sda3 /mnt/home
-          mount /dev/sda2 /mnt/var
+    mount /dev/sdb1 /mnt
+    mount /dev/sda3 /mnt/home
+    mount /dev/sda2 /mnt/var
 
--   把根目录切换到本本上的根目录
+- 把根目录切换到本本上的根目录
 
-          arch-chroot /mnt
+    arch-chroot /mnt
 
--   接下来就是 grub 的操作了，直接安装 grub 即可。_一定要安装到/sda，也就是硬盘前面的那个分区_，安装到/sdb 里面的引导程序不会被 BIOS 识别出来，_混合硬盘在 BIOS 里面只被识别为一个硬盘_，并不是像在系统里面看到一样是两个，尽管实际上是两个，个人猜想应该是因为硬盘与主板连接的时候只占了一个插槽的原因吧。
+- 接下来就是 grub 的操作了，直接安装 grub 即可。_一定要安装到/sda，也就是硬盘前面的那个分区_，安装到/sdb 里面的引导程序不会被 BIOS 识别出来，_混合硬盘在 BIOS 里面只被识别为一个硬盘_，并不是像在系统里面看到一样是两个，尽管实际上是两个，个人猜想应该是因为硬盘与主板连接的时候只占了一个插槽的原因吧。
 
-          grub-install --target=i386-pc --recheck /dev/sda
-          grub-mkconfig -o /boot/grub/grub.cfg
+    grub-install --target=i386-pc --recheck /dev/sda
+    grub-mkconfig -o /boot/grub/grub.cfg
 
--   至此，引导程序修复完成，回到正常根目录，卸载所有分区，重启就好咯～
+- 至此，引导程序修复完成，回到正常根目录，卸载所有分区，重启就好咯～
 
-          exit
-          umount -R /mnt
-          reboot
+    exit
+    umount -R /mnt
+    reboot
 
 #心得
 

@@ -11,15 +11,15 @@ category: Misc
 
 我是直接把 wiki 里面提到的工具都给安装了，这里给个列表，直接用 pacman 安装即可。
 
--   shntool （用于分割音频文件）
--   bchunk （iso/bin 文件支持）
--   mac （APE 编解码器）
--   flac （flac 编码器）
--   wavpack （wav 支持）
--   lame （MP3 编码器）
--   mp3info （MP3 ID3 1.x 标签支持）
--   vorbis-tools （Ogg 的额外工具）
--   cuetools (cue,toc 文件解析)
+- shntool （用于分割音频文件）
+- bchunk （iso/bin 文件支持）
+- mac （APE 编解码器）
+- flac （flac 编码器）
+- wavpack （wav 支持）
+- lame （MP3 编码器）
+- mp3info （MP3 ID3 1.x 标签支持）
+- vorbis-tools （Ogg 的额外工具）
+- cuetools (cue,toc 文件解析)
 
 #开始分轨
 

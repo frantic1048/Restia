@@ -11,13 +11,13 @@ category: Tech
 
 总览：
 
--   源代码：100% ES6
--   构建控制：Gulp
--   模块绑定：Webpack
--   架构：[Flux]（Facebook 的实现）
--   界面库：[React]
--   界面组件库：[Material UI]
--   测试：人形自走测试框架
+- 源代码：100% ES6
+- 构建控制：Gulp
+- 模块绑定：Webpack
+- 架构：[Flux]（Facebook 的实现）
+- 界面库：[React]
+- 界面组件库：[Material UI]
+- 测试：人形自走测试框架
 
 # 读取和存放图片数据
 

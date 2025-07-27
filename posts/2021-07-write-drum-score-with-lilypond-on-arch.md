@@ -11,9 +11,9 @@ cover: ../static/photo/drums/_DSC0838.jpg
 
 作为听说读写学习的一部分，同时也是为了能理解和学感兴趣的歌，以及基本的交流需要，记谱是必要的一环。为了在电脑(Arch Linux)上记谱，需要能满足这些预期的软件：
 
--   能输出常见的五线谱格式的鼓谱，pdf 或者任意矢量图片格式都行
--   能打一些简单文字标注
--   能听个响，生成任意音频文件
+- 能输出常见的五线谱格式的鼓谱，pdf 或者任意矢量图片格式都行
+- 能打一些简单文字标注
+- 能听个响，生成任意音频文件
 
 经过一波大浪淘沙，得到如下两个选择：
 
@@ -37,10 +37,10 @@ cover: ../static/photo/drums/_DSC0838.jpg
 
 总结自己学过的谱、各个地方看到的谱、以及随手找到的一些各方对鼓谱记法的描述：
 
--   [MuseScore - Drum notation: Percussion staff types](https://musescore.org/en/handbook/3/drum-notation#staff-types)
--   [Mike Rolish - Guide To Drum & Percussion Notation](https://web.mit.edu/merolish/Public/drums.pdf)
--   [Adam Holmes - on drum set notation](https://adamholmesmusic.com/blog-on-drum-set-notation/)
--   [Drum Notation Guide – Drum Key](https://www.onlinedrummer.com/drum-key/)
+- [MuseScore - Drum notation: Percussion staff types](https://musescore.org/en/handbook/3/drum-notation#staff-types)
+- [Mike Rolish - Guide To Drum & Percussion Notation](https://web.mit.edu/merolish/Public/drums.pdf)
+- [Adam Holmes - on drum set notation](https://adamholmesmusic.com/blog-on-drum-set-notation/)
+- [Drum Notation Guide – Drum Key](https://www.onlinedrummer.com/drum-key/)
 
 符合我的预期的「常见的谱」是把用手和用脚（主要是底鼓和踩踩镲）的部分用两个声部（Voice）记录了，用[符杆](<https://en.wikipedia.org/wiki/Stem_(music)> 'Stem(music)')朝上的音符记录手打的部分，用符杆朝下的音符表示脚打的，这个记录方式在 MuseScore 和 LilyPond 的功能上来说，都是对应的记录多个声部的功能。
 
@@ -80,10 +80,10 @@ Arch Linux 官方软件仓库（官方仓库）里就有打好的 [musescore](ht
 
 安装下列软件包：
 
--   [lilypond](https://archlinux.org/packages/community/x86_64/lilypond/)
--   [timidity++](https://archlinux.org/packages/community/x86_64/timidity++/)
--   [soundfont-fluid](https://archlinux.org/packages/community/any/soundfont-fluid/)
--   [frescobaldi](https://archlinux.org/packages/community/any/frescobaldi/)
+- [lilypond](https://archlinux.org/packages/community/x86_64/lilypond/)
+- [timidity++](https://archlinux.org/packages/community/x86_64/timidity++/)
+- [soundfont-fluid](https://archlinux.org/packages/community/any/soundfont-fluid/)
+- [frescobaldi](https://archlinux.org/packages/community/any/frescobaldi/)
 
 ### 要装什么
 
@@ -91,8 +91,8 @@ LilyPond 是一个排版乐谱的软件，有了它就可以按照 LilyPond 的�
 
 LilyPond 不能输出能听个响的音频文件，但是它能将乐谱输出成 [MIDI](https://en.wikipedia.org/wiki/MIDI) 格式的音乐。MIDI 记录的是什么时间什么乐器响了这样的事情，没有记录声音，有点像乐谱，用了脑子才能理解，理解了也只能在脑子里响。虽说不能直接聆听，但是 MIDI 格式的音乐可以用 MIDI 合成器（可以是软件或者硬件，后面的提到的都是指软件形式的合成器）将其记录的内容「转化」成能听到的声音，这有点像是让程序来演奏一个乐谱，这里有个问题是程序并不知道什么乐器是怎样的声音，所以 MIDI 合成器在工作之前，还需要知道需要用到的乐器的声音，这就是与 MIDI 合成器一起工作的 [SoundFont](https://en.wikipedia.org/wiki/SoundFont) 提供的信息，它可以看成是程序要「演奏」 MIDI 时候用的乐器。乐谱（MIDI）只是指定了乐器种类，最后演奏出来的声音会随着演奏的人（MIDI 合成器）和乐器（SoundFont）的变化而出现差异，这里我只是想要预览一下 LilyPond 的乐谱，对音质和仿真程度都没有特别要求，搜寻一番 Arch Linux 官方仓库找到的一组选择是：
 
--   MIDI 合成器：[Timidity++](http://timidity.sourceforge.net/)，对应仓库里的 `timidity++` 包
--   SoundFont：[FluidR3](http://www.hammersound.net/)，对应仓库里的 `soundfont-fluid` 包
+- MIDI 合成器：[Timidity++](http://timidity.sourceforge.net/)，对应仓库里的 `timidity++` 包
+- SoundFont：[FluidR3](http://www.hammersound.net/)，对应仓库里的 `soundfont-fluid` 包
 
 由于 LilyPond 是基于纯文本的乐谱格式，和写程序一样，要是有个语法高亮是再好不过的，如果能再随时看到刚刚编辑的输出那就更好了，搜寻一番之后找到的现成的程序是 [Frescobaldi](https://www.frescobaldi.org/)，可以通过仓库里的 `frescobaldi` 包安装。它有语法高亮，有实时预览，有一键播放，很够用了。只是作为文本编辑器，我目前最顺手的是 VSCode，理论上这套功能也能在 VSCode 上糊出来，获得更好的文本编辑体验，就差一位勇士去填这个坑了:p
 
@@ -159,9 +159,9 @@ lilypond -fsvg -dcrop simple-rhythm.ly
 
 会得到：
 
--   `simple-rhythm.cropped.svg`：根据实际音符所占位置尺寸而裁切出的 SVG 图片，[由 `-dcrop` 参数控制生成](http://lilypond.org/doc/v2.22/Documentation/usage/command_002dline-usage#advanced-command-line-options-for-lilypond)。
--   `simple-rhythm.svg`：A4 纸尺寸的 SVG 图片。
--   `simple-rhythm.midi`：MIDI 文件，由 [`simple-rhythm.ly` 里的 `\midi {}` 控制](https://lilypond.org/doc/v2.22/Documentation/notation/the-midi-block)。
+- `simple-rhythm.cropped.svg`：根据实际音符所占位置尺寸而裁切出的 SVG 图片，[由 `-dcrop` 参数控制生成](http://lilypond.org/doc/v2.22/Documentation/usage/command_002dline-usage#advanced-command-line-options-for-lilypond)。
+- `simple-rhythm.svg`：A4 纸尺寸的 SVG 图片。
+- `simple-rhythm.midi`：MIDI 文件，由 [`simple-rhythm.ly` 里的 `\midi {}` 控制](https://lilypond.org/doc/v2.22/Documentation/notation/the-midi-block)。
 
 接下来再使用 timidity 处理上一步得到的 MIDI 文件，以及通过 ffmpeg 转换音频格式，就可以得到方便传输的 m4a 格式的音频：
 
@@ -191,9 +191,9 @@ timidity simple-rhythm.midi  -Ow -o - | ffmpeg -i - simple-rhythm.m4a
 
 上面用到的剩下的音符分别是：
 
--   `bd`/`bassdrum`：底鼓
--   `sn`/`snare`：军鼓
--   `r`：休止符
+- `bd`/`bassdrum`：底鼓
+- `sn`/`snare`：军鼓
+- `r`：休止符
 
 知道音符含义之后，这个时候我们来看一下 `<<hh8 sn8>>`，这里面有两个不同的八分音符，然后回头听上面的动词大词，第三个和第七个八分音符的位置同时有踩镲和军鼓的声音，这个尖括号括起来就是表示里面的音符是在同一个时刻上的。
 

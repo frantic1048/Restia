@@ -53,9 +53,9 @@ category: Tech
 
 软件发布协议，如果是常见的 GPL 的话可以对照下面填写：
 
--   (L)GPL - (L)GPLv2 及更新版本。
--   (L)GPL2 - 仅 (L)GPL2
--   (L)GPL3 - (L)GPL3 及更新版本
+- (L)GPL - (L)GPLv2 及更新版本。
+- (L)GPL2 - 仅 (L)GPL2
+- (L)GPL3 - (L)GPL3 及更新版本
 
 ##depends
 
@@ -106,17 +106,17 @@ install -m=775 $pkgname "${pkgdir}/usr/bin"
 
 不该碰的目录：
 
--   /dev
--   /home
--   /srv
--   /media
--   /mnt
--   /proc
--   /root
--   /selinux
--   /sys
--   /tmp
--   /var/tmp
+- /dev
+- /home
+- /srv
+- /media
+- /mnt
+- /proc
+- /root
+- /selinux
+- /sys
+- /tmp
+- /var/tmp
 
 #构建/调试包
 
@@ -140,11 +140,11 @@ install -m=775 $pkgname "${pkgdir}/usr/bin"
 
 需要更详尽的内容以及更复杂的打包请参考以下。
 
--   [PKGBUILD(5) Manual Page]
--   [Creating packages - ArchWiki]
--   [Arch packaging standards - ArchWiki]
--   [Namcap - ArchWiki]
--   [VCS package guidelines - ArchWiki]
+- [PKGBUILD(5) Manual Page]
+- [Creating packages - ArchWiki]
+- [Arch packaging standards - ArchWiki]
+- [Namcap - ArchWiki]
+- [VCS package guidelines - ArchWiki]
 
 [pkgbuild(5) manual page]: https://www.archlinux.org/pacman/PKGBUILD.5.html
 [creating packages - archwiki]: https://wiki.archlinux.org/index.php/Creating_packages

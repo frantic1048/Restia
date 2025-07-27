@@ -7,15 +7,15 @@ category: Blog
 
 最近几天尝试在 Windows 上面使用 Pelican，刚开始也是直接想用 pip 安装，不料不少 pelican 依赖的包都没能下载。最后只好手动安装了这些没能自动装上的包。悲催的过程就不提了，就把需要手动安装的包列表记在这儿了：
 
--   [blinker][blinker]
--   [docutils][docutils]
--   [feedgenerator][feedgenerator]
--   [jinja2][jinja2]
--   [markdown][markdown]
--   [pygments][pygments]
--   [pytz][pytz]
--   [setuptools][setuptools]
--   [pelican][pelican]
+- [blinker][blinker]
+- [docutils][docutils]
+- [feedgenerator][feedgenerator]
+- [jinja2][jinja2]
+- [markdown][markdown]
+- [pygments][pygments]
+- [pytz][pytz]
+- [setuptools][setuptools]
+- [pelican][pelican]
 
 [blinker]: https://pypi.python.org/pypi/blinker
 [docutils]: https://pypi.python.org/pypi/docutils

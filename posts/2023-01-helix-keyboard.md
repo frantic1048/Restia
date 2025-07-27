@@ -163,9 +163,9 @@ qmk flash -kb helix/rev2/under -km default
 
 # 参考
 
--   Helix 键盘源码：https://github.com/MakotoKurauchi/helix
--   Helix 组装指南：https://github.com/MakotoKurauchi/helix/blob/master/Doc/buildguide_en.md
--   Helix 亚克力外壳图纸：https://github.com/MakotoKurauchi/helix/blob/master/Case/helix-beta-acril-5row.pdf
+- Helix 键盘源码：https://github.com/MakotoKurauchi/helix
+- Helix 组装指南：https://github.com/MakotoKurauchi/helix/blob/master/Doc/buildguide_en.md
+- Helix 亚克力外壳图纸：https://github.com/MakotoKurauchi/helix/blob/master/Case/helix-beta-acril-5row.pdf
 
 [helix-beta-acril-5row]: https://github.com/MakotoKurauchi/helix/blob/master/Case/helix-beta-acril-5row.pdf
 [helix-pcb]: https://github.com/MakotoKurauchi/helix/tree/master/PCB/beta

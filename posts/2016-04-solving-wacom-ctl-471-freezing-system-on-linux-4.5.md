@@ -9,10 +9,10 @@ category: Linux
 
 当时太懒就一时把内核滚回了 4.3.3 好长时间，最近滚上 4.5 了想着问题大概没有了，然而还是太天真，开机就给我冻住……于是终于不能忍了，得搞定一下才行。顺带记下打内核补丁的姿势。
 
--   发行版： Arch Linux
--   **出现问题对应的 linux 版本**：linux-4.5.1-1-x86_64
--   **Wacom 驱动版本**：xf86-input-wacom-0.32.0-1-x86_64
--   **Wacom 数位板型号**：Wacom CTL-471
+- 发行版： Arch Linux
+- **出现问题对应的 linux 版本**：linux-4.5.1-1-x86_64
+- **Wacom 驱动版本**：xf86-input-wacom-0.32.0-1-x86_64
+- **Wacom 数位板型号**：Wacom CTL-471
 
 先顺着 [Wacom Tablet - Arch Wiki](https://wiki.archlinux.org/index.php/Wacom_Tablet#System_freeze) 上关于 System Freeze 的解决方案，说是打个内核补丁就好，于是我找到了对应的内核补丁：[[PATCH v2] hid: usbhid: hid-core: fix recursive deadlock](https://lkml.org/lkml/2015/11/20/690)，然后到后面我准备好源码的时候却发现 4.5 内核已经有这个 patch 了，也就是解决问题这个 patch 还不够。
 
