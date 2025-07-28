@@ -1703,7 +1703,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.32.0":
+"@eslint/js@npm:*, @eslint/js@npm:9.32.0":
   version: 9.32.0
   resolution: "@eslint/js@npm:9.32.0"
   checksum: 10c0/f71e8f9146638d11fb15238279feff98801120a4d4130f1c587c4f09b024ff5ec01af1ba88e97ba6b7013488868898a668f77091300cc3d4394c7a8ed32d2667
@@ -1744,7 +1744,7 @@ __metadata:
     "@playwright/test": "npm:1.54.1"
     "@types/babel__core": "npm:7.20.5"
     "@types/eslint": "npm:9.6.1"
-    "@types/eslint__js": "npm:8.42.3"
+    "@types/eslint__js": "npm:9.14.0"
     "@types/react": "npm:18.3.23"
     "@types/react-dom": "npm:18.3.7"
     "@types/react-helmet": "npm:6.1.11"
@@ -3403,7 +3403,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:*, @types/eslint@npm:9.6.1":
+"@types/eslint@npm:9.6.1":
   version: 9.6.1
   resolution: "@types/eslint@npm:9.6.1"
   dependencies:
@@ -3423,12 +3423,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint__js@npm:8.42.3":
-  version: 8.42.3
-  resolution: "@types/eslint__js@npm:8.42.3"
+"@types/eslint__js@npm:9.14.0":
+  version: 9.14.0
+  resolution: "@types/eslint__js@npm:9.14.0"
   dependencies:
-    "@types/eslint": "npm:*"
-  checksum: 10c0/ccc5180b92155929a089ffb03ed62625216dcd5e46dd3197c6f82370ce8b52c7cb9df66c06b0a3017995409e023bc9eafe5a3f009e391960eacefaa1b62d9a56
+    "@eslint/js": "npm:*"
+  checksum: 10c0/da5e315aaf17a3e038eff3a4e1b90e360d9d22319653f43f746ad4b7f90dca2d1f8e0ea08f4d02b1b426e7baeb15610be4a30b64d28d16ef06d2feb75c549dc1
   languageName: node
   linkType: hard
 
