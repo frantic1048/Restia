@@ -5,7 +5,7 @@
     "version": "0.1.0",
     "license": "MIT",
     "engines": {
-        "node": "22.17.1"
+        "node": "22.22.1"
     },
     "packageManager": "yarn@4.9.4",
     "scripts": {
