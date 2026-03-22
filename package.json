@@ -53,7 +53,7 @@
     "devDependencies": {
         "@babel/core": "7.28.6",
         "@codecov/webpack-plugin": "1.9.1",
-        "@eslint/js": "9.34.0",
+        "@eslint/js": "9.39.4",
         "@playwright/test": "1.54.2",
         "@types/babel__core": "7.20.5",
         "@types/eslint": "9.6.1",
@@ -66,11 +66,11 @@
         "concurrently": "9.2.1",
         "core-js": "3.44.0",
         "cz-customizable": "7.4.0",
-        "eslint": "9.34.0",
+        "eslint": "9.39.4",
         "eslint-plugin-simple-import-sort": "12.1.1",
-        "prettier": "3.6.2",
+        "prettier": "3.8.1",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.41.0"
+        "typescript-eslint": "8.57.1"
     },
     "repository": {
         "type": "git",
