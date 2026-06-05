@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content'
+
+import Layout from '../layouts/Layout.astro'
+import { groupBy } from '../util/util.ts'
+
+const allPosts = await getCollection('posts')
+const sorted = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+const postsByYear = groupBy(sorted, (post) => post.data.date.getFullYear())
+const years = Object.keys(postsByYear).sort((a, b) => parseInt(b, 10) - parseInt(a, 10))
+
+const formatShortDate = (date: Date) => date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+---
+
+<Layout pageTitle="Pyon Pyon Posts" pageUrl="/posts">
+    <div class="wrapper" data-testid="postList">
+        {
+            years.map((year) => (
+                <section class="post-group" style={`grid-row: span ${Math.ceil(postsByYear[year].length / 5)}`}>
+                    <h2>{year}</h2>
+                    <ul class="posts">
+                        {postsByYear[year].map((post) => (
+                            <li>
+                                <a href={`/p/${post.id}`}>
+                                    <span class="post-entry-info">
+                                        <span>{formatShortDate(post.data.date)}</span>
+                                        <span>{post.data.category}</span>
+                                    </span>
+                                    <span>{post.data.title}</span>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            ))
+        }
+    </div>
+</Layout>
+
+<style>
+    .wrapper {
+        display: grid;
+        grid-auto-flow: dense;
+    }
+
+    @media (max-width: 1070px) {
+        .wrapper {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (min-width: 1071px) and (max-width: 1430px) {
+        .wrapper {
+            grid-template-columns: repeat(2, max-content);
+        }
+    }
+
+    @media (min-width: 1431px) {
+        .wrapper {
+            grid-template-columns: repeat(3, max-content);
+        }
+    }
+
+    .post-group {
+        display: inline-block;
+    }
+
+    .posts {
+        list-style: none;
+    }
+
+    .post-entry-info > span::after {
+        content: ' | ';
+    }
+</style>

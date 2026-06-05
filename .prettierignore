@@ -1,2 +1,3 @@
-/static/**/*.svg
-/static/photo
+/public/**/*.svg
+/public/photo
+.claude/

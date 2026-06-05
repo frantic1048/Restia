@@ -13,16 +13,23 @@ jobs:
     steps:
       - uses: nschloe/action-cached-lfs-checkout@1c185ad576953eab13e35ffe1bffef437d97e9d2 # v1
 
-      - name: Gatsby build cache
-        id: gatsby-cache
+      - name: Astro build cache
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
-            .cache
-            public
-          key: ${{ runner.os }}-gatsby-${{ hashFiles('**/yarn.lock') }}
+            node_modules/.astro
+          key: ${{ runner.os }}-astro-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-gatsby-
+            ${{ runner.os }}-astro-
+
+      - name: Restia image pipeline cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            .cache/restia-images
+          key: ${{ runner.os }}-restia-images-v1-${{ hashFiles('yarn.lock', 'src/util/images.ts', 'src/plugins/rehype-responsive-images.ts', 'src/components/ResponsiveImage.astro', 'public/photo/**', 'public/image/**') }}
+          restore-keys: |
+            ${{ runner.os }}-restia-images-v1-
 
       - name: Prepare Node.js and Yarn
         uses: ./.github/actions/setup-node-yarn
@@ -34,8 +41,6 @@ jobs:
 
       - name: Build
         run: yarn build
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Lint
         run: yarn lint
@@ -47,7 +52,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
-          directory: public
+          directory: dist
 
   e2e:
     runs-on: ubuntu-latest

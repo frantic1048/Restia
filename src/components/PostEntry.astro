@@ -1,0 +1,253 @@
+---
+import stringWidth from 'string-width'
+
+import { processPublicImage } from '../util/images.ts'
+import ResponsiveImage from './ResponsiveImage.astro'
+
+export interface PostEntryProps {
+    slug: string
+    title: string
+    date: string
+    excerpt?: string
+    cover?: string
+}
+
+const { slug, title, cover, excerpt, date } = Astro.props
+
+/**
+ * Grid column span calculation — ported from PostEntry.tsx generateGridItemClassName()
+ *
+ * Uses string-width to measure title width and decide grid column span.
+ * Breakpoints and layout margins match the original typestyle constants.
+ */
+const baseFontSize = 16
+const articleBorderWidth = 16
+const postEntrySidePadding = 1 * baseFontSize
+const smallScreenBreakPoint = 1070
+const largeScreenBreakPoint = 1430
+const largeMediaLayoutSideMargin = 4 * baseFontSize
+const hiresMediaLayoutSideMargin = 6 * baseFontSize
+const smallMediaColumnCount = 1
+const largeMediaColumnCount = 2
+const hiresMediaColumnCount = 3
+
+const minLargeMediaWidth = smallScreenBreakPoint + 1
+const minHiresMediaWidth = largeScreenBreakPoint + 1
+
+const minSingleColumnWidthOnLargeMedia =
+    (minLargeMediaWidth - 2 * largeMediaLayoutSideMargin - largeMediaColumnCount * 2 * articleBorderWidth) /
+    largeMediaColumnCount
+const minSingleColumnContentWidthOnLargeMedia = minSingleColumnWidthOnLargeMedia - 2 * postEntrySidePadding
+
+const minSingleColumnWidthOnHiresMedia =
+    (minHiresMediaWidth - 2 * hiresMediaLayoutSideMargin - hiresMediaColumnCount * 2 * articleBorderWidth) /
+    hiresMediaColumnCount
+const minSingleColumnContentWidthOnHiresMedia = minSingleColumnWidthOnHiresMedia - 2 * postEntrySidePadding
+
+const measureTitleWidth = (text: string) => stringWidth(text) * 24 * 0.5
+const titleWidth = measureTitleWidth(title)
+
+const colSmall = smallMediaColumnCount
+const colLarge = titleWidth > minSingleColumnContentWidthOnLargeMedia ? 2 : 1
+const colHires = titleWidth > minSingleColumnContentWidthOnHiresMedia ? 2 : 1
+
+const hasCover = !!cover
+
+/**
+ * Cover image path resolution:
+ * frontmatter paths like `/photo/...` resolve directly to public/ files.
+ */
+const coverUrl = cover
+const coverImage = await processPublicImage(coverUrl, { maxWidth: 800 })
+---
+
+<a
+    href={slug}
+    class:list={['article-link', { 'has-cover': hasCover, 'no-cover': !hasCover }]}
+    style={`--col-sm:${colSmall};--col-lg:${colLarge};--col-hr:${colHires}`}
+>
+    <article class="post-entry">
+        <div class="post-info">
+            <h1>{title}</h1>
+            <span>{date}</span>
+        </div>
+        {
+            coverImage ? (
+                <ResponsiveImage image={coverImage} alt={title} class="post-entry-cover" objectFit="cover" />
+            ) : coverUrl ? (
+                <img src={coverUrl} alt={title} loading="lazy" decoding="async" />
+            ) : (
+                <p class="excerpt">{excerpt}</p>
+            )
+        }
+    </article>
+</a>
+
+<style>
+    .article-link {
+        display: block;
+        background: none;
+        text-decoration: none;
+        margin: 16px;
+        padding: 0;
+    }
+
+    @media (max-width: 1070px) {
+        .article-link {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    .article-link:hover {
+        background: none;
+    }
+
+    .article-link:hover span,
+    .article-link:hover h1 {
+        color: white;
+        background: rgba(0, 149, 255, 0.5);
+    }
+
+    .article-link:hover h1 {
+        text-decoration-style: solid;
+    }
+
+    /* Dynamic grid spans via CSS custom properties */
+    @media (max-width: 1070px) {
+        .article-link {
+            grid-column: span var(--col-sm);
+        }
+    }
+
+    @media (min-width: 1071px) and (max-width: 1430px) {
+        .article-link {
+            grid-column: span var(--col-lg);
+        }
+        .has-cover:first-child {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+        .has-cover:not(:first-child) {
+            grid-row: span var(--col-lg);
+        }
+    }
+
+    @media (min-width: 1431px) {
+        .article-link {
+            grid-column: span var(--col-hr);
+        }
+        .has-cover:first-child {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+        .has-cover:not(:first-child) {
+            grid-row: span var(--col-hr);
+        }
+    }
+
+    .no-cover {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .no-cover > article {
+        flex-grow: 1;
+    }
+
+    .post-entry {
+        display: grid;
+        height: 100%;
+        background: rgba(253, 253, 253, 0.7);
+    }
+
+    @media (max-width: 1070px) {
+        .post-entry {
+            padding: 0.5em;
+        }
+    }
+
+    .post-info {
+        position: absolute;
+        z-index: 1;
+        margin-left: 16px;
+    }
+
+    .post-info > h1 {
+        padding: 0 0.2em;
+        margin-bottom: 0;
+        text-decoration: underline dotted;
+        /* scaleAt(1) */
+        font-size: calc(1rem * pow(var(--font-ratio-primary), 1));
+    }
+
+    .post-info > span {
+        padding: 0 0.4em;
+    }
+
+    .post-info > h1,
+    .post-info > span {
+        background: rgba(242, 242, 242, 0.79);
+    }
+
+    @media (max-width: 1070px) {
+        .post-info {
+            position: static;
+            margin-left: 0;
+        }
+
+        .post-info > h1 {
+            /* scaleAt(0) */
+            font-size: calc(1rem * pow(var(--font-ratio-secondary), 0));
+            background: 0;
+        }
+
+        .post-info > h1,
+        .post-info > span {
+            background: 0;
+        }
+    }
+
+    .post-entry img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .post-entry :global(.post-entry-cover) {
+        aspect-ratio: var(--responsive-image-aspect);
+        width: 100%;
+        max-width: none;
+        height: 100%;
+    }
+
+    .post-entry :global(.post-entry-cover .responsive-image-frame),
+    .post-entry :global(.post-entry-cover .responsive-image-picture),
+    .post-entry :global(.post-entry-cover .responsive-image-img) {
+        height: 100%;
+    }
+
+    .post-entry :global(.post-entry-cover .responsive-image-placeholder) {
+        position: absolute;
+        inset: 0;
+        padding-bottom: 0;
+    }
+
+    .excerpt {
+        margin: 0;
+        padding-top: 8em;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 1em;
+        color: rgb(70, 70, 70);
+    }
+
+    @media (max-width: 1070px) {
+        .excerpt {
+            padding-top: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+</style>

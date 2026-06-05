@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content'
+
+import PostEntryList from '../components/PostEntryList.astro'
+import Layout from '../layouts/Layout.astro'
+import { excerptFromMarkdown } from '../util/plain-text.ts'
+
+const pageSize = 9
+const allPosts = await getCollection('posts')
+const sorted = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const posts = sorted.slice(0, pageSize)
+const totalPages = Math.ceil(sorted.length / pageSize)
+
+const postList = await Promise.all(
+    posts.map(async (post) => {
+        return {
+            slug: `/p/${post.id}`,
+            title: post.data.title,
+            date: post.data.date.toISOString().slice(0, 10),
+            excerpt: await excerptFromMarkdown(post.body ?? ''),
+            cover: post.data.cover,
+        }
+    }),
+)
+---
+
+<Layout>
+    <PostEntryList postList={postList} />
+    {
+        totalPages > 1 && (
+            <nav class="pagination">
+                <a href="/page/2">More ➠</a>
+            </nav>
+        )
+    }
+</Layout>
+
+<style>
+    .pagination {
+        text-align: center;
+        margin-bottom: 1em;
+        /* scaleAt(2) */
+        font-size: calc(1rem * pow(var(--font-ratio-primary), 2));
+    }
+
+    @media (max-width: 1070px) {
+        .pagination {
+            font-size: calc(1rem * pow(var(--font-ratio-secondary), 2));
+        }
+    }
+</style>

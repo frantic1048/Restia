@@ -1,6 +1,3 @@
-# GraphQL typing
-/src/types/graphql-types.d.ts
-
 # package managers and dependencies
 node_modules/
 # Yarn
@@ -25,6 +22,7 @@ pids
 *.pid
 *.seed
 *.pid.lock
+.cache/
 
 # Optional eslint cache
 .eslintcache
@@ -38,9 +36,12 @@ pids
 # dotenv environment variables file
 .env
 
-# gatsby files
-.cache/
-public
+# astro
+dist/
+.astro/
+
+# Generated responsive image artifacts
+public/_img/
 
 # Mac files
 .DS_Store

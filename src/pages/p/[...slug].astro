@@ -1,0 +1,152 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { getCollection, render } from 'astro:content'
+
+import Comments from '../../components/Comments.tsx'
+import Layout from '../../layouts/Layout.astro'
+import { excerptFromMarkdown } from '../../util/plain-text.ts'
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const posts = await getCollection('posts')
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }))
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+
+const title = post.data.title
+const date = post.data.date.toISOString().slice(0, 10)
+const category = post.data.category ?? ''
+const info = `${date} ${category}`
+const slug = `/p/${post.id}`
+const excerpt = await excerptFromMarkdown(post.body ?? '')
+const cover = post.data.cover
+---
+
+<Layout pageTitle={title} pageUrl={slug} pageDescription={excerpt} pageImage={cover} contentClass="post-content">
+    <article class="post-article">
+        <h1>{title}</h1>
+        <p>{info}</p>
+        <div class="post-body">
+            <Content />
+        </div>
+        <Comments client:visible slug={slug} title={title} siteUrl="https://pyonpyon.today" />
+    </article>
+</Layout>
+
+<style>
+    :global(.post-content) {
+        max-width: 70em;
+        margin: auto;
+        background: rgba(253, 253, 253, 0.7);
+    }
+
+    .post-article {
+        padding: 0 1.5em;
+    }
+
+    .post-body {
+        word-break: break-word;
+    }
+
+    /* Responsive image wrapper — matches old .gatsby-resp-image-wrapper CSS */
+    .post-body :global(.resp-image-wrapper) {
+        box-shadow: 1px 1px 3px #aaa;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .post-body :global(.resp-image-wrapper > .responsive-image-link) {
+        padding: 0;
+    }
+
+    /* Non-responsive images (SVGs, future inline imgs) */
+    .post-body :global(img) {
+        display: block;
+        max-width: 100%;
+    }
+
+    .post-body :global(img[src$='.svg']) {
+        box-shadow: none;
+    }
+
+    .post-body :global(.footnotes > ol > li > p) {
+        display: inline;
+    }
+
+    /* Code block styling — Shiki uses <pre><code> */
+    .post-body :global(pre) {
+        overflow: auto;
+        padding-left: 0.7em;
+        border-left: 0.3em double rgba(0, 149, 255, 0.5);
+        background: rgba(248, 248, 248, 0.6);
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+
+    /* Arch Linux package links */
+    .post-body :global(a[href^='https://archlinux.org/packages/'])::after {
+        content: 'pkg';
+        font-size: smaller;
+        vertical-align: super;
+        display: inline-block;
+    }
+
+    .post-body :global(table) {
+        border-collapse: collapse;
+    }
+
+    .post-body :global(tr) {
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(197, 203, 207);
+    }
+
+    .post-body :global(td),
+    .post-body :global(th) {
+        padding: 0.5em 1em;
+    }
+
+    /* Heading anchor links — position to the left, don't push text */
+    .post-body :global(h1),
+    .post-body :global(h2),
+    .post-body :global(h3),
+    .post-body :global(h4),
+    .post-body :global(h5),
+    .post-body :global(h6) {
+        position: relative;
+    }
+
+    .post-body :global(:is(h1, h2, h3, h4, h5, h6) > a:has(> .icon)) {
+        position: absolute;
+        right: 100%;
+        padding: 0;
+        text-decoration: none;
+        background: none;
+        opacity: 0;
+    }
+
+    .post-body :global(:is(h1, h2, h3, h4, h5, h6):hover > a:has(> .icon)) {
+        opacity: 1;
+    }
+
+    .post-body :global(:is(h1, h2, h3, h4, h5, h6) > a:has(> .icon):hover) {
+        color: white;
+        background: rgba(0, 149, 255, 0.5);
+    }
+
+    .post-body :global(:is(h1, h2, h3, h4, h5, h6) > a > .icon-link)::before {
+        content: '#';
+    }
+
+    /* Disqus container */
+    .post-article :global(.disqus-wrapper) {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

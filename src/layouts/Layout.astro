@@ -1,0 +1,262 @@
+---
+import '../styles/global.css'
+
+import { ClientRouter } from 'astro:transitions'
+
+interface Props {
+    pageTitle?: string
+    pageImage?: string
+    pageDescription?: string
+    /** relative to root, leading slash needed */
+    pageUrl?: string
+    contentClass?: string
+    class?: string
+}
+
+const siteUrl = 'https://pyonpyon.today'
+const siteName = 'Pyon Pyon Today'
+const siteDescription = 'Pyon Pyon Today'
+const defaultImage = '/favicon.png'
+
+const { pageTitle, pageImage, pageDescription, pageUrl, contentClass } = Astro.props
+const description = pageDescription ?? siteDescription
+const fullUrl = `${siteUrl}${pageUrl ?? ''}`
+const image = pageImage ?? defaultImage
+const twitterImage = `${siteUrl}${image}`
+const titlePrefix = pageTitle ? `${pageTitle} | ` : ''
+const title = `${titlePrefix}${siteName}`
+
+const currentPath = Astro.url.pathname
+const isActive = (path: string) => (currentPath === path ? 'active' : '')
+---
+
+<html lang="zh-cmn-Hans">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="msapplication-TileColor" content="#3b6ece" />
+        <meta name="theme-color" content="#ffffff" />
+        <title>{title}</title>
+        <link rel="canonical" href={fullUrl} />
+        <meta name="description" content={description} />
+        <meta name="image" content={image} />
+        {pageTitle && <meta property="og:title" content={pageTitle} />}
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={fullUrl} />
+        <meta property="og:image" content={image} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle ?? siteName} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={twitterImage} />
+        <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&family=Noto+Serif+SC&display=swap"
+            rel="stylesheet"
+        />
+        <script is:inline>
+            document.documentElement.classList.add('js')
+        </script>
+        <ClientRouter />
+    </head>
+    <body>
+        <div class:list={['layout', Astro.props.class]}>
+            <div class="parallax-container">
+                <div class="parallax-foreground" tabindex="-1">
+                    <div class="bg-layer bg-layer-1"></div>
+                    <div class="bg-layer bg-layer-2"></div>
+                    <div class="bg-layer bg-layer-3"></div>
+                    <nav class="nav" data-testid="navigation">
+                        <header class="header" role="banner">
+                            <a href="/" class="logo-link" data-testid="logo-link">
+                                <img class="logo-img" src="/image/logo.svg" alt="Pyon Pyon Today" data-testid="logo" />
+                            </a>
+                        </header>
+                        <div class="nav-links">
+                            <a href="/" class:list={['nav-link', isActive('/')]}>Home</a>
+                            <a href="/posts" class:list={['nav-link', isActive('/posts')]}>Archive</a>
+                            <a href="/about" class:list={['nav-link', isActive('/about')]}>About</a>
+                            <a href="/rss.xml" class="nav-link" rel="alternate" type="application/rss+xml">RSS</a>
+                        </div>
+                    </nav>
+                    <main class:list={['layout-content', contentClass]}>
+                        <slot />
+                    </main>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    .layout {
+        position: relative;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .parallax-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        perspective: 1000px;
+        perspective-origin: bottom center;
+    }
+
+    .parallax-foreground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 100vh;
+        transform: translateZ(0px) scale(1);
+        transform-origin: bottom center;
+        transform-style: preserve-3d;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0 0.5em;
+    }
+
+    .parallax-foreground:focus {
+        outline: none;
+    }
+
+    @media (max-width: 1070px) {
+        .parallax-foreground {
+            flex-direction: column;
+        }
+    }
+
+    .bg-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform-origin: bottom center;
+        pointer-events: none;
+    }
+
+    .bg-layer-1 {
+        background:
+            left top / 50px repeat scroll url('/image/bg-pattern.svg'),
+            #f3faff;
+        transform: translateZ(-1000px) scale(2);
+    }
+
+    .bg-layer-2 {
+        background: left top / 500px repeat scroll url('/image/bg-pattern-flowers.svg');
+        transform: translateZ(-600px) scale(1.6);
+    }
+
+    .bg-layer-3 {
+        background: left top / 800px repeat scroll url('/image/bg-pattern-flowers2.svg');
+        transform: translateZ(-300px) scale(1.3);
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        user-select: none;
+    }
+
+    @media (max-width: 1070px) {
+        .nav {
+            justify-content: center;
+        }
+    }
+
+    .header {
+        max-width: 55em;
+    }
+
+    .logo-link:hover,
+    .logo-link:focus {
+        background: transparent;
+    }
+
+    .logo-img {
+        height: 8rem;
+        aspect-ratio: 714 / 292;
+    }
+
+    .nav-links {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 50%;
+        line-height: 1.8;
+    }
+
+    @media (max-width: 1070px) {
+        .nav-links {
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 30em;
+        }
+    }
+
+    .nav-link {
+        /* scaleAt(1) */
+        font-size: calc(1rem * pow(var(--font-ratio-primary), 1));
+    }
+
+    @media (max-width: 1070px) {
+        .nav-link {
+            font-size: calc(1rem * pow(var(--font-ratio-secondary), 1));
+        }
+    }
+
+    .nav-link.active {
+        font-weight: bold;
+        font-style: italic;
+        text-decoration-style: solid;
+    }
+
+    .layout-content {
+        width: 100%;
+        margin-bottom: min(50vw, 30rem);
+    }
+</style>
+
+<script>
+    function markResponsiveImagesLoaded() {
+        const images = document.querySelectorAll<HTMLImageElement>('img[data-responsive-image]')
+
+        images.forEach((image) => {
+            const wrapper = image.closest('.responsive-image')
+            const markLoaded = () => wrapper?.classList.add('is-loaded')
+
+            if (image.complete && image.naturalWidth > 0) {
+                markLoaded()
+                return
+            }
+
+            image.addEventListener('load', markLoaded, { once: true })
+            image.addEventListener('error', markLoaded, { once: true })
+        })
+    }
+
+    // Focus the parallax foreground for keyboard scrolling
+    document.addEventListener('astro:page-load', () => {
+        const fg = document.querySelector<HTMLDivElement>('.parallax-foreground')
+        fg?.focus()
+        markResponsiveImagesLoaded()
+    })
+</script>
