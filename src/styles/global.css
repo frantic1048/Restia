@@ -1,0 +1,206 @@
+/**
+ * Global styles — migrated from Layout.tsx cssRule() and constants.ts scaleAt()
+ *
+ * Typography scale system:
+ *   scaleAt(step) = 1rem * ratio^step
+ *   --font-ratio-primary: 1.5 (large/hires screens)
+ *   --font-ratio-secondary: 1.25 (small screens, <=1070px)
+ */
+
+:root {
+    --font-ratio-primary: 1.5;
+    --font-ratio-secondary: 1.25;
+    --small-breakpoint: 1070px;
+    --large-breakpoint: 1430px;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    color: rgb(70, 70, 70);
+    font-size: 16px;
+    font-family: 'Viaoda Libre', 'Noto Serif SC', serif;
+}
+
+body {
+    margin: auto;
+}
+
+a {
+    text-decoration: underline dotted;
+    color: currentColor;
+    padding: 0 0.2em;
+}
+
+a:hover,
+a:focus {
+    text-decoration-style: solid;
+    color: white;
+    background: rgba(0, 149, 255, 0.5);
+}
+
+.responsive-image {
+    position: relative;
+    display: block;
+    max-width: var(--responsive-image-max-width);
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+}
+
+.responsive-image-link,
+.responsive-image-link:hover,
+.responsive-image-link:focus {
+    display: block;
+    padding: 0;
+    color: currentColor;
+    text-decoration: none;
+    background: none;
+}
+
+.responsive-image-frame {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.responsive-image-placeholder {
+    display: block;
+    padding-bottom: var(--responsive-image-aspect-ratio);
+    background-position: center;
+    background-size: cover;
+    filter: blur(12px);
+    transform: scale(1.04);
+}
+
+.responsive-image-picture {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.responsive-image-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.responsive-image-img[data-object-fit='contain'] {
+    object-fit: contain;
+}
+
+.responsive-image-img[data-object-fit='cover'] {
+    object-fit: cover;
+}
+
+html.js .responsive-image-placeholder,
+html.js .responsive-image-img {
+    transition: opacity 0.45s ease;
+}
+
+html.js .responsive-image .responsive-image-img {
+    opacity: 0;
+}
+
+html.js .responsive-image.is-loaded .responsive-image-img {
+    opacity: 1;
+}
+
+html.js .responsive-image.is-loaded .responsive-image-placeholder {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.js .responsive-image-placeholder,
+    html.js .responsive-image-img {
+        transition: none;
+    }
+}
+
+/* scaleAt(2) */
+h1 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), 2));
+}
+
+/* scaleAt(1) */
+h2 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), 1));
+}
+
+/* scaleAt(0) */
+h3 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), 0));
+}
+
+/* scaleAt(-1) */
+h4 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), -1));
+}
+
+/* scaleAt(-2) */
+h5 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), -2));
+}
+
+/* scaleAt(-3) */
+h6 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), -3));
+}
+
+@media (max-width: 1070px) {
+    h1 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), 2));
+    }
+    h2 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), 1));
+    }
+    h3 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), 0));
+    }
+    h4 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), -1));
+    }
+    h5 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), -2));
+    }
+    h6 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), -3));
+    }
+}
+
+/* for markdown inline class name usage — scaleAt(n) */
+.font-scale-2 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), 2));
+}
+.font-scale-1 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), 1));
+}
+.font-scale-0 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), 0));
+}
+.font-scale--1 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), -1));
+}
+.font-scale--2 {
+    font-size: calc(1rem * pow(var(--font-ratio-primary), -2));
+}
+
+@media (max-width: 1070px) {
+    .font-scale-2 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), 2));
+    }
+    .font-scale-1 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), 1));
+    }
+    .font-scale-0 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), 0));
+    }
+    .font-scale--1 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), -1));
+    }
+    .font-scale--2 {
+        font-size: calc(1rem * pow(var(--font-ratio-secondary), -2));
+    }
+}

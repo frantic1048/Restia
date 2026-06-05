@@ -1,64 +1,32 @@
-import { percent, px } from 'csx'
 import { DiscussionEmbed } from 'disqus-react'
-import { graphql, useStaticQuery } from 'gatsby'
-import * as React from 'react'
-import { style } from 'typestyle'
-import useIsInViewport from 'use-is-in-viewport'
-
-import { scaleAt } from '../util/constants'
-
-const disqusClassName = style({
-    // make it easier to tirgger
-    minHeight: px(300),
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    $nest: {
-        '&>#disqus_thread': { width: percent(100) },
-    },
-})
+import { useEffect, useState } from 'react'
 
 interface Props {
     slug: string
     title: string
+    siteUrl: string
 }
 
-export default ({ slug, title }: Props) => {
-    const data = useStaticQuery<Queries.CommentsQuery>(graphql`
-        query Comments {
-            site {
-                siteMetadata {
-                    siteUrl
-                }
-            }
+/**
+ * Disqus comments — React island loaded with client:visible.
+ *
+ * Only renders on the production domain to avoid loading Disqus
+ * in development or preview environments.
+ */
+export default function Comments({ slug, title, siteUrl }: Props) {
+    const [shouldLoad, setShouldLoad] = useState(false)
+
+    useEffect(() => {
+        if (window.location.origin === siteUrl) {
+            setShouldLoad(true)
         }
-    `)
-    const siteUrl = data.site?.siteMetadata?.siteUrl ?? ''
-    const fullUrl = siteUrl && `${siteUrl}${slug}`
+    }, [siteUrl])
 
-    const [isInViewport, targetRef] = useIsInViewport()
-    const [commentsLoaded, setCommentsLoaded] = React.useState(false)
+    const fullUrl = `${siteUrl}${slug}`
 
-    React.useEffect(() => {
-        if (isInViewport && siteUrl !== '' && window.location.origin === siteUrl) {
-            setCommentsLoaded(true)
-        }
-    }, [isInViewport, commentsLoaded, siteUrl])
+    if (!shouldLoad) {
+        return <p style={{ fontSize: 'calc(1rem * pow(var(--font-ratio-primary), 2))' }}>Comments...</p>
+    }
 
-    return (
-        <div className={disqusClassName}>
-            {!commentsLoaded && <p className={style(...scaleAt(2))}>Comments...</p>}
-            <div id="disqus_thread" ref={targetRef} />
-            {commentsLoaded && (
-                <DiscussionEmbed
-                    shortname="pyonpyontoday"
-                    config={{
-                        url: fullUrl,
-                        identifier: slug,
-                        title,
-                    }}
-                />
-            )}
-        </div>
-    )
+    return <DiscussionEmbed shortname="pyonpyontoday" config={{ url: fullUrl, identifier: slug, title }} />
 }

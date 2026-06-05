@@ -1,0 +1,41 @@
+---
+import type { PostEntryProps } from './PostEntry.astro'
+import PostEntry from './PostEntry.astro'
+
+interface Props {
+    postList: PostEntryProps[]
+}
+
+const { postList } = Astro.props
+---
+
+<div class="post-list" data-testid="postList">
+    {postList.map((postInfo) => <PostEntry {...postInfo} />)}
+</div>
+
+<style>
+    .post-list {
+        display: grid;
+        grid-auto-flow: dense;
+        grid-gap: 1px;
+        user-select: none;
+    }
+
+    @media (max-width: 1070px) {
+        .post-list {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    @media (min-width: 1071px) and (max-width: 1430px) {
+        .post-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1431px) {
+        .post-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>

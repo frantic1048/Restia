@@ -1,0 +1,79 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { getCollection } from 'astro:content'
+
+import PostEntryList from '../../components/PostEntryList.astro'
+import Layout from '../../layouts/Layout.astro'
+import { excerptFromMarkdown } from '../../util/plain-text.ts'
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const pageSize = 9
+    const allPosts = await getCollection('posts')
+    const sorted = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    const totalPages = Math.ceil(sorted.length / pageSize)
+
+    return Array.from({ length: totalPages - 1 }, (_, i) => ({
+        params: { page: String(i + 2) },
+        props: {
+            posts: sorted.slice((i + 1) * pageSize, (i + 2) * pageSize),
+            currentPage: i + 2,
+            totalPages,
+        },
+    }))
+}
+
+const { posts, currentPage, totalPages } = Astro.props
+
+const postList = await Promise.all(
+    posts.map(async (post: (typeof posts)[0]) => {
+        return {
+            slug: `/p/${post.id}`,
+            title: post.data.title,
+            date: post.data.date.toISOString().slice(0, 10),
+            excerpt: await excerptFromMarkdown(post.body ?? ''),
+            cover: post.data.cover,
+        }
+    }),
+)
+
+const prevLink = currentPage === 2 ? '/' : `/page/${currentPage - 1}`
+const hasNext = currentPage < totalPages
+---
+
+<Layout pageTitle={`Page ${currentPage}`} pageUrl={`/page/${currentPage}`}>
+    <PostEntryList postList={postList} />
+    <nav class="pagination">
+        <a href={prevLink}>&triangleleft; Prev</a>
+        <span class="current-page">{currentPage}</span>
+        {hasNext && <a href={`/page/${currentPage + 1}`}>Next &triangleright;</a>}
+    </nav>
+</Layout>
+
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1em;
+        /* scaleAt(2) */
+        font-size: calc(1rem * pow(var(--font-ratio-primary), 2));
+    }
+
+    .pagination > a {
+        margin: 0 1em;
+    }
+
+    .current-page {
+        padding: 0 1em;
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: none;
+    }
+
+    @media (max-width: 1070px) {
+        .pagination {
+            font-size: calc(1rem * pow(var(--font-ratio-secondary), 2));
+            justify-content: space-between;
+        }
+    }
+</style>

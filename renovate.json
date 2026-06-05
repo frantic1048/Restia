@@ -30,14 +30,8 @@
             "matchPackageNames": ["/commitizen/", "/cz-customizable/"]
         },
         {
-            "groupName": "gatsby",
-            "matchPackageNames": [
-                "/^gatsby$/",
-                "/^gatsby-plugin-/",
-                "/^gatsby-source-/",
-                "/^gatsby-transformer-/",
-                "/^gatsby-remark-/"
-            ]
+            "groupName": "astro",
+            "matchPackageNames": ["/^astro$/", "/^@astrojs//"]
         }
     ]
 }

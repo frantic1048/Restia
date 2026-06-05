@@ -1,0 +1,73 @@
+---
+import { getResponsiveImageAspectRatio, getResponsiveImageSizes, type PublicImageData } from '../util/images.ts'
+
+interface Props {
+    image: PublicImageData
+    alt: string
+    class?: string
+    imgClass?: string
+    linkToOriginal?: boolean
+    loading?: 'eager' | 'lazy'
+    objectFit?: 'contain' | 'cover'
+}
+
+const {
+    image,
+    alt,
+    class: className,
+    imgClass,
+    linkToOriginal = false,
+    loading = 'lazy',
+    objectFit = 'contain',
+} = Astro.props
+const sizes = getResponsiveImageSizes(image)
+const aspectRatio = getResponsiveImageAspectRatio(image)
+const wrapperStyle = `--responsive-image-max-width:${image.displayWidth}px;--responsive-image-aspect-ratio:${aspectRatio};--responsive-image-aspect:${image.width} / ${image.height};`
+const placeholderStyle = `background-image:url('${image.lqipDataUrl}');`
+---
+
+<span class:list={['responsive-image', className]} style={wrapperStyle}>
+    {
+        linkToOriginal ? (
+            <a class="responsive-image-link" href={image.originalSrc} target="_blank" rel="noopener">
+                <span class="responsive-image-frame">
+                    <span class="responsive-image-placeholder" style={placeholderStyle} aria-hidden="true" />
+                    <picture class="responsive-image-picture">
+                        <source srcset={image.webpSrcSet} sizes={sizes} type="image/webp" />
+                        <source srcset={image.jpegSrcSet} sizes={sizes} type="image/jpeg" />
+                        <img
+                            class:list={['responsive-image-img', imgClass]}
+                            src={image.fallbackSrc}
+                            alt={alt}
+                            width={image.width}
+                            height={image.height}
+                            loading={loading}
+                            decoding="async"
+                            data-responsive-image
+                            data-object-fit={objectFit}
+                        />
+                    </picture>
+                </span>
+            </a>
+        ) : (
+            <span class="responsive-image-frame">
+                <span class="responsive-image-placeholder" style={placeholderStyle} aria-hidden="true" />
+                <picture class="responsive-image-picture">
+                    <source srcset={image.webpSrcSet} sizes={sizes} type="image/webp" />
+                    <source srcset={image.jpegSrcSet} sizes={sizes} type="image/jpeg" />
+                    <img
+                        class:list={['responsive-image-img', imgClass]}
+                        src={image.fallbackSrc}
+                        alt={alt}
+                        width={image.width}
+                        height={image.height}
+                        loading={loading}
+                        decoding="async"
+                        data-responsive-image
+                        data-object-fit={objectFit}
+                    />
+                </picture>
+            </span>
+        )
+    }
+</span>
