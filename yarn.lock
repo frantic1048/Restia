@@ -709,7 +709,7 @@ __metadata:
     astro: "npm:6.4.4"
     commitizen: "npm:4.3.1"
     concurrently: "npm:10.0.3"
-    cz-customizable: "npm:7.4.0"
+    cz-customizable: "npm:7.5.4"
     disqus-react: "npm:1.1.7"
     eslint: "npm:9.39.4"
     eslint-plugin-astro: "npm:1.6.0"
@@ -2587,20 +2587,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cz-customizable@npm:7.4.0":
-  version: 7.4.0
-  resolution: "cz-customizable@npm:7.4.0"
+"cz-customizable@npm:7.5.4":
+  version: 7.5.4
+  resolution: "cz-customizable@npm:7.5.4"
   dependencies:
     editor: "npm:1.0.0"
     find-config: "npm:^1.0.0"
     inquirer: "npm:^6.3.1"
-    lodash: "npm:^4.17.19"
-    temp: "npm:^0.9.0"
-    word-wrap: "npm:^1.2.3"
+    lodash: "npm:^4.17.23"
+    temp: "npm:^0.9.4"
+    word-wrap: "npm:^1.2.5"
   bin:
     cz-cust: standalone.js
     cz-customizable: standalone.js
-  checksum: 10c0/0bb7a05426f194aea69859cee6d58cc318687b21f4e27e9225e9abb440d5c66c012cb48e3cd4cab96bd2ffce7a6961c97f26741798d2ec3edf0e1395266bd3b6
+  checksum: 10c0/28a242fd7b233ddb841f51c46903fcb638280fc5dac387c535dfe5a615654a122cecab5d34343d67da7aad5fb36319474d098247d2f66b635a2a7a0e6b5682cf
   languageName: node
   linkType: hard
 
@@ -4363,10 +4363,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.21, lodash@npm:^4.17.12, lodash@npm:^4.17.19, lodash@npm:^4.17.21":
+"lodash@npm:4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
+  languageName: node
+  linkType: hard
+
+"lodash@npm:^4.17.12, lodash@npm:^4.17.21, lodash@npm:^4.17.23":
+  version: 4.18.1
+  resolution: "lodash@npm:4.18.1"
+  checksum: 10c0/757228fc68805c59789e82185135cf85f05d0b2d3d54631d680ca79ec21944ec8314d4533639a14b8bcfbd97a517e78960933041a5af17ecb693ec6eecb99a27
   languageName: node
   linkType: hard
 
@@ -6704,7 +6711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"temp@npm:^0.9.0":
+"temp@npm:^0.9.4":
   version: 0.9.4
   resolution: "temp@npm:0.9.4"
   dependencies:
@@ -7300,7 +7307,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"word-wrap@npm:^1.0.3, word-wrap@npm:^1.2.3, word-wrap@npm:^1.2.5":
+"word-wrap@npm:^1.0.3, word-wrap@npm:^1.2.5":
   version: 1.2.5
   resolution: "word-wrap@npm:1.2.5"
   checksum: 10c0/e0e4a1ca27599c92a6ca4c32260e8a92e8a44f4ef6ef93f803f8ed823f486e0889fc0b93be4db59c8d51b3064951d25e43d434e95dc8c960cc3a63d65d00ba20

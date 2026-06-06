@@ -45,7 +45,7 @@
         "@types/react-dom": "18.3.7",
         "commitizen": "4.3.1",
         "concurrently": "10.0.3",
-        "cz-customizable": "7.4.0",
+        "cz-customizable": "7.5.4",
         "eslint": "9.39.4",
         "eslint-plugin-astro": "1.6.0",
         "eslint-plugin-simple-import-sort": "12.1.1",
