@@ -4,7 +4,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Project Overview
 
-Restia is a personal blog site ("Pyon Pyon Today" / pyonpyon.today) built with Astro 6, React 19 (for islands), and
+Restia is a personal blog site ("Pyon Pyon Today" / pyonpyon.today) built with Astro 7, React 19 (for islands), and
 TypeScript. Blog posts are written in Markdown with frontmatter metadata stored in `src/content/posts/`.
 
 ## Commands
