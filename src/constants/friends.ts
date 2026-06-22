@@ -76,6 +76,7 @@ const friends: Friend[] = [
     ],
     ['Pink Champagne', 'PinkChampagne17', 'https://pcp.moe/', '萌萌二次元大表哥，生料王启蒙者'],
     ['羽灵光', 'snake89322', 'https://www.fsl.moe/', '元气满满吉他主唱、发发爆头弓箭侠！'],
+    ['Bomb Dance', '', 'https://bombdance.blogspot.com/', '据说是萌二'],
 
     /**
      * FIXME: broken links
