@@ -86,4 +86,3 @@ const friends: Friend[] = [
 ]
 
 export default friends
-
